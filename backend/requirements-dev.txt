@@ -1,0 +1,9 @@
+-r requirements.txt
+pytest>=8.2,<9.0
+pytest-asyncio>=0.23,<1.0
+fakeredis>=2.23,<3.0
+aiosqlite>=0.20,<1.0
+# Test-only: real PDF text extraction to verify the Unicode PDF rendering
+# fix (app/agent/pdf_report.py) actually produces readable Malayalam/Tamil/
+# Hindi glyphs, not just "doesn't crash" — see tests/unit/test_pdf_report.py.
+pypdf>=4.0,<6.0

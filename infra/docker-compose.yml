@@ -1,0 +1,77 @@
+name: sathyascan
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sathyascan
+      POSTGRES_PASSWORD: sathyascan
+      POSTGRES_DB: sathyascan
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sathyascan"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ..
+      dockerfile: infra/docker/Dockerfile.api
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    environment:
+      # Phase 9 fix: these two were never wired here even after Phase 2
+      # added real Postgres/Redis use — `api` previously fell back to
+      # Settings' bare defaults (`localhost:5432`/`localhost:6379`), which
+      # inside this container's own network namespace resolve to the `api`
+      # container itself, not the `postgres`/`redis` services — a real,
+      # previously-undetected bug (undetected because every phase's testing
+      # ran the app directly on the host, never through this compose file).
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+asyncpg://sathyascan:sathyascan@postgres:5432/sathyascan
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    # No separate `worker` service exists, and none is needed: this
+    # architecture has never used Celery (see docs/phased-plan.md's
+    # sequencing rationale) — Privacy Mode purge, the scheduled-check
+    # runner, and the Explore rollup all run as in-process asyncio periodic
+    # tasks INSIDE this same `api` process (app/main.py's lifespan).
+    # Production implication worth being explicit about: horizontally
+    # scaling `api` to N replicas would run each of these three jobs N
+    # times per interval, not once — harmless for the (idempotent) retention
+    # purge and Explore rollup, but scheduled-check execution should be
+    # scaled to exactly one replica, or the periodic-task loops moved behind
+    # a distributed lock, before running more than one `api` replica in
+    # production. Not built here — flagged for whoever provisions
+    # production scaling, not silently assumed away.
+    #
+    # Migrations are NOT run automatically by this service on startup
+    # (deliberately — an auto-migrating web process is a common source of
+    # multi-replica race conditions during a rolling deploy). Run them as a
+    # separate, explicit step before starting/updating `api`:
+    #   docker compose run --rm api alembic upgrade head
+
+volumes:
+  postgres_data:

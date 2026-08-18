@@ -1,0 +1,14 @@
+[project]
+name = "sathyascan-backend"
+version = "0.1.0"
+description = "SathyaScan backend — Phase 1: WhatsApp integration foundation"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["."]
+markers = [
+    "live_network: makes a real network call (Phase 4 WHOIS smoke test) — excluded by default, run explicitly with -m live_network",
+]
+addopts = "-m 'not live_network'"
