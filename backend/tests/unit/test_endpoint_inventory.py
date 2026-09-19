@@ -54,6 +54,9 @@ EXPECTED_PATHS = {
     # Phase 9 — Moderation (user-facing)
     "/api/v1/moderation/reports",
     "/api/v1/moderation/reports/{report_id}",
+    # Public Fact-Check & PDF download
+    "/api/v1/fact-check",
+    "/api/v1/fact-check/{analysis_id}/report.pdf",
 }
 
 # Endpoints that are deliberately public (no JWT) — everything else under
@@ -65,6 +68,8 @@ PRE_AUTH_API_PATHS = {
     "/api/v1/explore/claims",
     "/api/v1/explore/claims/{cluster_id}",
     "/api/v1/explore/categories",
+    "/api/v1/fact-check",
+    "/api/v1/fact-check/{analysis_id}/report.pdf",
 }
 
 

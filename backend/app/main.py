@@ -85,6 +85,7 @@ from app.api.v1.routers.analysis_sessions import router as analysis_sessions_rou
 from app.api.v1.routers.appeals import router as appeals_router
 from app.api.v1.routers.auth import router as dashboard_auth_router
 from app.api.v1.routers.explore import router as explore_router
+from app.api.v1.routers.fact_check import router as fact_check_router
 from app.api.v1.routers.history import router as dashboard_history_router
 from app.api.v1.routers.moderation import router as moderation_router
 from app.api.v1.routers.notifications import router as notifications_router
@@ -327,6 +328,7 @@ def create_app() -> FastAPI:
     app.include_router(account_router)
     app.include_router(appeals_router)
     app.include_router(moderation_router)
+    app.include_router(fact_check_router)
     dashboard_index_path = Path(__file__).resolve().parent.parent.parent / "dashboard" / "index.html"
 
     @app.get("/", include_in_schema=False)
