@@ -211,19 +211,27 @@ async def test_health_reports_null_provider_state_when_no_credentials_configured
     assert body["video_forensics_provider"] == "null"
 
 
-async def test_health_reports_secret_configuration_state(client):
+async def test_health_reports_secret_configuration_state(client, monkeypatch):
     """Phase 7 addition: /health's config-readiness flags read the REAL
     global Settings() (no .env file exists in this sandbox), not the
     per-request test_settings override /health deliberately bypasses (same
     established pattern jwt_configured/safety_gate_provider_configured
     already use) — so in this environment every one of these correctly
     reads False, proving the flags are live-introspected, not hardcoded."""
-    response = await client.get("/health")
-    body = response.json()
-    assert body["jwt_configured"] is False
-    assert body["phone_hash_pepper_configured"] is False
-    assert body["phone_encryption_key_configured"] is False
-    assert body["phase"] == 9
+    monkeypatch.setenv("JWT_SECRET", "")
+    monkeypatch.setenv("PHONE_HASH_PEPPER", "")
+    monkeypatch.setenv("PHONE_ENCRYPTION_KEY", "")
+    from app.core.config import get_settings
+    get_settings.cache_clear()
+    try:
+        response = await client.get("/health")
+        body = response.json()
+        assert body["jwt_configured"] is False
+        assert body["phone_hash_pepper_configured"] is False
+        assert body["phone_encryption_key_configured"] is False
+        assert body["phase"] == 9
+    finally:
+        get_settings.cache_clear()
 
 
 async def test_get_verification_success(client):

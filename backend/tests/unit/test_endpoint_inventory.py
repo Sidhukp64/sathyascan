@@ -54,27 +54,6 @@ EXPECTED_PATHS = {
     # Phase 9 — Moderation (user-facing)
     "/api/v1/moderation/reports",
     "/api/v1/moderation/reports/{report_id}",
-    # Phase 9 — Admin auth
-    "/api/v1/admin/auth/login",
-    "/api/v1/admin/auth/logout",
-    # Phase 9 — Admin core (users, stats, system, audit-log)
-    "/api/v1/admin/users",
-    "/api/v1/admin/users/{user_id}",
-    "/api/v1/admin/users/{user_id}/suspend",
-    "/api/v1/admin/users/{user_id}/reactivate",
-    "/api/v1/admin/stats/users",
-    "/api/v1/admin/stats/analyses",
-    "/api/v1/admin/system/health",
-    "/api/v1/admin/system/jobs",
-    "/api/v1/admin/system/providers",
-    "/api/v1/admin/audit-log",
-    # Phase 9 — Admin appeals/moderation review
-    "/api/v1/admin/appeals",
-    "/api/v1/admin/appeals/{appeal_id}",
-    "/api/v1/admin/appeals/{appeal_id}/review",
-    "/api/v1/admin/moderation/reports",
-    "/api/v1/admin/moderation/reports/{report_id}",
-    "/api/v1/admin/moderation/reports/{report_id}/review",
 }
 
 # Endpoints that are deliberately public (no JWT) — everything else under
@@ -86,9 +65,6 @@ PRE_AUTH_API_PATHS = {
     "/api/v1/explore/claims",
     "/api/v1/explore/claims/{cluster_id}",
     "/api/v1/explore/categories",
-    # Phase 9 — admin login is how an admin token is obtained in the first
-    # place; same "how a token is obtained" exception as OTP-start/verify.
-    "/api/v1/admin/auth/login",
 }
 
 

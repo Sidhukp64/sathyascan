@@ -39,7 +39,6 @@ from app.core.jwt_auth import (
 from app.core.logging import log_event
 from app.core.rate_limit import RateLimiter
 from app.db.session import session_scope
-from app.models.admin_user import AdminUser
 from app.models.user import User
 from app.webhook.whatsapp.router import get_db_sessionmaker, get_redis
 
@@ -52,10 +51,6 @@ __all__ = [
     "get_current_token_payload",
     "get_current_user_id",
     "get_current_user",
-    "get_current_admin_token_payload",
-    "get_current_admin",
-    "require_admin_role",
-    "require_moderator_or_admin_role",
 ]
 
 # auto_error=False so a missing/malformed Authorization header falls through
@@ -169,88 +164,3 @@ async def get_current_user(
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This account has been suspended.")
     return user
 
-
-async def get_current_admin_token_payload(
-    credentials: HTTPAuthorizationCredentials | None = Depends(_bearer_scheme),
-    settings: Settings = Depends(get_settings),
-    redis: Redis = Depends(get_redis),
-) -> TokenPayload:
-    """Admin-token counterpart to get_current_token_payload — same
-    signature/expiry/revocation validation, but requires `token_type ==
-    "admin"` instead of rejecting it, and rate-limits per admin_id using a
-    separate, admin-specific limit (decisions.md-style per-actor rate
-    limiting, extended here from users to admins) rather than reusing the
-    dashboard counter/config value, so a burst of admin API traffic can
-    never be confused with (or throttled by) a regular user's budget."""
-    if credentials is None or not credentials.credentials:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Missing bearer token.")
-
-    token = credentials.credentials
-    try:
-        payload = decode_access_token(token, settings.jwt_secret)
-    except ExpiredTokenError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token has expired.")
-    except InvalidTokenError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token is invalid.")
-
-    try:
-        revoked = await is_token_revoked(redis, payload.jti)
-    except Exception as exc:  # noqa: BLE001 - fail closed, same posture as the dashboard path
-        log_event(logger, logging.ERROR, "admin revocation check unavailable", error_type=type(exc).__name__)
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Authentication is temporarily unavailable. Please try again shortly.",
-        )
-
-    if revoked:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token has been revoked.")
-
-    # Structural separation, mirrored from get_current_token_payload: a
-    # DASHBOARD token must never work against an admin route either.
-    if payload.token_type != "admin":
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token is invalid.")
-
-    limiter = RateLimiter(redis, settings.admin_rate_limit_per_admin_per_minute)
-    rate_result = await limiter.check_and_increment(f"admin:{payload.user_id}")
-    if not rate_result.allowed:
-        raise HTTPException(
-            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail="Too many requests. Please slow down and try again shortly.",
-        )
-
-    return payload
-
-
-async def get_current_admin(
-    payload: TokenPayload = Depends(get_current_admin_token_payload),
-    session: AsyncSession = Depends(get_db_session),
-) -> AdminUser:
-    """Loads the live admin_users row — same "don't just trust the token's
-    identity claim" reasoning as get_current_user: a still-valid token for
-    an admin whose access was just deactivated must stop working
-    immediately, not at its next login."""
-    result = await session.execute(select(AdminUser).where(AdminUser.id == payload.user_id))
-    admin = result.scalar_one_or_none()
-    if admin is None or not admin.is_active:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Admin account not found.")
-    return admin
-
-
-async def require_admin_role(admin: AdminUser = Depends(get_current_admin)) -> AdminUser:
-    """Strict RBAC gate (roadmap §9.1): only role == "admin" — NOT
-    "moderator" — may reach routes behind this dependency (user
-    suspension/reactivation, system health/jobs/providers, the raw
-    audit-log viewer). A moderator token that is otherwise perfectly valid
-    still gets 403 here, never silently allowed through."""
-    if admin.role != "admin":
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="This action requires the admin role.")
-    return admin
-
-
-async def require_moderator_or_admin_role(admin: AdminUser = Depends(get_current_admin)) -> AdminUser:
-    """Wider RBAC gate for appeals/moderation review — both roles may
-    triage reports and appeals; only "admin" may touch user accounts or
-    system internals (see require_admin_role)."""
-    if admin.role not in ("admin", "moderator"):
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Insufficient admin privileges.")
-    return admin

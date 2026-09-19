@@ -89,23 +89,48 @@ Sarvam is purpose-built for Malayalam/Tamil/Hindi/English including code-mixing,
 
 ## Step 5 — Database and Redis
 
+**Redis is genuinely required — not a nice-to-have.** Measured behaviour with Redis unreachable: `IdempotencyGuard.is_duplicate` raises `ConnectionError`, and it runs *before* the rate limiter in the webhook handler, so **every inbound message returns 500**. (The rate limiter fails open; idempotency does not. That asymmetry is defensible — Meta retries non-200 responses, so a 500 defers a message rather than paying for a duplicate fact-check — but it means "no Redis" equals "no bot", not "degraded bot".)
+
+**With Docker:**
+
 ```bash
 docker compose -f infra/docker-compose.yml up -d postgres redis
+```
+
+**Without Docker** (Windows, no install): use a hosted Redis free tier — Redis Cloud gives 30MB free, which is far more than OTP keys and wamid dedupe need. Create a database, copy its connection string into `REDIS_URL`. Alternatives are Memurai (native Windows Redis) or WSL2 + `apt install redis`.
+
+For the database, SQLite needs no service at all:
+
+```bash
+DATABASE_URL=sqlite+aiosqlite:///./sathyascan.db
+```
+
+That is also the *better-tested* option here — all 747 automated tests run on SQLite, and no migration in this project has ever run against real Postgres. Use Postgres for production, but do the first real-Postgres migration deliberately rather than during a demo.
+
+Either way, create the schema:
+
+```bash
 cd backend && .venv/Scripts/python.exe -m alembic upgrade head
 ```
 
-Redis is genuinely required — OTP cooldown and JWT revocation live there. Postgres can be swapped for SQLite for a demo (`DATABASE_URL=sqlite+aiosqlite:///./sathyascan.db`), but note that no migration in this project has ever been run against real Postgres, so do that before you rely on it.
-
 ## Step 6 — Public HTTPS URL
 
-Meta cannot deliver webhooks to `localhost`. For a demo, a tunnel is the fastest route:
+Meta cannot deliver webhooks to `localhost`. Start the app:
 
 ```bash
-# terminal 1
 cd backend && .venv/Scripts/python.exe -m uvicorn app.main:app --port 8000
+```
 
-# terminal 2
+Then in a second terminal, expose it. **ngrok** is the most widely documented (free account required):
+
+```bash
 ngrok http 8000
+```
+
+**Cloudflare Tunnel** is the lighter option — quick tunnels need no account at all:
+
+```bash
+cloudflared tunnel --url http://localhost:8000
 ```
 
 Take the `https://<random>.ngrok-free.app` URL and in **Meta → WhatsApp → Configuration → Webhook**:
@@ -145,6 +170,7 @@ Two replies per message is correct: an immediate acknowledgement, then the resul
 | Images say "no readable text" | `OCR_PROVIDER=claude_vision` not set |
 | Voice notes say "couldn't transcribe" | Sarvam provider/key not set |
 | Nothing at all, no logs | Number not in Meta's test-recipient list |
+| Every message 500s, Meta shows delivery failures | Redis unreachable — see Step 5 |
 
 Logs never contain phone numbers, OTP codes, or API keys — only truncated `phone_hash` values. That's deliberate, so don't expect to grep for a number when debugging.
 

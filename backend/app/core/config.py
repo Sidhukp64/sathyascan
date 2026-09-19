@@ -263,22 +263,6 @@ class Settings(BaseSettings):
     # "per-user for authenticated routes, per-IP for public ones").
     explore_rate_limit_per_ip_per_minute: int = Field(default=60, alias="EXPLORE_RATE_LIMIT_PER_IP_PER_MINUTE")
 
-    # ==== Phase 9 — Admin system (roadmap §9.1). Admin sessions reuse the
-    # SAME jwt_secret as dashboard tokens (one HS256 signer for the whole
-    # app — the `token_type` claim, not a second secret, is what stops an
-    # admin token being used as a dashboard token or vice versa; see
-    # app/core/jwt_auth.py). A separate, typically-shorter TTL and a
-    # per-IP login rate limit (brute-force resistance — reuses
-    # app/core/rate_limit.py, same mechanism as OTP-start/dashboard). ====
-    admin_jwt_access_token_ttl_seconds: int = Field(
-        default=1800, alias="ADMIN_JWT_ACCESS_TOKEN_TTL_SECONDS"
-    )  # 30 min — shorter than the 1h dashboard default; admin sessions are higher-privilege
-    admin_login_rate_limit_per_ip_per_minute: int = Field(
-        default=5, alias="ADMIN_LOGIN_RATE_LIMIT_PER_IP_PER_MINUTE"
-    )
-    admin_rate_limit_per_admin_per_minute: int = Field(
-        default=120, alias="ADMIN_RATE_LIMIT_PER_ADMIN_PER_MINUTE"
-    )
 
     @property
     def high_impact_categories_set(self) -> set[str]:

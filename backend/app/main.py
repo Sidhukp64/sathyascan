@@ -52,8 +52,10 @@ and backend/README.md for the current, honest state of what's wired here.
 import asyncio
 import logging
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from sqlalchemy import text as sql_text
 
 from app.agent.explore_rollup import run_explore_rollup
@@ -79,10 +81,6 @@ from app.core.provider_selection import (
     build_video_forensics_provider,
 )
 from app.api.v1.routers.account import router as account_router
-from app.api.v1.routers.admin import router as admin_router
-from app.api.v1.routers.admin_appeals import router as admin_appeals_router
-from app.api.v1.routers.admin_auth import router as admin_auth_router
-from app.api.v1.routers.admin_moderation import router as admin_moderation_router
 from app.api.v1.routers.analysis_sessions import router as analysis_sessions_router
 from app.api.v1.routers.appeals import router as appeals_router
 from app.api.v1.routers.auth import router as dashboard_auth_router
@@ -329,10 +327,14 @@ def create_app() -> FastAPI:
     app.include_router(account_router)
     app.include_router(appeals_router)
     app.include_router(moderation_router)
-    app.include_router(admin_auth_router)
-    app.include_router(admin_router)
-    app.include_router(admin_appeals_router)
-    app.include_router(admin_moderation_router)
+    dashboard_index_path = Path(__file__).resolve().parent.parent.parent / "dashboard" / "index.html"
+
+    @app.get("/", include_in_schema=False)
+    @app.get("/dashboard", include_in_schema=False)
+    async def serve_dashboard():
+        if dashboard_index_path.is_file():
+            return FileResponse(dashboard_index_path)
+        return {"message": "SathyaScan Multimodal Trust Platform API"}
 
     @app.get("/health")
     async def health():

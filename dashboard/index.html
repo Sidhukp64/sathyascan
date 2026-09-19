@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SathyaScan - Multimodal Trust Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#e7eeff",
+            "on-tertiary-fixed-variant": "#93000b",
+            "error": "#ba1a1a",
+            "surface": "#f9f9ff",
+            "tertiary-container": "#87000a",
+            "on-tertiary-container": "#ff8b80",
+            "on-background": "#111c2d",
+            "tertiary-fixed": "#ffdad6",
+            "on-secondary-container": "#00714e",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#d8e3fb",
+            "inverse-primary": "#b6c4ff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#82f5c1",
+            "surface-bright": "#f9f9ff",
+            "on-primary-fixed": "#00164e",
+            "surface-tint": "#4059aa",
+            "inverse-surface": "#263143",
+            "primary": "#00236f",
+            "on-primary": "#ffffff",
+            "tertiary": "#5d0004",
+            "on-error": "#ffffff",
+            "background": "#f9f9ff",
+            "primary-fixed": "#dce1ff",
+            "secondary-fixed-dim": "#68dba9",
+            "secondary": "#006c4a",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#cfdaf2",
+            "secondary-fixed": "#85f8c4",
+            "primary-fixed-dim": "#b6c4ff",
+            "outline-variant": "#c5c5d3",
+            "on-primary-container": "#90a8ff",
+            "outline": "#757682",
+            "on-primary-fixed-variant": "#264191",
+            "on-surface": "#111c2d",
+            "surface-container-low": "#f0f3ff",
+            "primary-container": "#1e3a8a",
+            "tertiary-fixed-dim": "#ffb4ab",
+            "on-secondary-fixed": "#002114",
+            "on-secondary-fixed-variant": "#005137",
+            "on-tertiary-fixed": "#410002",
+            "inverse-on-surface": "#ecf1ff",
+            "surface-container-high": "#dee8ff",
+            "on-surface-variant": "#444651"
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          spacing: {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-xl": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-xl": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen">
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto">
+    <div class="p-space-lg">
+      <div class="flex items-center gap-space-sm mb-space-lg">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-lg">S</div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-headline-sm text-headline-sm text-primary">SathyaScan</span>
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wide">Beta</span>
+          </div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Multimodal Trust Platform</span>
+        </div>
+      </div>
+      <div class="mb-space-sm">
+        <span class="px-space-xs font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Investigation Suite</span>
+      </div>
+      <nav class="space-y-1 mb-space-lg" data-active-classes="bg-primary-container text-on-primary rounded-lg font-semibold">
+        <a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-primary-container text-on-primary rounded-lg font-semibold" data-path="fact-check" href="#">
+          <span class="material-symbols-outlined text-xl">fact_check</span>
+          <span class="font-label-lg text-label-lg">Fact Check</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="explore-claims" href="#">
+          <span class="material-symbols-outlined text-xl">travel_explore</span>
+          <span class="font-label-lg text-label-lg">Explore Claims</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="analysis-sessions" href="#">
+          <span class="material-symbols-outlined text-xl">query_stats</span>
+          <span class="font-label-lg text-label-lg">Analysis Sessions</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="history" href="#">
+          <span class="material-symbols-outlined text-xl">history</span>
+          <span class="font-label-lg text-label-lg">History</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="bookmarks" href="#">
+          <span class="material-symbols-outlined text-xl">bookmark</span>
+          <span class="font-label-lg text-label-lg">Bookmarks</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="scheduled-re-checks" href="#">
+          <span class="material-symbols-outlined text-xl">update</span>
+          <span class="font-label-lg text-label-lg">Scheduled Re-checks</span>
+        </a>
+      </nav>
+      <div class="mb-space-sm">
+        <span class="px-space-xs font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Governance &amp; Metrics</span>
+      </div>
+      <nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary rounded-lg font-semibold">
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview-analytics" href="#">
+          <span class="material-symbols-outlined text-xl">analytics</span>
+          <span class="font-label-lg text-label-lg">Overview &amp; Analytics</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="moderation-desk" href="#">
+          <span class="material-symbols-outlined text-xl">gavel</span>
+          <span class="font-label-lg text-label-lg">Moderation Desk</span>
+        </a>
+        <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings-privacy" href="#">
+          <span class="material-symbols-outlined text-xl">security</span>
+          <span class="font-label-lg text-label-lg">Settings &amp; Privacy</span>
+        </a>
+      </nav>
+    </div>
+    <div class="p-space-md">
+      <div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-xs">
+        <div class="flex items-center gap-space-xs text-primary font-semibold font-label-md text-label-md">
+          <span class="material-symbols-outlined text-lg text-secondary">verified_user</span>
+          <span>Dual-Layer Verification</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Powered by transparent AI heuristics corroborated by certified fact-checkers.</p>
+        <a class="inline-flex items-center gap-space-xs font-label-md text-label-md font-semibold text-primary hover:text-on-surface transition-colors mt-space-xs" data-path="methodology" href="#">
+          <span>Read Methodology</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content Container -->
+  <div class="pl-72 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter flex items-center justify-between gap-space-md">
+      <div class="flex-1 max-w-xl">
+        <div class="relative flex items-center w-full">
+          <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+          <input class="w-full h-10 pl-10 pr-24 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search verified claims, URLs or archives..." type="text">
+          <div class="absolute right-3 flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-highest px-1.5 py-0.5 rounded">
+            <kbd class="font-sans">⌘</kbd><kbd class="font-sans">K</kbd>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-md shrink-0">
+        <div class="relative flex items-center bg-surface-container-low px-space-sm py-1.5 rounded-lg text-on-surface">
+          <span class="material-symbols-outlined text-lg text-on-surface-variant mr-1.5">translate</span>
+          <select class="bg-transparent font-label-md text-label-md text-on-surface font-semibold outline-none cursor-pointer pr-2" id="languageSelect">
+            <option value="en">English</option>
+            <option value="ml">മലയാളം (Malayalam)</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold cursor-pointer select-none" id="privacyModeToggle" onclick="togglePrivacyMode()">
+          <span class="material-symbols-outlined text-base" id="privacyIcon">lock</span>
+          <span id="privacyText">Privacy Mode: ON</span>
+        </div>
+        <button aria-label="Notifications" class="relative p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" onclick="showToast('Notifications', 'You have 3 unread fact-check updates.', 'notifications')">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="absolute top-1 right-1 w-4 h-4 bg-tertiary-container text-on-tertiary font-label-sm text-[10px] leading-tight flex items-center justify-center rounded-full font-bold">3</span>
+        </button>
+        <div class="flex items-center gap-space-sm pl-space-xs">
+          <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm">U</div>
+          <div class="hidden xl:flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-label-lg text-label-lg font-semibold text-on-surface leading-none">Investigator</span>
+              <span class="w-2 h-2 rounded-full bg-secondary" title="Active"></span>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Citizen Mode</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="w-full pt-16 flex-1 bg-surface px-gutter py-space-lg">
+      <div class="flex flex-col w-full">
+        <!-- Sticky Context & Rapid Share Banner -->
+        <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl">
+          <div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md min-w-0">
+            <span class="material-symbols-outlined text-base shrink-0">explore</span>
+            <span class="hover:text-primary cursor-pointer transition-colors">Explore</span>
+            <span class="shrink-0 text-outline">/</span>
+            <span class="hover:text-primary cursor-pointer transition-colors">Governance &amp; Finance</span>
+            <span class="shrink-0 text-outline">/</span>
+            <span class="font-semibold text-primary truncate">Case #SS-2025-8941</span>
+          </div>
+          <div class="flex items-center gap-space-xs shrink-0">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">
+              <span class="material-symbols-outlined text-xs">history</span> Updated 14 mins ago
+            </span>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-all shadow-sm" id="quickCopyBtn" onclick="copyShareLink()">
+              <span class="material-symbols-outlined text-sm">share</span>
+              <span>Share Report</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary Header & Meta Bar -->
+        <div class="flex flex-col gap-space-md mb-space-lg">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center gap-space-sm flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold uppercase tracking-wider">High Velocity Virality</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-primary-fixed-variant font-label-sm text-label-sm">Circulating on WhatsApp, X &amp; Telegram</span>
+            </div>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
+              Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.
+            </h1>
+          </div>
+          <!-- Metadata Attributes Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-xs p-space-sm bg-surface-container-lowest rounded-xl shadow-sm">
+            <div class="flex items-center gap-space-xs p-space-xs">
+              <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-base">chat</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Media Format</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface truncate">Text / Forward</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs p-space-xs">
+              <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-base">schedule</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Submitted Time</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface truncate">Today, 10:42 AM IST</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs p-space-xs">
+              <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-base">translate</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Detected Lang</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface truncate">English &amp; Hindi (Hinglish)</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs p-space-xs">
+              <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-base">payments</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Policy Domain</span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface truncate">Economy &amp; Payments</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs p-space-xs">
+              <div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">shield_lock</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Audit Privacy</span>
+                <span class="font-label-md text-label-md font-semibold text-secondary truncate">Anonymous User</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Impact Verdict Banner with Radial Gauge -->
+        <div class="relative overflow-hidden rounded-2xl bg-tertiary-fixed text-on-tertiary-fixed mb-space-lg shadow-md">
+          <div class="relative p-space-lg md:p-space-xl flex flex-col gap-space-md">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+              <div class="flex items-start gap-space-md">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 shadow-md">
+                  <span class="material-symbols-outlined text-4xl md:text-5xl" style="font-variation-settings: 'FILL' 1;">dangerous</span>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex items-center gap-space-xs flex-wrap">
+                    <span class="font-label-sm text-label-sm tracking-widest uppercase font-bold text-on-tertiary-fixed-variant">Official Veracity Assessment</span>
+                    <span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold">100% HOAX</span>
+                  </div>
+                  <h2 class="font-headline-xl text-headline-xl text-tertiary tracking-tight font-black uppercase leading-none">
+                    VERDICT: FALSE
+                  </h2>
+                  <p class="font-body-lg text-body-lg text-on-surface font-medium max-w-2xl mt-1">
+                    Neither the Ministry of Finance nor NPCI has issued any surcharge or fee on standard UPI transactions. This message recirculates an outdated and misinterpreted 2023 wallet merchant interchange circular.
+                  </p>
+                </div>
+              </div>
+              <!-- Confidence Gauge Widget -->
+              <div class="w-full lg:w-auto flex items-center gap-space-md bg-surface-container-lowest text-on-surface p-space-md rounded-xl shadow-sm self-stretch lg:self-center justify-between lg:justify-start">
+                <div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
+                  <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+                    <path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+                    <path class="text-error" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="98, 100" stroke-linecap="round" stroke-width="3.5"></path>
+                  </svg>
+                  <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span class="font-headline-sm text-headline-sm font-bold text-error leading-none">98%</span>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Evidence Metric</span>
+                  <span class="font-headline-sm text-headline-sm text-on-surface">Conclusive</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Dual-source verified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accessible Debunk Audio Player Bar -->
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm bg-surface-container-lowest/90 backdrop-blur-sm p-space-sm md:p-space-md rounded-xl shadow-sm">
+              <div class="flex items-center gap-space-sm">
+                <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-on-primary-fixed transition-all shrink-0" id="audioPlayBtn" onclick="toggleAudio()">
+                  <span class="material-symbols-outlined text-2xl" id="audioPlayIcon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                </button>
+                <div class="flex flex-col min-w-0">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="font-label-lg text-label-lg font-semibold text-on-surface">Audio Verdict Summary</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-bold">45 Seconds</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Clear voice summary tailored for instant WhatsApp forwarding and elderly citizens</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-xs self-end md:self-center">
+                <span class="font-label-sm text-label-sm text-on-surface-variant font-medium hidden sm:inline">Voice Dialect:</span>
+                <div class="flex items-center bg-surface-container rounded-lg p-0.5">
+                  <button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold transition-all">English</button>
+                  <button class="px-3 py-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold transition-all">മലയാളം</button>
+                  <button class="px-3 py-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold transition-all">हिन्दी</button>
+                  <button class="px-3 py-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold transition-all">தமிழ்</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Analysis Workspace Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+          <!-- Left Column: Core Breakdown & Extracted Claims (7 Cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-space-lg">
+            <!-- Section A: Plain Language Explanation -->
+            <section class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col gap-space-md">
+              <div class="flex items-center justify-between pb-space-xs">
+                <div class="flex items-center gap-space-xs">
+                  <span class="w-2.5 h-6 bg-primary rounded-full"></span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Plain Language Summary</h3>
+                </div>
+                <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">visibility</span> Non-technical guide
+                </span>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-start gap-space-sm p-space-md rounded-xl bg-secondary-container/25">
+                  <div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-lg font-bold">check</span>
+                  </div>
+                  <div class="flex flex-col gap-0.5">
+                    <h4 class="font-label-lg text-label-lg text-secondary font-bold">What is Actually True</h4>
+                    <p class="font-body-md text-body-md text-on-surface">
+                      Normal bank-to-bank UPI transfers (Person-to-Person and standard consumer QR payments to shopkeepers) remain <strong>100% free</strong> for Indian citizens and consumers.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-space-sm p-space-md rounded-xl bg-error-container/40">
+                  <div class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-lg font-bold">close</span>
+                  </div>
+                  <div class="flex flex-col gap-0.5">
+                    <h4 class="font-label-lg text-label-lg text-error font-bold">What is Completely False</h4>
+                    <p class="font-body-md text-body-md text-on-surface">
+                      There is <strong>no 5% fee, tax, or surcharge</strong> imposed on transfers over ₹2,000. Neither the Finance Ministry nor RBI has proposed any consumer charge.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low">
+                  <div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-lg">history_edu</span>
+                  </div>
+                  <div class="flex flex-col gap-0.5">
+                    <h4 class="font-label-lg text-label-lg text-on-surface font-bold">Origin of This Rumor</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                      Malicious actors regularly recirculate distorted summaries of a March 2023 NPCI circular regarding Merchant Prepaid Payment Instruments (PPI / digital wallets like Paytm or Amazon Pay balance) with an interchange fee paid exclusively by large merchants, not consumers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section B: Extracted Claims Evaluated -->
+            <section class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col gap-space-md">
+              <div class="flex items-center justify-between pb-space-xs">
+                <div class="flex items-center gap-space-xs">
+                  <span class="w-2.5 h-6 bg-primary rounded-full"></span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Atomic Claims Evaluated</h3>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">2 Assertions Isolated</span>
+              </div>
+              <div class="space-y-space-sm">
+                <!-- Sub Claim 1 -->
+                <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                  <div class="flex items-start justify-between gap-space-sm">
+                    <div class="flex items-center gap-2">
+                      <span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Sub-claim 01</span>
+                      <span class="px-2 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs">cancel</span> False
+                      </span>
+                    </div>
+                    <span class="text-error font-label-sm text-label-sm font-semibold">Heuristic Match: 99.4%</span>
+                  </div>
+                  <p class="font-body-lg text-body-lg text-on-surface font-semibold">
+                    "UPI will start charging a mandatory 5% tax or transaction fee from next month on amounts exceeding ₹2,000."
+                  </p>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1">
+                    <strong>Finding:</strong> Total fabricated statement. The Master Circular on National Unified Payments Framework strictly forbids charging end consumers for domestic peer and standard merchant payments.
+                  </p>
+                </div>
+                <!-- Sub Claim 2 -->
+                <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                  <div class="flex items-start justify-between gap-space-sm">
+                    <div class="flex items-center gap-2">
+                      <span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Sub-claim 02</span>
+                      <span class="px-2 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs">cancel</span> False
+                      </span>
+                    </div>
+                    <span class="text-error font-label-sm text-label-sm font-semibold">Audit Check: 100%</span>
+                  </div>
+                  <p class="font-body-lg text-body-lg text-on-surface font-semibold">
+                    "NPCI and Nirmala Sitharaman announced this policy on Twitter via official press releases."
+                  </p>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1">
+                    <strong>Finding:</strong> Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim multiple times.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Forensic Media Audit Snapshot -->
+            <section class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col gap-space-md">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-2.5 h-6 bg-primary rounded-full"></span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">Circulating Artifact Inspection</h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center">
+                <div class="md:col-span-5 relative rounded-xl overflow-hidden shadow-sm bg-surface-container-highest h-48 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-6xl text-on-surface-variant">photo_camera</span>
+                  <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm font-bold">Forwarded Screenshot</div>
+                </div>
+                <div class="md:col-span-7 flex flex-col gap-space-xs">
+                  <div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+                    <span class="material-symbols-outlined text-sm">fingerprint</span>
+                    <span>Visual &amp; OCR Syntactic Analysis</span>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface">
+                    OCR scanning detected heavy emotional markers: multiple exclamation points (<code>❗❗</code>), fabricated gazette reference codes, and urgent CTA urges ("Forward to all groups before midnight").
+                  </p>
+                  <div class="flex flex-wrap gap-1.5 mt-space-xs">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Language: Hindi/English Hybrid</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Pattern: FUD Vector #741</span>
+                    <span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Phishing Risk: None</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column: Evidentiary Sources & Multi-Tier Validation (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-space-lg">
+            <!-- Section C: Evidentiary Sources -->
+            <section class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col gap-space-md">
+              <div class="flex items-center justify-between pb-space-xs">
+                <div class="flex items-center gap-space-xs">
+                  <span class="w-2.5 h-6 bg-secondary rounded-full"></span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Primary Evidence Sources</h3>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Tier Verified</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Corroborated directly through authenticated institutional APIs and accredited newsroom investigations.
+              </p>
+              <div class="space-y-space-md">
+                <!-- Card 1: NPCI -->
+                <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                  <div class="flex items-start justify-between gap-space-sm">
+                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wide">
+                      Tier 1: Primary Authority
+                    </span>
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">Re-confirmed Mar 2025</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface">National Payments Corporation of India (NPCI)</h4>
+                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm italic">
+                    "NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers."
+                  </div>
+                  <div class="flex items-center justify-between pt-1">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> Cryptographically Signed Press Release
+                    </span>
+                    <a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+                      Official Clarification <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Card 2: PIB Fact Check -->
+                <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                  <div class="flex items-start justify-between gap-space-sm">
+                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wide">
+                      Tier 1: Official Fact-Checker
+                    </span>
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">Bulletin #9021-FC</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface">Press Information Bureau (PIB) Fact Check</h4>
+                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm italic">
+                    "Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake."
+                  </div>
+                  <div class="flex items-center justify-between pt-1">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> Official Government Dispatch
+                    </span>
+                    <a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+                      PIB Dispatch Record <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Card 3: The Hindu / Indian Express -->
+                <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                  <div class="flex items-start justify-between gap-space-sm">
+                    <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-primary-fixed-variant font-label-sm text-label-sm font-bold uppercase tracking-wide">
+                      Tier 2: Major Newsroom
+                    </span>
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">Economic Bureau</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface">The Hindu &amp; Indian Express Investigation</h4>
+                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm italic">
+                    "Analysis shows cyclical resurgence of March 2023 wallet guidelines being misconstrued ahead of each new fiscal year cycle on encrypted message networks."
+                  </div>
+                  <div class="flex items-center justify-between pt-1">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm text-primary">article</span> Investigative Report
+                    </span>
+                    <a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md font-semibold hover:underline" href="#">
+                      Read Investigation <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 5: Automated Monitor & Scheduled Re-check Widget -->
+            <section class="bg-primary text-on-primary p-space-lg rounded-2xl shadow-md flex flex-col gap-space-md relative overflow-hidden">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-secondary-container">autorenew</span>
+                  <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary-container">Active Sentinel Monitor</span>
+                </div>
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h4 class="font-headline-sm text-headline-sm font-semibold">Continuous Policy Re-Verification</h4>
+                <p class="font-body-sm text-body-sm text-primary-fixed leading-relaxed">
+                  This claim is automatically scheduled for re-verification if new gazette notifications or regulatory circulars are published by NPCI or the Ministry of Finance.
+                </p>
+              </div>
+              <div class="flex items-center justify-between p-space-sm rounded-xl bg-primary-container text-on-primary">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-secondary-container text-xl">event_repeat</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-sm text-label-sm text-primary-fixed">Next Scheduled Sweep</span>
+                    <span class="font-label-md text-label-md font-semibold">7 Days (March 30, 2025)</span>
+                  </div>
+                </div>
+                <button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold hover:bg-surface-container-low transition-all" onclick="scheduleAlertNotice()">
+                  Notify Me
+                </button>
+              </div>
+            </section>
+
+            <!-- Transparency & Multi-Layer Disclosure -->
+            <div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-sm">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">verified_user</span>
+              <div class="flex flex-col gap-0.5">
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Dual-Layer Methodology Guarantee</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  SathyaScan AI cross-examines verified registries and certified human fact-checkers. Please review cited source links before republishing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Action Toolbar -->
+        <section class="mb-space-xl p-space-md md:p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col gap-space-md">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs pb-space-xs">
+            <div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface">Investigator &amp; Reader Action Suite</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Export verified documentation, trigger deeper forensic chat, or challenge the verdict.</p>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Audit ID: #SS-8941-VER</span>
+          </div>
+          <!-- Action Buttons Array -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+            <button class="h-14 px-space-md rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm" onclick="downloadPdfFactSheet()">
+              <span class="material-symbols-outlined text-xl">download</span>
+              <span>Download Fact Sheet</span>
+            </button>
+            <button class="h-14 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm" id="bookmarkBtn" onclick="toggleBookmark()">
+              <span class="material-symbols-outlined text-xl" id="bookmarkIcon">bookmark_border</span>
+              <span id="bookmarkText">Bookmark Analysis</span>
+            </button>
+            <button class="h-14 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm" onclick="copyShareLink()">
+              <span class="material-symbols-outlined text-xl">link</span>
+              <span>Copy Shareable Link</span>
+            </button>
+            <button class="h-14 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-bold transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm" onclick="openFollowupSession()">
+              <span class="material-symbols-outlined text-xl">chat_bubble</span>
+              <span>Ask Follow-up Questions</span>
+            </button>
+          </div>
+          <!-- Secondary Actions Row -->
+          <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs bg-surface-container-low p-space-sm rounded-xl">
+            <div class="flex items-center gap-space-xs">
+              <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all shadow-sm" onclick="openRecheckModal()">
+                <span class="material-symbols-outlined text-base text-primary">update</span>
+                <span>Schedule Re-check (7 Days)</span>
+              </button>
+              <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all shadow-sm" onclick="openAppealModal()">
+                <span class="material-symbols-outlined text-base text-primary">gavel</span>
+                <span>Appeal Verdict</span>
+              </button>
+            </div>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-error hover:bg-error-container/50 font-label-md text-label-md transition-all" onclick="openReportModal()">
+              <span class="material-symbols-outlined text-base">flag</span>
+              <span>Report Issue / Source Discrepancy</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Interactive Modal / Alert Toast Element -->
+        <div class="fixed bottom-6 right-6 max-w-md bg-surface-container-lowest text-on-surface p-space-md rounded-xl shadow-xl transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none z-50 flex items-start gap-space-sm" id="toastNotification">
+          <div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-0.5" id="toastIconContainer">
+            <span class="material-symbols-outlined text-lg" id="toastIcon">check</span>
+          </div>
+          <div class="flex flex-col gap-0.5 min-w-0 flex-1">
+            <span class="font-label-lg text-label-lg font-bold text-on-surface" id="toastTitle">Notification</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant" id="toastBody">Your action has been recorded.</p>
+          </div>
+          <button class="text-on-surface-variant hover:text-on-surface p-1" onclick="hideToast()">
+            <span class="material-symbols-outlined text-sm">close</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let isPlaying = false;
+    let isBookmarked = false;
+    let isPrivacyOn = true;
+    let toastTimeout = null;
+
+    function showToast(title, body, icon = 'check', isError = false) {
+      const toast = document.getElementById('toastNotification');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastBody = document.getElementById('toastBody');
+      const toastIcon = document.getElementById('toastIcon');
+      const toastIconContainer = document.getElementById('toastIconContainer');
+
+      toastTitle.textContent = title;
+      toastBody.textContent = body;
+      toastIcon.textContent = icon;
+
+      if (isError) {
+        toastIconContainer.className = 'w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0 mt-0.5';
+      } else {
+        toastIconContainer.className = 'w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-0.5';
+      }
+
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 4000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toastNotification');
+      toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }
+
+    function togglePrivacyMode() {
+      isPrivacyOn = !isPrivacyOn;
+      const toggle = document.getElementById('privacyModeToggle');
+      const text = document.getElementById('privacyText');
+      if (isPrivacyOn) {
+        toggle.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold cursor-pointer select-none';
+        text.textContent = 'Privacy Mode: ON';
+        showToast('Privacy Mode Enabled', 'Data retention set to ephemeral; personal history will auto-purge.', 'lock');
+      } else {
+        toggle.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md font-semibold cursor-pointer select-none';
+        text.textContent = 'Privacy Mode: OFF';
+        showToast('Privacy Mode Disabled', 'Submissions will be saved to your local history archive.', 'lock_open');
+      }
+    }
+
+    function toggleAudio() {
+      isPlaying = !isPlaying;
+      const playIcon = document.getElementById('audioPlayIcon');
+      if (isPlaying) {
+        playIcon.textContent = 'pause';
+        showToast('Playing Audio Debunk', 'Streaming 45-second verified voice note in selected dialect.', 'volume_up');
+      } else {
+        playIcon.textContent = 'play_arrow';
+        showToast('Audio Paused', 'Debunk playback paused.', 'pause');
+      }
+    }
+
+    function copyShareLink() {
+      const dummyUrl = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(dummyUrl).then(() => {
+          showToast('Link Copied to Clipboard', 'Shareable fact-check link ready to share.', 'share');
+        }).catch(() => {
+          showToast('Link Ready', 'Direct report URL copied successfully.', 'share');
+        });
+      } else {
+        showToast('Link Ready', 'Direct report URL copied successfully.', 'share');
+      }
+    }
+
+    function toggleBookmark() {
+      isBookmarked = !isBookmarked;
+      const icon = document.getElementById('bookmarkIcon');
+      const text = document.getElementById('bookmarkText');
+      if (isBookmarked) {
+        icon.textContent = 'bookmark';
+        icon.style.fontVariationSettings = "'FILL' 1";
+        text.textContent = 'Bookmarked in Casefile';
+        showToast('Bookmark Saved', 'Case #SS-2025-8941 added to your active investigation folder.', 'bookmark');
+      } else {
+        icon.textContent = 'bookmark_border';
+        icon.style.fontVariationSettings = "'FILL' 0";
+        text.textContent = 'Bookmark Analysis';
+        showToast('Bookmark Removed', 'Case removed from saved items.', 'bookmark_remove');
+      }
+    }
+
+    function downloadPdfFactSheet() {
+      showToast('Generating Fact Sheet PDF', 'Compiling bilingual summary and institutional cryptographic citations...', 'download');
+      setTimeout(() => {
+        showToast('Download Complete', 'SathyaScan_Verdict_SS-2025-8941.pdf is now available in your downloads.', 'task_alt');
+      }, 1500);
+    }
+
+    function scheduleAlertNotice() {
+      showToast('Automated Monitor Active', 'You will be notified when regulators issue new circulars regarding this claim.', 'notifications_active');
+    }
+
+    function openFollowupSession() {
+      showToast('Analysis Session Initialized', 'Opening forensic chat session with claim metadata loaded.', 'forum');
+    }
+
+    function openRecheckModal() {
+      showToast('Re-check Scheduled', 'System scheduled deep re-sweep for upcoming regulatory updates.', 'update');
+    }
+
+    function openAppealModal() {
+      showToast('Appeal Intake Opened', 'Submit secondary documentation for editorial review.', 'gavel');
+    }
+
+    function openReportModal() {
+      showToast('Discrepancy Desk', 'Investigation discrepancy logged for triage.', 'flag', true);
+    }
+  </script>
+</body>
+</html>

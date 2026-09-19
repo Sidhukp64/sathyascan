@@ -687,23 +687,3 @@ async def login_and_get_token(auth_env, phone_number: str) -> str:
     assert verify_resp.status_code == 200
     return verify_resp.json()["access_token"]
 
-
-async def create_admin_and_get_token(auth_env, email: str, password: str = "test-password-123", role: str = "admin") -> str:
-    """Phase 9 — seeds an admin_users row directly (mirrors what
-    scripts/create_admin.py does, minus the CLI/getpass layer — no public
-    signup endpoint exists, see app/api/v1/routers/admin_auth.py's
-    docstring) then logs in via the real HTTP surface. Shared by every
-    Phase 9 admin/appeals/moderation test module."""
-    from app.core.admin_security import hash_password, normalize_admin_email
-    from app.models.admin_user import AdminUser
-
-    async with auth_env.sessionmaker() as session:
-        admin = AdminUser(
-            email=normalize_admin_email(email), password_hash=hash_password(password), role=role, is_active=True
-        )
-        session.add(admin)
-        await session.commit()
-
-    login_resp = await auth_env.client.post("/api/v1/admin/auth/login", json={"email": email, "password": password})
-    assert login_resp.status_code == 200, login_resp.text
-    return login_resp.json()["access_token"]

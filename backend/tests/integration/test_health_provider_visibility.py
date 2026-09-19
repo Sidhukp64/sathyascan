@@ -13,6 +13,7 @@ import httpx
 
 
 async def test_health_reports_real_when_credentials_are_configured(monkeypatch):
+    monkeypatch.setenv("JWT_SECRET", "")
     monkeypatch.setenv("WHATSAPP_APP_SECRET", "x")
     monkeypatch.setenv("WHATSAPP_WEBHOOK_VERIFY_TOKEN", "x")
     monkeypatch.setenv("WHATSAPP_ACCESS_TOKEN", "x")
