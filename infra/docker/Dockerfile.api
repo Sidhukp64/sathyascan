@@ -17,6 +17,7 @@ COPY backend/app ./app
 # (see infra/docker-compose.yml's `api` service comment) to work at all.
 COPY backend/alembic.ini .
 COPY backend/migrations ./migrations
+COPY dashboard ./dashboard
 
 EXPOSE 8000
 

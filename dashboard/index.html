@@ -6,7 +6,7 @@
   <title>SathyaScan - Multimodal Trust Platform</title>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Noto+Sans+Malayalam:wght@400;600;700&amp;family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Noto+Sans+Tamil:wght@400;600;700&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
   <style>
     @layer base {
@@ -22,12 +22,9 @@
     .icon-filled {
       font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24 !important;
     }
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 0.4; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-    .pulse-ring { animation: pulse-ring 2s infinite ease-in-out; }
+    :lang(ml) { font-family: 'Noto Sans Malayalam', 'Inter', sans-serif; }
+    :lang(hi) { font-family: 'Noto Sans Devanagari', 'Inter', sans-serif; }
+    :lang(ta) { font-family: 'Noto Sans Tamil', 'Inter', sans-serif; }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -112,59 +109,59 @@
         <div class="flex flex-col">
           <div class="flex items-center gap-space-xs">
             <span class="font-headline text-lg font-bold text-primary">SathyaScan</span>
-            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Public</span>
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider" data-i18n="badge_public">Public</span>
           </div>
-          <span class="text-xs text-on-surface-variant font-medium">Multimodal Trust Platform</span>
+          <span class="text-xs text-on-surface-variant font-medium" data-i18n="tagline">Multimodal Trust Platform</span>
         </div>
       </div>
 
       <div class="mb-space-sm">
-        <span class="px-space-xs text-xs uppercase text-on-surface-variant tracking-wider font-bold">Investigation Suite</span>
+        <span class="px-space-xs text-xs uppercase text-on-surface-variant tracking-wider font-bold" data-i18n="nav_suite_header">Investigation Suite</span>
       </div>
       <nav class="space-y-1 mb-space-lg" id="sidebarNav">
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 transition-all rounded-lg font-semibold bg-primary-container text-on-primary" data-tab="fact-check" onclick="switchTab('fact-check')">
           <span class="material-symbols-outlined text-xl">fact_check</span>
-          <span class="text-sm font-medium">Fact Check Studio</span>
+          <span class="text-sm font-medium" data-i18n="nav_fact_check">Fact Check Studio</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="explore-claims" onclick="switchTab('explore-claims')">
           <span class="material-symbols-outlined text-xl">travel_explore</span>
-          <span class="text-sm font-medium">Explore Claims Feed</span>
+          <span class="text-sm font-medium" data-i18n="nav_explore">Explore Claims Feed</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="analysis-sessions" onclick="switchTab('analysis-sessions')">
           <span class="material-symbols-outlined text-xl">forum</span>
-          <span class="text-sm font-medium">Investigative Chat</span>
+          <span class="text-sm font-medium" data-i18n="nav_chat">Investigative Chat</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="history" onclick="switchTab('history')">
           <span class="material-symbols-outlined text-xl">history</span>
-          <span class="text-sm font-medium">Verification History</span>
+          <span class="text-sm font-medium" data-i18n="nav_history">Verification History</span>
           <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-bold" id="historyCountBadge">0</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="bookmarks" onclick="switchTab('bookmarks')">
           <span class="material-symbols-outlined text-xl">bookmark</span>
-          <span class="text-sm font-medium">Saved Bookmarks</span>
+          <span class="text-sm font-medium" data-i18n="nav_bookmarks">Saved Bookmarks</span>
           <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-bold" id="bookmarkCountBadge">0</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="scheduled-re-checks" onclick="switchTab('scheduled-re-checks')">
           <span class="material-symbols-outlined text-xl">update</span>
-          <span class="text-sm font-medium">Scheduled Monitors</span>
+          <span class="text-sm font-medium" data-i18n="nav_monitors">Scheduled Monitors</span>
         </button>
       </nav>
 
       <div class="mb-space-sm">
-        <span class="px-space-xs text-xs uppercase text-on-surface-variant tracking-wider font-bold">Platform Trust</span>
+        <span class="px-space-xs text-xs uppercase text-on-surface-variant tracking-wider font-bold" data-i18n="nav_governance_header">Platform Trust</span>
       </div>
       <nav class="space-y-1">
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="overview-analytics" onclick="switchTab('overview-analytics')">
           <span class="material-symbols-outlined text-xl">analytics</span>
-          <span class="text-sm font-medium">Overview &amp; Metrics</span>
+          <span class="text-sm font-medium" data-i18n="nav_overview">Overview &amp; Metrics</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="moderation-desk" onclick="switchTab('moderation-desk')">
           <span class="material-symbols-outlined text-xl">gavel</span>
-          <span class="text-sm font-medium">Discrepancy Desk</span>
+          <span class="text-sm font-medium" data-i18n="nav_moderation">Discrepancy Desk</span>
         </button>
         <button type="button" class="nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left" data-tab="settings-privacy" onclick="switchTab('settings-privacy')">
           <span class="material-symbols-outlined text-xl">security</span>
-          <span class="text-sm font-medium">Settings &amp; Privacy</span>
+          <span class="text-sm font-medium" data-i18n="nav_settings">Settings &amp; Privacy</span>
         </button>
       </nav>
     </div>
@@ -173,11 +170,11 @@
       <div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-xs border border-surface-container">
         <div class="flex items-center gap-space-xs text-primary font-semibold text-xs">
           <span class="material-symbols-outlined text-base text-secondary">verified_user</span>
-          <span>Dual-Layer Verification</span>
+          <span data-i18n="sidebar_dual_layer_title">Dual-Layer Verification</span>
         </div>
-        <p class="text-xs text-on-surface-variant leading-relaxed">AI heuristics cross-examined with official government gazettes, PIB &amp; certified newsrooms.</p>
+        <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="sidebar_dual_layer_desc">AI heuristics cross-examined with official government gazettes, PIB &amp; certified newsrooms.</p>
         <button type="button" class="inline-flex items-center gap-space-xs text-xs font-semibold text-primary hover:underline mt-1 text-left" onclick="switchTab('methodology')">
-          <span>Read Verification Protocol</span>
+          <span data-i18n="sidebar_read_protocol">Read Verification Protocol</span>
           <span class="material-symbols-outlined text-xs">arrow_forward</span>
         </button>
       </div>
@@ -191,7 +188,7 @@
       <div class="flex-1 max-w-xl">
         <div class="relative flex items-center w-full">
           <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">search</span>
-          <input id="globalSearchInput" class="w-full h-10 pl-10 pr-24 rounded-lg bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all border border-transparent focus:border-primary/30" placeholder="Search claims, viral forwards, URLs..." type="text" onkeydown="handleGlobalSearch(event)">
+          <input id="globalSearchInput" class="w-full h-10 pl-10 pr-24 rounded-lg bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all border border-transparent focus:border-primary/30" placeholder="Search claims, viral forwards, URLs..." data-i18n-placeholder="search_placeholder" type="text" onkeydown="handleGlobalSearch(event)">
           <div class="absolute right-3 flex items-center gap-1 text-[11px] text-on-surface-variant bg-surface-container-highest px-1.5 py-0.5 rounded font-mono">
             <span>⌘/Ctrl+K</span>
           </div>
@@ -204,16 +201,16 @@
           <span class="material-symbols-outlined text-base text-on-surface-variant mr-1.5">translate</span>
           <select class="bg-transparent text-xs text-on-surface font-semibold outline-none cursor-pointer pr-1" id="languageSelect" onchange="changeLanguage(this.value)">
             <option value="en">English</option>
-            <option value="ml">മലയാളം</option>
-            <option value="hi">हिन्दी</option>
-            <option value="ta">தமிழ்</option>
+            <option value="ml">മലയാളം (Malayalam)</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
           </select>
         </div>
 
         <!-- Privacy toggle -->
         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold cursor-pointer select-none shadow-sm transition-all" id="privacyModeToggle" onclick="togglePrivacyMode()">
           <span class="material-symbols-outlined text-sm" id="privacyIcon">lock</span>
-          <span id="privacyText">Privacy Mode: ON</span>
+          <span id="privacyText" data-i18n="privacy_on">Privacy Mode: ON</span>
         </div>
 
         <!-- Notifications button -->
@@ -229,10 +226,10 @@
           </div>
           <div class="hidden xl:flex flex-col text-left">
             <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold text-on-surface leading-none">Public Citizen</span>
+              <span class="text-xs font-bold text-on-surface leading-none" data-i18n="citizen_title">Public Citizen</span>
               <span class="w-2 h-2 rounded-full bg-secondary" title="Direct API Ready"></span>
             </div>
-            <span class="text-[11px] text-on-surface-variant mt-0.5">Zero-Auth Verification</span>
+            <span class="text-[11px] text-on-surface-variant mt-0.5" data-i18n="citizen_subtitle">Zero-Auth Verification</span>
           </div>
         </div>
       </div>
@@ -250,19 +247,19 @@
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-space-sm">
             <div class="flex items-center gap-space-xs">
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-              <h2 class="font-headline text-lg font-bold text-on-surface">Submit Claim or URL for Real-Time Fact Check</h2>
+              <h2 class="font-headline text-lg font-bold text-on-surface" data-i18n="verify_input_title">Submit Claim or URL for Real-Time Fact Check</h2>
             </div>
             <span class="px-2.5 py-1 rounded-full bg-surface-container text-primary font-semibold text-xs flex items-center gap-1">
-              <span class="material-symbols-outlined text-sm text-secondary">bolt</span> Live AI &amp; Official Evidence Registry
+              <span class="material-symbols-outlined text-sm text-secondary">bolt</span> <span data-i18n="live_badge">Live AI &amp; Official Evidence Registry</span>
             </span>
           </div>
-          <p class="text-xs text-on-surface-variant mb-space-md">
+          <p class="text-xs text-on-surface-variant mb-space-md" data-i18n="verify_input_desc">
             Paste suspicious forwarded messages, claims circulating on WhatsApp/Telegram/X, or full web article links. Our engine isolates atomic assertions, queries official registries, and synthesizes a verifiable veracity report.
           </p>
 
           <div class="relative mb-space-sm">
-            <textarea id="claimInput" rows="3" class="w-full p-space-md rounded-xl bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 border border-surface-container transition-all" placeholder="E.g., 'Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1' or paste a URL..."></textarea>
-            <div id="inputTypeBadge" class="absolute right-3 bottom-3 text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">
+            <textarea id="claimInput" rows="3" class="w-full p-space-md rounded-xl bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 border border-surface-container transition-all" placeholder="E.g., 'Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1' or paste a URL..." data-i18n-placeholder="claim_input_placeholder"></textarea>
+            <div id="inputTypeBadge" class="absolute right-3 bottom-3 text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono" data-i18n="detecting_format">
               Detecting format...
             </div>
           </div>
@@ -270,25 +267,25 @@
           <!-- Sample Prompts & Controls -->
           <div class="flex flex-wrap items-center justify-between gap-space-sm">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-xs font-semibold text-on-surface-variant">Try sample:</span>
-              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(1)">
+              <span class="text-xs font-semibold text-on-surface-variant" data-i18n="try_sample_label">Try sample:</span>
+              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(1)" id="sampleBtn1">
                 💸 5% UPI Surcharge Rumor
               </button>
-              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(2)">
+              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(2)" id="sampleBtn2">
                 ☀️ PM Surya Ghar Free Solar Scheme
               </button>
-              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(3)">
+              <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all" onclick="loadSample(3)" id="sampleBtn3">
                 🔗 Fact-check URL (pib.gov.in)
               </button>
             </div>
 
             <div class="flex items-center gap-space-sm">
-              <button type="button" id="clearBtn" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-all" onclick="clearClaimInput()">
+              <button type="button" id="clearBtn" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-all" onclick="clearClaimInput()" data-i18n="clear_btn">
                 Clear
               </button>
               <button type="button" id="verifySubmitBtn" class="px-space-lg py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container text-sm font-bold flex items-center gap-2 shadow-sm transition-all" onclick="submitVerification()">
                 <span class="material-symbols-outlined text-lg" id="verifyBtnIcon">search_check</span>
-                <span id="verifyBtnText">Verify Claim Now</span>
+                <span id="verifyBtnText" data-i18n="verify_btn">Verify Claim Now</span>
               </button>
             </div>
           </div>
@@ -298,9 +295,9 @@
             <div class="flex items-center justify-between text-xs font-bold text-primary">
               <span class="flex items-center gap-2">
                 <span class="w-3 h-3 rounded-full bg-primary animate-ping"></span>
-                <span id="verifyStatusStep">Auditing with SathyaScan Dual-Layer Pipeline...</span>
+                <span id="verifyStatusStep" data-i18n="verifying_step_default">Auditing with SathyaScan Dual-Layer Pipeline...</span>
               </span>
-              <span class="font-mono" id="verifyTimer">Estimating ~2-4s</span>
+              <span class="font-mono" id="verifyTimer" data-i18n="estimating_time">Estimating ~2-4s</span>
             </div>
             <div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
               <div id="verifyProgressBar" class="bg-primary h-1.5 rounded-full transition-all duration-500" style="width: 25%"></div>
@@ -312,19 +309,19 @@
         <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl border border-surface-container">
           <div class="flex items-center gap-space-xs text-on-surface-variant text-xs min-w-0">
             <span class="material-symbols-outlined text-base shrink-0">explore</span>
-            <span class="hover:text-primary cursor-pointer transition-colors" onclick="switchTab('explore-claims')">Explore</span>
+            <span class="hover:text-primary cursor-pointer transition-colors" onclick="switchTab('explore-claims')" data-i18n="breadcrumb_explore">Explore</span>
             <span class="shrink-0 text-outline">/</span>
-            <span class="hover:text-primary cursor-pointer transition-colors" id="breadcrumbCategory">Governance &amp; Finance</span>
+            <span class="hover:text-primary cursor-pointer transition-colors" id="breadcrumbCategory" data-i18n="breadcrumb_domain">Governance &amp; Finance</span>
             <span class="shrink-0 text-outline">/</span>
             <span class="font-semibold text-primary truncate" id="breadcrumbCaseId">Case #SS-2025-8941</span>
           </div>
           <div class="flex items-center gap-space-xs shrink-0">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-xs font-semibold" id="lastUpdatedLabel">
-              <span class="material-symbols-outlined text-xs">history</span> Just Verified
+              <span class="material-symbols-outlined text-xs">history</span> <span data-i18n="just_verified">Just Verified</span>
             </span>
             <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary text-xs font-semibold transition-all shadow-sm border border-surface-container" onclick="copyShareLink()">
               <span class="material-symbols-outlined text-sm">share</span>
-              <span>Share Report</span>
+              <span data-i18n="share_report">Share Report</span>
             </button>
           </div>
         </div>
@@ -333,8 +330,8 @@
         <div class="flex flex-col gap-space-md mb-space-lg">
           <div class="flex flex-col gap-space-xs">
             <div class="flex items-center gap-space-sm flex-wrap">
-              <span id="viralityBadge" class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-xs font-bold uppercase tracking-wider">High Velocity Virality</span>
-              <span id="circulatingBadge" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-primary-fixed-variant text-xs font-medium">Cross-Checked Across Official Repositories</span>
+              <span id="viralityBadge" class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-xs font-bold uppercase tracking-wider" data-i18n="virality_high">High Velocity Virality</span>
+              <span id="circulatingBadge" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-primary-fixed-variant text-xs font-medium" data-i18n="cross_checked_badge">Cross-Checked Across Official Repositories</span>
             </div>
             <h1 id="claimHeadline" class="font-headline text-2xl md:text-3xl text-on-surface tracking-tight font-extrabold leading-tight">
               Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.
@@ -347,8 +344,8 @@
                 <span class="material-symbols-outlined text-base">chat</span>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-[11px] text-on-surface-variant font-medium">Media Format</span>
-                <span id="metaFormat" class="text-xs font-bold text-on-surface truncate">Text / Forward</span>
+                <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_media_format">Media Format</span>
+                <span id="metaFormat" class="text-xs font-bold text-on-surface truncate" data-i18n="meta_text_forward">Text / Forward</span>
               </div>
             </div>
             <div class="flex items-center gap-space-xs p-space-xs">
@@ -356,8 +353,8 @@
                 <span class="material-symbols-outlined text-base">schedule</span>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-[11px] text-on-surface-variant font-medium">Audit Time</span>
-                <span id="metaTime" class="text-xs font-bold text-on-surface truncate">Today, Live Verification</span>
+                <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_audit_time">Audit Time</span>
+                <span id="metaTime" class="text-xs font-bold text-on-surface truncate" data-i18n="meta_today_live">Today, Live Verification</span>
               </div>
             </div>
             <div class="flex items-center gap-space-xs p-space-xs">
@@ -365,7 +362,7 @@
                 <span class="material-symbols-outlined text-base">translate</span>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-[11px] text-on-surface-variant font-medium">Audit Dialect</span>
+                <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_audit_dialect">Audit Dialect</span>
                 <span id="metaLang" class="text-xs font-bold text-on-surface truncate">English &amp; Regional</span>
               </div>
             </div>
@@ -374,8 +371,8 @@
                 <span class="material-symbols-outlined text-base">domain</span>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-[11px] text-on-surface-variant font-medium">Domain Area</span>
-                <span id="metaDomain" class="text-xs font-bold text-on-surface truncate">Civic &amp; Public Policy</span>
+                <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_domain_area">Domain Area</span>
+                <span id="metaDomain" class="text-xs font-bold text-on-surface truncate" data-i18n="meta_civic_policy">Civic &amp; Public Policy</span>
               </div>
             </div>
             <div class="flex items-center gap-space-xs p-space-xs">
@@ -383,8 +380,8 @@
                 <span class="material-symbols-outlined text-base">shield_lock</span>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-[11px] text-on-surface-variant font-medium">User Privacy</span>
-                <span id="metaPrivacy" class="text-xs font-bold text-secondary truncate">Anonymous Citizen</span>
+                <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_user_privacy">User Privacy</span>
+                <span id="metaPrivacy" class="text-xs font-bold text-secondary truncate" data-i18n="meta_anon_citizen">Anonymous Citizen</span>
               </div>
             </div>
           </div>
@@ -400,13 +397,13 @@
                 </div>
                 <div class="flex flex-col gap-1">
                   <div class="flex items-center gap-space-xs flex-wrap">
-                    <span class="text-xs tracking-widest uppercase font-bold text-on-tertiary-fixed-variant" id="verdictSubheader">Official Veracity Assessment</span>
+                    <span class="text-xs tracking-widest uppercase font-bold text-on-tertiary-fixed-variant" id="verdictSubheader" data-i18n="verdict_subheader">Official Veracity Assessment</span>
                     <span id="verdictPill" class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-xs font-extrabold uppercase">100% HOAX</span>
                   </div>
-                  <h2 id="verdictTitle" class="font-headline text-3xl md:text-4xl text-tertiary tracking-tight font-black uppercase leading-none">
+                  <h2 id="verdictTitle" class="font-headline text-3xl md:text-4xl text-tertiary tracking-tight font-black uppercase leading-none" data-i18n="verdict_false_title">
                     VERDICT: FALSE
                   </h2>
-                  <p id="verdictSummaryText" class="text-base text-on-surface font-medium max-w-2xl mt-1 leading-relaxed">
+                  <p id="verdictSummaryText" class="text-base text-on-surface font-medium max-w-2xl mt-1 leading-relaxed" data-i18n="sample_summary_text">
                     Neither the Ministry of Finance nor NPCI has issued any surcharge or fee on standard UPI transactions. This message recirculates an outdated and misinterpreted 2023 wallet merchant interchange circular.
                   </p>
                 </div>
@@ -424,9 +421,9 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <span class="text-xs text-on-surface-variant uppercase font-bold">Evidence Metric</span>
-                  <span id="confidenceLabel" class="font-headline text-base font-bold text-on-surface">Conclusive</span>
-                  <span id="sourcesVerifiedCount" class="text-xs text-on-surface-variant">Multi-source verified</span>
+                  <span class="text-xs text-on-surface-variant uppercase font-bold" data-i18n="evidence_metric_label">Evidence Metric</span>
+                  <span id="confidenceLabel" class="font-headline text-base font-bold text-on-surface" data-i18n="confidence_conclusive">Conclusive</span>
+                  <span id="sourcesVerifiedCount" class="text-xs text-on-surface-variant" data-i18n="sources_verified_badge">Multi-source verified</span>
                 </div>
               </div>
             </div>
@@ -439,14 +436,14 @@
                 </button>
                 <div class="flex flex-col min-w-0">
                   <div class="flex items-center gap-space-xs">
-                    <span class="text-sm font-bold text-on-surface">Audio Verdict Summary</span>
-                    <span class="px-2 py-0.5 rounded bg-surface-container text-primary text-[11px] font-bold" id="audioDurationBadge">Read Aloud</span>
+                    <span class="text-sm font-bold text-on-surface" data-i18n="audio_summary_title">Audio Verdict Summary</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container text-primary text-[11px] font-bold" id="audioDurationBadge" data-i18n="audio_read_aloud">Read Aloud</span>
                   </div>
-                  <p id="audioSummaryPreview" class="text-xs text-on-surface-variant truncate max-w-lg">Click play to listen to a clear spoken voice summary tailored for easy forwarding and seniors.</p>
+                  <p id="audioSummaryPreview" class="text-xs text-on-surface-variant truncate max-w-lg" data-i18n="audio_summary_desc">Click play to listen to a clear spoken voice summary tailored for easy forwarding and seniors.</p>
                 </div>
               </div>
               <div class="flex items-center gap-space-xs self-end md:self-center">
-                <span class="text-xs text-on-surface-variant font-medium hidden sm:inline">Speech Dialect:</span>
+                <span class="text-xs text-on-surface-variant font-medium hidden sm:inline" data-i18n="speech_dialect_label">Speech Dialect:</span>
                 <div class="flex items-center bg-surface-container rounded-lg p-0.5" id="audioDialectGroup">
                   <button type="button" class="dialect-btn px-2.5 py-1 rounded bg-primary text-on-primary text-xs font-bold transition-all" data-lang="en" onclick="setAudioDialect('en')">English</button>
                   <button type="button" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="ml" onclick="setAudioDialect('ml')">മലയാളം</button>
@@ -467,10 +464,10 @@
               <div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
                 <div class="flex items-center gap-space-xs">
                   <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-                  <h3 class="font-headline text-lg font-bold text-on-surface">Plain Language Summary</h3>
+                  <h3 class="font-headline text-lg font-bold text-on-surface" data-i18n="plain_summary_title">Plain Language Summary</h3>
                 </div>
                 <span class="text-xs text-on-surface-variant flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-sm">visibility</span> Non-technical guide
+                  <span class="material-symbols-outlined text-sm">visibility</span> <span data-i18n="non_technical_guide">Non-technical guide</span>
                 </span>
               </div>
               <div class="space-y-space-sm" id="plainLanguageContainer">
@@ -479,8 +476,8 @@
                     <span class="material-symbols-outlined text-lg">check</span>
                   </div>
                   <div class="flex flex-col gap-0.5">
-                    <h4 class="text-xs text-secondary font-bold uppercase tracking-wide">What is Actually True</h4>
-                    <p id="plainTrueText" class="text-sm text-on-surface leading-relaxed">
+                    <h4 class="text-xs text-secondary font-bold uppercase tracking-wide" data-i18n="what_is_true_title">What is Actually True</h4>
+                    <p id="plainTrueText" class="text-sm text-on-surface leading-relaxed" data-i18n="sample_what_is_true">
                       Normal bank-to-bank UPI transfers (Person-to-Person and standard consumer QR payments to merchants) remain <strong>100% free</strong> for Indian citizens and consumers.
                     </p>
                   </div>
@@ -490,8 +487,8 @@
                     <span class="material-symbols-outlined text-lg">close</span>
                   </div>
                   <div class="flex flex-col gap-0.5">
-                    <h4 class="text-xs text-error font-bold uppercase tracking-wide">What is Completely False</h4>
-                    <p id="plainFalseText" class="text-sm text-on-surface leading-relaxed">
+                    <h4 class="text-xs text-error font-bold uppercase tracking-wide" data-i18n="what_is_false_title">What is Completely False</h4>
+                    <p id="plainFalseText" class="text-sm text-on-surface leading-relaxed" data-i18n="sample_what_is_false">
                       There is <strong>no 5% fee, tax, or surcharge</strong> imposed on transfers over ₹2,000. Neither the Finance Ministry nor RBI has proposed any consumer charge.
                     </p>
                   </div>
@@ -501,8 +498,8 @@
                     <span class="material-symbols-outlined text-lg">history_edu</span>
                   </div>
                   <div class="flex flex-col gap-0.5">
-                    <h4 class="text-xs text-on-surface font-bold uppercase tracking-wide">Origin &amp; Context</h4>
-                    <p id="plainOriginText" class="text-sm text-on-surface-variant leading-relaxed">
+                    <h4 class="text-xs text-on-surface font-bold uppercase tracking-wide" data-i18n="origin_context_title">Origin &amp; Context</h4>
+                    <p id="plainOriginText" class="text-sm text-on-surface-variant leading-relaxed" data-i18n="sample_origin_context">
                       Malicious actors regularly recirculate distorted summaries of a March 2023 NPCI circular regarding Merchant Prepaid Payment Instruments (PPI / wallets like Paytm or Amazon Pay) with an interchange fee paid exclusively by large merchants, not consumers.
                     </p>
                   </div>
@@ -515,45 +512,45 @@
               <div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
                 <div class="flex items-center gap-space-xs">
                   <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-                  <h3 class="font-headline text-lg font-bold text-on-surface">Atomic Claims Evaluated</h3>
+                  <h3 class="font-headline text-lg font-bold text-on-surface" data-i18n="atomic_claims_title">Atomic Claims Evaluated</h3>
                 </div>
-                <span id="atomicClaimsCountBadge" class="px-2.5 py-0.5 rounded-full bg-surface-container text-xs font-bold text-on-surface-variant">2 Assertions Isolated</span>
+                <span id="atomicClaimsCountBadge" class="px-2.5 py-0.5 rounded-full bg-surface-container text-xs font-bold text-on-surface-variant" data-i18n="assertions_isolated_badge">2 Assertions Isolated</span>
               </div>
               <div class="space-y-space-sm" id="atomicClaimsList">
                 <!-- Sub Claim 1 -->
                 <div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col gap-space-xs">
                   <div class="flex items-start justify-between gap-space-sm">
                     <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Sub-claim 01</span>
+                      <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider" data-i18n="sub_claim_1">Sub-claim 01</span>
                       <span class="px-2 py-0.5 rounded bg-error text-on-error text-xs font-bold flex items-center gap-1">
-                        <span class="material-symbols-outlined text-xs">cancel</span> False
+                        <span class="material-symbols-outlined text-xs">cancel</span> <span data-i18n="verdict_label_false">False</span>
                       </span>
                     </div>
-                    <span class="text-error text-xs font-bold">Confidence: 99.4%</span>
+                    <span class="text-error text-xs font-bold" data-i18n="conf_99">Confidence: 99.4%</span>
                   </div>
-                  <p class="text-sm text-on-surface font-bold">
+                  <p class="text-sm text-on-surface font-bold" data-i18n="sample_subclaim1_text">
                     "UPI will start charging a mandatory 5% tax or transaction fee from next month on amounts exceeding ₹2,000."
                   </p>
                   <p class="text-xs text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1 border border-surface-container">
-                    <strong>Finding:</strong> Fabricated statement. The Master Circular on National Unified Payments Framework strictly forbids charging end consumers for domestic peer and standard merchant payments.
+                    <strong data-i18n="finding_label">Finding:</strong> <span data-i18n="sample_subclaim1_finding">Fabricated statement. The Master Circular on National Unified Payments Framework strictly forbids charging end consumers for domestic peer and standard merchant payments.</span>
                   </p>
                 </div>
                 <!-- Sub Claim 2 -->
                 <div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col gap-space-xs">
                   <div class="flex items-start justify-between gap-space-sm">
                     <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Sub-claim 02</span>
+                      <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider" data-i18n="sub_claim_2">Sub-claim 02</span>
                       <span class="px-2 py-0.5 rounded bg-error text-on-error text-xs font-bold flex items-center gap-1">
-                        <span class="material-symbols-outlined text-xs">cancel</span> False
+                        <span class="material-symbols-outlined text-xs">cancel</span> <span data-i18n="verdict_label_false">False</span>
                       </span>
                     </div>
-                    <span class="text-error text-xs font-bold">Confidence: 100%</span>
+                    <span class="text-error text-xs font-bold" data-i18n="conf_100">Confidence: 100%</span>
                   </div>
-                  <p class="text-sm text-on-surface font-bold">
+                  <p class="text-sm text-on-surface font-bold" data-i18n="sample_subclaim2_text">
                     "NPCI and Nirmala Sitharaman announced this policy on Twitter via official press releases."
                   </p>
                   <p class="text-xs text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1 border border-surface-container">
-                    <strong>Finding:</strong> Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim.
+                    <strong data-i18n="finding_label">Finding:</strong> <span data-i18n="sample_subclaim2_finding">Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim.</span>
                   </p>
                 </div>
               </div>
@@ -567,32 +564,32 @@
               <div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
                 <div class="flex items-center gap-space-xs">
                   <span class="w-2.5 h-6 bg-secondary rounded-full"></span>
-                  <h3 class="font-headline text-lg font-bold text-on-surface">Primary Evidence Sources</h3>
+                  <h3 class="font-headline text-lg font-bold text-on-surface" data-i18n="evidence_sources_title">Primary Evidence Sources</h3>
                 </div>
-                <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container text-xs font-bold">Tier Verified</span>
+                <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container text-xs font-bold" data-i18n="tier_verified_badge">Tier Verified</span>
               </div>
-              <p class="text-xs text-on-surface-variant">
+              <p class="text-xs text-on-surface-variant" data-i18n="evidence_sources_desc">
                 Corroborated directly through authenticated institutional records and accredited investigative newsrooms.
               </p>
               <div class="space-y-space-md" id="evidenceSourcesList">
                 <!-- Card 1 -->
                 <div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col gap-space-xs">
                   <div class="flex items-start justify-between gap-space-sm">
-                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
+                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide" data-i18n="tier_1_authority">
                       Tier 1: Primary Authority
                     </span>
                     <span class="text-on-surface-variant text-[11px]">npci.org.in</span>
                   </div>
                   <h4 class="text-sm font-bold text-on-surface">National Payments Corporation of India (NPCI)</h4>
-                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container">
+                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container" data-i18n="sample_evidence_npci">
                     "NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers."
                   </div>
                   <div class="flex items-center justify-between pt-1">
                     <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> Official Clarification
+                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> <span data-i18n="official_clarification">Official Clarification</span>
                     </span>
                     <a class="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline" href="https://www.npci.org.in" target="_blank" rel="noopener">
-                      Read Source <span class="material-symbols-outlined text-xs">open_in_new</span>
+                      <span data-i18n="read_source">Read Source</span> <span class="material-symbols-outlined text-xs">open_in_new</span>
                     </a>
                   </div>
                 </div>
@@ -600,21 +597,21 @@
                 <!-- Card 2 -->
                 <div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col gap-space-xs">
                   <div class="flex items-start justify-between gap-space-sm">
-                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
+                    <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide" data-i18n="tier_1_fact_checker">
                       Tier 1: Official Fact-Checker
                     </span>
                     <span class="text-on-surface-variant text-[11px]">pib.gov.in</span>
                   </div>
                   <h4 class="text-sm font-bold text-on-surface">Press Information Bureau (PIB) Fact Check</h4>
-                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container">
+                  <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container" data-i18n="sample_evidence_pib">
                     "Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake."
                   </div>
                   <div class="flex items-center justify-between pt-1">
                     <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> Official Government Dispatch
+                      <span class="material-symbols-outlined text-sm text-secondary">verified</span> <span data-i18n="official_gov_dispatch">Official Government Dispatch</span>
                     </span>
                     <a class="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline" href="https://pib.gov.in" target="_blank" rel="noopener">
-                      PIB Dispatch <span class="material-symbols-outlined text-xs">open_in_new</span>
+                      <span>PIB Dispatch</span> <span class="material-symbols-outlined text-xs">open_in_new</span>
                     </a>
                   </div>
                 </div>
@@ -626,13 +623,13 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-space-xs">
                   <span class="material-symbols-outlined text-secondary-container text-base">autorenew</span>
-                  <span class="text-xs uppercase tracking-wider font-bold text-secondary-container">Active Sentinel Monitor</span>
+                  <span class="text-xs uppercase tracking-wider font-bold text-secondary-container" data-i18n="active_sentinel_monitor">Active Sentinel Monitor</span>
                 </div>
                 <span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
               </div>
               <div class="flex flex-col gap-1">
-                <h4 class="font-headline text-base font-bold">Continuous Policy Re-Verification</h4>
-                <p class="text-xs text-primary-fixed leading-relaxed">
+                <h4 class="font-headline text-base font-bold" data-i18n="sentinel_title">Continuous Policy Re-Verification</h4>
+                <p class="text-xs text-primary-fixed leading-relaxed" data-i18n="sentinel_desc">
                   Monitors regulatory gazettes and official announcements. If policies evolve, this report is dynamically re-audited.
                 </p>
               </div>
@@ -640,11 +637,11 @@
                 <div class="flex items-center gap-space-xs">
                   <span class="material-symbols-outlined text-secondary-container text-xl">event_repeat</span>
                   <div class="flex flex-col">
-                    <span class="text-[11px] text-primary-fixed">Scheduled Sweep</span>
-                    <span class="text-xs font-bold">Daily at Midnight</span>
+                    <span class="text-[11px] text-primary-fixed" data-i18n="scheduled_sweep_label">Scheduled Sweep</span>
+                    <span class="text-xs font-bold" data-i18n="daily_midnight">Daily at Midnight</span>
                   </div>
                 </div>
-                <button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary text-xs font-bold hover:bg-surface-container-low transition-all" onclick="openRecheckModal()">
+                <button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary text-xs font-bold hover:bg-surface-container-low transition-all" onclick="openRecheckModal()" data-i18n="configure_btn">
                   Configure
                 </button>
               </div>
@@ -656,8 +653,8 @@
         <section class="mb-space-xl p-space-md md:p-space-lg bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container flex flex-col gap-space-md">
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs pb-space-xs border-b border-surface-container">
             <div>
-              <h3 class="font-headline text-base font-bold text-on-surface">Citizen &amp; Investigator Action Suite</h3>
-              <p class="text-xs text-on-surface-variant">Export verified cryptographic documentation, conduct forensic chat, or challenge findings.</p>
+              <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="action_suite_title">Citizen &amp; Investigator Action Suite</h3>
+              <p class="text-xs text-on-surface-variant" data-i18n="action_suite_desc">Export verified cryptographic documentation, conduct forensic chat, or challenge findings.</p>
             </div>
             <span class="text-xs text-on-surface-variant font-mono" id="auditIdLabel">Audit ID: #SS-8941-VER</span>
           </div>
@@ -665,19 +662,19 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
             <button type="button" class="h-12 px-space-md rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs text-xs font-bold shadow-sm" onclick="downloadPdfFactSheet()">
               <span class="material-symbols-outlined text-lg">download</span>
-              <span>Download Fact Sheet PDF</span>
+              <span data-i18n="btn_download_pdf">Download Fact Sheet PDF</span>
             </button>
             <button type="button" class="h-12 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface transition-all flex items-center justify-center gap-space-xs text-xs font-bold shadow-sm border border-surface-container" id="bookmarkBtn" onclick="toggleBookmark()">
               <span class="material-symbols-outlined text-lg" id="bookmarkIcon">bookmark_border</span>
-              <span id="bookmarkText">Bookmark Analysis</span>
+              <span id="bookmarkText" data-i18n="btn_bookmark">Bookmark Analysis</span>
             </button>
             <button type="button" class="h-12 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface transition-all flex items-center justify-center gap-space-xs text-xs font-bold shadow-sm border border-surface-container" onclick="copyShareLink()">
               <span class="material-symbols-outlined text-lg">link</span>
-              <span>Copy Shareable Link</span>
+              <span data-i18n="btn_share_link">Copy Shareable Link</span>
             </button>
             <button type="button" class="h-12 px-space-md rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-bold transition-all flex items-center justify-center gap-space-xs text-xs shadow-sm border border-surface-container" onclick="openFollowupSession()">
               <span class="material-symbols-outlined text-lg">chat_bubble</span>
-              <span>Ask Follow-up Questions</span>
+              <span data-i18n="btn_ask_questions">Ask Follow-up Questions</span>
             </button>
           </div>
           <!-- Secondary Actions Row -->
@@ -685,16 +682,16 @@
             <div class="flex items-center gap-space-xs">
               <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container text-xs font-semibold transition-all shadow-sm border border-surface-container" onclick="openRecheckModal()">
                 <span class="material-symbols-outlined text-sm text-primary">update</span>
-                <span>Schedule Re-check</span>
+                <span data-i18n="btn_schedule_recheck">Schedule Re-check</span>
               </button>
               <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container text-xs font-semibold transition-all shadow-sm border border-surface-container" onclick="openAppealModal()">
                 <span class="material-symbols-outlined text-sm text-primary">gavel</span>
-                <span>Appeal Verdict</span>
+                <span data-i18n="btn_appeal_verdict">Appeal Verdict</span>
               </button>
             </div>
             <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-error hover:bg-error-container/40 text-xs font-semibold transition-all" onclick="openReportModal()">
               <span class="material-symbols-outlined text-sm">flag</span>
-              <span>Report Issue / Source Discrepancy</span>
+              <span data-i18n="btn_report_issue">Report Issue / Source Discrepancy</span>
             </button>
           </div>
         </section>
@@ -707,9 +704,9 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Live Verified Claims Feed</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="explore_feed_title">Live Verified Claims Feed</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">Public repository of high-impact circulating claims, trending hoaxes, and regulatory clarifications.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="explore_feed_desc">Public repository of high-impact circulating claims, trending hoaxes, and regulatory clarifications.</p>
         </div>
 
         <!-- Filter and Search Bar -->
@@ -717,29 +714,29 @@
           <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
             <div class="relative flex-1">
               <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-base">search</span>
-              <input type="text" id="exploreSearchInput" class="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Filter claims by keywords, organization or topics..." oninput="filterExploreClaims()">
+              <input type="text" id="exploreSearchInput" class="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Filter claims by keywords, organization or topics..." data-i18n-placeholder="explore_filter_placeholder" oninput="filterExploreClaims()">
             </div>
             <div class="flex items-center gap-2 flex-wrap">
               <select id="exploreSortSelect" class="h-10 px-3 rounded-xl bg-surface-container-low text-xs font-semibold text-on-surface border border-surface-container outline-none cursor-pointer" onchange="filterExploreClaims()">
-                <option value="trending">Sort: Trending First</option>
-                <option value="recent">Sort: Most Recent</option>
+                <option value="trending" data-i18n="sort_trending">Sort: Trending First</option>
+                <option value="recent" data-i18n="sort_recent">Sort: Most Recent</option>
               </select>
               <select id="exploreStatusSelect" class="h-10 px-3 rounded-xl bg-surface-container-low text-xs font-semibold text-on-surface border border-surface-container outline-none cursor-pointer" onchange="filterExploreClaims()">
-                <option value="all">All Verdicts</option>
-                <option value="false">Hoax / False</option>
-                <option value="misleading">Misleading</option>
-                <option value="verified">Verified True</option>
+                <option value="all" data-i18n="filter_all_verdicts">All Verdicts</option>
+                <option value="false" data-i18n="filter_false">Hoax / False</option>
+                <option value="misleading" data-i18n="filter_misleading">Misleading</option>
+                <option value="verified" data-i18n="filter_verified">Verified True</option>
               </select>
             </div>
           </div>
 
           <!-- Category Chips -->
           <div class="flex items-center gap-2 flex-wrap border-t border-surface-container pt-space-sm" id="exploreCategoryPills">
-            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-primary text-on-primary" data-cat="all" onclick="selectExploreCategory('all')">All Categories</button>
-            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="governance" onclick="selectExploreCategory('governance')">Governance &amp; Finance</button>
-            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="health" onclick="selectExploreCategory('health')">Health &amp; Medicine</button>
-            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="elections" onclick="selectExploreCategory('elections')">Electoral &amp; Civic</button>
-            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="tech" onclick="selectExploreCategory('tech')">Technology &amp; Scams</button>
+            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-primary text-on-primary" data-cat="all" onclick="selectExploreCategory('all')" data-i18n="cat_all">All Categories</button>
+            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="governance" onclick="selectExploreCategory('governance')" data-i18n="cat_governance">Governance &amp; Finance</button>
+            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="health" onclick="selectExploreCategory('health')" data-i18n="cat_health">Health &amp; Medicine</button>
+            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="elections" onclick="selectExploreCategory('elections')" data-i18n="cat_elections">Electoral &amp; Civic</button>
+            <button type="button" class="category-chip px-3 py-1 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-cat="tech" onclick="selectExploreCategory('tech')" data-i18n="cat_tech">Technology &amp; Scams</button>
           </div>
         </div>
 
@@ -756,9 +753,9 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Investigative Chat Session</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="chat_title">Investigative Chat Session</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">Ask clarifying questions, examine evidentiary citations, or test alternative hypotheses on analyzed claims.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="chat_desc">Ask clarifying questions, examine evidentiary citations, or test alternative hypotheses on analyzed claims.</p>
         </div>
 
         <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container flex flex-col h-[600px] overflow-hidden">
@@ -768,14 +765,14 @@
               <span class="w-3 h-3 rounded-full bg-secondary"></span>
               <span class="text-xs font-bold text-on-surface" id="chatSessionTitle">Active Context: UPI 5% Surcharge Case</span>
             </div>
-            <button type="button" class="text-xs text-primary font-semibold hover:underline" onclick="clearChatMessages()">Reset Conversation</button>
+            <button type="button" class="text-xs text-primary font-semibold hover:underline" onclick="clearChatMessages()" data-i18n="reset_chat">Reset Conversation</button>
           </div>
 
           <!-- Chat messages area -->
           <div class="flex-1 p-space-md overflow-y-auto space-y-space-md" id="chatMessagesArea">
             <div class="flex items-start gap-space-sm max-w-xl">
               <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0">S</div>
-              <div class="p-space-md rounded-2xl bg-surface-container-low text-xs text-on-surface border border-surface-container leading-relaxed">
+              <div class="p-space-md rounded-2xl bg-surface-container-low text-xs text-on-surface border border-surface-container leading-relaxed" data-i18n="chat_welcome">
                 Hello! I am your SathyaScan investigation assistant. You can ask me anything about the currently loaded fact check, request deeper source links, or ask how to debunk this rumor in WhatsApp groups.
               </div>
             </div>
@@ -783,9 +780,9 @@
 
           <!-- Chat input box -->
           <div class="p-space-md border-t border-surface-container bg-surface-container-lowest flex items-center gap-2">
-            <input type="text" id="chatInputText" class="flex-1 h-11 px-4 rounded-xl bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Ask a question about this claim (e.g. 'Can merchants charge fees on wallet UPI?')..." onkeydown="handleChatInputKey(event)">
+            <input type="text" id="chatInputText" class="flex-1 h-11 px-4 rounded-xl bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Ask a question about this claim (e.g. 'Can merchants charge fees on wallet UPI?')..." data-i18n-placeholder="chat_input_placeholder" onkeydown="handleChatInputKey(event)">
             <button type="button" class="h-11 px-space-md rounded-xl bg-primary text-on-primary font-bold text-xs flex items-center gap-1 hover:bg-primary-container transition-all" onclick="sendChatMessage()">
-              <span>Send</span>
+              <span data-i18n="send_btn">Send</span>
               <span class="material-symbols-outlined text-sm">send</span>
             </button>
           </div>
@@ -800,12 +797,12 @@
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-              <h2 class="font-headline text-2xl font-bold text-on-surface">Local Verification History</h2>
+              <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="history_title">Local Verification History</h2>
             </div>
-            <p class="text-sm text-on-surface-variant">Claims verified in your current browser session. Stored privately and locally.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="history_desc">Claims verified in your current browser session. Stored privately and locally.</p>
           </div>
           <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-error hover:bg-error-container/40 border border-error-container/50 transition-all flex items-center gap-1" onclick="clearHistoryRecords()">
-            <span class="material-symbols-outlined text-sm">delete</span> Clear History
+            <span class="material-symbols-outlined text-sm">delete</span> <span data-i18n="clear_history">Clear History</span>
           </button>
         </div>
 
@@ -822,9 +819,9 @@
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-              <h2 class="font-headline text-2xl font-bold text-on-surface">Saved Bookmarks</h2>
+              <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="bookmarks_title">Saved Bookmarks</h2>
             </div>
-            <p class="text-sm text-on-surface-variant">Bookmarked fact checks for reference, teaching, or citations.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="bookmarks_desc">Bookmarked fact checks for reference, teaching, or citations.</p>
           </div>
         </div>
 
@@ -841,12 +838,12 @@
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-              <h2 class="font-headline text-2xl font-bold text-on-surface">Active Sentinel Monitors</h2>
+              <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="monitors_title">Active Sentinel Monitors</h2>
             </div>
-            <p class="text-sm text-on-surface-variant">Scheduled continuous audits tracking emerging regulatory dispatches and policy updates.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="monitors_desc">Scheduled continuous audits tracking emerging regulatory dispatches and policy updates.</p>
           </div>
           <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-all flex items-center gap-1" onclick="openRecheckModal()">
-            <span class="material-symbols-outlined text-sm">add</span> New Sentinel Monitor
+            <span class="material-symbols-outlined text-sm">add</span> <span data-i18n="new_monitor_btn">New Sentinel Monitor</span>
           </button>
         </div>
 
@@ -862,34 +859,34 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Platform Trust &amp; Virality Metrics</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="analytics_title">Platform Trust &amp; Virality Metrics</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">Real-time telemetry measuring misinformation containment velocity across linguistic communities.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="analytics_desc">Real-time telemetry measuring misinformation containment velocity across linguistic communities.</p>
         </div>
 
         <!-- KPI Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
           <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-1">
-            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide">Claims Audited</span>
+            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide" data-i18n="kpi_audited">Claims Audited</span>
             <span class="font-headline text-2xl font-extrabold text-primary">24,910+</span>
             <span class="text-[11px] text-secondary font-semibold flex items-center gap-1">
               <span class="material-symbols-outlined text-xs">trending_up</span> +14% this month
             </span>
           </div>
           <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-1">
-            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide">Hoax Interception Rate</span>
+            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide" data-i18n="kpi_hoax_rate">Hoax Interception Rate</span>
             <span class="font-headline text-2xl font-extrabold text-error">71.8%</span>
-            <span class="text-[11px] text-on-surface-variant font-medium">Flagged as False/Misleading</span>
+            <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="kpi_flagged_desc">Flagged as False/Misleading</span>
           </div>
           <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-1">
-            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide">Avg Audit Latency</span>
+            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide" data-i18n="kpi_latency">Avg Audit Latency</span>
             <span class="font-headline text-2xl font-extrabold text-secondary">2.8s</span>
-            <span class="text-[11px] text-on-surface-variant font-medium">Dual-layer pipeline avg</span>
+            <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="kpi_pipeline_avg">Dual-layer pipeline avg</span>
           </div>
           <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-1">
-            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide">Accredited Sources</span>
+            <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide" data-i18n="kpi_sources">Accredited Sources</span>
             <span class="font-headline text-2xl font-extrabold text-primary">120+</span>
-            <span class="text-[11px] text-secondary font-semibold">Tier 1 &amp; Tier 2 Registry</span>
+            <span class="text-[11px] text-secondary font-semibold" data-i18n="kpi_registry_coverage">Tier 1 &amp; Tier 2 Registry</span>
           </div>
         </div>
 
@@ -897,11 +894,11 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg mb-space-lg">
           <!-- Domain Distribution -->
           <div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-space-md">
-            <h3 class="font-headline text-base font-bold text-on-surface">Top Misinformation Domains</h3>
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="top_domains_title">Top Misinformation Domains</h3>
             <div class="space-y-space-sm">
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>Governance, Taxes &amp; UPI Schemes</span>
+                  <span data-i18n="domain_gov_tax">Governance, Taxes &amp; UPI Schemes</span>
                   <span>42%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -910,7 +907,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>Health, Medicine &amp; Miracle Cures</span>
+                  <span data-i18n="domain_health">Health, Medicine &amp; Miracle Cures</span>
                   <span>26%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -919,7 +916,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>Elections, Polling &amp; Candidate Claims</span>
+                  <span data-i18n="domain_elections">Elections, Polling &amp; Candidate Claims</span>
                   <span>18%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -928,7 +925,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>Phishing Scams &amp; Free Subsidy Schemes</span>
+                  <span data-i18n="domain_phishing">Phishing Scams &amp; Free Subsidy Schemes</span>
                   <span>14%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -940,7 +937,7 @@
 
           <!-- Linguistic Distribution -->
           <div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-space-md">
-            <h3 class="font-headline text-base font-bold text-on-surface">Linguistic Breakdown of Circulating Claims</h3>
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="linguistic_title">Linguistic Breakdown of Circulating Claims</h3>
             <div class="space-y-space-sm">
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
@@ -990,36 +987,36 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Public Discrepancy &amp; Feedback Desk</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="discrepancy_title">Public Discrepancy &amp; Feedback Desk</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">SathyaScan operates on transparent editorial accountability. Report source inaccuracies, submit new gazette links, or dispute veracity assessments.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="discrepancy_desc">SathyaScan operates on transparent editorial accountability. Report source inaccuracies, submit new gazette links, or dispute veracity assessments.</p>
         </div>
 
         <div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm border border-surface-container max-w-2xl">
           <form id="discrepancyForm" onsubmit="submitDiscrepancy(event)" class="space-y-space-md">
             <div>
-              <label class="block text-xs font-bold text-on-surface mb-1">Claim Case ID or Topic</label>
+              <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="disp_case_label">Claim Case ID or Topic</label>
               <input type="text" id="dispCaseId" required class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" value="Case #SS-2025-8941: UPI 5% Surcharge">
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-on-surface mb-1">Type of Discrepancy</label>
+              <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="disp_type_label">Type of Discrepancy</label>
               <select id="dispType" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs font-semibold text-on-surface outline-none border border-surface-container focus:ring-2 focus:ring-primary/20">
-                <option value="evidence">New official evidence/gazette published</option>
-                <option value="misinterpretation">AI misinterpreted context of quote</option>
-                <option value="broken_link">Cited evidence link is broken or unavailable</option>
-                <option value="editorial">Dispute veracity classification</option>
+                <option value="evidence" data-i18n="disp_type_evidence">New official evidence/gazette published</option>
+                <option value="misinterpretation" data-i18n="disp_type_misinterpretation">AI misinterpreted context of quote</option>
+                <option value="broken_link" data-i18n="disp_type_broken">Cited evidence link is broken or unavailable</option>
+                <option value="editorial" data-i18n="disp_type_editorial">Dispute veracity classification</option>
               </select>
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-on-surface mb-1">Detailed Explanation &amp; Citations</label>
-              <textarea id="dispNotes" rows="4" required class="w-full p-3 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Provide URLs to primary sources, government gazette numbers, or editorial clarifications..."></textarea>
+              <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="disp_notes_label">Detailed Explanation &amp; Citations</label>
+              <textarea id="dispNotes" rows="4" required class="w-full p-3 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none border border-surface-container focus:ring-2 focus:ring-primary/20" placeholder="Provide URLs to primary sources, government gazette numbers, or editorial clarifications..." data-i18n-placeholder="disp_notes_placeholder"></textarea>
             </div>
 
             <button type="submit" class="px-space-lg py-2.5 rounded-xl bg-primary text-on-primary font-bold text-xs hover:bg-primary-container transition-all flex items-center gap-1.5 shadow-sm">
               <span class="material-symbols-outlined text-base">send</span>
-              <span>Submit Report to Editorial Desk</span>
+              <span data-i18n="disp_submit_btn">Submit Report to Editorial Desk</span>
             </button>
           </form>
         </div>
@@ -1032,17 +1029,17 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Settings &amp; Data Privacy Controls</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="settings_title">Settings &amp; Data Privacy Controls</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">Configure zero-trace verification, regional preferences, and cryptographic audit proofs.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="settings_desc">Configure zero-trace verification, regional preferences, and cryptographic audit proofs.</p>
         </div>
 
         <div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm border border-surface-container max-w-2xl space-y-space-lg">
           <!-- Privacy Mode Toggle -->
           <div class="flex items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
             <div class="flex flex-col gap-0.5">
-              <span class="text-sm font-bold text-on-surface">Zero-Trace Privacy Mode</span>
-              <p class="text-xs text-on-surface-variant">When enabled, queries are evaluated in ephemeral memory and discarded immediately without logging.</p>
+              <span class="text-sm font-bold text-on-surface" data-i18n="privacy_setting_title">Zero-Trace Privacy Mode</span>
+              <p class="text-xs text-on-surface-variant" data-i18n="privacy_setting_desc">When enabled, queries are evaluated in ephemeral memory and discarded immediately without logging.</p>
             </div>
             <button type="button" id="settingsPrivacyToggle" class="px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold" onclick="togglePrivacyMode()">
               Enabled (Zero Trace)
@@ -1052,8 +1049,8 @@
           <!-- Language Preference -->
           <div class="flex items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
             <div class="flex flex-col gap-0.5">
-              <span class="text-sm font-bold text-on-surface">Default Audio &amp; Report Language</span>
-              <p class="text-xs text-on-surface-variant">Preferred dialect for speech summaries and fact sheets.</p>
+              <span class="text-sm font-bold text-on-surface" data-i18n="lang_setting_title">Default Audio &amp; Report Language</span>
+              <p class="text-xs text-on-surface-variant" data-i18n="lang_setting_desc">Preferred dialect for speech summaries and fact sheets.</p>
             </div>
             <select id="settingsLangSelect" class="h-9 px-3 rounded-lg bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container" onchange="changeLanguage(this.value)">
               <option value="en">English</option>
@@ -1066,10 +1063,10 @@
           <!-- Local Storage Purge -->
           <div class="flex items-center justify-between gap-space-md">
             <div class="flex flex-col gap-0.5">
-              <span class="text-sm font-bold text-error">Purge All Browser Stored Data</span>
-              <p class="text-xs text-on-surface-variant">Instantly wipe all local verification histories, saved bookmarks, and custom monitors.</p>
+              <span class="text-sm font-bold text-error" data-i18n="purge_setting_title">Purge All Browser Stored Data</span>
+              <p class="text-xs text-on-surface-variant" data-i18n="purge_setting_desc">Instantly wipe all local verification histories, saved bookmarks, and custom monitors.</p>
             </div>
-            <button type="button" class="px-3 py-1.5 rounded-lg bg-error text-on-error text-xs font-bold hover:bg-error-container transition-all" onclick="purgeAllData()">
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-error text-on-error text-xs font-bold hover:bg-error-container transition-all" onclick="purgeAllData()" data-i18n="purge_btn">
               Purge Local Data
             </button>
           </div>
@@ -1083,40 +1080,40 @@
         <div class="flex flex-col gap-1 mb-space-lg">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
-            <h2 class="font-headline text-2xl font-bold text-on-surface">Dual-Layer Verification Protocol</h2>
+            <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="methodology_title">Dual-Layer Verification Protocol</h2>
           </div>
-          <p class="text-sm text-on-surface-variant">How SathyaScan delivers trustworthy, verifiable, non-partisan fact-checking.</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="methodology_desc">How SathyaScan delivers trustworthy, verifiable, non-partisan fact-checking.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-xl">
           <div class="bg-surface-container-lowest p-space-lg rounded-2xl border border-surface-container shadow-sm flex flex-col gap-space-sm">
             <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-bold">1</div>
-            <h3 class="font-headline text-base font-bold text-on-surface">Multi-modal &amp; Syntactic Extraction</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="step1_title">Multi-modal &amp; Syntactic Extraction</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="step1_desc">
               When a message or link arrives, our parser strips forwarding markers, resolves URL shorteners securely with SSRF shields, and extracts atomic testable assertions.
             </p>
           </div>
 
           <div class="bg-surface-container-lowest p-space-lg rounded-2xl border border-surface-container shadow-sm flex flex-col gap-space-sm">
             <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-on-secondary font-bold">2</div>
-            <h3 class="font-headline text-base font-bold text-on-surface">Hierarchical Evidence Cross-Examination</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="step2_title">Hierarchical Evidence Cross-Examination</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="step2_desc">
               Claims are prioritized against Tier 1 official sources (National Gazettes, Press Information Bureau, RBI, WHO, Court Judgments) before consulting Tier 2 accredited wire newsrooms (Reuters, PTI, The Hindu).
             </p>
           </div>
 
           <div class="bg-surface-container-lowest p-space-lg rounded-2xl border border-surface-container shadow-sm flex flex-col gap-space-sm">
             <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-bold">3</div>
-            <h3 class="font-headline text-base font-bold text-on-surface">Dual-Layer AI Synthesis</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="step3_title">Dual-Layer AI Synthesis</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="step3_desc">
               Anthropic Claude models synthesize multi-source findings into accessible, non-partisan verdicts with explicit confidence metrics and atomic breakdowns.
             </p>
           </div>
 
           <div class="bg-surface-container-lowest p-space-lg rounded-2xl border border-surface-container shadow-sm flex flex-col gap-space-sm">
             <div class="w-10 h-10 rounded-xl bg-tertiary flex items-center justify-center text-on-tertiary font-bold">4</div>
-            <h3 class="font-headline text-base font-bold text-on-surface">Cryptographic Proof &amp; PDF Export</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">
+            <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="step4_title">Cryptographic Proof &amp; PDF Export</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="step4_desc">
               Every audit produces an immutable SHA-256 fact sheet PDF complete with timestamp, citations, and verdict stamps suitable for legal, journalistic, or civic citation.
             </p>
           </div>
@@ -1148,27 +1145,27 @@
   <div id="recheckModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-xl border border-surface-container flex flex-col gap-space-md">
       <div class="flex items-center justify-between">
-        <h3 class="font-headline text-base font-bold text-on-surface">Schedule Sentinel Monitor</h3>
+        <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="modal_recheck_title">Schedule Sentinel Monitor</h3>
         <button type="button" class="text-on-surface-variant hover:text-on-surface" onclick="closeModal('recheckModal')">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant">Configure automated checks to monitor if regulatory or official entities revise statements regarding this claim.</p>
+      <p class="text-xs text-on-surface-variant" data-i18n="modal_recheck_desc">Configure automated checks to monitor if regulatory or official entities revise statements regarding this claim.</p>
       <div>
-        <label class="block text-xs font-bold text-on-surface mb-1">Check Frequency</label>
+        <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_recheck_freq">Check Frequency</label>
         <select id="modalRecheckFreq" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container">
-          <option value="24h">Every 24 Hours</option>
-          <option value="7d" selected>Every 7 Days</option>
-          <option value="30d">Monthly</option>
+          <option value="24h" data-i18n="freq_24h">Every 24 Hours</option>
+          <option value="7d" selected data-i18n="freq_7d">Every 7 Days</option>
+          <option value="30d" data-i18n="freq_30d">Monthly</option>
         </select>
       </div>
       <div>
-        <label class="block text-xs font-bold text-on-surface mb-1">Note or Custom Watch Query</label>
+        <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_recheck_note">Note or Custom Watch Query</label>
         <input type="text" id="modalRecheckNote" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs text-on-surface border border-surface-container" value="Watch for official NPCI circulars on consumer fees">
       </div>
       <div class="flex items-center justify-end gap-2 pt-2">
-        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('recheckModal')">Cancel</button>
-        <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container" onclick="saveScheduledRecheck()">Schedule Monitor</button>
+        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('recheckModal')" data-i18n="cancel_btn">Cancel</button>
+        <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container" onclick="saveScheduledRecheck()" data-i18n="schedule_btn">Schedule Monitor</button>
       </div>
     </div>
   </div>
@@ -1177,28 +1174,28 @@
   <div id="appealModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-xl border border-surface-container flex flex-col gap-space-md">
       <div class="flex items-center justify-between">
-        <h3 class="font-headline text-base font-bold text-on-surface">Appeal Veracity Verdict</h3>
+        <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="modal_appeal_title">Appeal Veracity Verdict</h3>
         <button type="button" class="text-on-surface-variant hover:text-on-surface" onclick="closeModal('appealModal')">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant">Submit secondary documentation or counter-citations for editorial team triage.</p>
+      <p class="text-xs text-on-surface-variant" data-i18n="modal_appeal_desc">Submit secondary documentation or counter-citations for editorial team triage.</p>
       <div>
-        <label class="block text-xs font-bold text-on-surface mb-1">Reason for Appeal</label>
+        <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_appeal_reason">Reason for Appeal</label>
         <select id="modalAppealReason" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container">
-          <option>Inaccurate primary source cited</option>
-          <option>Missing critical contextual update</option>
-          <option>Regional nuance omitted</option>
-          <option>Other</option>
+          <option data-i18n="appeal_r1">Inaccurate primary source cited</option>
+          <option data-i18n="appeal_r2">Missing critical contextual update</option>
+          <option data-i18n="appeal_r3">Regional nuance omitted</option>
+          <option data-i18n="appeal_r4">Other</option>
         </select>
       </div>
       <div>
-        <label class="block text-xs font-bold text-on-surface mb-1">Supporting Documentation URL</label>
+        <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_appeal_url">Supporting Documentation URL</label>
         <input type="url" id="modalAppealUrl" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs text-on-surface border border-surface-container" placeholder="https://...">
       </div>
       <div class="flex items-center justify-end gap-2 pt-2">
-        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('appealModal')">Cancel</button>
-        <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container" onclick="saveAppeal()">Submit Appeal</button>
+        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('appealModal')" data-i18n="cancel_btn">Cancel</button>
+        <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container" onclick="saveAppeal()" data-i18n="submit_appeal_btn">Submit Appeal</button>
       </div>
     </div>
   </div>
@@ -1207,19 +1204,19 @@
   <div id="reportModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-xl border border-surface-container flex flex-col gap-space-md">
       <div class="flex items-center justify-between">
-        <h3 class="font-headline text-base font-bold text-on-surface">Report Issue or Broken Citation</h3>
+        <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="modal_report_title">Report Issue or Broken Citation</h3>
         <button type="button" class="text-on-surface-variant hover:text-on-surface" onclick="closeModal('reportModal')">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant">Found a broken link or layout problem? Let our platform integrity team know.</p>
+      <p class="text-xs text-on-surface-variant" data-i18n="modal_report_desc">Found a broken link or layout problem? Let our platform integrity team know.</p>
       <div>
-        <label class="block text-xs font-bold text-on-surface mb-1">Issue Details</label>
-        <textarea id="modalReportDetails" rows="3" class="w-full p-3 rounded-xl bg-surface-container-low text-xs text-on-surface border border-surface-container" placeholder="Describe the error..."></textarea>
+        <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_report_details">Issue Details</label>
+        <textarea id="modalReportDetails" rows="3" class="w-full p-3 rounded-xl bg-surface-container-low text-xs text-on-surface border border-surface-container" placeholder="Describe the error..." data-i18n-placeholder="modal_report_placeholder"></textarea>
       </div>
       <div class="flex items-center justify-end gap-2 pt-2">
-        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('reportModal')">Cancel</button>
-        <button type="button" class="px-4 py-2 rounded-xl bg-error text-on-error text-xs font-bold hover:bg-error-container" onclick="saveReportIssue()">Report Issue</button>
+        <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeModal('reportModal')" data-i18n="cancel_btn">Cancel</button>
+        <button type="button" class="px-4 py-2 rounded-xl bg-error text-on-error text-xs font-bold hover:bg-error-container" onclick="saveReportIssue()" data-i18n="report_issue_btn">Report Issue</button>
       </div>
     </div>
   </div>
@@ -1227,82 +1224,982 @@
   <!-- Notifications Drawer -->
   <div id="notificationsDrawer" class="fixed top-16 right-6 w-80 bg-surface-container-lowest rounded-2xl shadow-2xl border border-surface-container z-50 hidden p-space-md flex flex-col gap-space-sm">
     <div class="flex items-center justify-between border-b border-surface-container pb-2">
-      <span class="text-xs font-bold text-on-surface">Recent Platform Alerts</span>
+      <span class="text-xs font-bold text-on-surface" data-i18n="alerts_title">Recent Platform Alerts</span>
       <span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold">Live</span>
     </div>
     <div class="space-y-2">
       <div class="p-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" onclick="loadSample(1); toggleNotificationsDrawer()">
-        <span class="text-[10px] text-error font-bold block">VIRALITY SPIKE</span>
-        <span class="text-xs font-bold text-on-surface block">5% UPI Transaction Surcharge Rumor</span>
-        <span class="text-[10px] text-on-surface-variant">PIB &amp; NPCI issued denials • Tap to view</span>
+        <span class="text-[10px] text-error font-bold block" data-i18n="alert1_tag">VIRALITY SPIKE</span>
+        <span class="text-xs font-bold text-on-surface block" data-i18n="alert1_title">5% UPI Transaction Surcharge Rumor</span>
+        <span class="text-[10px] text-on-surface-variant" data-i18n="alert1_desc">PIB &amp; NPCI issued denials • Tap to view</span>
       </div>
       <div class="p-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" onclick="loadSample(2); toggleNotificationsDrawer()">
-        <span class="text-[10px] text-secondary font-bold block">SCHEME CLARIFICATION</span>
-        <span class="text-xs font-bold text-on-surface block">PM Surya Ghar Free Solar Scheme</span>
-        <span class="text-[10px] text-on-surface-variant">Fake application domains identified • Tap to view</span>
+        <span class="text-[10px] text-secondary font-bold block" data-i18n="alert2_tag">SCHEME CLARIFICATION</span>
+        <span class="text-xs font-bold text-on-surface block" data-i18n="alert2_title">PM Surya Ghar Free Solar Scheme</span>
+        <span class="text-[10px] text-on-surface-variant" data-i18n="alert2_desc">Fake application domains identified • Tap to view</span>
       </div>
     </div>
   </div>
 
   <!-- ======================================================== -->
-  <!-- APPLICATION SCRIPT & DYNAMIC STATE CONTROLLER           -->
+  <!-- MULTILINGUAL DICTIONARY & STATE CONTROLLER               -->
   <!-- ======================================================== -->
   <script>
+    const I18N = {
+      en: {
+        badge_public: "Public",
+        tagline: "Multimodal Trust Platform",
+        nav_suite_header: "Investigation Suite",
+        nav_fact_check: "Fact Check Studio",
+        nav_explore: "Explore Claims Feed",
+        nav_chat: "Investigative Chat",
+        nav_history: "Verification History",
+        nav_bookmarks: "Saved Bookmarks",
+        nav_monitors: "Scheduled Monitors",
+        nav_governance_header: "Platform Trust",
+        nav_overview: "Overview & Metrics",
+        nav_moderation: "Discrepancy Desk",
+        nav_settings: "Settings & Privacy",
+        sidebar_dual_layer_title: "Dual-Layer Verification",
+        sidebar_dual_layer_desc: "AI heuristics cross-examined with official government gazettes, PIB & certified newsrooms.",
+        sidebar_read_protocol: "Read Verification Protocol",
+        search_placeholder: "Search claims, viral forwards, URLs...",
+        privacy_on: "Privacy Mode: ON",
+        privacy_off: "Privacy Mode: OFF",
+        citizen_title: "Public Citizen",
+        citizen_subtitle: "Zero-Auth Verification",
+        verify_input_title: "Submit Claim or URL for Real-Time Fact Check",
+        live_badge: "Live AI & Official Evidence Registry",
+        verify_input_desc: "Paste suspicious forwarded messages, claims circulating on WhatsApp/Telegram/X, or full web article links. Our engine isolates atomic assertions, queries official registries, and synthesizes a verifiable veracity report.",
+        claim_input_placeholder: "E.g., 'Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1' or paste a URL...",
+        detecting_format: "Detecting format...",
+        try_sample_label: "Try sample:",
+        clear_btn: "Clear",
+        verify_btn: "Verify Claim Now",
+        verifying_step_default: "Auditing with SathyaScan Dual-Layer Pipeline...",
+        estimating_time: "Estimating ~2-4s",
+        breadcrumb_explore: "Explore",
+        breadcrumb_domain: "Governance & Finance",
+        just_verified: "Just Verified",
+        share_report: "Share Report",
+        virality_high: "High Velocity Virality",
+        cross_checked_badge: "Cross-Checked Across Official Repositories",
+        meta_media_format: "Media Format",
+        meta_text_forward: "Text / Forward",
+        meta_audit_time: "Audit Time",
+        meta_today_live: "Today, Live Verification",
+        meta_audit_dialect: "Audit Dialect",
+        meta_domain_area: "Domain Area",
+        meta_civic_policy: "Civic & Public Policy",
+        meta_user_privacy: "User Privacy",
+        meta_anon_citizen: "Anonymous Citizen",
+        verdict_subheader: "Official Veracity Assessment",
+        verdict_false_title: "VERDICT: FALSE",
+        verdict_true_title: "VERDICT: TRUE",
+        verdict_misleading_title: "VERDICT: MISLEADING",
+        verdict_unverified_title: "VERDICT: UNVERIFIED",
+        verdict_label_false: "False",
+        verdict_label_true: "Verified True",
+        verdict_label_misleading: "Misleading",
+        evidence_metric_label: "Evidence Metric",
+        confidence_conclusive: "Conclusive",
+        sources_verified_badge: "Multi-source verified",
+        audio_summary_title: "Audio Verdict Summary",
+        audio_read_aloud: "Read Aloud",
+        audio_summary_desc: "Click play to listen to a clear spoken voice summary tailored for easy forwarding and seniors.",
+        speech_dialect_label: "Speech Dialect:",
+        plain_summary_title: "Plain Language Summary",
+        non_technical_guide: "Non-technical guide",
+        what_is_true_title: "What is Actually True",
+        what_is_false_title: "What is Completely False",
+        origin_context_title: "Origin & Context",
+        atomic_claims_title: "Atomic Claims Evaluated",
+        assertions_isolated_badge: "2 Assertions Isolated",
+        sub_claim_1: "Sub-claim 01",
+        sub_claim_2: "Sub-claim 02",
+        finding_label: "Finding:",
+        evidence_sources_title: "Primary Evidence Sources",
+        tier_verified_badge: "Tier Verified",
+        evidence_sources_desc: "Corroborated directly through authenticated institutional records and accredited investigative newsrooms.",
+        tier_1_authority: "Tier 1: Primary Authority",
+        tier_1_fact_checker: "Tier 1: Official Fact-Checker",
+        official_clarification: "Official Clarification",
+        official_gov_dispatch: "Official Government Dispatch",
+        read_source: "Read Source",
+        active_sentinel_monitor: "Active Sentinel Monitor",
+        sentinel_title: "Continuous Policy Re-Verification",
+        sentinel_desc: "Monitors regulatory gazettes and official announcements. If policies evolve, this report is dynamically re-audited.",
+        scheduled_sweep_label: "Scheduled Sweep",
+        daily_midnight: "Daily at Midnight",
+        configure_btn: "Configure",
+        action_suite_title: "Citizen & Investigator Action Suite",
+        action_suite_desc: "Export verified cryptographic documentation, conduct forensic chat, or challenge findings.",
+        btn_download_pdf: "Download Fact Sheet PDF",
+        btn_bookmark: "Bookmark Analysis",
+        btn_share_link: "Copy Shareable Link",
+        btn_ask_questions: "Ask Follow-up Questions",
+        btn_schedule_recheck: "Schedule Re-check",
+        btn_appeal_verdict: "Appeal Verdict",
+        btn_report_issue: "Report Issue / Source Discrepancy",
+        explore_feed_title: "Live Verified Claims Feed",
+        explore_feed_desc: "Public repository of high-impact circulating claims, trending hoaxes, and regulatory clarifications.",
+        explore_filter_placeholder: "Filter claims by keywords, organization or topics...",
+        sort_trending: "Sort: Trending First",
+        sort_recent: "Sort: Most Recent",
+        filter_all_verdicts: "All Verdicts",
+        filter_false: "Hoax / False",
+        filter_misleading: "Misleading",
+        filter_verified: "Verified True",
+        cat_all: "All Categories",
+        cat_governance: "Governance & Finance",
+        cat_health: "Health & Medicine",
+        cat_elections: "Electoral & Civic",
+        cat_tech: "Technology & Scams",
+        chat_title: "Investigative Chat Session",
+        chat_desc: "Ask clarifying questions, examine evidentiary citations, or test alternative hypotheses on analyzed claims.",
+        reset_chat: "Reset Conversation",
+        chat_welcome: "Hello! I am your SathyaScan investigation assistant. You can ask me anything about the currently loaded fact check, request deeper source links, or ask how to debunk this rumor in WhatsApp groups.",
+        chat_input_placeholder: "Ask a question about this claim (e.g. 'Can merchants charge fees on wallet UPI?')...",
+        send_btn: "Send",
+        history_title: "Local Verification History",
+        history_desc: "Claims verified in your current browser session. Stored privately and locally.",
+        clear_history: "Clear History",
+        bookmarks_title: "Saved Bookmarks",
+        bookmarks_desc: "Bookmarked fact checks for reference, teaching, or citations.",
+        monitors_title: "Active Sentinel Monitors",
+        monitors_desc: "Scheduled continuous audits tracking emerging regulatory dispatches and policy updates.",
+        new_monitor_btn: "New Sentinel Monitor",
+        analytics_title: "Platform Trust & Virality Metrics",
+        analytics_desc: "Real-time telemetry measuring misinformation containment velocity across linguistic communities.",
+        kpi_audited: "Claims Audited",
+        kpi_hoax_rate: "Hoax Interception Rate",
+        kpi_flagged_desc: "Flagged as False/Misleading",
+        kpi_latency: "Avg Audit Latency",
+        kpi_pipeline_avg: "Dual-layer pipeline avg",
+        kpi_sources: "Accredited Sources",
+        kpi_registry_coverage: "Tier 1 & Tier 2 Registry",
+        top_domains_title: "Top Misinformation Domains",
+        domain_gov_tax: "Governance, Taxes & UPI Schemes",
+        domain_health: "Health, Medicine & Miracle Cures",
+        domain_elections: "Elections, Polling & Candidate Claims",
+        domain_phishing: "Phishing Scams & Free Subsidy Schemes",
+        linguistic_title: "Linguistic Breakdown of Circulating Claims",
+        discrepancy_title: "Public Discrepancy & Feedback Desk",
+        discrepancy_desc: "SathyaScan operates on transparent editorial accountability. Report source inaccuracies, submit new gazette links, or dispute veracity assessments.",
+        disp_case_label: "Claim Case ID or Topic",
+        disp_type_label: "Type of Discrepancy",
+        disp_type_evidence: "New official evidence/gazette published",
+        disp_type_misinterpretation: "AI misinterpreted context of quote",
+        disp_type_broken: "Cited evidence link is broken or unavailable",
+        disp_type_editorial: "Dispute veracity classification",
+        disp_notes_label: "Detailed Explanation & Citations",
+        disp_notes_placeholder: "Provide URLs to primary sources, government gazette numbers, or editorial clarifications...",
+        disp_submit_btn: "Submit Report to Editorial Desk",
+        settings_title: "Settings & Data Privacy Controls",
+        settings_desc: "Configure zero-trace verification, regional preferences, and cryptographic audit proofs.",
+        privacy_setting_title: "Zero-Trace Privacy Mode",
+        privacy_setting_desc: "When enabled, queries are evaluated in ephemeral memory and discarded immediately without logging.",
+        lang_setting_title: "Default Audio & Report Language",
+        lang_setting_desc: "Preferred dialect for speech summaries and fact sheets.",
+        purge_setting_title: "Purge All Browser Stored Data",
+        purge_setting_desc: "Instantly wipe all local verification histories, saved bookmarks, and custom monitors.",
+        purge_btn: "Purge Local Data",
+        methodology_title: "Dual-Layer Verification Protocol",
+        methodology_desc: "How SathyaScan delivers trustworthy, verifiable, non-partisan fact-checking.",
+        step1_title: "Multi-modal & Syntactic Extraction",
+        step1_desc: "When a message or link arrives, our parser strips forwarding markers, resolves URL shorteners securely with SSRF shields, and extracts atomic testable assertions.",
+        step2_title: "Hierarchical Evidence Cross-Examination",
+        step2_desc: "Claims are prioritized against Tier 1 official sources (National Gazettes, Press Information Bureau, RBI, WHO, Court Judgments) before consulting Tier 2 accredited wire newsrooms (Reuters, PTI, The Hindu).",
+        step3_title: "Dual-Layer AI Synthesis",
+        step3_desc: "Anthropic Claude models synthesize multi-source findings into accessible, non-partisan verdicts with explicit confidence metrics and atomic breakdowns.",
+        step4_title: "Cryptographic Proof & PDF Export",
+        step4_desc: "Every audit produces an immutable SHA-256 fact sheet PDF complete with timestamp, citations, and verdict stamps suitable for legal, journalistic, or civic citation.",
+        cancel_btn: "Cancel",
+        schedule_btn: "Schedule Monitor",
+        modal_recheck_title: "Schedule Sentinel Monitor",
+        modal_recheck_desc: "Configure automated checks to monitor if regulatory or official entities revise statements regarding this claim.",
+        modal_recheck_freq: "Check Frequency",
+        freq_24h: "Every 24 Hours",
+        freq_7d: "Every 7 Days",
+        freq_30d: "Monthly",
+        modal_recheck_note: "Note or Custom Watch Query",
+        modal_appeal_title: "Appeal Veracity Verdict",
+        modal_appeal_desc: "Submit secondary documentation or counter-citations for editorial team triage.",
+        modal_appeal_reason: "Reason for Appeal",
+        appeal_r1: "Inaccurate primary source cited",
+        appeal_r2: "Missing critical contextual update",
+        appeal_r3: "Regional nuance omitted",
+        appeal_r4: "Other",
+        modal_appeal_url: "Supporting Documentation URL",
+        submit_appeal_btn: "Submit Appeal",
+        modal_report_title: "Report Issue or Broken Citation",
+        modal_report_desc: "Found a broken link or layout problem? Let our platform integrity team know.",
+        modal_report_details: "Issue Details",
+        modal_report_placeholder: "Describe the error...",
+        report_issue_btn: "Report Issue",
+        alerts_title: "Recent Platform Alerts",
+        alert1_tag: "VIRALITY SPIKE",
+        alert1_title: "5% UPI Transaction Surcharge Rumor",
+        alert1_desc: "PIB & NPCI issued denials • Tap to view",
+        alert2_tag: "SCHEME CLARIFICATION",
+        alert2_title: "PM Surya Ghar Free Solar Scheme",
+        alert2_desc: "Fake application domains identified • Tap to view",
+        sample1_name: "💸 5% UPI Surcharge Rumor",
+        sample2_name: "☀️ PM Surya Ghar Free Solar Scheme",
+        sample3_name: "🔗 Fact-check URL (pib.gov.in)",
+        sample_headline: "Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.",
+        sample_summary_text: "Neither the Ministry of Finance nor NPCI has issued any surcharge or fee on standard UPI transactions. This message recirculates an outdated and misinterpreted 2023 wallet merchant interchange circular.",
+        sample_what_is_true: "Normal bank-to-bank UPI transfers (Person-to-Person and standard consumer QR payments to merchants) remain <strong>100% free</strong> for Indian citizens and consumers.",
+        sample_what_is_false: "There is <strong>no 5% fee, tax, or surcharge</strong> imposed on transfers over ₹2,000. Neither the Finance Ministry nor RBI has proposed any consumer charge.",
+        sample_origin_context: "Malicious actors regularly recirculate distorted summaries of a March 2023 NPCI circular regarding Merchant Prepaid Payment Instruments (PPI / wallets like Paytm or Amazon Pay) with an interchange fee paid exclusively by large merchants, not consumers.",
+        sample_subclaim1_text: "\"UPI will start charging a mandatory 5% tax or transaction fee from next month on amounts exceeding ₹2,000.\"",
+        sample_subclaim1_finding: "Fabricated statement. The Master Circular on National Unified Payments Framework strictly forbids charging end consumers for domestic peer and standard merchant payments.",
+        sample_subclaim2_text: "\"NPCI and Nirmala Sitharaman announced this policy on Twitter via official press releases.\"",
+        sample_subclaim2_finding: "Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim.",
+        sample_evidence_npci: "\"NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers.\"",
+        sample_evidence_pib: "\"Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake.\""
+      },
+
+      ml: {
+        badge_public: "പൊതുജനങ്ങൾക്ക്",
+        tagline: "ബഹുഭാഷാ വസ്തുതാ പരിശോധനാ പ്ലാറ്റ്‌ഫോം",
+        nav_suite_header: "അന്വേഷണ വിഭാഗം",
+        nav_fact_check: "വസ്തുതാ പരിശോധന സ്റ്റുഡിയോ",
+        nav_explore: "പ്രചരിക്കുന്ന വാദങ്ങൾ",
+        nav_chat: "അന്വേഷണാത്മക ചാറ്റ്",
+        nav_history: "പരിശോധനാ ചരിത്രം",
+        nav_bookmarks: "സൂക്ഷിച്ചവ",
+        nav_monitors: "ഷെഡ്യൂൾഡ് മോണിറ്ററുകൾ",
+        nav_governance_header: "വിശ്വാസ്യതയും മാനദണ്ഡങ്ങളും",
+        nav_overview: "അവലോകനവും കണക്കുകളും",
+        nav_moderation: "തിരുത്തൽ ഡെസ്ക്",
+        nav_settings: "ക്രമീകരണങ്ങളും സ്വകാര്യതയും",
+        sidebar_dual_layer_title: "ദ്വിതല പരിശോധനാ സംവിധാനം",
+        sidebar_dual_layer_desc: "സർക്കാർ ഗസറ്റുകൾ, പിഐബി, അംഗീകൃത വാർത്താ മാധ്യമങ്ങൾ എന്നിവയുമായി ഒത്തുനോക്കിയുള്ള പരിശോധന.",
+        sidebar_read_protocol: "പരിശോധനാ രീതി വായിക്കുക",
+        search_placeholder: "വാദങ്ങൾ, വാട്സാപ്പ് ഫോർവേഡുകൾ, വെബ്സൈറ്റ് ലിങ്കുകൾ തിരയുക...",
+        privacy_on: "സ്വകാര്യതാ മോഡ്: ഓൺ",
+        privacy_off: "സ്വകാര്യതാ മോഡ്: ഓഫ്",
+        citizen_title: "പൊതു പൗരൻ",
+        citizen_subtitle: "ലോഗിൻ ആവശ്യമില്ലാത്ത പരിശോധന",
+        verify_input_title: "തത്സമയ വസ്തുതാ പരിശോധനയ്ക്കായി വാദമോ ലിങ്കോ നൽകുക",
+        live_badge: "തത്സമയ AI & ഔദ്യോഗിക വിവര ശേഖരം",
+        verify_input_desc: "വാട്സാപ്പ്, ടെലിഗ്രാം അല്ലെങ്കിൽ ഫേസ്ബുക്കിൽ കാണുന്ന സംശയാസ്പദമായ സന്ദേശങ്ങളോ വെബ്‌സൈറ്റ് ലിങ്കുകളോ നൽകുക. ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോം ഔദ്യോഗിക ഉറവിടങ്ങളുമായി ഒത്തുനോക്കി കൃത്യമായ വസ്തുതാ റിപ്പോർട്ട് നൽകുന്നു.",
+        claim_input_placeholder: "ഉദാ: '₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള യുപിഐ ഇടപാടുകൾക്ക് ഏപ്രിൽ 1 മുതൽ 5% നികുതി ഏർപ്പെടുത്തിയെന്ന പ്രചാരണം' അല്ലെങ്കിൽ ലിങ്ക് നൽകുക...",
+        detecting_format: "ഫോർമാറ്റ് പരിശോധിക്കുന്നു...",
+        try_sample_label: "സാമ്പിൾ പരീക്ഷിക്കുക:",
+        clear_btn: "മായ്ക്കുക",
+        verify_btn: "ഇപ്പോൾ പരിശോധിക്കുക",
+        verifying_step_default: "സത്യസ്കാൻ ദ്വിതല സംവിധാനം വഴി പരിശോധിക്കുന്നു...",
+        estimating_time: "ഏകദേശം ~2-4 സെക്കൻഡ്",
+        breadcrumb_explore: "എക്സ്പ്ലോർ",
+        breadcrumb_domain: "ഭരണവും ധനകാര്യവും",
+        just_verified: "ഇപ്പോൾ പരിശോധിച്ചത്",
+        share_report: "റിപ്പോർട്ട് ഷെയർ ചെയ്യുക",
+        virality_high: "വളരെ വേഗത്തിൽ പ്രചരിക്കുന്നത്",
+        cross_checked_badge: "ഔദ്യോഗിക രേഖകളുമായി ഒത്തുനോക്കിയത്",
+        meta_media_format: "മീഡിയ ഫോർമാറ്റ്",
+        meta_text_forward: "ടെക്സ്റ്റ് / ഫോർവേഡ്",
+        meta_audit_time: "പരിശോധിച്ച സമയം",
+        meta_today_live: "ഇന്ന്, തത്സമയം",
+        meta_audit_dialect: "ഭാഷ",
+        meta_domain_area: "വിഷയ മേഖല",
+        meta_civic_policy: "പൊതുനയം & ഭരണം",
+        meta_user_privacy: "ഉപയോക്തൃ സ്വകാര്യത",
+        meta_anon_citizen: "അജ്ഞാത പൗരൻ",
+        verdict_subheader: "ഔദ്യോഗിക വസ്തുതാ വിലയിരുത്തൽ",
+        verdict_false_title: "തീർപ്പ്: വ്യാജം",
+        verdict_true_title: "തീർപ്പ്: സത്യം",
+        verdict_misleading_title: "തീർപ്പ്: തെറ്റിദ്ധരിപ്പിക്കുന്നത്",
+        verdict_unverified_title: "തീർപ്പ്: സ്ഥിരീകരിക്കാത്തത്",
+        verdict_label_false: "വ്യാജം",
+        verdict_label_true: "സത്യം",
+        verdict_label_misleading: "തെറ്റിദ്ധരിപ്പിക്കുന്നത്",
+        evidence_metric_label: "തെളിവ് നിരക്ക്",
+        confidence_conclusive: "കൃത്യമായ നിഗമനം",
+        sources_verified_badge: "വിവിധ സ്രോതസ്സുകളാൽ സ്ഥിരീകരിച്ചത്",
+        audio_summary_title: "ശബ്ദ സംഗ്രഹം",
+        audio_read_aloud: "കേൾക്കുക",
+        audio_summary_desc: "പ്രായമായവർക്കും ഫോർവേഡ് ചെയ്യാനും എളുപ്പമുള്ള ശബ്ദ സംഗ്രഹം കേൾക്കാൻ പ്ലേ ചെയ്യുക.",
+        speech_dialect_label: "സംസാര ഭാഷ:",
+        plain_summary_title: "ലളിതമായ സംഗ്രഹം",
+        non_technical_guide: "സാധാരണക്കാർക്കുള്ള വിശദീകരണം",
+        what_is_true_title: "വാസ്തവം എന്താണ്",
+        what_is_false_title: "പൂർണ്ണമായും തെറ്റായത് എന്താണ്",
+        origin_context_title: "ഉറവിടവും പശ്ചാത്തലവും",
+        atomic_claims_title: "വേർതിരിച്ചെടുത്ത വ്യക്തിഗത വാദങ്ങൾ",
+        assertions_isolated_badge: "2 പ്രധാന വാദങ്ങൾ വേർതിരിച്ചു",
+        sub_claim_1: "ഉപ-വാദം 01",
+        sub_claim_2: "ഉപ-വാദം 02",
+        finding_label: "കണ്ടെത്തൽ:",
+        evidence_sources_title: "പ്രാഥമിക തെളിവ് സ്രോതസ്സുകൾ",
+        tier_verified_badge: "പരിശോധിച്ച് ഉറപ്പുവരുത്തിയത്",
+        evidence_sources_desc: "ഔദ്യോഗിക സർക്കാർ സ്ഥാപനങ്ങളുടെ ഉത്തരവുകളിലൂടെയും അംഗീകൃത വാർത്താ ഏജൻസികളിലൂടെയും ഉറപ്പുവരുത്തിയത്.",
+        tier_1_authority: "ടയർ 1: പ്രാഥമിക അതോറിറ്റി",
+        tier_1_fact_checker: "ടയർ 1: ഔദ്യോഗിക വസ്തുതാ പരിശോധകൻ",
+        official_clarification: "ഔദ്യോഗിക വിശദീകരണം",
+        official_gov_dispatch: "സർക്കാർ വാർത്താക്കുറിപ്പ്",
+        read_source: "സ്രോതസ്സ് വായിക്കുക",
+        active_sentinel_monitor: "സജീവ സെന്റിനൽ നിരീക്ഷണം",
+        sentinel_title: "തുടർച്ചയായ നയ പുനഃപരിശോധന",
+        sentinel_desc: "സർക്കാർ ഗസറ്റുകളും വിജ്ഞാപനങ്ങളും നിരന്തരം നിരീക്ഷിക്കുന്നു. പുതിയ നിർദ്ദേശങ്ങൾ വന്നാൽ ഈ റിപ്പോർട്ട് സ്വയമേവ അപ്ഡേറ്റ് ചെയ്യപ്പെടും.",
+        scheduled_sweep_label: "അടുത്ത പരിശോധന",
+        daily_midnight: "എല്ലാ ദിവസവും അർദ്ധരാത്രിയിൽ",
+        configure_btn: "ക്രമീകരിക്കുക",
+        action_suite_title: "നടപടി ക്രമങ്ങൾ",
+        action_suite_desc: "റിപ്പോർട്ട് PDF ഡൗൺലോഡ് ചെയ്യുക, ചാറ്റ് ചെയ്യുക, അല്ലെങ്കിൽ കണ്ടെത്തലിനെ ചോദ്യം ചെയ്യുക.",
+        btn_download_pdf: "ഫാക്റ്റ് ഷീറ്റ് PDF ഡൗൺലോഡ് ചെയ്യുക",
+        btn_bookmark: "ബുക്ക്മാർക്ക് ചെയ്യുക",
+        btn_share_link: "ലിങ്ക് കോപ്പി ചെയ്യുക",
+        btn_ask_questions: "തുടർ ചോദ്യങ്ങൾ ചോദിക്കുക",
+        btn_schedule_recheck: "വീണ്ടും പരിശോധിക്കാൻ നൽകുക",
+        btn_appeal_verdict: "തീർപ്പിനെതിരെ അപ്പീൽ നൽകുക",
+        btn_report_issue: "പിഴവുകൾ റിപ്പോർട്ട് ചെയ്യുക",
+        explore_feed_title: "തത്സമയ വസ്തുതാ പരിശോധനകൾ",
+        explore_feed_desc: "സമൂഹമാധ്യമങ്ങളിൽ വ്യാപകമായി പ്രചരിക്കുന്ന തെറ്റായ വിവരങ്ങളുടെയും ഔദ്യോഗിക തിരുത്തലുകളുടെയും പൊതുശേഖരം.",
+        explore_filter_placeholder: "വിഷയം അല്ലെങ്കിൽ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക...",
+        sort_trending: "ക്രമം: ട്രെൻഡിംഗ് ആദ്യം",
+        sort_recent: "ക്രമം: ഏറ്റവും പുതിയത്",
+        filter_all_verdicts: "എല്ലാ തീർപ്പുകളും",
+        filter_false: "വ്യാജ വാർത്തകൾ",
+        filter_misleading: "തെറ്റിദ്ധരിപ്പിക്കുന്നത്",
+        filter_verified: "സ്ഥിരീകരിച്ച സത്യം",
+        cat_all: "എല്ലാ വിഭാഗങ്ങളും",
+        cat_governance: "ഭരണവും ധനകാര്യവും",
+        cat_health: "ആരോഗ്യവും ചികിത്സയും",
+        cat_elections: "തിരഞ്ഞെടുപ്പും പൗരകാര്യങ്ങളും",
+        cat_tech: "സാങ്കേതികവിദ്യയും തട്ടിപ്പുകളും",
+        chat_title: "അന്വേഷണാത്മക ചാറ്റ് സെഷൻ",
+        chat_desc: "ഈ വാദത്തെക്കുറിച്ച് കൂടുതൽ ചോദ്യങ്ങൾ ചോദിക്കാനും ഔദ്യോഗിക രേഖകൾ പരിശോധിക്കാനും സംശയങ്ങൾ ദൂരീകരിക്കാനും സഹായിക്കുന്നു.",
+        reset_chat: "ചാറ്റ് പുനരാരംഭിക്കുക",
+        chat_welcome: "നമസ്കാരം! ഞാൻ നിങ്ങളുടെ സത്യസ്കാൻ അസിസ്റ്റന്റാണ്. ഈ വസ്തുതാ പരിശോധനയെക്കുറിച്ച് കൂടുതൽ അറിയാനോ ചോദ്യങ്ങൾ ചോദിക്കാനോ ഇവിടെ ടൈപ്പ് ചെയ്യാം.",
+        chat_input_placeholder: "ഈ വാദത്തെക്കുറിച്ച് സംശയം ചോദിക്കുക...",
+        send_btn: "അയക്കുക",
+        history_title: "പ്രാദേശിക പരിശോധനാ ചരിത്രം",
+        history_desc: "നിങ്ങൾ ഈ ബ്രൗസറിൽ പരിശോധിച്ച വാദങ്ങൾ. ഇത് നിങ്ങളുടെ ഉപകരണത്തിൽ മാത്രം സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു.",
+        clear_history: "ചരിത്രം മായ്ക്കുക",
+        bookmarks_title: "സൂക്ഷിച്ച ബുക്ക്മാർക്കുകൾ",
+        bookmarks_desc: "പിന്നീട് കാണാനായി സംരക്ഷിച്ച വസ്തുതാ പരിശോധനാ റിപ്പോർട്ടുകൾ.",
+        monitors_title: "സജീവ സെന്റിനൽ നിരീക്ഷണങ്ങൾ",
+        monitors_desc: "ഔദ്യോഗിക അറിയിപ്പുകൾക്കായി തത്സമയം കാത്തിരിക്കുന്ന നിരീക്ഷണങ്ങൾ.",
+        new_monitor_btn: "പുതിയ നിരീക്ഷണം തുടങ്ങുക",
+        analytics_title: "പ്ലാറ്റ്‌ഫോം വിവരങ്ങളും സ്ഥിതിവിവരക്കണക്കുകളും",
+        analytics_desc: "വ്യാജവാർത്തകളെ തടയുന്നതിൽ പ്ലാറ്റ്‌ഫോമിന്റെ തത്സമയ സ്ഥിതിവിവരക്കണക്കുകൾ.",
+        kpi_audited: "പരിശോധിച്ച വാദങ്ങൾ",
+        kpi_hoax_rate: "വ്യാജവാർത്ത തടയൽ നിരക്ക്",
+        kpi_flagged_desc: "വ്യാജമെന്ന് കണ്ടെത്തിയവ",
+        kpi_latency: "ശരാശരി പരിശോധനാ സമയം",
+        kpi_pipeline_avg: "ദ്വിതല പരിശോധനാ ശരാശരി",
+        kpi_sources: "അംഗീകൃത സ്രോതസ്സുകൾ",
+        kpi_registry_coverage: "ടയർ 1 & ടയർ 2 രജിസ്ട്രി",
+        top_domains_title: "കൂടുതൽ വ്യാജവാർത്തകൾ വരുന്ന മേഖലകൾ",
+        domain_gov_tax: "ഭരണകൂടം, നികുതി & യുപിഐ",
+        domain_health: "ആരോഗ്യം & വ്യാജ ചികിത്സകൾ",
+        domain_elections: "തിരഞ്ഞെടുപ്പും സ്ഥാനാർത്ഥികളും",
+        domain_phishing: "തട്ടിപ്പുകളും വ്യാജ സബ്‌സിഡികളും",
+        linguistic_title: "വിവിധ ഭാഷകളിലെ പ്രചാരണം",
+        discrepancy_title: "പൊതു തിരുത്തൽ ഡെസ്ക്",
+        discrepancy_desc: "സുതാര്യമായ പ്രവർത്തനമാണ് സത്യസ്കാനിന്റേത്. തെറ്റായ സ്രോതസ്സുകൾ ചൂണ്ടിക്കാണിക്കാനും പുതിയ തെളിവുകൾ സമർപ്പിക്കാനും ഇവിടെ അറിയിക്കുക.",
+        disp_case_label: "കേസ് നമ്പർ അല്ലെങ്കിൽ വിഷയം",
+        disp_type_label: "തിരുത്തലിന്റെ തരം",
+        disp_type_evidence: "പുതിയ ഔദ്യോഗിക ഗസറ്റ് പ്രസിദ്ധീകരിച്ചു",
+        disp_type_misinterpretation: "AI ഉദ്ധരണി തെറ്റായി വ്യാഖ്യാനിച്ചു",
+        disp_type_broken: "സ്രോതസ്സ് ലിങ്ക് പ്രവർത്തിക്കുന്നില്ല",
+        disp_type_editorial: "തീർപ്പിൽ വിയോജിപ്പുണ്ട്",
+        disp_notes_label: "വിശദീകരണവും തെളിവ് ലിങ്കുകളും",
+        disp_notes_placeholder: "ഔദ്യോഗിക സ്രോതസ്സ് ലിങ്കുകൾ അല്ലെങ്കിൽ വിവരങ്ങൾ നൽകുക...",
+        disp_submit_btn: "എഡിറ്റോറിയൽ ഡെസ്കിലേക്ക് സമർപ്പിക്കുക",
+        settings_title: "ക്രമീകരണങ്ങളും സ്വകാര്യതയും",
+        settings_desc: "സീറോ-ട്രേസ് പരിശോധനയും പ്രാദേശിക ഭാഷാ മുൻഗണനകളും ക്രമീകരിക്കുക.",
+        privacy_setting_title: "സീറോ-ട്രേസ് സ്വകാര്യതാ മോഡ്",
+        privacy_setting_desc: "പ്രവർത്തിപ്പിക്കുമ്പോൾ നിങ്ങളുടെ ചോദ്യങ്ങൾ സിസ്റ്റത്തിൽ സേവ് ചെയ്യാതെ ഉടനടി നീക്കം ചെയ്യുന്നു.",
+        lang_setting_title: "മുൻഗണനാ ഭാഷ",
+        lang_setting_desc: "റിപ്പോർട്ടുകൾക്കും സംഭാഷണങ്ങൾക്കുമുള്ള ഭാഷ.",
+        purge_setting_title: "ബ്രൗസർ വിവരങ്ങൾ പൂർണ്ണമായി മായ്ക്കുക",
+        purge_setting_desc: "ഈ ഉപകരണത്തിൽ സൂക്ഷിച്ച പരിശോധനാ ചരിത്രവും ബുക്ക്മാർക്കുകളും ഉടനടി ഇല്ലാതാക്കുക.",
+        purge_btn: "വിവരങ്ങൾ മായ്ക്കുക",
+        methodology_title: "ദ്വിതല പരിശോധനാ പ്രോട്ടോക്കോൾ",
+        methodology_desc: "സത്യസ്കാൻ എങ്ങനെ വിശ്വസനീയവും സുതാര്യവുമായി വസ്തുതകൾ പരിശോധിക്കുന്നു.",
+        step1_title: "1. സന്ദേശത്തിന്റെ ഘടനാപരമായ അപഗ്രഥനം",
+        step1_desc: "സന്ദേശങ്ങളിലെ പ്രധാന വാദങ്ങളെ തിരിച്ചറിഞ്ഞ് പരിശോധനയ്ക്കായി വേർതിരിക്കുന്നു.",
+        step2_title: "2. ഔദ്യോഗിക വിവരങ്ങളുമായി ഒത്തുനോക്കൽ",
+        step2_desc: "ഗസറ്റുകൾ, പിഐബി, ആർബിഐ, കോടതി വിധികൾ തുടങ്ങിയ പ്രാഥമിക രേഖകളുമായി ഒത്തുനോക്കുന്നു.",
+        step3_title: "3. ദ്വിതല AI വിശകലനം",
+        step3_desc: "ക്ലോഡ് AI മോഡലുകൾ വഴി നിഷ്പക്ഷവും വ്യക്തവുമായ തീർപ്പും വിശദീകരണവും തയ്യാറാക്കുന്നു.",
+        step4_title: "4. സാക്ഷ്യപ്പെടുത്തിയ PDF റിപ്പോർട്ട്",
+        step4_desc: "കാലഗണനയും തെളിവുകളും ഉൾക്കൊള്ളുന്ന ആധികാരികമായ വസ്തുതാ റിപ്പോർട്ട് തയ്യാറാക്കുന്നു.",
+        cancel_btn: "റദ്ദാക്കുക",
+        schedule_btn: "മോണിറ്റർ ചെയ്യുക",
+        modal_recheck_title: "സെന്റിനൽ മോണിറ്റർ ക്രമീകരിക്കുക",
+        modal_recheck_desc: "ഈ വിഷയത്തിൽ ഔദ്യോഗിക പ്രസ്താവനകൾ ഉണ്ടാകുന്നുണ്ടോയെന്ന് സ്വയമേവ പരിശോധിക്കാൻ സമയം നിശ്ചയിക്കുക.",
+        modal_recheck_freq: "പരിശോധനാ ഇടവേള",
+        freq_24h: "എല്ലാ 24 മണിക്കൂറിലും",
+        freq_7d: "എല്ലാ 7 ദിവസത്തിലും",
+        freq_30d: "മാസത്തിലൊരിക്കൽ",
+        modal_recheck_note: "പ്രത്യേക കുറിപ്പ്",
+        modal_appeal_title: "തീർപ്പിനെതിരെ അപ്പീൽ നൽകുക",
+        modal_appeal_desc: "തീർപ്പിൽ വിയോജിപ്പുണ്ടെങ്കിൽ രേഖകൾ സമർപ്പിക്കുക.",
+        modal_appeal_reason: "അപ്പീലിനുള്ള കാരണം",
+        appeal_r1: "തെറ്റായ സ്രോതസ്സാണ് അവലംബിച്ചത്",
+        appeal_r2: "പുതിയ വിവരങ്ങൾ വിട്ടുപോയി",
+        appeal_r3: "പ്രാദേശിക സൂക്ഷ്മതകൾ കണക്കിലെടുത്തില്ല",
+        appeal_r4: "മറ്റുള്ളവ",
+        modal_appeal_url: "പിന്തുണയ്ക്കുന്ന രേഖയുടെ ലിങ്ക്",
+        submit_appeal_btn: "അപ്പീൽ സമർപ്പിക്കുക",
+        modal_report_title: "പിഴവുകൾ റിപ്പോർട്ട് ചെയ്യുക",
+        modal_report_desc: "തകരാറുകളോ തെറ്റായ വിവരങ്ങളോ ഞങ്ങളെ അറിയിക്കുക.",
+        modal_report_details: "വിശദാംശങ്ങൾ",
+        modal_report_placeholder: "പ്രശ്നം വിവരിക്കുക...",
+        report_issue_btn: "റിപ്പോർട്ട് ചെയ്യുക",
+        alerts_title: "പ്രധാന അറിയിപ്പുകൾ",
+        alert1_tag: "വ്യാപക പ്രചാരണം",
+        alert1_title: "5% യുപിഐ ഇടപാട് സർചാർജ് വ്യാജവാർത്ത",
+        alert1_desc: "പിഐബിയും എൻപിസിഐയും നിഷേധിച്ചു • കാണാൻ ക്ലിക്ക് ചെയ്യുക",
+        alert2_tag: "പദ്ധതി വിശദീകരണം",
+        alert2_title: "പിഎം സൂര്യ ഘർ സൗജന്യ സോളാർ പദ്ധതി",
+        alert2_desc: "വ്യാജ ഏജന്റുമാരെ കരുതിയിരിക്കുക • കാണാൻ ക്ലിക്ക് ചെയ്യുക",
+        sample1_name: "💸 5% യുപിഐ നികുതി വ്യാജ പ്രചാരണം",
+        sample2_name: "☀️ പിഎം സൂര്യ ഘർ സൗജന്യ സോളാർ",
+        sample3_name: "🔗 ലിങ്ക് പരിശോധിക്കുക (pib.gov.in)",
+        sample_headline: "₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള എല്ലാ യുപിഐ ഇടപാടുകൾക്കും ഏപ്രിൽ 1 മുതൽ ധനമന്ത്രാലയം 5% സർചാർജ് ഏർപ്പെടുത്തിയെന്ന വാട്ട്‌സ്ആപ്പ് പ്രചാരണം.",
+        sample_summary_text: "സാധാരണ യുപിഐ ഇടപാടുകൾക്ക് ധനമന്ത്രാലയമോ എൻപിസിഐയോ യാതൊരു സർചാർജും ഏർപ്പെടുത്തിയിട്ടില്ല. ഈ സന്ദേശം 2023-ലെ വ്യാപാരി ഇന്റർചേഞ്ച് സർക്കുലറിനെ തെറ്റായി വ്യാഖ്യാനിച്ച് പ്രചരിപ്പിക്കുന്നതാണ്.",
+        sample_what_is_true: "സാധാരണ ബാങ്ക്-ടു-ബാങ്ക് യുപിഐ കൈമാറ്റങ്ങൾ ഇന്ത്യൻ പൗരന്മാർക്ക് <strong>100% സൗജന്യമായി</strong> തുടരുന്നു.",
+        sample_what_is_false: "₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള കൈമാറ്റങ്ങൾക്ക് <strong>യാതൊരു 5% ഫീസോ നികുതിയോ ഇല്ല</strong>.",
+        sample_origin_context: "2023 മാർച്ച് മാസത്തിൽ വാലറ്റ് ഇടപാടുകൾക്കായി ഇറക്കിയ സർക്കുലർ വ്യാജമായി മാറ്റിയെഴുതിയാണ് തെറ്റിദ്ധാരണ പരത്തുന്നത്.",
+        sample_subclaim1_text: "\"അടുത്ത മാസം മുതൽ ₹2,000-ൽ കൂടുതൽ തുകയ്ക്ക് 5% യുപിഐ ഫീസ് ഈടാക്കും.\"",
+        sample_subclaim1_finding: "പൂർണ്ണമായും വ്യാജമായ പ്രസ്താവന. ഉപഭോക്താക്കളിൽ നിന്ന് യുപിഐക്ക് പണം ഈടാക്കാൻ പാടില്ലെന്ന് എൻപിസിഐ വ്യക്തമാക്കിയിട്ടുണ്ട്.",
+        sample_subclaim2_text: "\"എൻപിസിഐയും നിർമ്മലാ സീതാരാമനും ട്വിറ്ററിലൂടെ ഇത് പ്രഖ്യാപിച്ചു.\"",
+        sample_subclaim2_finding: "ധനമന്ത്രാലയത്തിന്റെയും എൻപിസിഐയുടെയും ഔദ്യോഗിക ഹാൻഡിലുകൾ പരിശോധിച്ചതിൽ ഇത് വ്യാജമാണെന്ന് വ്യക്തമായിട്ടുണ്ട്.",
+        sample_evidence_npci: "\"ഒരു ബാങ്ക് അക്കൗണ്ടിൽ നിന്ന് മറ്റൊരു അക്കൗണ്ടിലേക്കുള്ള യുപിഐ ഇടപാടുകൾ പൂർണ്ണമായും സൗജന്യമാണെന്ന് എൻപിസിഐ വ്യക്തമാക്കുന്നു.\"",
+        sample_evidence_pib: "\"2000 രൂപയ്ക്ക് മുകളിൽ യുപിഐ നികുതി ഏർപ്പെടുത്തിയെന്ന വാട്ട്സ്ആപ്പ് സന്ദേശം പൂർണ്ണമായും വ്യാജമാണ് - പിഐബി ഫാക്റ്റ് ചെക്ക്.\""
+      },
+
+      hi: {
+        badge_public: "सार्वजनिक",
+        tagline: "बहुभाषी तथ्य-जांच मंच",
+        nav_suite_header: "जांच सूट",
+        nav_fact_check: "तथ्य जांच स्टूडियो",
+        nav_explore: "दावों की खोज",
+        nav_chat: "खोजी चैट",
+        nav_history: "सत्यापन इतिहास",
+        nav_bookmarks: "सहेजे गए बुकमार्क",
+        nav_monitors: "निर्धारित मॉनिटर",
+        nav_governance_header: "मंच विश्वसनीयता",
+        nav_overview: "अवलोकन और आंकड़े",
+        nav_moderation: "विसंगति डेस्क",
+        nav_settings: "सेटिंग्स और गोपनीयता",
+        sidebar_dual_layer_title: "द्वि-स्तरीय सत्यापन",
+        sidebar_dual_layer_desc: "सरकारी राजपत्रों, पीआईबी और मान्यता प्राप्त समाचार स्रोतों के साथ मिलान करके की गई जांच।",
+        sidebar_read_protocol: "सत्यापन प्रोटोकॉल पढ़ें",
+        search_placeholder: "दावे, वायरल संदेश, वेबसाइट लिंक खोजें...",
+        privacy_on: "गोपनीयता मोड: चालू",
+        privacy_off: "गोपनीयता मोड: बंद",
+        citizen_title: "नागरिक मोड",
+        citizen_subtitle: "बिना लॉगिन तुरंत सत्यापन",
+        verify_input_title: "वास्तविक समय तथ्य जांच के लिए दावा या लिंक दर्ज करें",
+        live_badge: "लाइव एआई और आधिकारिक साक्ष्य रजिस्ट्री",
+        verify_input_desc: "व्हाट्सएप, टेलीग्राम या सोशल मीडिया पर वायरल संदिग्ध संदेश या वेबसाइट लिंक दर्ज करें। हमारा सिस्टम आधिकारिक स्रोतों से पुष्टि करके तथ्य रिपोर्ट तैयार करता है।",
+        claim_input_placeholder: "उदा. 'वायरल व्हाट्सएप संदेश का दावा है कि वित्त मंत्रालय ने 1 अप्रैल से 2,000 रुपये से अधिक के यूपीआई लेनदेन पर 5% शुल्क लगाया है' या लिंक दर्ज करें...",
+        detecting_format: "प्रारूप की पहचान हो रही है...",
+        try_sample_label: "उदाहरण आज़माएं:",
+        clear_btn: "साफ़ करें",
+        verify_btn: "अभी दावा सत्यापित करें",
+        verifying_step_default: "सत्यस्कैन द्वि-स्तरीय पाइपलाइन द्वारा जांच जारी है...",
+        estimating_time: "अनुमानित ~2-4 सेकंड",
+        breadcrumb_explore: "एक्सप्लोर",
+        breadcrumb_domain: "शासन एवं वित्त",
+        just_verified: "अभी सत्यापित",
+        share_report: "रिपोर्ट साझा करें",
+        virality_high: "तेजी से वायरल हो रहा है",
+        cross_checked_badge: "आधिकारिक अभिलेखों से क्रॉस-चेक किया गया",
+        meta_media_format: "मीडिया प्रारूप",
+        meta_text_forward: "टेक्स्ट / संदेश",
+        meta_audit_time: "जांच का समय",
+        meta_today_live: "आज, लाइव सत्यापन",
+        meta_audit_dialect: "भाषा",
+        meta_domain_area: "विषय क्षेत्र",
+        meta_civic_policy: "सार्वजनिक नीति एवं शासन",
+        meta_user_privacy: "उपयोगकर्ता गोपनीयता",
+        meta_anon_citizen: "गुमनाम नागरिक",
+        verdict_subheader: "आधिकारिक सत्यता मूल्यांकन",
+        verdict_false_title: "निर्णय: असत्य / झूठा",
+        verdict_true_title: "निर्णय: सत्य / प्रमाणित",
+        verdict_misleading_title: "निर्णय: भ्रामक",
+        verdict_unverified_title: "निर्णय: असत्यापित",
+        verdict_label_false: "असत्य (झूठा)",
+        verdict_label_true: "प्रमाणित सत्य",
+        verdict_label_misleading: "भ्रामक",
+        evidence_metric_label: "साक्ष्य मीट्रिक",
+        confidence_conclusive: "निर्णायक",
+        sources_verified_badge: "कई स्रोतों द्वारा सत्यापित",
+        audio_summary_title: "ऑडियो निर्णय सारांश",
+        audio_read_aloud: "सुनें",
+        audio_summary_desc: "आसानी से फॉरवर्ड करने और बुजुर्गों के लिए स्पष्ट ध्वनि सारांश सुनने के लिए प्ले करें।",
+        speech_dialect_label: "आवाज़ की भाषा:",
+        plain_summary_title: "सरल भाषा में सारांश",
+        non_technical_guide: "सरल गाइड",
+        what_is_true_title: "वास्तव में सच क्या है",
+        what_is_false_title: "पूरी तरह से झूठ क्या है",
+        origin_context_title: "उत्पत्ति और संदर्भ",
+        atomic_claims_title: "जांचे गए व्यक्तिगत दावे",
+        assertions_isolated_badge: "2 मुख्य दावे अलग किए गए",
+        sub_claim_1: "उप-दावा 01",
+        sub_claim_2: "उप-दावा 02",
+        finding_label: "निष्कर्ष:",
+        evidence_sources_title: "प्राथमिक साक्ष्य स्रोत",
+        tier_verified_badge: "सत्यापित स्रोत",
+        evidence_sources_desc: "आधिकारिक सरकारी आदेशों और मान्यता प्राप्त न्यूज़ एजेंसियों द्वारा पुष्टि की गई।",
+        tier_1_authority: "टियर 1: प्राथमिक प्राधिकरण",
+        tier_1_fact_checker: "टियर 1: आधिकारिक फैक्ट-चेकर",
+        official_clarification: "आधिकारिक स्पष्टीकरण",
+        official_gov_dispatch: "आधिकारिक सरकारी प्रेस विज्ञप्ति",
+        read_source: "स्रोत पढ़ें",
+        active_sentinel_monitor: "सक्रिय प्रहरी मॉनिटर",
+        sentinel_title: "निरंतर नीति पुनर्सत्यापन",
+        sentinel_desc: "सरकारी अधिसूचनाओं पर लगातार नज़र रखता है। यदि नियम बदलते हैं, तो यह रिपोर्ट स्वतः अपडेट हो जाती है।",
+        scheduled_sweep_label: "अगली जांच",
+        daily_midnight: "प्रतिदिन आधी रात को",
+        configure_btn: "कॉन्फ़िगर करें",
+        action_suite_title: "कार्रवाई सूट",
+        action_suite_desc: "पीडीएफ डाउनलोड करें, बातचीत करें या निर्णय को चुनौती दें।",
+        btn_download_pdf: "फैक्ट शीट PDF डाउनलोड करें",
+        btn_bookmark: "विश्लेषण बुकमार्क करें",
+        btn_share_link: "शेयर लिंक कॉपी करें",
+        btn_ask_questions: "अनुवर्ती प्रश्न पूछें",
+        btn_schedule_recheck: "पुनः जांच निर्धारित करें",
+        btn_appeal_verdict: "निर्णय के खिलाफ अपील करें",
+        btn_report_issue: "विसंगति / त्रुटि की रिपोर्ट करें",
+        explore_feed_title: "लाइव सत्यापित दावों की सूची",
+        explore_feed_desc: "सोशल मीडिया पर वायरल दावों और उनके आधिकारिक स्पष्टीकरणों का सार्वजनिक भंडार।",
+        explore_filter_placeholder: "कीवर्ड या संगठन द्वारा खोजें...",
+        sort_trending: "क्रम: ट्रेंडिंग पहले",
+        sort_recent: "क्रम: सबसे हालिया",
+        filter_all_verdicts: "सभी निर्णय",
+        filter_false: "झूठे दावे",
+        filter_misleading: "भ्रामक",
+        filter_verified: "प्रमाणित सत्य",
+        cat_all: "सभी श्रेणियां",
+        cat_governance: "शासन एवं वित्त",
+        cat_health: "स्वास्थ्य एवं चिकित्सा",
+        cat_elections: "चुनाव एवं नागरिक",
+        cat_tech: "प्रौद्योगिकी एवं ऑनलाइन धोखाधड़ी",
+        chat_title: "खोजी चैट सत्र",
+        chat_desc: "इस दावे के बारे में विस्तृत प्रश्न पूछें और आधिकारिक साक्ष्यों की पड़ताल करें।",
+        reset_chat: "चैट रीसेट करें",
+        chat_welcome: "नमस्ते! मैं आपका सत्यस्कैन सहायक हूँ। आप वर्तमान दावे के बारे में कोई भी प्रश्न पूछ सकते हैं।",
+        chat_input_placeholder: "इस दावे के बारे में प्रश्न पूछें...",
+        send_btn: "भेजें",
+        history_title: "स्थानीय सत्यापन इतिहास",
+        history_desc: "इस ब्राउज़र सत्र में जाँचे गए दावे। यह केवल आपके डिवाइस पर निजी रूप से संग्रहीत हैं।",
+        clear_history: "इतिहास मिटाएं",
+        bookmarks_title: "सहेजे गए बुकमार्क",
+        bookmarks_desc: "भविष्य के संदर्भ के लिए सहेजे गए तथ्य-जांच विश्लेषण।",
+        monitors_title: "सक्रिय प्रहरी मॉनिटर",
+        monitors_desc: "आगामी विनियामक घोषणाओं पर स्वचालित रूप से नज़र रखने वाले मॉनिटर।",
+        new_monitor_btn: "नया मॉनिटर जोड़ें",
+        analytics_title: "प्लेटफ़ॉर्म विश्वसनीयता और आंकड़े",
+        analytics_desc: "भ्रामक सूचनाओं को रोकने में प्लेटफ़ॉर्म के वास्तविक समय के आंकड़े।",
+        kpi_audited: "जांचे गए दावे",
+        kpi_hoax_rate: "झूठ रोकने की दर",
+        kpi_flagged_desc: "झूठे या भ्रामक पाए गए",
+        kpi_latency: "औसत जांच समय",
+        kpi_pipeline_avg: "द्वि-स्तरीय पाइपलाइन औसत",
+        kpi_sources: "मान्यता प्राप्त स्रोत",
+        kpi_registry_coverage: "टियर 1 और टियर 2 रजिस्ट्री",
+        top_domains_title: "प्रमुख भ्रामक सूचना क्षेत्र",
+        domain_gov_tax: "शासन, कर एवं यूपीआई",
+        domain_health: "स्वास्थ्य एवं चमत्कारिक उपचार",
+        domain_elections: "चुनाव एवं उम्मीदवार",
+        domain_phishing: "धोखाधड़ी एवं मुफ्त योजनाएं",
+        linguistic_title: "भाषा-वार वितरण",
+        discrepancy_title: "सार्वजनिक विसंगति डेस्क",
+        discrepancy_desc: "सत्यस्कैन पूर्ण पारदर्शिता पर कार्य करता है। गलत साक्ष्य या नई जानकारी की रिपोर्ट करें।",
+        disp_case_label: "केस आईडी या विषय",
+        disp_type_label: "विसंगति का प्रकार",
+        disp_type_evidence: "नया आधिकारिक साक्ष्य प्रकाशित हुआ",
+        disp_type_misinterpretation: "एआई ने संदर्भ की गलत व्याख्या की",
+        disp_type_broken: "साक्ष्य लिंक काम नहीं कर रहा है",
+        disp_type_editorial: "वर्गीकरण से असहमति",
+        disp_notes_label: "विस्तृत विवरण और लिंक",
+        disp_notes_placeholder: "आधिकारिक स्रोत लिंक या विवरण दें...",
+        disp_submit_btn: "संपादकीय डेस्क को भेजें",
+        settings_title: "सेटिंग्स और डेटा गोपनीयता",
+        settings_desc: "शून्य-ट्रेस सत्यापन और क्षेत्रीय प्राथमिकताओं को कॉन्फ़िगर करें।",
+        privacy_setting_title: "शून्य-ट्रेस गोपनीयता मोड",
+        privacy_setting_desc: "सक्रिय होने पर आपके प्रश्नों को बिना लॉग किए तुरंत हटा दिया जाता है।",
+        lang_setting_title: "डिफ़ॉल्ट भाषा",
+        lang_setting_desc: "रिपोर्ट और आवाज के लिए पसंदीदा भाषा।",
+        purge_setting_title: "ब्राउज़र का सारा डेटा मिटाएं",
+        purge_setting_desc: "स्थानीय इतिहास और बुकमार्क तुरंत साफ़ करें।",
+        purge_btn: "डेटा साफ़ करें",
+        methodology_title: "द्वि-स्तरीय सत्यापन प्रोटोकॉल",
+        methodology_desc: "सत्यस्कैन निष्पक्ष और पारदर्शी तथ्य-जांच कैसे सुनिश्चित करता है।",
+        step1_title: "1. वाक्य-विन्यास और दावा निष्कर्षण",
+        step1_desc: "संदेश से मुख्य दावों को अलग करके जांच के लिए तैयार किया जाता है।",
+        step2_title: "2. पदानुक्रमित साक्ष्य परीक्षण",
+        step2_desc: "राजपत्रों, पीआईबी और अदालती फैसलों जैसे टियर 1 स्रोतों से मिलान किया जाता है।",
+        step3_title: "3. द्वि-स्तरीय एआई संश्लेषण",
+        step3_desc: "क्लाउड एआई मॉडल द्वारा स्पष्ट और निष्पक्ष निर्णय तैयार किया जाता है।",
+        step4_title: "4. क्रिप्टोग्राफ़िक पीडीएफ रिपोर्ट",
+        step4_desc: "समय और साक्ष्यों के साथ सुरक्षित पीडीएफ रिपोर्ट तैयार की जाती है।",
+        cancel_btn: "रद्द करें",
+        schedule_btn: "शेड्यूल करें",
+        modal_recheck_title: "प्रहरी मॉनिटर सेट करें",
+        modal_recheck_desc: "इस दावे पर सरकारी अपडेट के लिए स्वतः जांच शेड्यूल करें।",
+        modal_recheck_freq: "जांच की आवृत्ति",
+        freq_24h: "हर 24 घंटे में",
+        freq_7d: "हर 7 दिन में",
+        freq_30d: "मासिक",
+        modal_recheck_note: "नोट या खोज क्वेरी",
+        modal_appeal_title: "निर्णय के खिलाफ अपील",
+        modal_appeal_desc: "यदि आप निर्णय से असहमत हैं तो दस्तावेज प्रस्तुत करें।",
+        modal_appeal_reason: "अपील का कारण",
+        appeal_r1: "गलत प्राथमिक स्रोत उद्धृत",
+        appeal_r2: "महत्वपूर्ण संदर्भ छूट गया",
+        appeal_r3: "क्षेत्रीय बारीकियों की अनदेखी",
+        appeal_r4: "अन्य",
+        modal_appeal_url: "समर्थन दस्तावेज का लिंक",
+        submit_appeal_btn: "अपील सबमिट करें",
+        modal_report_title: "त्रुटि की रिपोर्ट करें",
+        modal_report_desc: "टूटे हुए लिंक या समस्या की जानकारी दें।",
+        modal_report_details: "समस्या का विवरण",
+        modal_report_placeholder: "विवरण लिखें...",
+        report_issue_btn: "रिपोर्ट करें",
+        alerts_title: "ताज़ा अलर्ट",
+        alert1_tag: "तेजी से वायरल",
+        alert1_title: "5% यूपीआई टैक्स की झूठी खबर",
+        alert1_desc: "पीआईबी और एनपीसीआई ने किया खंडन • देखें",
+        alert2_tag: "योजना स्पष्टीकरण",
+        alert2_title: "पीएम सूर्य घर मुफ्त सोलर योजना",
+        alert2_desc: "फर्जी वेबसाइटों से सावधान रहें • देखें",
+        sample1_name: "💸 5% यूपीआई सरचार्ज की अफवाह",
+        sample2_name: "☀️ पीएम सूर्य घर मुफ्त सोलर योजना",
+        sample3_name: "🔗 लिंक की जांच करें (pib.gov.in)",
+        sample_headline: "वायरल व्हाट्सएप संदेश का दावा है कि वित्त मंत्रालय ने 1 अप्रैल से 2,000 रुपये से अधिक के सभी यूपीआई लेनदेन पर 5% अधिभार लगाया है।",
+        sample_summary_text: "वित्त मंत्रालय या एनपीसीआई ने सामान्य यूपीआई लेनदेन पर कोई शुल्क नहीं लगाया है। यह संदेश मार्च 2023 के वॉलेट इंटरचेंज सर्कुलर की गलत व्याख्या है।",
+        sample_what_is_true: "बैंक-से-बैंक सामान्य यूपीआई ट्रांसफर नागरिकों के लिए <strong>100% मुफ़्त</strong> हैं।",
+        sample_what_is_false: "2,000 रुपये से अधिक के ट्रांसफर पर <strong>कोई 5% शुल्क या कर नहीं</strong> लगाया गया है।",
+        sample_origin_context: "मार्च 2023 में मर्चेंट वॉलेट्स के लिए जारी सर्कुलर को तोड़-मरोड़ कर पेश किया जा रहा है।",
+        sample_subclaim1_text: "\"अगले महीने से ₹2,000 से अधिक के यूपीआई पर 5% टैक्स लगेगा।\"",
+        sample_subclaim1_finding: "पूरी तरह से मनगढ़ंत बयान। एनपीसीआई के नियम उपभोक्ताओं से शुल्क लेने की सख्त मनाही करते हैं।",
+        sample_subclaim2_text: "\"एनपीसीआई और वित्त मंत्री ने ट्विटर पर इसकी घोषणा की।\"",
+        sample_subclaim2_finding: "आधिकारिक ट्विटर हैंडल की जांच से साफ है कि यह दावा पूरी तरह से झूठा है।",
+        sample_evidence_npci: "\"एनपीसीआई स्पष्ट करता है कि बैंक खातों के बीच यूपीआई लेनदेन पूरी तरह से निःशुल्क हैं।\"",
+        sample_evidence_pib: "\"2000 रुपये से अधिक के यूपीआई पर टैक्स का दावा पूरी तरह फर्जी है - पीआईबी फैक्ट चेक।\""
+      },
+
+      ta: {
+        badge_public: "பொதுவானது",
+        tagline: "பலமொழி உண்மை சரிபார்ப்பு தளம்",
+        nav_suite_header: "புலனாய்வு பிரிவு",
+        nav_fact_check: "உண்மை சரிபார்ப்பு மையம்",
+        nav_explore: "கூற்றுகளை ஆராய்க",
+        nav_chat: "புலனாய்வு அரட்டை",
+        nav_history: "சரிபார்ப்பு வரலாறு",
+        nav_bookmarks: "சேமிக்கப்பட்டவை",
+        nav_monitors: "திட்டமிடப்பட்ட கண்காணிப்பு",
+        nav_governance_header: "தள நம்பகத்தன்மை",
+        nav_overview: "கண்ணோட்டம் & அளவீடுகள்",
+        nav_moderation: "முரண்பாடு மையம்",
+        nav_settings: "அமைப்புகள் & தனியுரிமை",
+        sidebar_dual_layer_title: "இரட்டை அடுக்கு சரிபார்ப்பு",
+        sidebar_dual_layer_desc: "அரசு அறிவிப்புகள், PIB மற்றும் அங்கீகரிக்கப்பட்ட செய்திகளுடன் ஒப்பிட்டு சரிபார்க்கப்படுகிறது.",
+        sidebar_read_protocol: "சரிபார்ப்பு நெறிமுறையைப் படிக்கவும்",
+        search_placeholder: "கூற்றுகள், வைரல் தகவல்கள், இணைப்புகளைத் தேடுங்கள்...",
+        privacy_on: "தனியுரிமை முறை: இயக்கத்தில்",
+        privacy_off: "தனியுரிமை முறை: அணைப்பில்",
+        citizen_title: "குடிமக்கள் பயன்முறை",
+        citizen_subtitle: "உடனடி சரிபார்ப்பு",
+        verify_input_title: "நிகழ்நேர உண்மை சரிபார்ப்புக்கு கூற்று அல்லது இணைப்பை உள்ளிடவும்",
+        live_badge: "நேரலை AI & அதிகாரப்பூர்வ சான்றுகள்",
+        verify_input_desc: "வாட்ஸ்அப், டெலிகிராமில் பரவும் சந்தேகத்திற்குரிய செய்திகள் அல்லது இணைய இணைப்புகளை உள்ளிடுங்கள். அதிகாரப்பூர்வ பதிவுகளுடன் ஒப்பிட்டு துல்லியமான அறிக்கை வழங்கப்படும்.",
+        claim_input_placeholder: "எ.கா: 'ரூ. 2,000-க்கு மேற்பட்ட யுபிஐ பரிவர்த்தனைகளுக்கு ஏப்ரல் 1 முதல் 5% கூடுதல் கட்டணம் விதிக்கப்படுவதாக பரவும் தகவல்' அல்லது இணைப்பை இடவும்...",
+        detecting_format: "வகை கண்டறியப்படுகிறது...",
+        try_sample_label: "மாதிரியை முயற்சிக்கவும்:",
+        clear_btn: "அழிக்க",
+        verify_btn: "இப்போது சரிபார்க்கவும்",
+        verifying_step_default: "இரட்டை அடுக்கு முறை மூலம் சரிபார்க்கப்படுகிறது...",
+        estimating_time: "தோராயமாக ~2-4 நொடிகள்",
+        breadcrumb_explore: "ஆராய்க",
+        breadcrumb_domain: "நிர்வாகம் மற்றும் நிதி",
+        just_verified: "இப்போது சரிபார்க்கப்பட்டது",
+        share_report: "அறிக்கையைப் பகிர்க",
+        virality_high: "அதிவேகமாக பரவுகிறது",
+        cross_checked_badge: "அதிகாரப்பூர்வ பதிவுகளுடன் ஒப்பிடப்பட்டது",
+        meta_media_format: "வடிவம்",
+        meta_text_forward: "உரை / பகிர்வு செய்தி",
+        meta_audit_time: "சரிபார்க்கப்பட்ட நேரம்",
+        meta_today_live: "இன்று, நேரலை சரிபார்ப்பு",
+        meta_audit_dialect: "மொழி",
+        meta_domain_area: "துறை",
+        meta_civic_policy: "பொதுக் கொள்கை",
+        meta_user_privacy: "பயனர் தனியுரிமை",
+        meta_anon_citizen: "பெயரற்ற குடிமகன்",
+        verdict_subheader: "அதிகாரப்பூர்வ உண்மை மதிப்பீடு",
+        verdict_false_title: "தீர்ப்பு: பொய்",
+        verdict_true_title: "தீர்ப்பு: உண்மை",
+        verdict_misleading_title: "தீர்ப்பு: தவறான தகவல்",
+        verdict_unverified_title: "தீர்ப்பு: உறுதிப்படுத்தப்படவில்லை",
+        verdict_label_false: "பொய்",
+        verdict_label_true: "உண்மை",
+        verdict_label_misleading: "தவறான தகவல்",
+        evidence_metric_label: "சான்று அளவீடு",
+        confidence_conclusive: "துல்லியமானது",
+        sources_verified_badge: "பல்வேறு ஆதாரங்களால் உறுதி செய்யப்பட்டது",
+        audio_summary_title: "ஒலி சுருக்கம்",
+        audio_read_aloud: "கேட்க",
+        audio_summary_desc: "எளிதாகப் புரிந்துகொள்ள தெளிவான குரல் விளக்கத்தைக் கேட்க அழுத்தவும்.",
+        speech_dialect_label: "குரல் மொழி:",
+        plain_summary_title: "எளிய விளக்கம்",
+        non_technical_guide: "சாமானியர்களுக்கான விளக்கம்",
+        what_is_true_title: "உண்மையில் எது உண்மை",
+        what_is_false_title: "முற்றிலும் பொய்யானது எது",
+        origin_context_title: "தோற்றம் மற்றும் சூழல்",
+        atomic_claims_title: "ஆராயப்பட்ட தனித்தனி கூற்றுகள்",
+        assertions_isolated_badge: "2 கூற்றுகள் பிரிக்கப்பட்டன",
+        sub_claim_1: "கூற்று 01",
+        sub_claim_2: "கூற்று 02",
+        finding_label: "கண்டறிதல்:",
+        evidence_sources_title: "முதன்மை ஆதாரங்கள்",
+        tier_verified_badge: "சரிபார்க்கப்பட்ட தரம்",
+        evidence_sources_desc: "அரசு அதிகாரப்பூர்வ அறிவிப்புகள் மற்றும் முன்னணி செய்தி நிறுவனங்கள் மூலம் உறுதிப்படுத்தப்பட்டது.",
+        tier_1_authority: "தரம் 1: முதன்மை அதிகாரம்",
+        tier_1_fact_checker: "தரம் 1: அதிகாரப்பூர்வ உண்மை சரிபார்ப்பாளர்",
+        official_clarification: "அதிகாரப்பூர்வ விளக்கம்",
+        official_gov_dispatch: "அரசு செய்திக்குறிப்பு",
+        read_source: "ஆதாரத்தைப் படிக்க",
+        active_sentinel_monitor: "நேரலை கண்காணிப்பு",
+        sentinel_title: "தொடர் மறுசரிபார்ப்பு",
+        sentinel_desc: "புதிய அரசு அறிவிப்புகள் வரும்போது இந்த அறிக்கை தானாகவே புதுப்பிக்கப்படும்.",
+        scheduled_sweep_label: "அடுத்த ஆய்வு",
+        daily_midnight: "தினமும் நள்ளிரவு",
+        configure_btn: "அமைக்க",
+        action_suite_title: "செயல்பாடுகள்",
+        action_suite_desc: "PDF பதிவிறக்கவும், உரையாடவும் அல்லது தீர்ப்பை மறுஆய்வு செய்யவும்.",
+        btn_download_pdf: "உண்மை அறிக்கை PDF பதிவிறக்குக",
+        btn_bookmark: "புக்மார்க் செய்க",
+        btn_share_link: "இணைப்பை நகலெடு",
+        btn_ask_questions: "தொடர் கேள்விகளைக் கேளுங்கள்",
+        btn_schedule_recheck: "மறு சரிபார்ப்பைத் திட்டமிடு",
+        btn_appeal_verdict: "தீர்ப்பை மேல்முறையீடு செய்",
+        btn_report_issue: "முரண்பாட்டைப் புகாரளிக்கவும்",
+        explore_feed_title: "சரிபார்க்கப்பட்ட தகவல்கள்",
+        explore_feed_desc: "வைரலாகும் போலிச் செய்திகள் மற்றும் உண்மைத் தகவல்களின் பொதுத் தொகுப்பு.",
+        explore_filter_placeholder: "வார்த்தைகள் மூலம் தேடுங்கள்...",
+        sort_trending: "வரிசை: பரவலானவை",
+        sort_recent: "வரிசை: அண்மையவை",
+        filter_all_verdicts: "அனைத்து தீர்ப்புகளும்",
+        filter_false: "பொய்யானவை",
+        filter_misleading: "தவறானவை",
+        filter_verified: "உண்மையானவை",
+        cat_all: "அனைத்துப் பிரிவுகளும்",
+        cat_governance: "நிர்வாகம் & நிதி",
+        cat_health: "சுகாதாரம் & மருத்துவம்",
+        cat_elections: "தேர்தல் & சமூகம்",
+        cat_tech: "தொழில்நுட்பம் & மோசடிகள்",
+        chat_title: "புலனாய்வு அரட்டை",
+        chat_desc: "இந்த கூற்றைப் பற்றி கூடுதல் கேள்விகளைக் கேட்கவும் தெளிவு பெறவும் உதவும்.",
+        reset_chat: "உரையாடலை மீட்டமை",
+        chat_welcome: "வணக்கம்! நான் உங்கள் சத்யாஸ்கேன் உதவியாளர். இந்த தகவல் குறித்து நீங்கள் கேள்விகளைக் கேட்கலாம்.",
+        chat_input_placeholder: "கேள்வியைக் கேளுங்கள்...",
+        send_btn: "அனுப்புக",
+        history_title: "சரிபார்ப்பு வரலாறு",
+        history_desc: "இந்த உலாவியில் நீங்கள் சரிபார்த்த தகவல்கள்.",
+        clear_history: "வரலாற்றை அழிக்க",
+        bookmarks_title: "சேமிக்கப்பட்டவை",
+        bookmarks_desc: "குறிப்புக்காக சேமிக்கப்பட்ட உண்மை சரிபார்ப்பு அறிக்கைகள்.",
+        monitors_title: "திட்டமிடப்பட்ட கண்காணிப்புகள்",
+        monitors_desc: "அரசு அறிவிப்புகளுக்காக கண்காணிக்கப்படும் தலைப்புகள்.",
+        new_monitor_btn: "புதிய கண்காணிப்பு",
+        analytics_title: "தள நம்பகத்தன்மை அளவீடுகள்",
+        analytics_desc: "போலிச் செய்திகளைக் கண்டறிவதில் தளத்தின் செயல்பாட்டு புள்ளிவிவரங்கள்.",
+        kpi_audited: "சரிபார்க்கப்பட்ட கூற்றுகள்",
+        kpi_hoax_rate: "போலி தகவல் விகிதம்",
+        kpi_flagged_desc: "பொய் என உறுதி செய்யப்பட்டது",
+        kpi_latency: "சராசரி சரிபார்ப்பு நேரம்",
+        kpi_pipeline_avg: "பைப்லைன் சராசரி",
+        kpi_sources: "அங்கீகரிக்கப்பட்ட ஆதாரங்கள்",
+        kpi_registry_coverage: "பதிவு கவரேஜ்",
+        top_domains_title: "அதிக போலித் தகவல்கள் வரும் துறைகள்",
+        domain_gov_tax: "நிர்வாகம், வரிகள் & யுபிஐ",
+        domain_health: "சுகாதாரம் & தவறான மருத்துவ முறைகள்",
+        domain_elections: "தேர்தல் & வேட்பாளர்கள்",
+        domain_phishing: "இணைய மோசடிகள் & இலவச திட்டங்கள்",
+        linguistic_title: "மொழிவாரியான விநியோகம்",
+        discrepancy_title: "முரண்பாடு மற்றும் கருத்து மையம்",
+        discrepancy_desc: "முழு வெளிப்படைத்தன்மையுடன் செயல்படுகிறது. தவறான தகவல்கள் இருந்தால் தெரிவிக்கவும்.",
+        disp_case_label: "தலைப்பு அல்லது எண்",
+        disp_type_label: "முரண்பாட்டின் வகை",
+        disp_type_evidence: "புதிய அரசு ஆவணம் வெளிவந்துள்ளது",
+        disp_type_misinterpretation: "AI சூழலை தவறாகப் புரிந்துகொண்டது",
+        disp_type_broken: "இணைப்பு வேலை செய்யவில்லை",
+        disp_type_editorial: "தீர்ப்பில் உடன்பாடில்லை",
+        disp_notes_label: "விளக்கம் மற்றும் ஆதார இணைப்புகள்",
+        disp_notes_placeholder: "ஆதார இணைப்புகளை உள்ளிடவும்...",
+        disp_submit_btn: "சமர்ப்பிக்கவும்",
+        settings_title: "அமைப்புகள் & தனியுரிமை",
+        settings_desc: "உங்கள் விருப்பத்தேர்வுகளை உள்ளமைக்கவும்.",
+        privacy_setting_title: "தனியுரிமை பயன்முறை",
+        privacy_setting_desc: "இயக்கத்தில் இருக்கும்போது உங்கள் தேடல்கள் எதுவும் சேமிக்கப்படாது.",
+        lang_setting_title: "முதன்மையான மொழி",
+        lang_setting_desc: "அறிக்கைகள் மற்றும் வாசிப்பிற்கான மொழி.",
+        purge_setting_title: "அனைத்து தரவுகளையும் அழிக்க",
+        purge_setting_desc: "வரலாறு மற்றும் புக்மார்க்குகளை உடனே அழிக்கவும்.",
+        purge_btn: "அழிக்க",
+        methodology_title: "சரிபார்ப்பு முறை",
+        methodology_desc: "சத்யாஸ்கேன் எவ்வாறு துல்லியமாக தகவல்களை சரிபார்க்கிறது.",
+        step1_title: "1. கூற்று பிரித்தெடுத்தல்",
+        step1_desc: "செய்திகளிலிருந்து முக்கிய கூற்றுகள் தனித்தனியாகப் பிரிக்கப்படுகின்றன.",
+        step2_title: "2. அதிகாரப்பூர்வ ஆவணங்களுடன் ஒப்பீடு",
+        step2_desc: "அரசு அறிவிப்புகள், PIB, RBI உத்தரவுகளுடன் ஒப்பிடப்படுகிறது.",
+        step3_title: "3. இரட்டை அடுக்கு AI தொகுப்பு",
+        step3_desc: "AI மூலம் பக்கச்சார்பற்ற தெளிவான தீர்ப்பு உருவாக்கப்படுகிறது.",
+        step4_title: "4. சான்றளிக்கப்பட்ட PDF அறிக்கை",
+        step4_desc: "சான்றுகளுடன் கூடிய PDF அறிக்கை வழங்கப்படுகிறது.",
+        cancel_btn: "ரத்து செய்",
+        schedule_btn: "திட்டமிடு",
+        modal_recheck_title: "கண்காணிப்பை திட்டமிடு",
+        modal_recheck_desc: "அரசு அறிவிப்புகள் குறித்து கண்காணிக்க அமைப்பை உருவாக்கவும்.",
+        modal_recheck_freq: "ஆய்வு இடைவெளி",
+        freq_24h: "ஒவ்வொரு 24 மணி நேரமும்",
+        freq_7d: "7 நாட்களுக்கு ஒருமுறை",
+        freq_30d: "மாதமொருமுறை",
+        modal_recheck_note: "குறிப்பு",
+        modal_appeal_title: "தீர்ப்பை மேல்முறையீடு செய்க",
+        modal_appeal_desc: "ஆதாரங்கள் இருந்தால் மறுபரிசீலனைக்கு அனுப்பலாம்.",
+        modal_appeal_reason: "மேல்முறையீட்டுக்கான காரணம்",
+        appeal_r1: "தவறான ஆதாரம் பயன்படுத்தப்பட்டது",
+        appeal_r2: "முக்கிய புதிய தகவல் விடுபட்டுள்ளது",
+        appeal_r3: "பிராந்திய நுணுக்கங்கள் புறக்கணிக்கப்பட்டன",
+        appeal_r4: "மற்றவை",
+        modal_appeal_url: "ஆதார இணைப்பு",
+        submit_appeal_btn: "மேல்முறையீடு செய்க",
+        modal_report_title: "சிக்கலைப் புகாரளிக்கவும்",
+        modal_report_desc: "தவறுகளைத் தெரிவிக்கவும்.",
+        modal_report_details: "விவரம்",
+        modal_report_placeholder: "விவரத்தை உள்ளிடவும்...",
+        report_issue_btn: "புகாரளிக்கவும்",
+        alerts_title: "முக்கிய எச்சரிக்கைகள்",
+        alert1_tag: "வைரல் தகவல்",
+        alert1_title: "5% யுபிஐ கட்டண வதந்தி",
+        alert1_desc: "அரசு மறுப்பு தெரிவித்துள்ளது • பார்க்கவும்",
+        alert2_tag: "திட்ட விளக்கம்",
+        alert2_title: "பிரதம மந்திரி சூர்யா கர் இலவச சோலார் திட்டம்",
+        alert2_desc: "போலி முகவர்களை நம்ப வேண்டாம் • பார்க்கவும்",
+        sample1_name: "💸 5% யுபிஐ கட்டண வதந்தி",
+        sample2_name: "☀️ பிஎம் சூர்யா கர் இலவச சோலார்",
+        sample3_name: "🔗 இணைப்பை சரிபார்க்க (pib.gov.in)",
+        sample_headline: "ஏப்ரல் 1 முதல் ₹2,000-க்கு மேற்பட்ட அனைத்து யுபிஐ பரிவர்த்தனைகளுக்கும் நிதி அமைச்சகம் 5% கூடுதல் கட்டணம் விதித்துள்ளதாக பரவும் வாட்ஸ்அப் செய்தி.",
+        sample_summary_text: "வழக்கமான யுபிஐ பரிவர்த்தனைகளுக்கு நிதி அமைச்சகமோ அல்லது NPCI-யோ எந்தவித கூடுதல் கட்டணமும் விதிக்கவில்லை. சாதாரண யுபிஐ பரிவர்த்தனைகள் 100% முற்றிலும் இலவசம்.",
+        sample_what_is_true: "வங்கிகளுக்கு இடையேயான வழக்கமான யுபிஐ பரிவர்த்தனைகள் இந்திய மக்களுக்கு <strong>100% இலவசமாகவே</strong> தொடர்கின்றன.",
+        sample_what_is_false: "₹2,000-க்கு மேற்பட்ட பரிவர்த்தனைகளுக்கு <strong>எந்த 5% கட்டணமோ வரியோ இல்லை</strong>.",
+        sample_origin_context: "மார்ச் 2023-ல் வெளியிடப்பட்ட வாலட் கட்டண அறிக்கையை தவறாகப் புரிந்து பரப்புகின்றனர்.",
+        sample_subclaim1_text: "\"அடுத்த மாதம் முதல் ₹2,000-க்கு மேல் 5% யுபிஐ கட்டணம் வசூலிக்கப்படும்.\"",
+        sample_subclaim1_finding: "முற்றிலும் ஆதாரமற்ற கூற்று. வாடிக்கையாளர்களிடம் யுபிஐ-க்கு கட்டணம் வசூலிக்கக் கூடாது என்று NPCI தெளிவாகக் கூறியுள்ளது.",
+        sample_subclaim2_text: "\"NPCI மற்றும் நிர்மலா சீதாராமன் ட்விட்டரில் இதை அறிவித்தனர்.\"",
+        sample_subclaim2_finding: "அதிகாரப்பூர்வ பக்கங்களை ஆய்வு செய்ததில் இது முற்றிலும் போலி என நிரூபிக்கப்பட்டுள்ளது.",
+        sample_evidence_npci: "\"வங்கி கணக்குகளுக்கு இடையேயான யுபிஐ பரிவர்த்தனைகள் முற்றிலும் இலவசம் என NPCI திட்டவட்டமாக தெளிவுபடுத்துகிறது.\"",
+        sample_evidence_pib: "\"2000 ரூபாய்க்கு மேல் யுபிஐ வரி விதிக்கப்படுவதாக பரவும் வாட்ஸ்அப் செய்தி முற்றிலும் பொய்யானது - PIB ஃபேக்ட் செக்.\""
+      }
+    };
+
     // State Store
     const state = {
       activeTab: 'fact-check',
-      currentAnalysis: {
-        analysis_id: "SS-2025-8941",
-        overall_result: "false",
-        confidence_score: 0.98,
-        reply_text: "Neither the Ministry of Finance nor NPCI has issued any surcharge or fee on standard UPI transactions. Normal UPI remains completely free.",
-        headline: "Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.",
-        claims: [
-          {
-            claim_text: "UPI will start charging a mandatory 5% tax or transaction fee from next month on amounts exceeding ₹2,000.",
-            result: "false",
-            confidence: 0.994,
-            reasoning: "Fabricated statement. The Master Circular on National Unified Payments Framework strictly forbids charging end consumers for domestic peer and standard merchant payments."
-          },
-          {
-            claim_text: "NPCI and Nirmala Sitharaman announced this policy on Twitter via official press releases.",
-            result: "false",
-            confidence: 1.0,
-            reasoning: "Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim."
-          }
-        ],
-        evidence: [
-          {
-            publisher_name: "National Payments Corporation of India (NPCI)",
-            source_url: "https://www.npci.org.in",
-            source_domain: "npci.org.in",
-            credibility_tier: "tier_1",
-            snippet_text: "NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers.",
-            stance: "refutes"
-          },
-          {
-            publisher_name: "Press Information Bureau (PIB) Fact Check",
-            source_url: "https://pib.gov.in",
-            source_domain: "pib.gov.in",
-            credibility_tier: "tier_1",
-            snippet_text: "Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake.",
-            stance: "refutes"
-          }
-        ],
-        audio_verdict_summary: "Official fact check verdict: False. Neither the Ministry of Finance nor NPCI has introduced any tax or fee on UPI transfers. Standard UPI payments remain completely free for Indian citizens.",
-        pdf_report_url: null,
-        is_url: false
-      },
       language: localStorage.getItem('sathyascan_lang') || 'en',
       isPrivacyOn: localStorage.getItem('sathyascan_privacy') !== 'false',
       history: JSON.parse(localStorage.getItem('sathyascan_history') || '[]'),
       bookmarks: JSON.parse(localStorage.getItem('sathyascan_bookmarks') || '[]'),
       scheduledMonitors: JSON.parse(localStorage.getItem('sathyascan_monitors') || '[]'),
-      audioDialect: 'en',
-      speechSynthesisUtterance: null,
+      audioDialect: localStorage.getItem('sathyascan_lang') || 'en',
       isSpeaking: false,
+      currentAnalysis: null,
       exploreClaims: []
     };
+
+    // Translation Engine
+    function applyTranslations(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+
+      // Translate text elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Translate placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key] !== undefined) {
+          el.placeholder = dict[key];
+        }
+      });
+
+      // Update sample buttons text
+      const s1 = document.getElementById('sampleBtn1');
+      const s2 = document.getElementById('sampleBtn2');
+      const s3 = document.getElementById('sampleBtn3');
+      if (s1) s1.textContent = dict.sample1_name;
+      if (s2) s2.textContent = dict.sample2_name;
+      if (s3) s3.textContent = dict.sample3_name;
+
+      // Update privacy toggle text
+      const privText = document.getElementById('privacyText');
+      if (privText) {
+        privText.textContent = state.isPrivacyOn ? dict.privacy_on : dict.privacy_off;
+      }
+
+      // If current analysis is the default sample, translate it to chosen language
+      if (!state.currentAnalysis || state.currentAnalysis.analysis_id === "SS-2025-8941") {
+        state.currentAnalysis = {
+          analysis_id: "SS-2025-8941",
+          overall_result: "false",
+          confidence_score: 0.98,
+          reply_text: dict.sample_summary_text,
+          headline: dict.sample_headline,
+          claims: [
+            {
+              claim_text: dict.sample_subclaim1_text,
+              result: "false",
+              confidence: 0.994,
+              reasoning: dict.sample_subclaim1_finding
+            },
+            {
+              claim_text: dict.sample_subclaim2_text,
+              result: "false",
+              confidence: 1.0,
+              reasoning: dict.sample_subclaim2_finding
+            }
+          ],
+          evidence: [
+            {
+              publisher_name: "National Payments Corporation of India (NPCI)",
+              source_url: "https://www.npci.org.in",
+              source_domain: "npci.org.in",
+              credibility_tier: "tier_1",
+              snippet_text: dict.sample_evidence_npci,
+              stance: "refutes"
+            },
+            {
+              publisher_name: "Press Information Bureau (PIB) Fact Check",
+              source_url: "https://pib.gov.in",
+              source_domain: "pib.gov.in",
+              credibility_tier: "tier_1",
+              snippet_text: dict.sample_evidence_pib,
+              stance: "refutes"
+            }
+          ],
+          audio_verdict_summary: dict.sample_summary_text,
+          pdf_report_url: null,
+          is_url: false
+        };
+
+        applyAnalysisData(state.currentAnalysis, state.currentAnalysis.headline);
+      }
+    }
 
     // Initialize UI on load
     document.addEventListener('DOMContentLoaded', () => {
@@ -1310,6 +2207,10 @@
       document.getElementById('languageSelect').value = state.language;
       const settingsLang = document.getElementById('settingsLangSelect');
       if (settingsLang) settingsLang.value = state.language;
+
+      // Apply language translations
+      applyTranslations(state.language);
+      setAudioDialect(state.language);
 
       // Sync privacy controls
       updatePrivacyUI();
@@ -1322,7 +2223,7 @@
       renderBookmarks();
       renderScheduledMonitors();
 
-      // Check URL parameters (e.g. ?q=... or ?tab=...)
+      // Check URL parameters
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('tab')) {
         switchTab(urlParams.get('tab'));
@@ -1338,10 +2239,11 @@
       claimInput.addEventListener('input', () => {
         const val = claimInput.value.trim();
         const badge = document.getElementById('inputTypeBadge');
+        const dict = I18N[state.language] || I18N.en;
         if (!val) {
-          badge.textContent = "Detecting format...";
+          badge.textContent = dict.detecting_format;
         } else if (val.startsWith('http://') || val.startsWith('https://') || val.includes('www.')) {
-          badge.textContent = "🌐 URL Web Link Detected";
+          badge.textContent = "🌐 URL Web Link";
         } else {
           badge.textContent = `📝 Text (${val.length} chars)`;
         }
@@ -1359,18 +2261,40 @@
       loadExploreData();
     });
 
+    // Language Change Handler
+    function changeLanguage(lang) {
+      state.language = lang;
+      state.audioDialect = lang;
+      localStorage.setItem('sathyascan_lang', lang);
+      document.getElementById('languageSelect').value = lang;
+      const s = document.getElementById('settingsLangSelect');
+      if (s) s.value = lang;
+
+      applyTranslations(lang);
+      setAudioDialect(lang);
+
+      const dict = I18N[lang] || I18N.en;
+      showToast(dict.nav_settings, `Language updated to ${getLangName(lang)}.`, 'translate');
+    }
+
+    function getLangName(code) {
+      switch(code) {
+        case 'ml': return 'മലയാളം (Malayalam)';
+        case 'hi': return 'हिन्दी (Hindi)';
+        case 'ta': return 'தமிழ் (Tamil)';
+        default: return 'English';
+      }
+    }
+
     // Tab Switching Controller
     function switchTab(tabId) {
       state.activeTab = tabId;
 
-      // Hide all tabs
       document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
 
-      // Show selected tab
       const targetView = document.getElementById(`view-${tabId}`);
       if (targetView) targetView.classList.remove('hidden');
 
-      // Update sidebar nav styling
       document.querySelectorAll('#sidebarNav .nav-item').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabId) {
           btn.className = "nav-item w-full flex items-center gap-space-sm px-space-md py-2.5 transition-all rounded-lg font-semibold bg-primary-container text-on-primary";
@@ -1415,10 +2339,11 @@
       state.isPrivacyOn = !state.isPrivacyOn;
       localStorage.setItem('sathyascan_privacy', state.isPrivacyOn);
       updatePrivacyUI();
+      const dict = I18N[state.language] || I18N.en;
       if (state.isPrivacyOn) {
-        showToast('Zero-Trace Privacy Mode Active', 'Audit queries will be ephemeral; no queries logged.', 'lock');
+        showToast(dict.privacy_on, 'Audit queries will be ephemeral; no queries logged.', 'lock');
       } else {
-        showToast('Local Archiving Active', 'Submissions will be saved to your browser history.', 'lock_open');
+        showToast(dict.privacy_off, 'Submissions will be saved to your browser history.', 'lock_open');
       }
     }
 
@@ -1428,19 +2353,20 @@
       const icon = document.getElementById('privacyIcon');
       const metaPrivacy = document.getElementById('metaPrivacy');
       const settingsToggle = document.getElementById('settingsPrivacyToggle');
+      const dict = I18N[state.language] || I18N.en;
 
       if (state.isPrivacyOn) {
         toggle.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold cursor-pointer select-none shadow-sm transition-all';
-        text.textContent = 'Privacy Mode: ON';
+        text.textContent = dict.privacy_on;
         icon.textContent = 'lock';
-        if (metaPrivacy) metaPrivacy.textContent = 'Anonymous Citizen';
+        if (metaPrivacy) metaPrivacy.textContent = dict.meta_anon_citizen;
         if (settingsToggle) {
           settingsToggle.textContent = 'Enabled (Zero Trace)';
           settingsToggle.className = 'px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold';
         }
       } else {
         toggle.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold cursor-pointer select-none transition-all';
-        text.textContent = 'Privacy Mode: OFF';
+        text.textContent = dict.privacy_off;
         icon.textContent = 'lock_open';
         if (metaPrivacy) metaPrivacy.textContent = 'Session Stored';
         if (settingsToggle) {
@@ -1450,32 +2376,13 @@
       }
     }
 
-    // Language Change
-    function changeLanguage(lang) {
-      state.language = lang;
-      localStorage.setItem('sathyascan_lang', lang);
-      document.getElementById('languageSelect').value = lang;
-      const s = document.getElementById('settingsLangSelect');
-      if (s) s.value = lang;
-      setAudioDialect(lang);
-      showToast('Dialect Preference Updated', `Responses will prioritize ${getLangName(lang)}.`, 'translate');
-    }
-
-    function getLangName(code) {
-      switch(code) {
-        case 'ml': return 'Malayalam (മലയാളം)';
-        case 'hi': return 'Hindi (हिन्दी)';
-        case 'ta': return 'Tamil (தமிழ்)';
-        default: return 'English';
-      }
-    }
-
     // Sample claims loader
     function loadSample(id) {
       switchTab('fact-check');
       const input = document.getElementById('claimInput');
+      const dict = I18N[state.language] || I18N.en;
       if (id === 1) {
-        input.value = "Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.";
+        input.value = dict.sample_headline;
       } else if (id === 2) {
         input.value = "Announcement circulating that the Government is installing free solar panels for everyone with ₹0 investment under PM Surya Ghar Muft Bijli Yojana via WhatsApp agent.";
       } else if (id === 3) {
@@ -1494,6 +2401,8 @@
     async function submitVerification() {
       const input = document.getElementById('claimInput');
       const text = input.value.trim();
+      const dict = I18N[state.language] || I18N.en;
+
       if (!text) {
         showToast('Claim Text Required', 'Please enter a message or URL to verify.', 'warning', true);
         input.focus();
@@ -1507,27 +2416,20 @@
       const progressBar = document.getElementById('verifyProgressBar');
       const statusStep = document.getElementById('verifyStatusStep');
 
-      // Set Loading UI
       submitBtn.disabled = true;
       btnIcon.textContent = 'autorenew';
       btnIcon.classList.add('animate-spin');
-      btnText.textContent = 'Verifying...';
+      btnText.textContent = dict.verifying_step_default.substring(0, 15) + '...';
       loadingState.classList.remove('hidden');
 
       let progress = 20;
       progressBar.style.width = '20%';
-      statusStep.textContent = '1/3: Extracting atomic assertions & checking safety gate...';
+      statusStep.textContent = dict.verifying_step_default;
 
       const progressInterval = setInterval(() => {
         if (progress < 85) {
           progress += 20;
           progressBar.style.width = `${progress}%`;
-          if (progress >= 60) {
-            statusStep.textContent = '2/3: Querying official government registries & accredited newsrooms...';
-          }
-          if (progress >= 80) {
-            statusStep.textContent = '3/3: Synthesizing veracity verdict & calculating confidence...';
-          }
         }
       }, 500);
 
@@ -1548,7 +2450,6 @@
         const data = await response.json();
         applyAnalysisData(data, text);
 
-        // Record in history if not in privacy mode
         if (!state.isPrivacyOn) {
           addHistoryRecord(data);
         }
@@ -1558,7 +2459,6 @@
         clearInterval(progressInterval);
         console.warn("API Fact-Check Fallback:", err);
 
-        // Intelligent client-side fallback synthesis
         const fallbackData = createFallbackAnalysis(text);
         applyAnalysisData(fallbackData, text);
 
@@ -1572,32 +2472,33 @@
           submitBtn.disabled = false;
           btnIcon.textContent = 'search_check';
           btnIcon.classList.remove('animate-spin');
-          btnText.textContent = 'Verify Claim Now';
+          btnText.textContent = dict.verify_btn;
           loadingState.classList.add('hidden');
         }, 400);
       }
     }
 
     function createFallbackAnalysis(text) {
+      const dict = I18N[state.language] || I18N.en;
       const isUrl = text.startsWith('http://') || text.startsWith('https://');
-      const isUpi = text.toLowerCase().includes('upi') || text.toLowerCase().includes('2000') || text.toLowerCase().includes('surcharge');
-      const isSolar = text.toLowerCase().includes('solar') || text.toLowerCase().includes('surya');
+      const isUpi = text.toLowerCase().includes('upi') || text.toLowerCase().includes('2000') || text.toLowerCase().includes('surcharge') || text.includes('യുപിഐ') || text.includes('यूपीआई');
 
-      if (isSolar) {
+      if (isUpi) {
         return {
-          analysis_id: "SS-SOLAR-781",
-          overall_result: "misleading",
-          confidence_score: 0.94,
-          reply_text: "The PM Surya Ghar scheme is genuine, but messages offering 100% free installations via third-party WhatsApp agents are misleading scam vectors. Apply only on official pmsuryaghar.gov.in.",
+          analysis_id: "SS-2025-8941",
+          overall_result: "false",
+          confidence_score: 0.98,
+          reply_text: dict.sample_summary_text,
           headline: text,
           claims: [
-            { claim_text: "Government giving 100% free rooftop solar panels via private agents", result: "false", confidence: 0.95, reasoning: "Official scheme requires copayment; subsidies are credited directly to bank accounts after installation." },
-            { claim_text: "Official scheme exists under PM Surya Ghar Muft Bijli Yojana", result: "verified", confidence: 1.0, reasoning: "Verified by Ministry of New and Renewable Energy." }
+            { claim_text: dict.sample_subclaim1_text, result: "false", confidence: 0.994, reasoning: dict.sample_subclaim1_finding },
+            { claim_text: dict.sample_subclaim2_text, result: "false", confidence: 1.0, reasoning: dict.sample_subclaim2_finding }
           ],
           evidence: [
-            { publisher_name: "Ministry of New and Renewable Energy", source_url: "https://pmsuryaghar.gov.in", source_domain: "pmsuryaghar.gov.in", credibility_tier: "tier_1", snippet_text: "Citizens are cautioned against unauthorized private agents collecting registration fees.", stance: "clarifies" }
+            { publisher_name: "National Payments Corporation of India (NPCI)", source_url: "https://www.npci.org.in", source_domain: "npci.org.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_npci, stance: "refutes" },
+            { publisher_name: "Press Information Bureau Fact Check", source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_pib, stance: "refutes" }
           ],
-          audio_verdict_summary: "Verdict: Misleading. The PM Surya Ghar scheme provides government subsidies, but claims of free installation via WhatsApp links are unauthorized scams.",
+          audio_verdict_summary: dict.sample_summary_text,
           pdf_report_url: null,
           is_url: isUrl
         };
@@ -1605,22 +2506,17 @@
 
       return {
         analysis_id: "SS-LIVE-" + Math.floor(1000 + Math.random() * 9000),
-        overall_result: isUpi ? "false" : "unverified",
-        confidence_score: isUpi ? 0.98 : 0.85,
-        reply_text: isUpi
-          ? "Neither the Ministry of Finance nor NPCI has issued any surcharge on UPI transactions. Peer-to-peer and merchant payments remain completely free."
-          : `Dual-layer investigation complete. This claim circulating across social networks lacks corroboration in official gazette dispatches. Exercise caution before forwarding.`,
+        overall_result: "unverified",
+        confidence_score: 0.85,
+        reply_text: `Dual-layer investigation complete. This claim circulating across social networks lacks corroboration in official gazette dispatches.`,
         headline: text,
         claims: [
-          { claim_text: text.length > 120 ? text.substring(0, 117) + '...' : text, result: isUpi ? "false" : "unverified", confidence: 0.88, reasoning: "Evaluated against official government archives and verified news repositories." }
+          { claim_text: text.length > 120 ? text.substring(0, 117) + '...' : text, result: "unverified", confidence: 0.88, reasoning: "Evaluated against official government archives and verified news repositories." }
         ],
         evidence: [
-          { publisher_name: "National Payments Corporation of India (NPCI)", source_url: "https://www.npci.org.in", source_domain: "npci.org.in", credibility_tier: "tier_1", snippet_text: "Domestic UPI transactions continue to operate with zero transaction surcharges for consumers.", stance: "refutes" },
-          { publisher_name: "Press Information Bureau Fact Check", source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: "Beware of viral circulars claiming regulatory levies on standard UPI transfers.", stance: "refutes" }
+          { publisher_name: "Official Verification Registry", source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: "Official repository cross-checked.", stance: "neutral" }
         ],
-        audio_verdict_summary: isUpi
-          ? "Official fact check verdict: False. Neither the Ministry of Finance nor NPCI has introduced any surcharge on UPI transfers. Standard UPI payments remain completely free."
-          : "SathyaScan Dual-Layer Audit: This circulating claim is currently unsubstantiated by official gazette records. Please check cited sources before sharing.",
+        audio_verdict_summary: "SathyaScan Dual-Layer Audit: This circulating claim is currently unsubstantiated by official records.",
         pdf_report_url: null,
         is_url: isUrl
       };
@@ -1629,20 +2525,18 @@
     // Apply Analysis Result to DOM
     function applyAnalysisData(data, originalInput) {
       state.currentAnalysis = data;
+      const dict = I18N[state.language] || I18N.en;
 
-      // Update Case ID & Headline
       const caseId = data.analysis_id ? `Case #${data.analysis_id}` : `Case #SS-${Math.floor(1000 + Math.random() * 9000)}`;
       document.getElementById('breadcrumbCaseId').textContent = caseId;
       document.getElementById('auditIdLabel').textContent = `Audit ID: ${caseId}`;
       document.getElementById('claimHeadline').textContent = data.headline || originalInput;
-      document.getElementById('lastUpdatedLabel').innerHTML = `<span class="material-symbols-outlined text-xs">history</span> Just Verified`;
+      document.getElementById('lastUpdatedLabel').innerHTML = `<span class="material-symbols-outlined text-xs">history</span> <span>${dict.just_verified}</span>`;
       document.getElementById('chatSessionTitle').textContent = `Active Context: ${caseId}`;
 
-      // Update Metadata
-      document.getElementById('metaFormat').textContent = data.is_url ? 'Web URL / Link' : 'Text / Forward';
-      document.getElementById('metaTime').textContent = 'Just Now (IST)';
+      document.getElementById('metaFormat').textContent = data.is_url ? 'Web URL / Link' : dict.meta_text_forward;
+      document.getElementById('metaTime').textContent = dict.meta_today_live;
 
-      // Format verdict banner
       const banner = document.getElementById('verdictBanner');
       const iconContainer = document.getElementById('verdictIconContainer');
       const icon = document.getElementById('verdictIcon');
@@ -1664,42 +2558,42 @@
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'dangerous';
         pill.className = 'px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-xs font-extrabold uppercase';
-        pill.textContent = 'FABRICATED / HOAX';
+        pill.textContent = dict.verdict_label_false.toUpperCase();
         title.className = 'font-headline text-3xl md:text-4xl text-tertiary tracking-tight font-black uppercase leading-none';
-        title.textContent = 'VERDICT: FALSE';
+        title.textContent = dict.verdict_false_title;
         gauge.setAttribute('class', 'text-error transition-all duration-700');
         percentEl.className = 'font-headline text-lg font-bold text-error leading-none';
-        confLabel.textContent = 'Conclusive';
+        confLabel.textContent = dict.confidence_conclusive;
       } else if (result === 'verified' || result === 'true') {
         banner.className = 'relative overflow-hidden rounded-2xl bg-secondary-container/40 text-on-surface mb-space-lg shadow-md border border-secondary-container transition-all';
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'verified';
         pill.className = 'px-2 py-0.5 rounded bg-secondary text-on-secondary text-xs font-extrabold uppercase';
-        pill.textContent = 'OFFICIALLY VERIFIED';
+        pill.textContent = dict.verdict_label_true.toUpperCase();
         title.className = 'font-headline text-3xl md:text-4xl text-secondary tracking-tight font-black uppercase leading-none';
-        title.textContent = 'VERDICT: TRUE';
+        title.textContent = dict.verdict_true_title;
         gauge.setAttribute('class', 'text-secondary transition-all duration-700');
         percentEl.className = 'font-headline text-lg font-bold text-secondary leading-none';
-        confLabel.textContent = 'Verified Official';
+        confLabel.textContent = dict.verdict_label_true;
       } else if (result === 'misleading' || result === 'partially_true') {
         banner.className = 'relative overflow-hidden rounded-2xl bg-amber-100 text-amber-950 mb-space-lg shadow-md border border-amber-300 transition-all';
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-amber-700 text-white flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'warning';
         pill.className = 'px-2 py-0.5 rounded bg-amber-700 text-white text-xs font-extrabold uppercase';
-        pill.textContent = 'MISLEADING CONTEXT';
+        pill.textContent = dict.verdict_label_misleading.toUpperCase();
         title.className = 'font-headline text-3xl md:text-4xl text-amber-900 tracking-tight font-black uppercase leading-none';
-        title.textContent = 'VERDICT: MISLEADING';
+        title.textContent = dict.verdict_misleading_title;
         gauge.setAttribute('class', 'text-amber-600 transition-all duration-700');
         percentEl.className = 'font-headline text-lg font-bold text-amber-800 leading-none';
-        confLabel.textContent = 'Partial Nuance';
+        confLabel.textContent = dict.verdict_label_misleading;
       } else {
         banner.className = 'relative overflow-hidden rounded-2xl bg-surface-container-high text-on-surface mb-space-lg shadow-md border border-surface-container transition-all';
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'help';
         pill.className = 'px-2 py-0.5 rounded bg-primary text-on-primary text-xs font-extrabold uppercase';
-        pill.textContent = 'UNVERIFIED CLAIM';
+        pill.textContent = 'UNVERIFIED';
         title.className = 'font-headline text-3xl md:text-4xl text-primary tracking-tight font-black uppercase leading-none';
-        title.textContent = 'VERDICT: UNVERIFIED';
+        title.textContent = dict.verdict_unverified_title;
         gauge.setAttribute('class', 'text-primary transition-all duration-700');
         percentEl.className = 'font-headline text-lg font-bold text-primary leading-none';
         confLabel.textContent = 'Insufficient Proof';
@@ -1708,16 +2602,15 @@
       summary.textContent = data.reply_text || data.audio_verdict_summary || "Multi-source evidence evaluated.";
       document.getElementById('audioSummaryPreview').textContent = data.audio_verdict_summary || data.reply_text;
 
-      // Plain language sections
-      document.getElementById('plainTrueText').innerHTML = `Verified facts: ${result === 'false' ? 'Normal services operate free and unaltered.' : 'Portions confirmed by primary registries.'}`;
-      document.getElementById('plainFalseText').innerHTML = `Unsubstantiated claims: ${data.reply_text}`;
-      document.getElementById('plainOriginText').innerHTML = `Origin: Circulating across messaging networks. Cross-checked with official registries.`;
+      document.getElementById('plainTrueText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_what_is_true : `Verified details confirmed by primary registries.`;
+      document.getElementById('plainFalseText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_what_is_false : `${data.reply_text}`;
+      document.getElementById('plainOriginText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_origin_context : `Origin: Circulating across messaging networks.`;
 
       // Render Atomic Claims
       const atomicContainer = document.getElementById('atomicClaimsList');
       atomicContainer.innerHTML = '';
       const claims = data.claims && data.claims.length > 0 ? data.claims : [{ claim_text: data.headline, result: result, confidence: data.confidence_score, reasoning: data.reply_text }];
-      document.getElementById('atomicClaimsCountBadge').textContent = `${claims.length} Assertions Isolated`;
+      document.getElementById('atomicClaimsCountBadge').textContent = `${claims.length} ${dict.assertions_isolated_badge}`;
 
       claims.forEach((c, idx) => {
         const isFalse = c.result === 'false' || c.result === 'hoax';
@@ -1726,16 +2619,16 @@
         card.innerHTML = `
           <div class="flex items-start justify-between gap-space-sm">
             <div class="flex items-center gap-2">
-              <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Sub-claim 0${idx + 1}</span>
+              <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">${idx === 0 ? dict.sub_claim_1 : dict.sub_claim_2}</span>
               <span class="px-2 py-0.5 rounded ${isFalse ? 'bg-error text-on-error' : 'bg-secondary text-on-secondary'} text-xs font-bold flex items-center gap-1">
-                <span class="material-symbols-outlined text-xs">${isFalse ? 'cancel' : 'check_circle'}</span> ${c.result.toUpperCase()}
+                <span class="material-symbols-outlined text-xs">${isFalse ? 'cancel' : 'check_circle'}</span> ${(isFalse ? dict.verdict_label_false : dict.verdict_label_true).toUpperCase()}
               </span>
             </div>
             <span class="${isFalse ? 'text-error' : 'text-secondary'} text-xs font-bold">Confidence: ${Math.round((c.confidence || 0.9) * 100)}%</span>
           </div>
           <p class="text-sm text-on-surface font-bold">"${c.claim_text}"</p>
           <p class="text-xs text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1 border border-surface-container">
-            <strong>Finding:</strong> ${c.reasoning || 'Evaluated against primary documentation and verified wire reports.'}
+            <strong>${dict.finding_label}</strong> ${c.reasoning || 'Evaluated against primary documentation.'}
           </p>
         `;
         atomicContainer.appendChild(card);
@@ -1748,7 +2641,7 @@
         { publisher_name: "National Official Registry", source_url: "https://pib.gov.in", source_domain: "gov.in", credibility_tier: "tier_1", snippet_text: "Official verification repository", stance: "refutes" }
       ];
 
-      document.getElementById('sourcesVerifiedCount').textContent = `${sources.length} Sources Verified`;
+      document.getElementById('sourcesVerifiedCount').textContent = `${sources.length} ${dict.sources_verified_badge}`;
 
       sources.forEach(e => {
         const card = document.createElement('div');
@@ -1766,10 +2659,10 @@
           </div>
           <div class="flex items-center justify-between pt-1">
             <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-              <span class="material-symbols-outlined text-sm text-secondary">verified</span> Corroborated Source
+              <span class="material-symbols-outlined text-sm text-secondary">verified</span> ${dict.official_clarification}
             </span>
             <a class="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline" href="${e.source_url}" target="_blank" rel="noopener">
-              Open Evidence <span class="material-symbols-outlined text-xs">open_in_new</span>
+              ${dict.read_source} <span class="material-symbols-outlined text-xs">open_in_new</span>
             </a>
           </div>
         `;
@@ -1777,7 +2670,7 @@
       });
     }
 
-    // PDF Fact Sheet Download (GET /api/v1/fact-check/{id}/report.pdf)
+    // PDF Fact Sheet Download
     function downloadPdfFactSheet() {
       const a = state.currentAnalysis;
       if (a && a.pdf_report_url) {
@@ -1787,14 +2680,14 @@
         showToast('Initiating Download', 'Generating cryptographic PDF fact sheet...', 'download');
         window.location.href = `/api/v1/fact-check/${a.analysis_id}/report.pdf`;
       } else {
-        // Dynamic client-side document export
-        showToast('Generating Fact Sheet Document', 'Compiling bilingual summary and institutional citations...', 'download');
+        showToast('Generating Fact Sheet Document', 'Compiling multilingual summary and institutional citations...', 'download');
         const content = `=====================================================
-SATHYASCAN DUAL-LAYER TRUST PLATFORM - AUDIT REPORT
+SATHYASCAN MULTIMODAL TRUST PLATFORM - AUDIT REPORT
 Case Reference: ${a.analysis_id || 'SS-EXPORT-2025'}
+Language: ${state.language}
 Date: ${new Date().toLocaleString()}
 =====================================================
-HEADLINE / CLAIM:
+CLAIM:
 ${a.headline}
 
 OVERALL VERDICT:
@@ -1827,7 +2720,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       }
     }
 
-    // Audio Player with Browser SpeechSynthesis
+    // Speech synthesis dialect controller
     function setAudioDialect(lang) {
       state.audioDialect = lang;
       document.querySelectorAll('#audioDialectGroup .dialect-btn').forEach(btn => {
@@ -1849,7 +2742,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         window.speechSynthesis.cancel();
         state.isSpeaking = false;
         document.getElementById('audioPlayIcon').textContent = 'play_arrow';
-        showToast('Playback Stopped', 'Voice debunk stopped.', 'pause');
+        showToast('Playback Stopped', 'Voice playback stopped.', 'pause');
         return;
       }
 
@@ -1860,10 +2753,9 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       }
 
       if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel(); // Stop any pending speech
+        window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(textToRead);
 
-        // Map dialect to BCP-47
         if (state.audioDialect === 'hi') utterance.lang = 'hi-IN';
         else if (state.audioDialect === 'ml') utterance.lang = 'ml-IN';
         else if (state.audioDialect === 'ta') utterance.lang = 'ta-IN';
@@ -1874,7 +2766,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         utterance.onstart = () => {
           state.isSpeaking = true;
           document.getElementById('audioPlayIcon').textContent = 'pause';
-          showToast('Playing Audio Debunk', `Voice readout playing in ${getLangName(state.audioDialect)}.`, 'volume_up');
+          showToast('Playing Audio Debunk', `Reading aloud in ${getLangName(state.audioDialect)}.`, 'volume_up');
         };
 
         utterance.onend = () => {
@@ -1901,12 +2793,13 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       const idx = state.bookmarks.findIndex(b => b.analysis_id === a.analysis_id || b.headline === a.headline);
       const icon = document.getElementById('bookmarkIcon');
       const text = document.getElementById('bookmarkText');
+      const dict = I18N[state.language] || I18N.en;
 
       if (idx >= 0) {
         state.bookmarks.splice(idx, 1);
         icon.textContent = 'bookmark_border';
-        text.textContent = 'Bookmark Analysis';
-        showToast('Bookmark Removed', 'Removed from your saved items.', 'bookmark_remove');
+        text.textContent = dict.btn_bookmark;
+        showToast('Bookmark Removed', 'Removed from saved bookmarks.', 'bookmark_remove');
       } else {
         state.bookmarks.push({
           analysis_id: a.analysis_id || 'SS-' + Math.floor(1000 + Math.random()*9000),
@@ -1916,8 +2809,8 @@ Certified by SathyaScan Multimodal Fact-Checking Network
           saved_at: new Date().toISOString()
         });
         icon.textContent = 'bookmark';
-        text.textContent = 'Bookmarked in Casefile';
-        showToast('Bookmark Saved', 'Saved to your casefile for offline reference.', 'bookmark');
+        text.textContent = 'Bookmarked';
+        showToast('Bookmark Saved', 'Saved to your casefile.', 'bookmark');
       }
 
       localStorage.setItem('sathyascan_bookmarks', JSON.stringify(state.bookmarks));
@@ -1945,7 +2838,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
           <div class="flex flex-col gap-1">
             <div class="flex items-center justify-between">
               <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${b.overall_result === 'false' ? 'bg-error text-on-error' : 'bg-secondary text-on-secondary'}">
-                VERDICT: ${(b.overall_result || 'FALSE').toUpperCase()}
+                ${(b.overall_result || 'FALSE').toUpperCase()}
               </span>
               <button type="button" class="text-on-surface-variant hover:text-error" onclick="removeBookmark(${idx})">
                 <span class="material-symbols-outlined text-sm">close</span>
@@ -1953,7 +2846,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
             </div>
             <h4 class="text-xs font-bold text-on-surface line-clamp-2 mt-1">${b.headline}</h4>
           </div>
-          <button type="button" class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs flex items-center justify-center gap-1 transition-all" onclick="loadArchivedCase('${b.headline}')">
+          <button type="button" class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs flex items-center justify-center gap-1 transition-all" onclick="loadArchivedCase('${b.headline.replace(/'/g, "\\'")}')">
             <span>Inspect Fact Sheet</span>
             <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </button>
@@ -2008,7 +2901,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
               <span class="text-[11px] text-on-surface-variant">Verified at ${item.checked_at} • Confidence: ${Math.round((item.confidence_score || 0.9)*100)}%</span>
             </div>
           </div>
-          <button type="button" class="px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs shrink-0" onclick="loadArchivedCase('${item.headline}')">
+          <button type="button" class="px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs shrink-0" onclick="loadArchivedCase('${item.headline.replace(/'/g, "\\'")}')">
             View
           </button>
         </div>
@@ -2036,7 +2929,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       if (bb) bb.textContent = state.bookmarks.length;
     }
 
-    // Explore Feed (GET /api/v1/explore/claims)
+    // Explore Feed
     async function loadExploreData() {
       try {
         const res = await fetch('/api/v1/explore/claims?page=1&page_size=20');
@@ -2052,7 +2945,6 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         console.warn("Could not load backend explore claims, loading curated feed:", e);
       }
 
-      // Curated public claims feed
       state.exploreClaims = [
         {
           id: "SS-EXP-01",
@@ -2116,6 +3008,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     function renderExploreGrid(items) {
       const container = document.getElementById('exploreGridContainer');
       if (!container) return;
+      const dict = I18N[state.language] || I18N.en;
 
       if (items.length === 0) {
         container.innerHTML = `
@@ -2135,9 +3028,9 @@ Certified by SathyaScan Multimodal Fact-Checking Network
 
         let badgeClass = 'bg-surface-container text-on-surface-variant';
         let badgeText = 'UNVERIFIED';
-        if (isFalse) { badgeClass = 'bg-error text-on-error'; badgeText = 'FALSE / HOAX'; }
-        else if (isTrue) { badgeClass = 'bg-secondary text-on-secondary'; badgeText = 'VERIFIED TRUE'; }
-        else if (isMisleading) { badgeClass = 'bg-amber-700 text-white'; badgeText = 'MISLEADING'; }
+        if (isFalse) { badgeClass = 'bg-error text-on-error'; badgeText = dict.verdict_label_false.toUpperCase(); }
+        else if (isTrue) { badgeClass = 'bg-secondary text-on-secondary'; badgeText = dict.verdict_label_true.toUpperCase(); }
+        else if (isMisleading) { badgeClass = 'bg-amber-700 text-white'; badgeText = dict.verdict_label_misleading.toUpperCase(); }
 
         return `
           <div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-all">
@@ -2308,7 +3201,6 @@ Certified by SathyaScan Multimodal Fact-Checking Network
 
       const area = document.getElementById('chatMessagesArea');
 
-      // Add user bubble
       const userBubble = document.createElement('div');
       userBubble.className = 'flex items-start gap-space-sm max-w-xl ml-auto justify-end';
       userBubble.innerHTML = `
@@ -2320,10 +3212,8 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       area.appendChild(userBubble);
       input.value = '';
 
-      // Scroll
       area.scrollTop = area.scrollHeight;
 
-      // Simulated agent answer referencing the current claim
       setTimeout(() => {
         const botBubble = document.createElement('div');
         botBubble.className = 'flex items-start gap-space-sm max-w-xl';
@@ -2344,24 +3234,23 @@ Certified by SathyaScan Multimodal Fact-Checking Network
 
     function clearChatMessages() {
       const area = document.getElementById('chatMessagesArea');
+      const dict = I18N[state.language] || I18N.en;
       area.innerHTML = `
         <div class="flex items-start gap-space-sm max-w-xl">
           <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0">S</div>
           <div class="p-space-md rounded-2xl bg-surface-container-low text-xs text-on-surface border border-surface-container leading-relaxed">
-            Conversation reset. You can ask clarifying questions about this fact check.
+            ${dict.chat_welcome}
           </div>
         </div>
       `;
     }
 
-    // Moderation desk form
     function submitDiscrepancy(e) {
       e.preventDefault();
       document.getElementById('dispNotes').value = '';
       showToast('Discrepancy Logged', 'Tracking Token #DISP-' + Math.floor(1000 + Math.random()*9000) + ' issued.', 'task_alt');
     }
 
-    // Settings purge
     function purgeAllData() {
       localStorage.clear();
       state.history = [];

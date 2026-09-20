@@ -329,13 +329,24 @@ def create_app() -> FastAPI:
     app.include_router(appeals_router)
     app.include_router(moderation_router)
     app.include_router(fact_check_router)
-    dashboard_index_path = Path(__file__).resolve().parent.parent.parent / "dashboard" / "index.html"
+    def _find_dashboard_index() -> Path | None:
+        candidates = [
+            Path(__file__).resolve().parent.parent.parent / "dashboard" / "index.html",
+            Path(__file__).resolve().parent.parent / "dashboard" / "index.html",
+            Path("/app/dashboard/index.html"),
+            Path("dashboard/index.html"),
+        ]
+        for p in candidates:
+            if p.is_file():
+                return p
+        return None
 
     @app.get("/", include_in_schema=False)
     @app.get("/dashboard", include_in_schema=False)
     async def serve_dashboard():
-        if dashboard_index_path.is_file():
-            return FileResponse(dashboard_index_path)
+        index_path = _find_dashboard_index()
+        if index_path and index_path.is_file():
+            return FileResponse(index_path)
         return {"message": "SathyaScan Multimodal Trust Platform API"}
 
     @app.get("/health")
