@@ -200,10 +200,10 @@
         <div class="relative flex items-center bg-surface-container-low px-space-sm py-1.5 rounded-lg text-on-surface border border-surface-container">
           <span class="material-symbols-outlined text-base text-on-surface-variant mr-1.5">translate</span>
           <select class="bg-transparent text-xs text-on-surface font-semibold outline-none cursor-pointer pr-1" id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="ml">മലയാളം (Malayalam)</option>
-            <option value="hi">हिन्दी (Hindi)</option>
-            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="en" id="optEn">English</option>
+            <option value="ml" id="optMl">മലയാളം</option>
+            <option value="hi" id="optHi">हिन्दी</option>
+            <option value="ta" id="optTa">தமிழ்</option>
           </select>
         </div>
 
@@ -445,10 +445,10 @@
               <div class="flex items-center gap-space-xs self-end md:self-center">
                 <span class="text-xs text-on-surface-variant font-medium hidden sm:inline" data-i18n="speech_dialect_label">Speech Dialect:</span>
                 <div class="flex items-center bg-surface-container rounded-lg p-0.5" id="audioDialectGroup">
-                  <button type="button" class="dialect-btn px-2.5 py-1 rounded bg-primary text-on-primary text-xs font-bold transition-all" data-lang="en" onclick="setAudioDialect('en')">English</button>
-                  <button type="button" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="ml" onclick="setAudioDialect('ml')">മലയാളം</button>
-                  <button type="button" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="hi" onclick="setAudioDialect('hi')">हिन्दी</button>
-                  <button type="button" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="ta" onclick="setAudioDialect('ta')">தமிழ்</button>
+                  <button type="button" id="audioBtnEn" class="dialect-btn px-2.5 py-1 rounded bg-primary text-on-primary text-xs font-bold transition-all" data-lang="en" onclick="setAudioDialect('en')">English</button>
+                  <button type="button" id="audioBtnMl" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="ml" onclick="setAudioDialect('ml')">മലയാളം</button>
+                  <button type="button" id="audioBtnHi" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="hi" onclick="setAudioDialect('hi')">हिन्दी</button>
+                  <button type="button" id="audioBtnTa" class="dialect-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-highest text-xs font-bold transition-all" data-lang="ta" onclick="setAudioDialect('ta')">தமிழ்</button>
                 </div>
               </div>
             </div>
@@ -611,7 +611,7 @@
                       <span class="material-symbols-outlined text-sm text-secondary">verified</span> <span data-i18n="official_gov_dispatch">Official Government Dispatch</span>
                     </span>
                     <a class="inline-flex items-center gap-1 text-primary text-xs font-bold hover:underline" href="https://pib.gov.in" target="_blank" rel="noopener">
-                      <span>PIB Dispatch</span> <span class="material-symbols-outlined text-xs">open_in_new</span>
+                      <span data-i18n="read_source">Read Source</span> <span class="material-symbols-outlined text-xs">open_in_new</span>
                     </a>
                   </div>
                 </div>
@@ -870,7 +870,7 @@
             <span class="text-xs text-on-surface-variant font-medium uppercase tracking-wide" data-i18n="kpi_audited">Claims Audited</span>
             <span class="font-headline text-2xl font-extrabold text-primary">24,910+</span>
             <span class="text-[11px] text-secondary font-semibold flex items-center gap-1">
-              <span class="material-symbols-outlined text-xs">trending_up</span> +14% this month
+              <span class="material-symbols-outlined text-xs">trending_up</span> <span data-i18n="kpi_trending_month">+14% this month</span>
             </span>
           </div>
           <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col gap-1">
@@ -941,7 +941,7 @@
             <div class="space-y-space-sm">
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>English (Pan-India &amp; Global)</span>
+                  <span data-i18n="lang_chart_en">English (Pan-India &amp; Global)</span>
                   <span>46%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -950,7 +950,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>हिन्दी (Hindi &amp; Hinglish)</span>
+                  <span data-i18n="lang_chart_hi">हिन्दी (Hindi &amp; Hinglish)</span>
                   <span>28%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -959,7 +959,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>മലയാളം (Malayalam)</span>
+                  <span data-i18n="lang_chart_ml">മലയാളം (Malayalam)</span>
                   <span>14%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -968,7 +968,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-1">
-                  <span>தமிழ் (Tamil)</span>
+                  <span data-i18n="lang_chart_ta">தமிழ் (Tamil)</span>
                   <span>12%</span>
                 </div>
                 <div class="w-full bg-surface-container rounded-full h-2">
@@ -1053,10 +1053,10 @@
               <p class="text-xs text-on-surface-variant" data-i18n="lang_setting_desc">Preferred dialect for speech summaries and fact sheets.</p>
             </div>
             <select id="settingsLangSelect" class="h-9 px-3 rounded-lg bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container" onchange="changeLanguage(this.value)">
-              <option value="en">English</option>
-              <option value="ml">മലയാളം (Malayalam)</option>
-              <option value="hi">हिन्दी (Hindi)</option>
-              <option value="ta">தமிழ் (Tamil)</option>
+              <option value="en" id="setOptEn">English</option>
+              <option value="ml" id="setOptMl">മലയാളം</option>
+              <option value="hi" id="setOptHi">हिन्दी</option>
+              <option value="ta" id="setOptTa">தமிழ்</option>
             </select>
           </div>
 
@@ -1225,7 +1225,7 @@
   <div id="notificationsDrawer" class="fixed top-16 right-6 w-80 bg-surface-container-lowest rounded-2xl shadow-2xl border border-surface-container z-50 hidden p-space-md flex flex-col gap-space-sm">
     <div class="flex items-center justify-between border-b border-surface-container pb-2">
       <span class="text-xs font-bold text-on-surface" data-i18n="alerts_title">Recent Platform Alerts</span>
-      <span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold">Live</span>
+      <span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold" data-i18n="live_badge_short">Live</span>
     </div>
     <div class="space-y-2">
       <div class="p-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" onclick="loadSample(1); toggleNotificationsDrawer()">
@@ -1270,9 +1270,13 @@
         citizen_subtitle: "Zero-Auth Verification",
         verify_input_title: "Submit Claim or URL for Real-Time Fact Check",
         live_badge: "Live AI & Official Evidence Registry",
+        live_badge_short: "Live",
         verify_input_desc: "Paste suspicious forwarded messages, claims circulating on WhatsApp/Telegram/X, or full web article links. Our engine isolates atomic assertions, queries official registries, and synthesizes a verifiable veracity report.",
         claim_input_placeholder: "E.g., 'Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1' or paste a URL...",
         detecting_format: "Detecting format...",
+        url_web_link: "🌐 URL Web Link",
+        text_format_prefix: "📝 Text",
+        chars_suffix: "chars",
         try_sample_label: "Try sample:",
         clear_btn: "Clear",
         verify_btn: "Verify Claim Now",
@@ -1280,6 +1284,9 @@
         estimating_time: "Estimating ~2-4s",
         breadcrumb_explore: "Explore",
         breadcrumb_domain: "Governance & Finance",
+        case_prefix: "Case",
+        audit_id_label: "Audit ID",
+        active_context_prefix: "Active Context",
         just_verified: "Just Verified",
         share_report: "Share Report",
         virality_high: "High Velocity Virality",
@@ -1289,20 +1296,30 @@
         meta_audit_time: "Audit Time",
         meta_today_live: "Today, Live Verification",
         meta_audit_dialect: "Audit Dialect",
+        meta_dialect_val: "English & Regional",
         meta_domain_area: "Domain Area",
         meta_civic_policy: "Civic & Public Policy",
         meta_user_privacy: "User Privacy",
         meta_anon_citizen: "Anonymous Citizen",
+        meta_session_stored: "Session Stored",
         verdict_subheader: "Official Veracity Assessment",
         verdict_false_title: "VERDICT: FALSE",
         verdict_true_title: "VERDICT: TRUE",
         verdict_misleading_title: "VERDICT: MISLEADING",
         verdict_unverified_title: "VERDICT: UNVERIFIED",
+        verdict_pill_false: "100% HOAX",
+        verdict_pill_true: "OFFICIALLY VERIFIED",
+        verdict_pill_misleading: "MISLEADING CONTEXT",
+        verdict_pill_unverified: "UNVERIFIED",
         verdict_label_false: "False",
         verdict_label_true: "Verified True",
         verdict_label_misleading: "Misleading",
         evidence_metric_label: "Evidence Metric",
         confidence_conclusive: "Conclusive",
+        insufficient_proof: "Insufficient Proof",
+        confidence_word: "Confidence",
+        conf_99: "Confidence: 99.4%",
+        conf_100: "Confidence: 100%",
         sources_verified_badge: "Multi-source verified",
         audio_summary_title: "Audio Verdict Summary",
         audio_read_aloud: "Read Aloud",
@@ -1321,10 +1338,15 @@
         evidence_sources_title: "Primary Evidence Sources",
         tier_verified_badge: "Tier Verified",
         evidence_sources_desc: "Corroborated directly through authenticated institutional records and accredited investigative newsrooms.",
+        tier_1_badge: "TIER 1",
+        tier_2_badge: "TIER 2",
         tier_1_authority: "Tier 1: Primary Authority",
         tier_1_fact_checker: "Tier 1: Official Fact-Checker",
         official_clarification: "Official Clarification",
         official_gov_dispatch: "Official Government Dispatch",
+        official_clarification_snippet: "Official clarification verifying veracity.",
+        verified_authority: "Verified Authority",
+        official_authority: "Official Authority",
         read_source: "Read Source",
         active_sentinel_monitor: "Active Sentinel Monitor",
         sentinel_title: "Continuous Policy Re-Verification",
@@ -1336,6 +1358,8 @@
         action_suite_desc: "Export verified cryptographic documentation, conduct forensic chat, or challenge findings.",
         btn_download_pdf: "Download Fact Sheet PDF",
         btn_bookmark: "Bookmark Analysis",
+        btn_bookmarked: "Bookmarked",
+        btn_inspect_fact_sheet: "Inspect Fact Sheet",
         btn_share_link: "Copy Shareable Link",
         btn_ask_questions: "Ask Follow-up Questions",
         btn_schedule_recheck: "Schedule Re-check",
@@ -1355,6 +1379,10 @@
         cat_health: "Health & Medicine",
         cat_elections: "Electoral & Civic",
         cat_tech: "Technology & Scams",
+        btn_inspect_verdict: "Inspect Verdict",
+        inquiries_label: "Inquiries",
+        no_match_filter: "No Claims Match Your Filter",
+        no_match_filter_desc: "Try broadening your search query or selecting 'All Categories'.",
         chat_title: "Investigative Chat Session",
         chat_desc: "Ask clarifying questions, examine evidentiary citations, or test alternative hypotheses on analyzed claims.",
         reset_chat: "Reset Conversation",
@@ -1364,14 +1392,26 @@
         history_title: "Local Verification History",
         history_desc: "Claims verified in your current browser session. Stored privately and locally.",
         clear_history: "Clear History",
+        no_history_title: "No History Stored",
+        no_history_desc: "Verified claims will appear here when Privacy Mode is disabled.",
+        verified_at_label: "Verified at",
+        btn_view: "View",
         bookmarks_title: "Saved Bookmarks",
         bookmarks_desc: "Bookmarked fact checks for reference, teaching, or citations.",
+        no_bookmarks_title: "No Saved Bookmarks Yet",
+        no_bookmarks_desc: "Click 'Bookmark Analysis' on any verified report to save it here for rapid access.",
         monitors_title: "Active Sentinel Monitors",
         monitors_desc: "Scheduled continuous audits tracking emerging regulatory dispatches and policy updates.",
         new_monitor_btn: "New Sentinel Monitor",
+        no_monitors_title: "No Active Sentinel Monitors",
+        no_monitors_desc: "Schedule a monitor on any claim to automatically track subsequent government gazettes or press releases.",
+        freq_label: "Freq",
+        next_sweep_label: "Next Sweep",
+        note_label: "Note",
         analytics_title: "Platform Trust & Virality Metrics",
         analytics_desc: "Real-time telemetry measuring misinformation containment velocity across linguistic communities.",
         kpi_audited: "Claims Audited",
+        kpi_trending_month: "+14% this month",
         kpi_hoax_rate: "Hoax Interception Rate",
         kpi_flagged_desc: "Flagged as False/Misleading",
         kpi_latency: "Avg Audit Latency",
@@ -1384,6 +1424,10 @@
         domain_elections: "Elections, Polling & Candidate Claims",
         domain_phishing: "Phishing Scams & Free Subsidy Schemes",
         linguistic_title: "Linguistic Breakdown of Circulating Claims",
+        lang_chart_en: "English (Pan-India & Global)",
+        lang_chart_hi: "हिन्दी (Hindi & Hinglish)",
+        lang_chart_ml: "മലയാളം (Malayalam)",
+        lang_chart_ta: "தமிழ் (Tamil)",
         discrepancy_title: "Public Discrepancy & Feedback Desk",
         discrepancy_desc: "SathyaScan operates on transparent editorial accountability. Report source inaccuracies, submit new gazette links, or dispute veracity assessments.",
         disp_case_label: "Claim Case ID or Topic",
@@ -1399,6 +1443,8 @@
         settings_desc: "Configure zero-trace verification, regional preferences, and cryptographic audit proofs.",
         privacy_setting_title: "Zero-Trace Privacy Mode",
         privacy_setting_desc: "When enabled, queries are evaluated in ephemeral memory and discarded immediately without logging.",
+        privacy_enabled_btn: "Enabled (Zero Trace)",
+        privacy_disabled_btn: "Disabled (Save History)",
         lang_setting_title: "Default Audio & Report Language",
         lang_setting_desc: "Preferred dialect for speech summaries and fact sheets.",
         purge_setting_title: "Purge All Browser Stored Data",
@@ -1406,13 +1452,13 @@
         purge_btn: "Purge Local Data",
         methodology_title: "Dual-Layer Verification Protocol",
         methodology_desc: "How SathyaScan delivers trustworthy, verifiable, non-partisan fact-checking.",
-        step1_title: "Multi-modal & Syntactic Extraction",
+        step1_title: "1. Multi-modal & Syntactic Extraction",
         step1_desc: "When a message or link arrives, our parser strips forwarding markers, resolves URL shorteners securely with SSRF shields, and extracts atomic testable assertions.",
-        step2_title: "Hierarchical Evidence Cross-Examination",
+        step2_title: "2. Hierarchical Evidence Cross-Examination",
         step2_desc: "Claims are prioritized against Tier 1 official sources (National Gazettes, Press Information Bureau, RBI, WHO, Court Judgments) before consulting Tier 2 accredited wire newsrooms (Reuters, PTI, The Hindu).",
-        step3_title: "Dual-Layer AI Synthesis",
+        step3_title: "3. Dual-Layer AI Synthesis",
         step3_desc: "Anthropic Claude models synthesize multi-source findings into accessible, non-partisan verdicts with explicit confidence metrics and atomic breakdowns.",
-        step4_title: "Cryptographic Proof & PDF Export",
+        step4_title: "4. Cryptographic Proof & PDF Export",
         step4_desc: "Every audit produces an immutable SHA-256 fact sheet PDF complete with timestamp, citations, and verdict stamps suitable for legal, journalistic, or civic citation.",
         cancel_btn: "Cancel",
         schedule_btn: "Schedule Monitor",
@@ -1423,6 +1469,7 @@
         freq_7d: "Every 7 Days",
         freq_30d: "Monthly",
         modal_recheck_note: "Note or Custom Watch Query",
+        modal_recheck_note_default: "Watch for official NPCI circulars on consumer fees",
         modal_appeal_title: "Appeal Veracity Verdict",
         modal_appeal_desc: "Submit secondary documentation or counter-citations for editorial team triage.",
         modal_appeal_reason: "Reason for Appeal",
@@ -1457,7 +1504,17 @@
         sample_subclaim2_text: "\"NPCI and Nirmala Sitharaman announced this policy on Twitter via official press releases.\"",
         sample_subclaim2_finding: "Direct audit of archived dispatches from @NPCI_NPCI and @FinMinIndia shows explicit public statements debunking this claim.",
         sample_evidence_npci: "\"NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers.\"",
-        sample_evidence_pib: "\"Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake.\""
+        sample_evidence_pib: "\"Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake.\"",
+        sample2_query: "Announcement circulating that the Government is installing free solar panels for everyone with ₹0 investment under PM Surya Ghar Muft Bijli Yojana via WhatsApp agent.",
+        fallback_unverified_reply: "Dual-layer investigation complete. This claim circulating across social networks lacks corroboration in official gazette dispatches.",
+        fallback_unverified_finding: "Evaluated against official government archives and verified news repositories.",
+        fallback_unverified_audio: "SathyaScan Dual-Layer Audit: This circulating claim is currently unsubstantiated by official records.",
+        fallback_registry_name: "National Official Verification Registry",
+        fallback_registry_snippet: "Official repository cross-checked.",
+        lang_en: "English",
+        lang_ml: "Malayalam",
+        lang_hi: "Hindi",
+        lang_ta: "Tamil"
       },
 
       ml: {
@@ -1484,9 +1541,13 @@
         citizen_subtitle: "ലോഗിൻ ആവശ്യമില്ലാത്ത പരിശോധന",
         verify_input_title: "തത്സമയ വസ്തുതാ പരിശോധനയ്ക്കായി വാദമോ ലിങ്കോ നൽകുക",
         live_badge: "തത്സമയ AI & ഔദ്യോഗിക വിവര ശേഖരം",
+        live_badge_short: "തത്സമയം",
         verify_input_desc: "വാട്സാപ്പ്, ടെലിഗ്രാം അല്ലെങ്കിൽ ഫേസ്ബുക്കിൽ കാണുന്ന സംശയാസ്പദമായ സന്ദേശങ്ങളോ വെബ്‌സൈറ്റ് ലിങ്കുകളോ നൽകുക. ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോം ഔദ്യോഗിക ഉറവിടങ്ങളുമായി ഒത്തുനോക്കി കൃത്യമായ വസ്തുതാ റിപ്പോർട്ട് നൽകുന്നു.",
         claim_input_placeholder: "ഉദാ: '₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള യുപിഐ ഇടപാടുകൾക്ക് ഏപ്രിൽ 1 മുതൽ 5% നികുതി ഏർപ്പെടുത്തിയെന്ന പ്രചാരണം' അല്ലെങ്കിൽ ലിങ്ക് നൽകുക...",
-        detecting_format: "ഫോർമാറ്റ് പരിശോധിക്കുന്നു...",
+        detecting_format: "രൂപം പരിശോധിക്കുന്നു...",
+        url_web_link: "🌐 വെബ് ലിങ്ക്",
+        text_format_prefix: "📝 വാചകം",
+        chars_suffix: "അക്ഷരങ്ങൾ",
         try_sample_label: "സാമ്പിൾ പരീക്ഷിക്കുക:",
         clear_btn: "മായ്ക്കുക",
         verify_btn: "ഇപ്പോൾ പരിശോധിക്കുക",
@@ -1494,6 +1555,9 @@
         estimating_time: "ഏകദേശം ~2-4 സെക്കൻഡ്",
         breadcrumb_explore: "എക്സ്പ്ലോർ",
         breadcrumb_domain: "ഭരണവും ധനകാര്യവും",
+        case_prefix: "കേസ്",
+        audit_id_label: "ഓഡിറ്റ് ഐഡി",
+        active_context_prefix: "സജീവ വിഷയം",
         just_verified: "ഇപ്പോൾ പരിശോധിച്ചത്",
         share_report: "റിപ്പോർട്ട് ഷെയർ ചെയ്യുക",
         virality_high: "വളരെ വേഗത്തിൽ പ്രചരിക്കുന്നത്",
@@ -1503,20 +1567,30 @@
         meta_audit_time: "പരിശോധിച്ച സമയം",
         meta_today_live: "ഇന്ന്, തത്സമയം",
         meta_audit_dialect: "ഭാഷ",
+        meta_dialect_val: "മലയാളം & റീജിയണൽ",
         meta_domain_area: "വിഷയ മേഖല",
         meta_civic_policy: "പൊതുനയം & ഭരണം",
         meta_user_privacy: "ഉപയോക്തൃ സ്വകാര്യത",
         meta_anon_citizen: "അജ്ഞാത പൗരൻ",
+        meta_session_stored: "സെഷൻ സംരക്ഷിച്ചു",
         verdict_subheader: "ഔദ്യോഗിക വസ്തുതാ വിലയിരുത്തൽ",
         verdict_false_title: "തീർപ്പ്: വ്യാജം",
         verdict_true_title: "തീർപ്പ്: സത്യം",
         verdict_misleading_title: "തീർപ്പ്: തെറ്റിദ്ധരിപ്പിക്കുന്നത്",
         verdict_unverified_title: "തീർപ്പ്: സ്ഥിരീകരിക്കാത്തത്",
+        verdict_pill_false: "100% വ്യാജം",
+        verdict_pill_true: "ഔദ്യോഗികമായി സ്ഥിരീകരിച്ചു",
+        verdict_pill_misleading: "തെറ്റിദ്ധരിപ്പിക്കുന്ന പശ്ചാത്തലം",
+        verdict_pill_unverified: "സ്ഥിരീകരിക്കാത്തത്",
         verdict_label_false: "വ്യാജം",
         verdict_label_true: "സത്യം",
         verdict_label_misleading: "തെറ്റിദ്ധരിപ്പിക്കുന്നത്",
         evidence_metric_label: "തെളിവ് നിരക്ക്",
         confidence_conclusive: "കൃത്യമായ നിഗമനം",
+        insufficient_proof: "ആവശ്യമായ തെളിവുകളില്ല",
+        confidence_word: "വിശ്വാസ്യത",
+        conf_99: "വിശ്വാസ്യത: 99.4%",
+        conf_100: "വിശ്വാസ്യത: 100%",
         sources_verified_badge: "വിവിധ സ്രോതസ്സുകളാൽ സ്ഥിരീകരിച്ചത്",
         audio_summary_title: "ശബ്ദ സംഗ്രഹം",
         audio_read_aloud: "കേൾക്കുക",
@@ -1535,10 +1609,15 @@
         evidence_sources_title: "പ്രാഥമിക തെളിവ് സ്രോതസ്സുകൾ",
         tier_verified_badge: "പരിശോധിച്ച് ഉറപ്പുവരുത്തിയത്",
         evidence_sources_desc: "ഔദ്യോഗിക സർക്കാർ സ്ഥാപനങ്ങളുടെ ഉത്തരവുകളിലൂടെയും അംഗീകൃത വാർത്താ ഏജൻസികളിലൂടെയും ഉറപ്പുവരുത്തിയത്.",
+        tier_1_badge: "ടയർ 1",
+        tier_2_badge: "ടയർ 2",
         tier_1_authority: "ടയർ 1: പ്രാഥമിക അതോറിറ്റി",
         tier_1_fact_checker: "ടയർ 1: ഔദ്യോഗിക വസ്തുതാ പരിശോധകൻ",
         official_clarification: "ഔദ്യോഗിക വിശദീകരണം",
         official_gov_dispatch: "സർക്കാർ വാർത്താക്കുറിപ്പ്",
+        official_clarification_snippet: "വസ്തുത വ്യക്തമാക്കിക്കൊണ്ടുള്ള ഔദ്യോഗിക വിവരണം.",
+        verified_authority: "സ്ഥിരീകരിച്ച അതോറിറ്റി",
+        official_authority: "ഔദ്യോഗിക അതോറിറ്റി",
         read_source: "സ്രോതസ്സ് വായിക്കുക",
         active_sentinel_monitor: "സജീവ സെന്റിനൽ നിരീക്ഷണം",
         sentinel_title: "തുടർച്ചയായ നയ പുനഃപരിശോധന",
@@ -1550,6 +1629,8 @@
         action_suite_desc: "റിപ്പോർട്ട് PDF ഡൗൺലോഡ് ചെയ്യുക, ചാറ്റ് ചെയ്യുക, അല്ലെങ്കിൽ കണ്ടെത്തലിനെ ചോദ്യം ചെയ്യുക.",
         btn_download_pdf: "ഫാക്റ്റ് ഷീറ്റ് PDF ഡൗൺലോഡ് ചെയ്യുക",
         btn_bookmark: "ബുക്ക്മാർക്ക് ചെയ്യുക",
+        btn_bookmarked: "സൂക്ഷിച്ചു",
+        btn_inspect_fact_sheet: "ഫാക്റ്റ് ഷീറ്റ് കാണുക",
         btn_share_link: "ലിങ്ക് കോപ്പി ചെയ്യുക",
         btn_ask_questions: "തുടർ ചോദ്യങ്ങൾ ചോദിക്കുക",
         btn_schedule_recheck: "വീണ്ടും പരിശോധിക്കാൻ നൽകുക",
@@ -1569,6 +1650,10 @@
         cat_health: "ആരോഗ്യവും ചികിത്സയും",
         cat_elections: "തിരഞ്ഞെടുപ്പും പൗരകാര്യങ്ങളും",
         cat_tech: "സാങ്കേതികവിദ്യയും തട്ടിപ്പുകളും",
+        btn_inspect_verdict: "തീർപ്പ് പരിശോധിക്കുക",
+        inquiries_label: "അന്വേഷണങ്ങൾ",
+        no_match_filter: "വിവരങ്ങളൊന്നും ലഭ്യമല്ല",
+        no_match_filter_desc: "തിരയൽ വാക്ക് മാറ്റുകയോ 'എല്ലാ വിഭാഗങ്ങളും' തിരഞ്ഞെടുക്കുകയോ ചെയ്യുക.",
         chat_title: "അന്വേഷണാത്മക ചാറ്റ് സെഷൻ",
         chat_desc: "ഈ വാദത്തെക്കുറിച്ച് കൂടുതൽ ചോദ്യങ്ങൾ ചോദിക്കാനും ഔദ്യോഗിക രേഖകൾ പരിശോധിക്കാനും സംശയങ്ങൾ ദൂരീകരിക്കാനും സഹായിക്കുന്നു.",
         reset_chat: "ചാറ്റ് പുനരാരംഭിക്കുക",
@@ -1578,14 +1663,26 @@
         history_title: "പ്രാദേശിക പരിശോധനാ ചരിത്രം",
         history_desc: "നിങ്ങൾ ഈ ബ്രൗസറിൽ പരിശോധിച്ച വാദങ്ങൾ. ഇത് നിങ്ങളുടെ ഉപകരണത്തിൽ മാത്രം സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു.",
         clear_history: "ചരിത്രം മായ്ക്കുക",
+        no_history_title: "പരിശോധനാ ചരിത്രമില്ല",
+        no_history_desc: "സ്വകാര്യതാ മോഡ് ഓഫ് ചെയ്യുമ്പോൾ പരിശോധിച്ച വിവരങ്ങൾ ഇവിടെ കാണാം.",
+        verified_at_label: "പരിശോധിച്ചത്:",
+        btn_view: "കാണുക",
         bookmarks_title: "സൂക്ഷിച്ച ബുക്ക്മാർക്കുകൾ",
         bookmarks_desc: "പിന്നീട് കാണാനായി സംരക്ഷിച്ച വസ്തുതാ പരിശോധനാ റിപ്പോർട്ടുകൾ.",
+        no_bookmarks_title: "ബുക്ക്മാർക്കുകളൊന്നും സൂക്ഷിച്ചിട്ടില്ല",
+        no_bookmarks_desc: "പരിശോധിച്ച റിപ്പോർട്ടുകൾ പെട്ടെന്ന് കാണാനായി 'ബുക്ക്മാർക്ക് ചെയ്യുക' ക്ലിക്ക് ചെയ്യുക.",
         monitors_title: "സജീവ സെന്റിനൽ നിരീക്ഷണങ്ങൾ",
         monitors_desc: "ഔദ്യോഗിക അറിയിപ്പുകൾക്കായി തത്സമയം കാത്തിരിക്കുന്ന നിരീക്ഷണങ്ങൾ.",
         new_monitor_btn: "പുതിയ നിരീക്ഷണം തുടങ്ങുക",
+        no_monitors_title: "സജീവ മോണിറ്ററുകളൊന്നുമില്ല",
+        no_monitors_desc: "ഔദ്യോഗിക അറിയിപ്പുകളോ ഗസറ്റുകളോ വരുന്നുണ്ടോയെന്ന് സ്വയമേവ പരിശോധിക്കാൻ മോണിറ്റർ ക്രമീകരിക്കുക.",
+        freq_label: "ഇടവേള",
+        next_sweep_label: "അടുത്ത പരിശോധന",
+        note_label: "കുറിപ്പ്",
         analytics_title: "പ്ലാറ്റ്‌ഫോം വിവരങ്ങളും സ്ഥിതിവിവരക്കണക്കുകളും",
         analytics_desc: "വ്യാജവാർത്തകളെ തടയുന്നതിൽ പ്ലാറ്റ്‌ഫോമിന്റെ തത്സമയ സ്ഥിതിവിവരക്കണക്കുകൾ.",
         kpi_audited: "പരിശോധിച്ച വാദങ്ങൾ",
+        kpi_trending_month: "+14% ഈ മാസം",
         kpi_hoax_rate: "വ്യാജവാർത്ത തടയൽ നിരക്ക്",
         kpi_flagged_desc: "വ്യാജമെന്ന് കണ്ടെത്തിയവ",
         kpi_latency: "ശരാശരി പരിശോധനാ സമയം",
@@ -1598,6 +1695,10 @@
         domain_elections: "തിരഞ്ഞെടുപ്പും സ്ഥാനാർത്ഥികളും",
         domain_phishing: "തട്ടിപ്പുകളും വ്യാജ സബ്‌സിഡികളും",
         linguistic_title: "വിവിധ ഭാഷകളിലെ പ്രചാരണം",
+        lang_chart_en: "ഇംഗ്ലീഷ് (പാൻ-ഇന്ത്യ & ആഗോളം)",
+        lang_chart_hi: "ഹിന്ദി (ഹിന്ദിയും ഹിംഗ്ലീഷും)",
+        lang_chart_ml: "മലയാളം (കേരളം)",
+        lang_chart_ta: "തമിഴ് (തമിഴ്‌നാട്)",
         discrepancy_title: "പൊതു തിരുത്തൽ ഡെസ്ക്",
         discrepancy_desc: "സുതാര്യമായ പ്രവർത്തനമാണ് സത്യസ്കാനിന്റേത്. തെറ്റായ സ്രോതസ്സുകൾ ചൂണ്ടിക്കാണിക്കാനും പുതിയ തെളിവുകൾ സമർപ്പിക്കാനും ഇവിടെ അറിയിക്കുക.",
         disp_case_label: "കേസ് നമ്പർ അല്ലെങ്കിൽ വിഷയം",
@@ -1613,6 +1714,8 @@
         settings_desc: "സീറോ-ട്രേസ് പരിശോധനയും പ്രാദേശിക ഭാഷാ മുൻഗണനകളും ക്രമീകരിക്കുക.",
         privacy_setting_title: "സീറോ-ട്രേസ് സ്വകാര്യതാ മോഡ്",
         privacy_setting_desc: "പ്രവർത്തിപ്പിക്കുമ്പോൾ നിങ്ങളുടെ ചോദ്യങ്ങൾ സിസ്റ്റത്തിൽ സേവ് ചെയ്യാതെ ഉടനടി നീക്കം ചെയ്യുന്നു.",
+        privacy_enabled_btn: "പ്രവർത്തനക്ഷമം (സീറോ ട്രേസ്)",
+        privacy_disabled_btn: "നിഷ്ക്രിയം (ചരിത്രം സൂക്ഷിക്കുന്നു)",
         lang_setting_title: "മുൻഗണനാ ഭാഷ",
         lang_setting_desc: "റിപ്പോർട്ടുകൾക്കും സംഭാഷണങ്ങൾക്കുമുള്ള ഭാഷ.",
         purge_setting_title: "ബ്രൗസർ വിവരങ്ങൾ പൂർണ്ണമായി മായ്ക്കുക",
@@ -1637,6 +1740,7 @@
         freq_7d: "എല്ലാ 7 ദിവസത്തിലും",
         freq_30d: "മാസത്തിലൊരിക്കൽ",
         modal_recheck_note: "പ്രത്യേക കുറിപ്പ്",
+        modal_recheck_note_default: "ഉപഭോക്തൃ ഫീസുകളെക്കുറിച്ചുള്ള ഔദ്യോഗിക എൻപിസിഐ സർക്കുലറുകൾ നിരീക്ഷിക്കുക",
         modal_appeal_title: "തീർപ്പിനെതിരെ അപ്പീൽ നൽകുക",
         modal_appeal_desc: "തീർപ്പിൽ വിയോജിപ്പുണ്ടെങ്കിൽ രേഖകൾ സമർപ്പിക്കുക.",
         modal_appeal_reason: "അപ്പീലിനുള്ള കാരണം",
@@ -1671,7 +1775,17 @@
         sample_subclaim2_text: "\"എൻപിസിഐയും നിർമ്മലാ സീതാരാമനും ട്വിറ്ററിലൂടെ ഇത് പ്രഖ്യാപിച്ചു.\"",
         sample_subclaim2_finding: "ധനമന്ത്രാലയത്തിന്റെയും എൻപിസിഐയുടെയും ഔദ്യോഗിക ഹാൻഡിലുകൾ പരിശോധിച്ചതിൽ ഇത് വ്യാജമാണെന്ന് വ്യക്തമായിട്ടുണ്ട്.",
         sample_evidence_npci: "\"ഒരു ബാങ്ക് അക്കൗണ്ടിൽ നിന്ന് മറ്റൊരു അക്കൗണ്ടിലേക്കുള്ള യുപിഐ ഇടപാടുകൾ പൂർണ്ണമായും സൗജന്യമാണെന്ന് എൻപിസിഐ വ്യക്തമാക്കുന്നു.\"",
-        sample_evidence_pib: "\"2000 രൂപയ്ക്ക് മുകളിൽ യുപിഐ നികുതി ഏർപ്പെടുത്തിയെന്ന വാട്ട്സ്ആപ്പ് സന്ദേശം പൂർണ്ണമായും വ്യാജമാണ് - പിഐബി ഫാക്റ്റ് ചെക്ക്.\""
+        sample_evidence_pib: "\"2000 രൂപയ്ക്ക് മുകളിൽ യുപിഐ നികുതി ഏർപ്പെടുത്തിയെന്ന വാട്ട്സ്ആപ്പ് സന്ദേശം പൂർണ്ണമായും വ്യാജമാണ് - പിഐബി ഫാക്റ്റ് ചെക്ക്.\"",
+        sample2_query: "പിഎം സൂര്യ ഘർ പദ്ധതി പ്രകാരം വാട്സാപ്പ് ഏജന്റുമാർ വഴി എല്ലാവർക്കും സൗജന്യമായി സോളാർ പാനലുകൾ നൽകുന്നുവെന്ന പ്രചാരണം.",
+        fallback_unverified_reply: "ദ്വിതല പരിശോധന പൂർത്തിയായി. സമൂഹമാധ്യമങ്ങളിൽ പ്രചരിക്കുന്ന ഈ സന്ദേശത്തിന് ഔദ്യോഗിക ഗസറ്റുകളിലോ സർക്കാർ അറിയിപ്പുകളിലോ യാതൊരു സ്ഥിരീകരണവുമില്ല.",
+        fallback_unverified_finding: "ഔദ്യോഗിക സർക്കാർ രേഖകളുമായും സ്ഥിരീകരിച്ച വാർത്താ ഏജൻസികളുമായും ഒത്തുനോക്കി.",
+        fallback_unverified_audio: "സത്യസ്കാൻ ദ്വിതല പരിശോധന: സമൂഹമാധ്യമങ്ങളിൽ പ്രചരിക്കുന്ന ഈ വാദത്തിന് ഔദ്യോഗിക രേഖകളുടെ പിന്തുണയില്ല.",
+        fallback_registry_name: "ദേശീയ ഔദ്യോഗിക പരിശോധനാ രജിസ്ട്രി",
+        fallback_registry_snippet: "ഔദ്യോഗിക രേഖകൾ പരിശോധിച്ചു.",
+        lang_en: "ഇംഗ്ലീഷ്",
+        lang_ml: "മലയാളം",
+        lang_hi: "ഹിന്ദി",
+        lang_ta: "തമിഴ്"
       },
 
       hi: {
@@ -1698,108 +1812,148 @@
         citizen_subtitle: "बिना लॉगिन तुरंत सत्यापन",
         verify_input_title: "वास्तविक समय तथ्य जांच के लिए दावा या लिंक दर्ज करें",
         live_badge: "लाइव एआई और आधिकारिक साक्ष्य रजिस्ट्री",
-        verify_input_desc: "व्हाट्सएप, टेलीग्राम या सोशल मीडिया पर वायरल संदिग्ध संदेश या वेबसाइट लिंक दर्ज करें। हमारा सिस्टम आधिकारिक स्रोतों से पुष्टि करके तथ्य रिपोर्ट तैयार करता है।",
-        claim_input_placeholder: "उदा. 'वायरल व्हाट्सएप संदेश का दावा है कि वित्त मंत्रालय ने 1 अप्रैल से 2,000 रुपये से अधिक के यूपीआई लेनदेन पर 5% शुल्क लगाया है' या लिंक दर्ज करें...",
-        detecting_format: "प्रारूप की पहचान हो रही है...",
-        try_sample_label: "उदाहरण आज़माएं:",
+        live_badge_short: "लाइव",
+        verify_input_desc: "व्हाट्सएप, टेलीग्राम या सोशल मीडिया पर प्रसारित संदिग्ध संदेश या लिंक दर्ज करें। हमारा सिस्टम आधिकारिक रिकॉर्ड से मिलान कर सटीक रिपोर्ट तैयार करता है।",
+        claim_input_placeholder: "उदा: '1 अप्रैल से ₹2,000 से अधिक के यूपीआई लेन-देन पर 5% टैक्स लगने की खबर' या लिंक पेस्ट करें...",
+        detecting_format: "प्रारूप की जांच हो रही है...",
+        url_web_link: "🌐 वेब लिंक",
+        text_format_prefix: "📝 पाठ",
+        chars_suffix: "अक्षर",
+        try_sample_label: "नमूना जांचें:",
         clear_btn: "साफ़ करें",
-        verify_btn: "अभी दावा सत्यापित करें",
-        verifying_step_default: "सत्यस्कैन द्वि-स्तरीय पाइपलाइन द्वारा जांच जारी है...",
+        verify_btn: "अभी सत्यापित करें",
+        verifying_step_default: "सत्यस्कैन द्वि-स्तरीय प्रणाली द्वारा जांच की जा रही है...",
         estimating_time: "अनुमानित ~2-4 सेकंड",
-        breadcrumb_explore: "एक्सप्लोर",
+        breadcrumb_explore: "खोजें",
         breadcrumb_domain: "शासन एवं वित्त",
-        just_verified: "अभी सत्यापित",
+        case_prefix: "केस",
+        audit_id_label: "ऑडिट आईडी",
+        active_context_prefix: "सक्रिय संदर्भ",
+        just_verified: "अभी जाँचा गया",
         share_report: "रिपोर्ट साझा करें",
-        virality_high: "तेजी से वायरल हो रहा है",
-        cross_checked_badge: "आधिकारिक अभिलेखों से क्रॉस-चेक किया गया",
+        virality_high: "अत्यधिक वायरल",
+        cross_checked_badge: "सरकारी रिकॉर्ड से सत्यापित",
         meta_media_format: "मीडिया प्रारूप",
         meta_text_forward: "टेक्स्ट / संदेश",
         meta_audit_time: "जांच का समय",
         meta_today_live: "आज, लाइव सत्यापन",
         meta_audit_dialect: "भाषा",
+        meta_dialect_val: "हिन्दी व क्षेत्रीय",
         meta_domain_area: "विषय क्षेत्र",
-        meta_civic_policy: "सार्वजनिक नीति एवं शासन",
+        meta_civic_policy: "सार्वजनिक नीति",
         meta_user_privacy: "उपयोगकर्ता गोपनीयता",
-        meta_anon_citizen: "गुमनाम नागरिक",
+        meta_anon_citizen: "अनाम नागरिक",
+        meta_session_stored: "सत्र सहेजा गया",
         verdict_subheader: "आधिकारिक सत्यता मूल्यांकन",
-        verdict_false_title: "निर्णय: असत्य / झूठा",
-        verdict_true_title: "निर्णय: सत्य / प्रमाणित",
+        verdict_false_title: "निर्णय: असत्य / फर्जी",
+        verdict_true_title: "निर्णय: सत्य",
         verdict_misleading_title: "निर्णय: भ्रामक",
         verdict_unverified_title: "निर्णय: असत्यापित",
-        verdict_label_false: "असत्य (झूठा)",
-        verdict_label_true: "प्रमाणित सत्य",
+        verdict_pill_false: "100% फर्जी",
+        verdict_pill_true: "आधिकारिक रूप से सत्यापित",
+        verdict_pill_misleading: "भ्रामक संदर्भ",
+        verdict_pill_unverified: "असत्यापित",
+        verdict_label_false: "असत्य",
+        verdict_label_true: "सत्य",
         verdict_label_misleading: "भ्रामक",
-        evidence_metric_label: "साक्ष्य मीट्रिक",
-        confidence_conclusive: "निर्णायक",
-        sources_verified_badge: "कई स्रोतों द्वारा सत्यापित",
-        audio_summary_title: "ऑडियो निर्णय सारांश",
+        evidence_metric_label: "साक्ष्य माप",
+        confidence_conclusive: "ठोस निष्कर्ष",
+        insufficient_proof: "अपर्याप्त साक्ष्य",
+        confidence_word: "विश्वसनीयता",
+        conf_99: "विश्वसनीयता: 99.4%",
+        conf_100: "विश्वसनीयता: 100%",
+        sources_verified_badge: "एकाधिक स्रोतों से सत्यापित",
+        audio_summary_title: "ऑडियो सारांश",
         audio_read_aloud: "सुनें",
-        audio_summary_desc: "आसानी से फॉरवर्ड करने और बुजुर्गों के लिए स्पष्ट ध्वनि सारांश सुनने के लिए प्ले करें।",
-        speech_dialect_label: "आवाज़ की भाषा:",
-        plain_summary_title: "सरल भाषा में सारांश",
-        non_technical_guide: "सरल गाइड",
-        what_is_true_title: "वास्तव में सच क्या है",
-        what_is_false_title: "पूरी तरह से झूठ क्या है",
+        audio_summary_desc: "वरिष्ठ नागरिकों और साझा करने के लिए स्पष्ट ऑडियो सारांश सुनने के लिए प्ले दबाएं।",
+        speech_dialect_label: "आवाज की भाषा:",
+        plain_summary_title: "सरल सारांश",
+        non_technical_guide: "गैर-तकनीकी मार्गदर्शिका",
+        what_is_true_title: "वास्तव में क्या सच है",
+        what_is_false_title: "पूरी तरह से क्या झूठ है",
         origin_context_title: "उत्पत्ति और संदर्भ",
-        atomic_claims_title: "जांचे गए व्यक्तिगत दावे",
-        assertions_isolated_badge: "2 मुख्य दावे अलग किए गए",
+        atomic_claims_title: "परीक्षण किए गए मुख्य दावे",
+        assertions_isolated_badge: "2 मुख्य दावे पृथक किए गए",
         sub_claim_1: "उप-दावा 01",
         sub_claim_2: "उप-दावा 02",
         finding_label: "निष्कर्ष:",
         evidence_sources_title: "प्राथमिक साक्ष्य स्रोत",
-        tier_verified_badge: "सत्यापित स्रोत",
-        evidence_sources_desc: "आधिकारिक सरकारी आदेशों और मान्यता प्राप्त न्यूज़ एजेंसियों द्वारा पुष्टि की गई।",
+        tier_verified_badge: "सत्यापित टियर",
+        evidence_sources_desc: "आधिकारिक सरकारी आदेशों और मान्यता प्राप्त समाचार एजेंसियों द्वारा सत्यापित।",
+        tier_1_badge: "टियर 1",
+        tier_2_badge: "टियर 2",
         tier_1_authority: "टियर 1: प्राथमिक प्राधिकरण",
-        tier_1_fact_checker: "टियर 1: आधिकारिक फैक्ट-चेकर",
+        tier_1_fact_checker: "टियर 1: आधिकारिक तथ्य-जांचकर्ता",
         official_clarification: "आधिकारिक स्पष्टीकरण",
-        official_gov_dispatch: "आधिकारिक सरकारी प्रेस विज्ञप्ति",
+        official_gov_dispatch: "सरकारी प्रेस विज्ञप्ति",
+        official_clarification_snippet: "सत्यता की पुष्टि करने वाला आधिकारिक स्पष्टीकरण।",
+        verified_authority: "सत्यापित प्राधिकरण",
+        official_authority: "आधिकारिक प्राधिकरण",
         read_source: "स्रोत पढ़ें",
         active_sentinel_monitor: "सक्रिय प्रहरी मॉनिटर",
-        sentinel_title: "निरंतर नीति पुनर्सत्यापन",
-        sentinel_desc: "सरकारी अधिसूचनाओं पर लगातार नज़र रखता है। यदि नियम बदलते हैं, तो यह रिपोर्ट स्वतः अपडेट हो जाती है।",
+        sentinel_title: "नीति का निरंतर पुनः सत्यापन",
+        sentinel_desc: "सरकारी राजपत्रों और बयानों की स्वचालित निगरानी। यदि कोई बदलाव होता है तो रिपोर्ट स्वतः अपडेट हो जाएगी।",
         scheduled_sweep_label: "अगली जांच",
-        daily_midnight: "प्रतिदिन आधी रात को",
+        daily_midnight: "प्रतिदिन मध्यरात्रि",
         configure_btn: "कॉन्फ़िगर करें",
-        action_suite_title: "कार्रवाई सूट",
-        action_suite_desc: "पीडीएफ डाउनलोड करें, बातचीत करें या निर्णय को चुनौती दें।",
-        btn_download_pdf: "फैक्ट शीट PDF डाउनलोड करें",
-        btn_bookmark: "विश्लेषण बुकमार्क करें",
+        action_suite_title: "नागरिक कार्रवाई सूट",
+        action_suite_desc: "प्रमाणित पीडीएफ रिपोर्ट डाउनलोड करें, चैट करें या निष्कर्ष को चुनौती दें।",
+        btn_download_pdf: "फैक्ट शीट पीडीएफ डाउनलोड करें",
+        btn_bookmark: "बुकमार्क करें",
+        btn_bookmarked: "सहेजा गया",
+        btn_inspect_fact_sheet: "तथ्य पत्र देखें",
         btn_share_link: "शेयर लिंक कॉपी करें",
-        btn_ask_questions: "अनुवर्ती प्रश्न पूछें",
-        btn_schedule_recheck: "पुनः जांच निर्धारित करें",
-        btn_appeal_verdict: "निर्णय के खिलाफ अपील करें",
-        btn_report_issue: "विसंगति / त्रुटि की रिपोर्ट करें",
-        explore_feed_title: "लाइव सत्यापित दावों की सूची",
-        explore_feed_desc: "सोशल मीडिया पर वायरल दावों और उनके आधिकारिक स्पष्टीकरणों का सार्वजनिक भंडार।",
-        explore_filter_placeholder: "कीवर्ड या संगठन द्वारा खोजें...",
+        btn_ask_questions: "प्रश्न पूछें",
+        btn_schedule_recheck: "पुनः जांच शेड्यूल करें",
+        btn_appeal_verdict: "अपील दर्ज करें",
+        btn_report_issue: "त्रुटि रिपोर्ट करें",
+        explore_feed_title: "सत्यापित दावों की लाइव फीड",
+        explore_feed_desc: "इंटरनेट पर प्रसारित भ्रामक सूचनाओं और आधिकारिक स्पष्टीकरणों का सार्वजनिक भंडार।",
+        explore_filter_placeholder: "कीवर्ड या संगठन द्वारा दावे खोजें...",
         sort_trending: "क्रम: ट्रेंडिंग पहले",
-        sort_recent: "क्रम: सबसे हालिया",
+        sort_recent: "क्रम: नवीनतम पहले",
         filter_all_verdicts: "सभी निर्णय",
-        filter_false: "झूठे दावे",
+        filter_false: "फर्जी / झूठ",
         filter_misleading: "भ्रामक",
-        filter_verified: "प्रमाणित सत्य",
+        filter_verified: "सत्यापित सच",
         cat_all: "सभी श्रेणियां",
         cat_governance: "शासन एवं वित्त",
         cat_health: "स्वास्थ्य एवं चिकित्सा",
-        cat_elections: "चुनाव एवं नागरिक",
-        cat_tech: "प्रौद्योगिकी एवं ऑनलाइन धोखाधड़ी",
+        cat_elections: "चुनाव एवं नागरिक मुद्दे",
+        cat_tech: "तकनीक एवं साइबर अपराध",
+        btn_inspect_verdict: "फैसला देखें",
+        inquiries_label: "पूछताछ",
+        no_match_filter: "कोई दावा मेल नहीं खाता",
+        no_match_filter_desc: "अपनी खोज विस्तृत करें या 'सभी श्रेणियां' चुनें।",
         chat_title: "खोजी चैट सत्र",
-        chat_desc: "इस दावे के बारे में विस्तृत प्रश्न पूछें और आधिकारिक साक्ष्यों की पड़ताल करें।",
-        reset_chat: "चैट रीसेट करें",
+        chat_desc: "दावे से जुड़े प्रश्न पूछें, साक्ष्य की जांच करें या शंकाओं का समाधान पाएं।",
+        reset_chat: "बातचीत रीसेट करें",
         chat_welcome: "नमस्ते! मैं आपका सत्यस्कैन सहायक हूँ। आप वर्तमान दावे के बारे में कोई भी प्रश्न पूछ सकते हैं।",
         chat_input_placeholder: "इस दावे के बारे में प्रश्न पूछें...",
         send_btn: "भेजें",
         history_title: "स्थानीय सत्यापन इतिहास",
-        history_desc: "इस ब्राउज़र सत्र में जाँचे गए दावे। यह केवल आपके डिवाइस पर निजी रूप से संग्रहीत हैं।",
-        clear_history: "इतिहास मिटाएं",
+        history_desc: "आपके वर्तमान ब्राउज़र में जाँचे गए दावे। यह पूरी तरह से निजी और स्थानीय रूप से सुरक्षित है।",
+        clear_history: "इतिहास साफ़ करें",
+        no_history_title: "कोई इतिहास संग्रहीत नहीं है",
+        no_history_desc: "गोपनीयता मोड बंद होने पर सत्यापित दावे यहां दिखाई देंगे।",
+        verified_at_label: "सत्यापित समय:",
+        btn_view: "देखें",
         bookmarks_title: "सहेजे गए बुकमार्क",
-        bookmarks_desc: "भविष्य के संदर्भ के लिए सहेजे गए तथ्य-जांच विश्लेषण।",
+        bookmarks_desc: "संदर्भ या अध्ययन के लिए सहेजी गई तथ्य-जांच रिपोर्टें।",
+        no_bookmarks_title: "अभी तक कोई बुकमार्क नहीं है",
+        no_bookmarks_desc: "तेजी से पहुंच के लिए किसी भी सत्यापित रिपोर्ट पर 'सहेजें' पर क्लिक करें।",
         monitors_title: "सक्रिय प्रहरी मॉनिटर",
-        monitors_desc: "आगामी विनियामक घोषणाओं पर स्वचालित रूप से नज़र रखने वाले मॉनिटर।",
+        monitors_desc: "आधिकारिक घोषणाओं के लिए सक्रिय निगरानी।",
         new_monitor_btn: "नया मॉनिटर जोड़ें",
+        no_monitors_title: "कोई सक्रिय मॉनिटर नहीं है",
+        no_monitors_desc: "बाद के सरकारी राजपत्रों या प्रेस विज्ञप्तियों को स्वचालित रूप से ट्रैक करने के लिए एक मॉनिटर निर्धारित करें।",
+        freq_label: "आवृत्ति",
+        next_sweep_label: "अगली जांच",
+        note_label: "नोट",
         analytics_title: "प्लेटफ़ॉर्म विश्वसनीयता और आंकड़े",
         analytics_desc: "भ्रामक सूचनाओं को रोकने में प्लेटफ़ॉर्म के वास्तविक समय के आंकड़े।",
         kpi_audited: "जांचे गए दावे",
+        kpi_trending_month: "+14% इस महीने",
         kpi_hoax_rate: "झूठ रोकने की दर",
         kpi_flagged_desc: "झूठे या भ्रामक पाए गए",
         kpi_latency: "औसत जांच समय",
@@ -1812,6 +1966,10 @@
         domain_elections: "चुनाव एवं उम्मीदवार",
         domain_phishing: "धोखाधड़ी एवं मुफ्त योजनाएं",
         linguistic_title: "भाषा-वार वितरण",
+        lang_chart_en: "अंग्रेज़ी (अखिल भारतीय व वैश्विक)",
+        lang_chart_hi: "हिन्दी (हिन्दी व हिंग्लिश)",
+        lang_chart_ml: "मलयालम (केरल)",
+        lang_chart_ta: "तमिल (तमिलनाडु)",
         discrepancy_title: "सार्वजनिक विसंगति डेस्क",
         discrepancy_desc: "सत्यस्कैन पूर्ण पारदर्शिता पर कार्य करता है। गलत साक्ष्य या नई जानकारी की रिपोर्ट करें।",
         disp_case_label: "केस आईडी या विषय",
@@ -1827,6 +1985,8 @@
         settings_desc: "शून्य-ट्रेस सत्यापन और क्षेत्रीय प्राथमिकताओं को कॉन्फ़िगर करें।",
         privacy_setting_title: "शून्य-ट्रेस गोपनीयता मोड",
         privacy_setting_desc: "सक्रिय होने पर आपके प्रश्नों को बिना लॉग किए तुरंत हटा दिया जाता है।",
+        privacy_enabled_btn: "सक्रिय (जीरो ट्रेस)",
+        privacy_disabled_btn: "निष्क्रिय (इतिहास सहेजें)",
         lang_setting_title: "डिफ़ॉल्ट भाषा",
         lang_setting_desc: "रिपोर्ट और आवाज के लिए पसंदीदा भाषा।",
         purge_setting_title: "ब्राउज़र का सारा डेटा मिटाएं",
@@ -1851,6 +2011,7 @@
         freq_7d: "हर 7 दिन में",
         freq_30d: "मासिक",
         modal_recheck_note: "नोट या खोज क्वेरी",
+        modal_recheck_note_default: "उपभोक्ता शुल्कों पर आधिकारिक एनपीसीआई परिपत्रों की निगरानी करें",
         modal_appeal_title: "निर्णय के खिलाफ अपील",
         modal_appeal_desc: "यदि आप निर्णय से असहमत हैं तो दस्तावेज प्रस्तुत करें।",
         modal_appeal_reason: "अपील का कारण",
@@ -1885,7 +2046,17 @@
         sample_subclaim2_text: "\"एनपीसीआई और वित्त मंत्री ने ट्विटर पर इसकी घोषणा की।\"",
         sample_subclaim2_finding: "आधिकारिक ट्विटर हैंडल की जांच से साफ है कि यह दावा पूरी तरह से झूठा है।",
         sample_evidence_npci: "\"एनपीसीआई स्पष्ट करता है कि बैंक खातों के बीच यूपीआई लेनदेन पूरी तरह से निःशुल्क हैं।\"",
-        sample_evidence_pib: "\"2000 रुपये से अधिक के यूपीआई पर टैक्स का दावा पूरी तरह फर्जी है - पीआईबी फैक्ट चेक।\""
+        sample_evidence_pib: "\"2000 रुपये से अधिक के यूपीआई पर टैक्स का दावा पूरी तरह फर्जी है - पीआईबी फैक्ट चेक।\"",
+        sample2_query: "पीएम सूर्य घर मुफ्त बिजली योजना के तहत व्हाट्सएप एजेंट के माध्यम से ₹0 निवेश पर सभी के लिए मुफ्त सोलर पैनल लगाने का प्रसारित दावा।",
+        fallback_unverified_reply: "द्वि-स्तरीय जांच पूर्ण। सोशल मीडिया पर प्रसारित इस दावे का आधिकारिक राजपत्र या सरकारी बयानों में कोई प्रमाण नहीं मिला।",
+        fallback_unverified_finding: "आधिकारिक सरकारी अभिलेखागार और सत्यापित समाचार स्रोतों के विरुद्ध मूल्यांकित।",
+        fallback_unverified_audio: "सत्यास्कैन द्वि-स्तरीय ऑडिट: इस प्रसारित दावे का आधिकारिक रिकॉर्ड में कोई समर्थन नहीं है।",
+        fallback_registry_name: "राष्ट्रीय आधिकारिक सत्यापन रजिस्ट्री",
+        fallback_registry_snippet: "आधिकारिक रिपॉजिटरी की जांच की गई।",
+        lang_en: "अंग्रेज़ी",
+        lang_ml: "मलयालम",
+        lang_hi: "हिन्दी",
+        lang_ta: "तमिल"
       },
 
       ta: {
@@ -1912,9 +2083,13 @@
         citizen_subtitle: "உடனடி சரிபார்ப்பு",
         verify_input_title: "நிகழ்நேர உண்மை சரிபார்ப்புக்கு கூற்று அல்லது இணைப்பை உள்ளிடவும்",
         live_badge: "நேரலை AI & அதிகாரப்பூர்வ சான்றுகள்",
+        live_badge_short: "நேரலை",
         verify_input_desc: "வாட்ஸ்அப், டெலிகிராமில் பரவும் சந்தேகத்திற்குரிய செய்திகள் அல்லது இணைய இணைப்புகளை உள்ளிடுங்கள். அதிகாரப்பூர்வ பதிவுகளுடன் ஒப்பிட்டு துல்லியமான அறிக்கை வழங்கப்படும்.",
         claim_input_placeholder: "எ.கா: 'ரூ. 2,000-க்கு மேற்பட்ட யுபிஐ பரிவர்த்தனைகளுக்கு ஏப்ரல் 1 முதல் 5% கூடுதல் கட்டணம் விதிக்கப்படுவதாக பரவும் தகவல்' அல்லது இணைப்பை இடவும்...",
         detecting_format: "வகை கண்டறியப்படுகிறது...",
+        url_web_link: "🌐 வலைதள இணைப்பு",
+        text_format_prefix: "📝 உரை",
+        chars_suffix: "எழுத்துக்கள்",
         try_sample_label: "மாதிரியை முயற்சிக்கவும்:",
         clear_btn: "அழிக்க",
         verify_btn: "இப்போது சரிபார்க்கவும்",
@@ -1922,6 +2097,9 @@
         estimating_time: "தோராயமாக ~2-4 நொடிகள்",
         breadcrumb_explore: "ஆராய்க",
         breadcrumb_domain: "நிர்வாகம் மற்றும் நிதி",
+        case_prefix: "வழக்கு",
+        audit_id_label: "தணிக்கை ஐடி",
+        active_context_prefix: "செயலில் உள்ள தலைப்பு",
         just_verified: "இப்போது சரிபார்க்கப்பட்டது",
         share_report: "அறிக்கையைப் பகிர்க",
         virality_high: "அதிவேகமாக பரவுகிறது",
@@ -1931,72 +2109,93 @@
         meta_audit_time: "சரிபார்க்கப்பட்ட நேரம்",
         meta_today_live: "இன்று, நேரலை சரிபார்ப்பு",
         meta_audit_dialect: "மொழி",
+        meta_dialect_val: "தமிழ் & பிராந்திய",
         meta_domain_area: "துறை",
         meta_civic_policy: "பொதுக் கொள்கை",
         meta_user_privacy: "பயனர் தனியுரிமை",
         meta_anon_citizen: "பெயரற்ற குடிமகன்",
+        meta_session_stored: "அமர்வு சேமிக்கப்பட்டது",
         verdict_subheader: "அதிகாரப்பூர்வ உண்மை மதிப்பீடு",
         verdict_false_title: "தீர்ப்பு: பொய்",
         verdict_true_title: "தீர்ப்பு: உண்மை",
         verdict_misleading_title: "தீர்ப்பு: தவறான தகவல்",
         verdict_unverified_title: "தீர்ப்பு: உறுதிப்படுத்தப்படவில்லை",
+        verdict_pill_false: "100% போலி",
+        verdict_pill_true: "அதிகாரப்பூர்வமாக உறுதியானது",
+        verdict_pill_misleading: "தவறான சூழல்",
+        verdict_pill_unverified: "சரிபார்க்கப்படாதது",
         verdict_label_false: "பொய்",
         verdict_label_true: "உண்மை",
         verdict_label_misleading: "தவறான தகவல்",
         evidence_metric_label: "சான்று அளவீடு",
         confidence_conclusive: "துல்லியமானது",
+        insufficient_proof: "போதிய ஆதாரமில்லை",
+        confidence_word: "நம்பகத்தன்மை",
+        conf_99: "நம்பகத்தன்மை: 99.4%",
+        conf_100: "நம்பகத்தன்மை: 100%",
         sources_verified_badge: "பல்வேறு ஆதாரங்களால் உறுதி செய்யப்பட்டது",
         audio_summary_title: "ஒலி சுருக்கம்",
         audio_read_aloud: "கேட்க",
-        audio_summary_desc: "எளிதாகப் புரிந்துகொள்ள தெளிவான குரல் விளக்கத்தைக் கேட்க அழுத்தவும்.",
-        speech_dialect_label: "குரல் மொழி:",
-        plain_summary_title: "எளிய விளக்கம்",
+        audio_summary_desc: "முதியோர்களுக்கும் பகிர்வதற்கும் ஏற்ற வகையில் எளிய குரல் விளக்கத்தைக் கேட்க இயக்கவும்.",
+        speech_dialect_label: "பேச்சு மொழி:",
+        plain_summary_title: "எளிய சுருக்கம்",
         non_technical_guide: "சாமானியர்களுக்கான விளக்கம்",
         what_is_true_title: "உண்மையில் எது உண்மை",
         what_is_false_title: "முற்றிலும் பொய்யானது எது",
-        origin_context_title: "தோற்றம் மற்றும் சூழல்",
-        atomic_claims_title: "ஆராயப்பட்ட தனித்தனி கூற்றுகள்",
-        assertions_isolated_badge: "2 கூற்றுகள் பிரிக்கப்பட்டன",
-        sub_claim_1: "கூற்று 01",
-        sub_claim_2: "கூற்று 02",
-        finding_label: "கண்டறிதல்:",
+        origin_context_title: "தோற்றம் மற்றும் பின்னணி",
+        atomic_claims_title: "ஆய்வு செய்யப்பட்ட தனித்தனி கூற்றுகள்",
+        assertions_isolated_badge: "2 முக்கிய கூற்றுகள் பிரிக்கப்பட்டன",
+        sub_claim_1: "உப-கூற்று 01",
+        sub_claim_2: "உப-கூற்று 02",
+        finding_label: "கண்டுபிடிப்பு:",
         evidence_sources_title: "முதன்மை ஆதாரங்கள்",
-        tier_verified_badge: "சரிபார்க்கப்பட்ட தரம்",
-        evidence_sources_desc: "அரசு அதிகாரப்பூர்வ அறிவிப்புகள் மற்றும் முன்னணி செய்தி நிறுவனங்கள் மூலம் உறுதிப்படுத்தப்பட்டது.",
-        tier_1_authority: "தரம் 1: முதன்மை அதிகாரம்",
-        tier_1_fact_checker: "தரம் 1: அதிகாரப்பூர்வ உண்மை சரிபார்ப்பாளர்",
+        tier_verified_badge: "சான்றளிக்கப்பட்ட தரம்",
+        evidence_sources_desc: "அதிகாரப்பூர்வ அரசு ஆவணங்கள் மற்றும் நம்பகமான செய்தி நிறுவனங்களின் அறிக்கைகள் மூலம் உறுதி செய்யப்பட்டது.",
+        tier_1_badge: "நிலை 1",
+        tier_2_badge: "நிலை 2",
+        tier_1_authority: "நிலை 1: முதன்மை அதிகாரம்",
+        tier_1_fact_checker: "நிலை 1: அதிகாரப்பூர்வ உண்மை சரிபார்ப்பாளர்",
         official_clarification: "அதிகாரப்பூர்வ விளக்கம்",
         official_gov_dispatch: "அரசு செய்திக்குறிப்பு",
-        read_source: "ஆதாரத்தைப் படிக்க",
-        active_sentinel_monitor: "நேரலை கண்காணிப்பு",
+        official_clarification_snippet: "உண்மையை உறுதிப்படுத்தும் அதிகாரப்பூர்வ விளக்கம்.",
+        verified_authority: "சரிபார்க்கப்பட்ட அதிகாரம்",
+        official_authority: "அதிகாரப்பூர்வ அதிகாரம்",
+        read_source: "ஆதாரத்தைப் படிக்கவும்",
+        active_sentinel_monitor: "செயலில் உள்ள கண்காணிப்பு",
         sentinel_title: "தொடர் மறுசரிபார்ப்பு",
-        sentinel_desc: "புதிய அரசு அறிவிப்புகள் வரும்போது இந்த அறிக்கை தானாகவே புதுப்பிக்கப்படும்.",
+        sentinel_desc: "அரசு அறிவிப்புகளை தொடர்ந்து கண்காணிக்கிறது. விதிமுறைகள் மாறினால் அறிக்கை தானாகவே புதுப்பிக்கப்படும்.",
         scheduled_sweep_label: "அடுத்த ஆய்வு",
         daily_midnight: "தினமும் நள்ளிரவு",
         configure_btn: "அமைக்க",
-        action_suite_title: "செயல்பாடுகள்",
-        action_suite_desc: "PDF பதிவிறக்கவும், உரையாடவும் அல்லது தீர்ப்பை மறுஆய்வு செய்யவும்.",
-        btn_download_pdf: "உண்மை அறிக்கை PDF பதிவிறக்குக",
+        action_suite_title: "நடவடிக்கை கருவிகள்",
+        action_suite_desc: "சான்றளிக்கப்பட்ட PDF அறிக்கையைப் பதிவிறக்கலாம், அரட்டையில் கேட்கலாம் அல்லது தீர்ப்பை மேல்முறையீடு செய்யலாம்.",
+        btn_download_pdf: "PDF அறிக்கையைப் பதிவிறக்குக",
         btn_bookmark: "புக்மார்க் செய்க",
+        btn_bookmarked: "சேமிக்கப்பட்டது",
+        btn_inspect_fact_sheet: "அறிக்கையைப் பார்க்க",
         btn_share_link: "இணைப்பை நகலெடு",
-        btn_ask_questions: "தொடர் கேள்விகளைக் கேளுங்கள்",
-        btn_schedule_recheck: "மறு சரிபார்ப்பைத் திட்டமிடு",
-        btn_appeal_verdict: "தீர்ப்பை மேல்முறையீடு செய்",
-        btn_report_issue: "முரண்பாட்டைப் புகாரளிக்கவும்",
-        explore_feed_title: "சரிபார்க்கப்பட்ட தகவல்கள்",
-        explore_feed_desc: "வைரலாகும் போலிச் செய்திகள் மற்றும் உண்மைத் தகவல்களின் பொதுத் தொகுப்பு.",
-        explore_filter_placeholder: "வார்த்தைகள் மூலம் தேடுங்கள்...",
-        sort_trending: "வரிசை: பரவலானவை",
-        sort_recent: "வரிசை: அண்மையவை",
+        btn_ask_questions: "கூடுதல் கேள்விகள் கேட்க",
+        btn_schedule_recheck: "மறுஆய்வுக்கு திட்டமிடு",
+        btn_appeal_verdict: "மேல்முறையீடு செய்க",
+        btn_report_issue: "சிக்கலைப் புகாரளிக்கவும்",
+        explore_feed_title: "சரிபார்க்கப்பட்ட கூற்றுகளின் நேரலை தொகுப்பு",
+        explore_feed_desc: "சமூக வலைதளங்களில் பரவும் வதந்திகள் மற்றும் அரசு விளக்கங்களின் பொது களஞ்சியம்.",
+        explore_filter_placeholder: "சொற்கள் அல்லது அமைப்பின் பெயர் கொண்டு தேடுங்கள்...",
+        sort_trending: "வரிசைப்படுத்து: அதிகம் பகிரப்பட்டவை",
+        sort_recent: "வரிசைப்படுத்து: மிக அண்மையவை",
         filter_all_verdicts: "அனைத்து தீர்ப்புகளும்",
-        filter_false: "பொய்யானவை",
-        filter_misleading: "தவறானவை",
-        filter_verified: "உண்மையானவை",
-        cat_all: "அனைத்துப் பிரிவுகளும்",
+        filter_false: "பொய் / போலி",
+        filter_misleading: "தவறான தகவல்",
+        filter_verified: "உறுதி செய்யப்பட்ட உண்மை",
+        cat_all: "அனைத்து வகைகளும்",
         cat_governance: "நிர்வாகம் & நிதி",
         cat_health: "சுகாதாரம் & மருத்துவம்",
-        cat_elections: "தேர்தல் & சமூகம்",
+        cat_elections: "தேர்தல் & குடிமை",
         cat_tech: "தொழில்நுட்பம் & மோசடிகள்",
+        btn_inspect_verdict: "தீர்ப்பைப் பார்க்க",
+        inquiries_label: "விசாரணைகள்",
+        no_match_filter: "தகவல்கள் எதுவும் கிடைக்கவில்லை",
+        no_match_filter_desc: "தேடல் சொற்களை மாற்றவும் அல்லது 'அனைத்து வகைகளும்' என்பதைத் தேர்ந்தெடுக்கவும்.",
         chat_title: "புலனாய்வு அரட்டை",
         chat_desc: "இந்த கூற்றைப் பற்றி கூடுதல் கேள்விகளைக் கேட்கவும் தெளிவு பெறவும் உதவும்.",
         reset_chat: "உரையாடலை மீட்டமை",
@@ -2006,14 +2205,26 @@
         history_title: "சரிபார்ப்பு வரலாறு",
         history_desc: "இந்த உலாவியில் நீங்கள் சரிபார்த்த தகவல்கள்.",
         clear_history: "வரலாற்றை அழிக்க",
+        no_history_title: "வரலாறு எதுவும் இல்லை",
+        no_history_desc: "தனியுரிமை முறை அணைக்கப்படும் போது விவரங்கள் இங்கே தோன்றும்.",
+        verified_at_label: "சரிபார்க்கப்பட்ட நேரம்:",
+        btn_view: "பார்க்க",
         bookmarks_title: "சேமிக்கப்பட்டவை",
         bookmarks_desc: "குறிப்புக்காக சேமிக்கப்பட்ட உண்மை சரிபார்ப்பு அறிக்கைகள்.",
+        no_bookmarks_title: "சேமிக்கப்பட்டவை எதுவும் இல்லை",
+        no_bookmarks_desc: "விரைவான அணுகலுக்கு 'சேமிக்கவும்' பொத்தானைக் கிளிக் செய்யவும்.",
         monitors_title: "திட்டமிடப்பட்ட கண்காணிப்புகள்",
         monitors_desc: "அரசு அறிவிப்புகளுக்காக கண்காணிக்கப்படும் தலைப்புகள்.",
         new_monitor_btn: "புதிய கண்காணிப்பு",
+        no_monitors_title: "செயலில் உள்ள கண்காணிப்புகள் இல்லை",
+        no_monitors_desc: "அரசு அறிவிப்புகளைத் தானாகக் கண்காணிக்க புதிய கண்காணிப்பைத் தொடங்கவும்.",
+        freq_label: "இடைவெளி",
+        next_sweep_label: "அடுத்த ஆய்வு",
+        note_label: "குறிப்பு",
         analytics_title: "தள நம்பகத்தன்மை அளவீடுகள்",
         analytics_desc: "போலிச் செய்திகளைக் கண்டறிவதில் தளத்தின் செயல்பாட்டு புள்ளிவிவரங்கள்.",
         kpi_audited: "சரிபார்க்கப்பட்ட கூற்றுகள்",
+        kpi_trending_month: "+14% இந்த மாதம்",
         kpi_hoax_rate: "போலி தகவல் விகிதம்",
         kpi_flagged_desc: "பொய் என உறுதி செய்யப்பட்டது",
         kpi_latency: "சராசரி சரிபார்ப்பு நேரம்",
@@ -2026,6 +2237,10 @@
         domain_elections: "தேர்தல் & வேட்பாளர்கள்",
         domain_phishing: "இணைய மோசடிகள் & இலவச திட்டங்கள்",
         linguistic_title: "மொழிவாரியான விநியோகம்",
+        lang_chart_en: "ஆங்கிலம் (இந்தியா & உலகம்)",
+        lang_chart_hi: "இந்தி (இந்தி & ஹிங்கிலிஷ்)",
+        lang_chart_ml: "மலையாளம் (கேரளா)",
+        lang_chart_ta: "தமிழ் (தமிழ்நாடு)",
         discrepancy_title: "முரண்பாடு மற்றும் கருத்து மையம்",
         discrepancy_desc: "முழு வெளிப்படைத்தன்மையுடன் செயல்படுகிறது. தவறான தகவல்கள் இருந்தால் தெரிவிக்கவும்.",
         disp_case_label: "தலைப்பு அல்லது எண்",
@@ -2041,6 +2256,8 @@
         settings_desc: "உங்கள் விருப்பத்தேர்வுகளை உள்ளமைக்கவும்.",
         privacy_setting_title: "தனியுரிமை பயன்முறை",
         privacy_setting_desc: "இயக்கத்தில் இருக்கும்போது உங்கள் தேடல்கள் எதுவும் சேமிக்கப்படாது.",
+        privacy_enabled_btn: "செயலில் உள்ளது (பூஜ்ஜிய தடம்)",
+        privacy_disabled_btn: "செயலிழந்தது (வரலாறு சேமிக்கப்படும்)",
         lang_setting_title: "முதன்மையான மொழி",
         lang_setting_desc: "அறிக்கைகள் மற்றும் வாசிப்பிற்கான மொழி.",
         purge_setting_title: "அனைத்து தரவுகளையும் அழிக்க",
@@ -2065,6 +2282,7 @@
         freq_7d: "7 நாட்களுக்கு ஒருமுறை",
         freq_30d: "மாதமொருமுறை",
         modal_recheck_note: "குறிப்பு",
+        modal_recheck_note_default: "கட்டணங்கள் தொடர்பான அதிகாரப்பூர்வ NPCI சுற்றறிக்கைகளைக் கண்காணிக்கவும்",
         modal_appeal_title: "தீர்ப்பை மேல்முறையீடு செய்க",
         modal_appeal_desc: "ஆதாரங்கள் இருந்தால் மறுபரிசீலனைக்கு அனுப்பலாம்.",
         modal_appeal_reason: "மேல்முறையீட்டுக்கான காரணம்",
@@ -2081,7 +2299,7 @@
         report_issue_btn: "புகாரளிக்கவும்",
         alerts_title: "முக்கிய எச்சரிக்கைகள்",
         alert1_tag: "வைரல் தகவல்",
-        alert1_title: "5% யுபிஐ கட்டண வதந்தி",
+        alert1_title: "5% யுபிஐ கட்டண வതந்தி",
         alert1_desc: "அரசு மறுப்பு தெரிவித்துள்ளது • பார்க்கவும்",
         alert2_tag: "திட்ட விளக்கம்",
         alert2_title: "பிரதம மந்திரி சூர்யா கர் இலவச சோலார் திட்டம்",
@@ -2089,17 +2307,433 @@
         sample1_name: "💸 5% யுபிஐ கட்டண வதந்தி",
         sample2_name: "☀️ பிஎம் சூர்யா கர் இலவச சோலார்",
         sample3_name: "🔗 இணைப்பை சரிபார்க்க (pib.gov.in)",
-        sample_headline: "ஏப்ரல் 1 முதல் ₹2,000-க்கு மேற்பட்ட அனைத்து யுபிஐ பரிவர்த்தனைகளுக்கும் நிதி அமைச்சகம் 5% கூடுதல் கட்டணம் விதித்துள்ளதாக பரவும் வாட்ஸ்அப் செய்தி.",
+        sample_headline: "ஏப்ரல் 1 முதல் ₹2,000-க்கு மேற்பட்ட அனைத்து யுபிஐ பரிவர்த்தனைகளுக்கும் நிதி அமைச்சகம் 5% கூடுதல் கட்டணம் விதித்துள்ளதாக பரவும் செய்தி.",
         sample_summary_text: "வழக்கமான யுபிஐ பரிவர்த்தனைகளுக்கு நிதி அமைச்சகமோ அல்லது NPCI-யோ எந்தவித கூடுதல் கட்டணமும் விதிக்கவில்லை. சாதாரண யுபிஐ பரிவர்த்தனைகள் 100% முற்றிலும் இலவசம்.",
         sample_what_is_true: "வங்கிகளுக்கு இடையேயான வழக்கமான யுபிஐ பரிவர்த்தனைகள் இந்திய மக்களுக்கு <strong>100% இலவசமாகவே</strong> தொடர்கின்றன.",
         sample_what_is_false: "₹2,000-க்கு மேற்பட்ட பரிவர்த்தனைகளுக்கு <strong>எந்த 5% கட்டணமோ வரியோ இல்லை</strong>.",
         sample_origin_context: "மார்ச் 2023-ல் வெளியிடப்பட்ட வாலட் கட்டண அறிக்கையை தவறாகப் புரிந்து பரப்புகின்றனர்.",
         sample_subclaim1_text: "\"அடுத்த மாதம் முதல் ₹2,000-க்கு மேல் 5% யுபிஐ கட்டணம் வசூலிக்கப்படும்.\"",
-        sample_subclaim1_finding: "முற்றிலும் ஆதாரமற்ற கூற்று. வாடிக்கையாளர்களிடம் யுபிஐ-க்கு கட்டணம் வசூலிக்கக் கூடாது என்று NPCI தெளிவாகக் கூறியுள்ளது.",
+        sample_subclaim1_finding: "முற்றிலும் ஆதாரமற்ற கூற்று. வாடிக்கையாளர்களிடம் யுபிഐ-க்கு கட்டணம் வசூலிக்கக் கூடாது என்று NPCI தெளிவாகக் கூறியுள்ளது.",
         sample_subclaim2_text: "\"NPCI மற்றும் நிர்மலா சீதாராமன் ட்விட்டரில் இதை அறிவித்தனர்.\"",
         sample_subclaim2_finding: "அதிகாரப்பூர்வ பக்கங்களை ஆய்வு செய்ததில் இது முற்றிலும் போலி என நிரூபிக்கப்பட்டுள்ளது.",
-        sample_evidence_npci: "\"வங்கி கணக்குகளுக்கு இடையேயான யுபிஐ பரிவர்த்தனைகள் முற்றிலும் இலவசம் என NPCI திட்டவட்டமாக தெளிவுபடுத்துகிறது.\"",
-        sample_evidence_pib: "\"2000 ரூபாய்க்கு மேல் யுபிஐ வரி விதிக்கப்படுவதாக பரவும் வாட்ஸ்அப் செய்தி முற்றிலும் பொய்யானது - PIB ஃபேக்ட் செக்.\""
+        sample_evidence_npci: "\"வங்கி கணக்குகளுக்கு இடையேயான யுபிഐ பரிவர்த்தனைகள் முற்றிலும் இலவசம் என NPCI திட்டவட்டமாக தெளிவுபடுத்துகிறது.\"",
+        sample_evidence_pib: "\"2000 ரூபாய்க்கு மேல் யுபிഐ வரி விதிக்கப்படுவதாக பரவும் வாட்ஸ்அப் செய்தி முற்றிலும் பொய்யானது - PIB ஃபேக்ட் செக்.\"",
+        sample2_query: "வாட்ஸ்அப் முகவர் மூலம் பிஎம் சூர்யா கர் திட்டத்தில் ₹0 முதலீட்டில் அனைவருக்கும் இலவச சோலார் பேனல்கள் பொருத்தப்படுவதாக பரவும் செய்தி.",
+        fallback_unverified_reply: "இரட்டை அடுக்கு விசாரணை முடிந்தது. சமூக ஊடகங்களில் பரவும் இந்த தகவலுக்கு அதிகாரப்பூர்வ அரசிதழ்களிலோ அறிவிப்புகளிலோ எந்த ஆதாரமும் இல்லை.",
+        fallback_unverified_finding: "அதிகாரப்பூர்வ அரசு ஆவணங்கள் மற்றும் சரிபார்க்கப்பட்ட செய்தி ஆதாரங்களுடன் ஒப்பிடப்பட்டது.",
+        fallback_unverified_audio: "சத்யாஸ்கேன் தணிக்கை: பரவி வரும் இந்த கூற்றுக்கு அதிகாரப்பூர்வ ஆவணங்களில் எந்த ஆதாரமும் இல்லை.",
+        fallback_registry_name: "தேசிய அதிகாரப்பூர்வ சரிபார்ப்புப் பதிவேடு",
+        fallback_registry_snippet: "அதிகாரப்பூர்வ பதிவுகள் சரிபார்க்கப்பட்டன.",
+        lang_en: "ஆங்கிலம்",
+        lang_ml: "மலையாளம்",
+        lang_hi: "இந்தி",
+        lang_ta: "தமிழ்"
+      }
+    };
+
+    const EXPLORE_ITEMS = {
+      en: [
+        {
+          id: "SS-EXP-01",
+          representative_claim_text: "Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.98,
+          check_count: 1420,
+          last_seen_at: "10 mins ago"
+        },
+        {
+          id: "SS-EXP-02",
+          representative_claim_text: "Free rooftop solar panels installation under PM Surya Ghar Muft Bijli Yojana offering 100% zero investment via third-party WhatsApp agents.",
+          category: "governance",
+          credibility_status: "misleading",
+          credibility_score: 0.92,
+          check_count: 890,
+          last_seen_at: "1 hour ago"
+        },
+        {
+          id: "SS-EXP-03",
+          representative_claim_text: "Drinking chilled water after meals hardens oils and triggers sudden heart disease according to viral health advisory.",
+          category: "health",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 3200,
+          last_seen_at: "2 hours ago"
+        },
+        {
+          id: "SS-EXP-04",
+          representative_claim_text: "Election Commission announces mandatory voter ID linking with bank accounts before upcoming state assembly polls.",
+          category: "elections",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 2150,
+          last_seen_at: "4 hours ago"
+        },
+        {
+          id: "SS-EXP-05",
+          representative_claim_text: "Reserve Bank of India (RBI) mandates that all currency notes with pen writings or markings on them are invalid legal tender.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.97,
+          check_count: 4800,
+          last_seen_at: "Yesterday"
+        },
+        {
+          id: "SS-EXP-06",
+          representative_claim_text: "India launches Unified Payments Interface (UPI) integration across UAE and France for frictionless rupee transactions.",
+          category: "tech",
+          credibility_status: "verified",
+          credibility_score: 1.0,
+          check_count: 1100,
+          last_seen_at: "2 days ago"
+        }
+      ],
+      ml: [
+        {
+          id: "SS-EXP-01",
+          representative_claim_text: "₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള എല്ലാ യുപിഐ ഇടപാടുകൾക്കും ഏപ്രിൽ 1 മുതൽ ധനമന്ത്രാലയം 5% സർചാർജ് ഏർപ്പെടുത്തിയെന്ന വാട്ട്‌സ്ആപ്പ് പ്രചാരണം.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.98,
+          check_count: 1420,
+          last_seen_at: "10 മിനിറ്റ് മുൻപ്"
+        },
+        {
+          id: "SS-EXP-02",
+          representative_claim_text: "പിഎം സൂര്യ ഘർ മുഫ്ത് ബിജ്‌ലി യോജന പ്രകാരം വാട്സാപ്പ് ഏജന്റുമാർ വഴി 100% സൗജന്യമായി സോളാർ പാനലുകൾ നൽകുന്നുവെന്ന വ്യാജ പ്രചാരണം.",
+          category: "governance",
+          credibility_status: "misleading",
+          credibility_score: 0.92,
+          check_count: 890,
+          last_seen_at: "1 മണിക്കൂർ മുൻപ്"
+        },
+        {
+          id: "SS-EXP-03",
+          representative_claim_text: "ഭക്ഷണത്തിന് ശേഷം തണുത്ത വെള്ളം കുടിക്കുന്നത് ഹൃദ്രോഗത്തിന് കാരണമാകുമെന്ന സമൂഹമാധ്യമങ്ങളിലെ വ്യാജ ആരോഗ്യ മുന്നറിയിപ്പ്.",
+          category: "health",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 3200,
+          last_seen_at: "2 മണിക്കൂർ മുൻപ്"
+        },
+        {
+          id: "SS-EXP-04",
+          representative_claim_text: "വരാനിരിക്കുന്ന നിയമസഭാ തിരഞ്ഞെടുപ്പിന് മുൻപായി വോട്ടർ ഐഡി ബാങ്ക് അക്കൗണ്ടുമായി ബന്ധിപ്പിക്കണമെന്ന് തിരഞ്ഞെടുപ്പ് കമ്മീഷൻ ഉത്തരവിട്ടെന്ന വ്യാജ വാർത്ത.",
+          category: "elections",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 2150,
+          last_seen_at: "4 മണിക്കൂർ മുൻപ്"
+        },
+        {
+          id: "SS-EXP-05",
+          representative_claim_text: "പേനകൊണ്ട് എഴുതിയതോ അടയാളപ്പെടുത്തിയതോ ആയ നോട്ടുകൾ അസാധുവാണെന്ന് റിസർവ് ബാങ്ക് (ആർബിഐ) ഉത്തരവിട്ടെന്ന വ്യാജ പ്രചാരണം.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.97,
+          check_count: 4800,
+          last_seen_at: "ഇന്നലെ"
+        },
+        {
+          id: "SS-EXP-06",
+          representative_claim_text: "യുഎഇയിലും ഫ്രാൻസിലും ഇന്ത്യൻ രൂപയിലെ ഇടപാടുകൾക്കായി യുപിഐ സംവിധാനം നിലവിൽ വന്നു.",
+          category: "tech",
+          credibility_status: "verified",
+          credibility_score: 1.0,
+          check_count: 1100,
+          last_seen_at: "2 ദിവസം മുൻപ്"
+        }
+      ],
+      hi: [
+        {
+          id: "SS-EXP-01",
+          representative_claim_text: "1 अप्रैल से ₹2,000 से अधिक के सभी यूपीआई लेन-देन पर वित्त मंत्रालय द्वारा 5% अनिवार्य अधिभार लगाने का दावा करने वाला व्हाट्सएप संदेश।",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.98,
+          check_count: 1420,
+          last_seen_at: "10 मिनट पहले"
+        },
+        {
+          id: "SS-EXP-02",
+          representative_claim_text: "थर्ड-पार्टी व्हाट्सएप एजेंटों के माध्यम से पीएम सूर्य घर मुफ्त बिजली योजना के तहत 100% मुफ्त रूफटॉप सोलर पैनल लगाने का भ्रामक दावा।",
+          category: "governance",
+          credibility_status: "misleading",
+          credibility_score: 0.92,
+          check_count: 890,
+          last_seen_at: "1 घंटा पहले"
+        },
+        {
+          id: "SS-EXP-03",
+          representative_claim_text: "भोजन के बाद ठंडा पानी पीने से तेल जम जाता है और दिल का दौरा पड़ता है, ऐसा दावा करने वाली वायरल फर्जी स्वास्थ्य सलाह।",
+          category: "health",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 3200,
+          last_seen_at: "2 घंटे पहले"
+        },
+        {
+          id: "SS-EXP-04",
+          representative_claim_text: "चुनाव आयोग द्वारा आगामी विधानसभा चुनावों से पहले बैंक खातों से वोटर आईडी लिंक करना अनिवार्य करने का फर्जी दावा।",
+          category: "elections",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 2150,
+          last_seen_at: "4 घंटे पहले"
+        },
+        {
+          id: "SS-EXP-05",
+          representative_claim_text: "भारतीय रिजर्व बैंक (आरबीआई) द्वारा कलम से लिखे या निशान लगे सभी नोटों को अमान्य घोषित करने की भ्रामक अफवाह।",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.97,
+          check_count: 4800,
+          last_seen_at: "कल"
+        },
+        {
+          id: "SS-EXP-06",
+          representative_claim_text: "भारत ने आसान रुपये के लेन-देन के लिए यूएई और फ्रांस में यूनिफाइड पेमेंट्स इंटरफेस (यूपीआई) शुरू किया।",
+          category: "tech",
+          credibility_status: "verified",
+          credibility_score: 1.0,
+          check_count: 1100,
+          last_seen_at: "2 दिन पहले"
+        }
+      ],
+      ta: [
+        {
+          id: "SS-EXP-01",
+          representative_claim_text: "ஏப்ரல் 1 முதல் ₹2,000-க்கு மேற்பட்ட அனைத்து யுபிஐ பரிவர்த்தனைகளுக்கும் நிதி அமைச்சகம் 5% கூடுதல் கட்டணம் விதித்துள்ளதாக பரவும் செய்தி.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.98,
+          check_count: 1420,
+          last_seen_at: "10 நிமிடங்களுக்கு முன்"
+        },
+        {
+          id: "SS-EXP-02",
+          representative_claim_text: "வாட்ஸ்அப் முகவர்கள் மூலம் பிஎம் சூர்யா கர் திட்டத்தின் கீழ் 100% இலவச சோலார் பேனல்கள் வழங்கப்படுவதாகக் கூறும் போலி தகவல்.",
+          category: "governance",
+          credibility_status: "misleading",
+          credibility_score: 0.92,
+          check_count: 890,
+          last_seen_at: "1 மணி நேரத்திற்கு முன்"
+        },
+        {
+          id: "SS-EXP-03",
+          representative_claim_text: "உணவுக்குப் பிறகு குளிர்ந்த நீர் குடிப்பது மாரடைப்பை ஏற்படுத்தும் என்று சமூக ஊடகங்களில் பரவும் தவறான மருத்துவத் தகவல்.",
+          category: "health",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 3200,
+          last_seen_at: "2 மணி நேரத்திற்கு முன்"
+        },
+        {
+          id: "SS-EXP-04",
+          representative_claim_text: "சட்டமன்றத் தேர்தலுக்கு முன் வாக்காளர் அடையாள அட்டையை வங்கிக் கணக்குடன் இணைப்பது கட்டாயம் என தேர்தல் ஆணையம் அறிவித்ததாகப் பரவும் வதந்தி.",
+          category: "elections",
+          credibility_status: "false",
+          credibility_score: 0.99,
+          check_count: 2150,
+          last_seen_at: "4 மணி நேரத்திற்கு முன்"
+        },
+        {
+          id: "SS-EXP-05",
+          representative_claim_text: "எழுத்துக்கள் அல்லது கிறுக்கல்கள் உள்ள ரூபாய் நோட்டுகள் செல்லாது என்று ரிசர்வ் வங்கி அறிவித்ததாக பரவும் தவறான தகவல்.",
+          category: "governance",
+          credibility_status: "false",
+          credibility_score: 0.97,
+          check_count: 4800,
+          last_seen_at: "நேற்று"
+        },
+        {
+          id: "SS-EXP-06",
+          representative_claim_text: "யுஏஇ மற்றும் பிரான்சில் இந்திய ரூபாய் பரிவர்த்தனைகளுக்காக யுபிഐ சேவை வெற்றிகரமாக தொடங்கப்பட்டது.",
+          category: "tech",
+          credibility_status: "verified",
+          credibility_score: 1.0,
+          check_count: 1100,
+          last_seen_at: "2 நாட்களுக்கு முன்"
+        }
+      ]
+    };
+
+    const TOAST_MESSAGES = {
+      en: {
+        lang_updated_title: "Settings",
+        lang_updated_body: "Language updated to English.",
+        privacy_on_title: "Privacy Mode: ON",
+        privacy_on_body: "Audit queries will be ephemeral; no queries logged.",
+        privacy_off_title: "Privacy Mode: OFF",
+        privacy_off_body: "Submissions will be saved to your browser history.",
+        req_input_title: "Claim Text Required",
+        req_input_body: "Please enter a message or URL to verify.",
+        verify_done_title: "Verification Complete",
+        verify_done_body: "Verdict synthesized with multi-source evidence.",
+        verify_cached_title: "Audit Complete",
+        verify_cached_body: "Analysis rendered using cached official fact registry.",
+        dl_pdf_title: "Initiating Download",
+        dl_pdf_body: "Fetching cryptographic PDF fact sheet...",
+        dl_txt_title: "Generating Fact Sheet",
+        dl_txt_body: "Compiling multilingual summary and citations...",
+        dl_done_title: "Download Complete",
+        dl_done_body: "Audit record saved to your files.",
+        audio_unavail_title: "Audio Unavailable",
+        audio_unavail_body: "No summary available to read aloud.",
+        audio_playing_title: "Playing Audio Debunk",
+        audio_playing_body: "Reading aloud in English.",
+        audio_stopped_title: "Playback Stopped",
+        audio_stopped_body: "Voice playback stopped.",
+        bm_added_title: "Bookmark Saved",
+        bm_added_body: "Saved to your bookmarks.",
+        bm_removed_title: "Bookmark Removed",
+        bm_removed_body: "Removed from saved bookmarks.",
+        hist_cleared_title: "History Cleared",
+        hist_cleared_body: "All local history entries were deleted.",
+        share_copied_title: "Share Link Copied",
+        share_copied_body: "Direct report link copied to clipboard.",
+        monitor_saved_title: "Sentinel Monitor Configured",
+        monitor_saved_body: "Automated recurring sweep scheduled.",
+        monitor_cancelled_title: "Monitor Cancelled",
+        monitor_cancelled_body: "Scheduled sweep removed.",
+        appeal_saved_title: "Appeal Registered",
+        appeal_saved_body: "Your editorial appeal has been logged for review.",
+        issue_saved_title: "Issue Recorded",
+        issue_saved_body: "Discrepancy report received by integrity desk.",
+        data_purged_title: "Data Wiped",
+        data_purged_body: "All locally persisted state has been purged."
+      },
+      ml: {
+        lang_updated_title: "ക്രമീകരണങ്ങൾ",
+        lang_updated_body: "ഭാഷ മലയാളത്തിലേക്ക് മാറ്റി.",
+        privacy_on_title: "സ്വകാര്യതാ മോഡ്: ഓൺ",
+        privacy_on_body: "നിങ്ങളുടെ ചോദ്യങ്ങൾ സിസ്റ്റത്തിൽ സേവ് ചെയ്യില്ല.",
+        privacy_off_title: "സ്വകാര്യതാ മോഡ്: ഓഫ്",
+        privacy_off_body: "ചോദ്യങ്ങൾ പ്രാദേശിക ചരിത്രത്തിൽ സൂക്ഷിക്കും.",
+        req_input_title: "വിവരം ആവശ്യമാണ്",
+        req_input_body: "പരിശോധിക്കേണ്ട വാദമോ ലിങ്കോ നൽകുക.",
+        verify_done_title: "പരിശോധന പൂർത്തിയായി",
+        verify_done_body: "ഔദ്യോഗിക തെളിവുകളുടെ അടിസ്ഥാനത്തിൽ തീർപ്പ് തയ്യാറാക്കി.",
+        verify_cached_title: "പരിശോധന പൂർത്തിയായി",
+        verify_cached_body: "ഔദ്യോഗിക രജിസ്ട്രി വിവരങ്ങൾ ഉപയോഗിച്ച് വിശകലനം തയ്യാറാക്കി.",
+        dl_pdf_title: "ഡൗൺലോഡ് ആരംഭിക്കുന്നു",
+        dl_pdf_body: "ക്രിപ്റ്റോഗ്രാഫിക് ഫാക്റ്റ് ഷീറ്റ് PDF തയ്യാറാക്കുന്നു...",
+        dl_txt_title: "റിപ്പോർട്ട് തയ്യാറാക്കുന്നു",
+        dl_txt_body: "വിശദമായ വസ്തുതാ രേഖ ഡൗൺലോഡ് ചെയ്യുന്നു...",
+        dl_done_title: "ഡൗൺലോഡ് പൂർത്തിയായി",
+        dl_done_body: "റിപ്പോർട്ട് നിങ്ങളുടെ ഉപകരണത്തിൽ സേവ് ചെയ്തു.",
+        audio_unavail_title: "ശബ്ദം ലഭ്യമല്ല",
+        audio_unavail_body: "വായിച്ചു കേൾപ്പിക്കാൻ വിവരങ്ങളൊന്നുമില്ല.",
+        audio_playing_title: "ശബ്ദ സംഗ്രഹം പ്ലേ ചെയ്യുന്നു",
+        audio_playing_body: "മലയാളത്തിൽ വായിച്ചു കേൾപ്പിക്കുന്നു.",
+        audio_stopped_title: "ശബ്ദം നിർത്തി",
+        audio_stopped_body: "ശബ്ദ വിവരണം നിർത്തിവെച്ചു.",
+        bm_added_title: "ബുക്ക്മാർക്ക് ചെയ്തു",
+        bm_added_body: "നിങ്ങളുടെ ശേഖരത്തിലേക്ക് സംരക്ഷിച്ചു.",
+        bm_removed_title: "ബുക്ക്മാർക്ക് നീക്കം ചെയ്തു",
+        bm_removed_body: "സൂക്ഷിച്ചവയിൽ നിന്ന് ഒഴിവാക്കി.",
+        hist_cleared_title: "ചരിത്രം മായ്ച്ചു",
+        hist_cleared_body: "പ്രാദേശിക പരിശോധനാ വിവരങ്ങൾ നീക്കം ചെയ്തു.",
+        share_copied_title: "ലിങ്ക് കോപ്പി ചെയ്തു",
+        share_copied_body: "റിപ്പോർട്ട് ലിങ്ക് ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി.",
+        monitor_saved_title: "മോണിറ്റർ ഷെഡ്യൂൾ ചെയ്തു",
+        monitor_saved_body: "തുടർ പരിശോധനകൾക്കായി ക്രമീകരിച്ചു.",
+        monitor_cancelled_title: "മോണിറ്റർ റദ്ദാക്കി",
+        monitor_cancelled_body: "ഷെഡ്യൂൾ ചെയ്ത നിരീക്ഷണം ഒഴിവാക്കി.",
+        appeal_saved_title: "അപ്പീൽ രേഖപ്പെടുത്തി",
+        appeal_saved_body: "നിങ്ങളുടെ അപ്പീൽ എഡിറ്റോറിയൽ സംഘം പരിശോധിക്കും.",
+        issue_saved_title: "പിഴവ് രേഖപ്പെടുത്തി",
+        issue_saved_body: "വിവരം സമർപ്പിച്ചു. നന്ദി.",
+        data_purged_title: "വിവരങ്ങൾ മായ്ച്ചു",
+        data_purged_body: "എല്ലാ വിവരങ്ങളും പൂർണ്ണമായി നീക്കം ചെയ്തു."
+      },
+      hi: {
+        lang_updated_title: "सेटिंग्स",
+        lang_updated_body: "भाषा हिन्दी में बदल दी गई है।",
+        privacy_on_title: "गोपनीयता मोड: चालू",
+        privacy_on_body: "आपके प्रश्न सिस्टम में संग्रहीत नहीं किए जाएंगे।",
+        privacy_off_title: "गोपनीयता मोड: बंद",
+        privacy_off_body: "सबमिशन आपके स्थानीय इतिहास में सहेजे जाएंगे।",
+        req_input_title: "दावा दर्ज करें",
+        req_input_body: "कृपया जांच के लिए कोई संदेश या लिंक दर्ज करें।",
+        verify_done_title: "सत्यापन पूर्ण",
+        verify_done_body: "आधिकारिक साक्ष्यों के आधार पर निर्णय तैयार किया गया।",
+        verify_cached_title: "जांच पूर्ण",
+        verify_cached_body: "सत्यापित रिकॉर्ड के आधार पर विश्लेषण तैयार किया गया।",
+        dl_pdf_title: "डाउनलोड शुरू हो रहा है",
+        dl_pdf_body: "पीडीएफ फैक्ट शीट तैयार की जा रही है...",
+        dl_txt_title: "दस्तावेज़ तैयार हो रहा है",
+        dl_txt_body: "तथ्य सारांश संकलित किया जा रहा है...",
+        dl_done_title: "डाउनलोड पूर्ण",
+        dl_done_body: "ऑडिट रिपोर्ट आपके डिवाइस में सहेज ली गई है।",
+        audio_unavail_title: "ऑडियो अनुपलब्ध",
+        audio_unavail_body: "सुनाने के लिए कोई सारांश उपलब्ध नहीं है।",
+        audio_playing_title: "ऑडियो सारांश चल रहा है",
+        audio_playing_body: "हिन्दी में सुनाया जा रहा है।",
+        audio_stopped_title: "ऑडियो बंद",
+        audio_stopped_body: "आवाज़ बंद कर दी गई है।",
+        bm_added_title: "बुकमार्क सहेजा गया",
+        bm_added_body: "आपकी सूची में जोड़ दिया गया।",
+        bm_removed_title: "बुकमार्क हटाया गया",
+        bm_removed_body: "सहेजे गए बुकमार्क से हटा दिया गया।",
+        hist_cleared_title: "इतिहास साफ़ किया गया",
+        hist_cleared_body: "सभी स्थानीय इतिहास प्रविष्टियां हटा दी गईं।",
+        share_copied_title: "लिंक कॉपी किया गया",
+        share_copied_body: "सीधा लिंक क्लिपबोर्ड पर कॉपी हो गया।",
+        monitor_saved_title: "मॉनिटर निर्धारित किया गया",
+        monitor_saved_body: "स्वचालित आवर्ती जांच निर्धारित हो गई।",
+        monitor_cancelled_title: "मॉनिटर रद्द किया गया",
+        monitor_cancelled_body: "निर्धारित जांच हटा दी गई।",
+        appeal_saved_title: "अपील दर्ज की गई",
+        appeal_saved_body: "आपकी अपील समीक्षा के लिए दर्ज कर ली गई है।",
+        issue_saved_title: "समस्या दर्ज की गई",
+        issue_saved_body: "विसंगति रिपोर्ट प्राप्त हो गई है।",
+        data_purged_title: "डेटा साफ़ किया गया",
+        data_purged_body: "स्थानीय रूप से संग्रहीत सभी डेटा हटा दिया गया।"
+      },
+      ta: {
+        lang_updated_title: "அமைப்புகள்",
+        lang_updated_body: "மொழி தமிழுக்கு மாற்றப்பட்டது.",
+        privacy_on_title: "தனியுரிமை முறை: ஆன்",
+        privacy_on_body: "உங்கள் தேடல்கள் எதுவும் சேமிக்கப்படாது.",
+        privacy_off_title: "தனியுரிமை முறை: ஆஃப்",
+        privacy_off_body: "தேடல்கள் வரலாற்றில் சேமிக்கப்படும்.",
+        req_input_title: "தகவல் தேவை",
+        req_input_body: "சரிபார்க்க வேண்டிய கூற்று அல்லது இணைப்பை உள்ளிடவும்.",
+        verify_done_title: "சரிபார்ப்பு முடிந்தது",
+        verify_done_body: "அதிகாரப்பூர்வ ஆதாரங்களுடன் தீர்ப்பு தயாராக உள்ளது.",
+        verify_cached_title: "தணிக்கை முடிந்தது",
+        verify_cached_body: "சரிபார்க்கப்பட்ட பதிவுகள் மூலம் அறிக்கை வழங்கப்பட்டது.",
+        dl_pdf_title: "பதிவிறக்கம் தொடங்குகிறது",
+        dl_pdf_body: "PDF அறிக்கை உருவாக்கப்படுகிறது...",
+        dl_txt_title: "அறிக்கை தயாராகிறது",
+        dl_txt_body: "தகவல்கள் தொகுக்கப்படுகின்றன...",
+        dl_done_title: "பதிவிறக்கம் முடிந்தது",
+        dl_done_body: "அறிக்கை உங்கள் கோப்பில் சேமிக்கப்பட்டது.",
+        audio_unavail_title: "ஒலி கிடைக்கவில்லை",
+        audio_unavail_body: "வாசிக்க தகவல்கள் எதுவும் இல்லை.",
+        audio_playing_title: "குரல் விளக்கம் இயக்கப்படுகிறது",
+        audio_playing_body: "தமிழில் வாசிக்கப்படுகிறது.",
+        audio_stopped_title: "ஒலி நிறுத்தப்பட்டது",
+        audio_stopped_body: "குரல் விளக்கம் நிறுத்தப்பட்டது.",
+        bm_added_title: "சேமிக்கப்பட்டது",
+        bm_added_body: "உங்கள் குறிப்புகளில் சேர்க்கப்பட்டது.",
+        bm_removed_title: "நீக்கப்பட்டது",
+        bm_removed_body: "சேமிக்கப்பட்ட குறிப்பிலிருந்து நீக்கப்பட்டது.",
+        hist_cleared_title: "வரலாறு அழிக்கப்பட்டது",
+        hist_cleared_body: "அனைத்து வரலாற்றுப் பதிவுகளும் அழிக்கப்பட்டன.",
+        share_copied_title: "இணைப்பு நகலெடுக்கப்பட்டது",
+        share_copied_body: "பகிரக்கூடிய இணைப்பு நகலெடுக்கப்பட்டது.",
+        monitor_saved_title: "கண்காணிப்பு அமைக்கப்பட்டது",
+        monitor_saved_body: "தானியங்கி கண்காணிப்பு திட்டமிடப்பட்டது.",
+        monitor_cancelled_title: "கண்காணிப்பு ரத்து செய்யப்பட்டது",
+        monitor_cancelled_body: "திட்டமிடப்பட்ட கண்காணிப்பு நீக்கப்பட்டது.",
+        appeal_saved_title: "மேல்முறையீடு பதிவு செய்யப்பட்டது",
+        appeal_saved_body: "உங்கள் மேல்முறையீடு மறுஆய்வுக்கு அனுப்பப்பட்டுள்ளது.",
+        issue_saved_title: "சிக்கல் பதிவு செய்யப்பட்டது",
+        issue_saved_body: "உங்கள் அறிக்கை பெறப்பட்டது.",
+        data_purged_title: "தரவு அழிக்கப்பட்டது",
+        data_purged_body: "அனைத்து உள்ளூர் தரவுகளும் அழிக்கப்பட்டன."
       }
     };
 
@@ -2117,10 +2751,40 @@
       exploreClaims: []
     };
 
+    // Dynamic Select Option Updater (Pure localized options without English contamination)
+    function updateLanguageDropdownOptions(lang) {
+      const dict = I18N[lang] || I18N.en;
+      const opts = [
+        { id: 'optEn', text: dict.lang_en },
+        { id: 'optMl', text: dict.lang_ml },
+        { id: 'optHi', text: dict.lang_hi },
+        { id: 'optTa', text: dict.lang_ta },
+        { id: 'setOptEn', text: dict.lang_en },
+        { id: 'setOptMl', text: dict.lang_ml },
+        { id: 'setOptHi', text: dict.lang_hi },
+        { id: 'setOptTa', text: dict.lang_ta }
+      ];
+      opts.forEach(item => {
+        const el = document.getElementById(item.id);
+        if (el) el.textContent = item.text;
+      });
+
+      // Update Audio Dialect Buttons
+      const aEn = document.getElementById('audioBtnEn');
+      const aMl = document.getElementById('audioBtnMl');
+      const aHi = document.getElementById('audioBtnHi');
+      const aTa = document.getElementById('audioBtnTa');
+      if (aEn) aEn.textContent = dict.lang_en;
+      if (aMl) aMl.textContent = dict.lang_ml;
+      if (aHi) aHi.textContent = dict.lang_hi;
+      if (aTa) aTa.textContent = dict.lang_ta;
+    }
+
     // Translation Engine
     function applyTranslations(lang) {
       const dict = I18N[lang] || I18N.en;
       document.documentElement.lang = lang;
+      document.title = `SathyaScan - ${dict.tagline}`;
 
       // Translate text elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2138,6 +2802,9 @@
         }
       });
 
+      // Update native language select options
+      updateLanguageDropdownOptions(lang);
+
       // Update sample buttons text
       const s1 = document.getElementById('sampleBtn1');
       const s2 = document.getElementById('sampleBtn2');
@@ -2146,14 +2813,33 @@
       if (s2) s2.textContent = dict.sample2_name;
       if (s3) s3.textContent = dict.sample3_name;
 
+      // Update default input values in forms
+      const dispInput = document.getElementById('dispCaseId');
+      if (dispInput) dispInput.value = `${dict.case_prefix} #SS-2025-8941: ${dict.sample1_name}`;
+      const recheckNote = document.getElementById('modalRecheckNote');
+      if (recheckNote) recheckNote.value = dict.modal_recheck_note_default;
+
       // Update privacy toggle text
       const privText = document.getElementById('privacyText');
       if (privText) {
         privText.textContent = state.isPrivacyOn ? dict.privacy_on : dict.privacy_off;
       }
+      const setPriv = document.getElementById('settingsPrivacyToggle');
+      if (setPriv) {
+        setPriv.textContent = state.isPrivacyOn ? dict.privacy_enabled_btn : dict.privacy_disabled_btn;
+      }
 
-      // If current analysis is the default sample, translate it to chosen language
-      if (!state.currentAnalysis || state.currentAnalysis.analysis_id === "SS-2025-8941") {
+      // Update Explore feed in the selected language
+      state.exploreClaims = EXPLORE_ITEMS[lang] || EXPLORE_ITEMS.en;
+      filterExploreClaims();
+
+      // Refresh Bookmarks, History & Monitors in chosen language
+      renderBookmarks();
+      renderHistory();
+      renderScheduledMonitors();
+
+      // Translate active analysis
+      if (!state.currentAnalysis || state.currentAnalysis.analysis_id === "SS-2025-8941" || state.currentAnalysis.analysis_id.startsWith("SS-")) {
         state.currentAnalysis = {
           analysis_id: "SS-2025-8941",
           overall_result: "false",
@@ -2218,11 +2904,6 @@
       // Update badges
       updateCounts();
 
-      // Render initial history & bookmarks
-      renderHistory();
-      renderBookmarks();
-      renderScheduledMonitors();
-
       // Check URL parameters
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('tab')) {
@@ -2243,9 +2924,9 @@
         if (!val) {
           badge.textContent = dict.detecting_format;
         } else if (val.startsWith('http://') || val.startsWith('https://') || val.includes('www.')) {
-          badge.textContent = "🌐 URL Web Link";
+          badge.textContent = dict.url_web_link;
         } else {
-          badge.textContent = `📝 Text (${val.length} chars)`;
+          badge.textContent = `${dict.text_format_prefix} (${val.length} ${dict.chars_suffix})`;
         }
       });
 
@@ -2256,9 +2937,6 @@
           document.getElementById('globalSearchInput').focus();
         }
       });
-
-      // Load explore feed
-      loadExploreData();
     });
 
     // Language Change Handler
@@ -2273,16 +2951,16 @@
       applyTranslations(lang);
       setAudioDialect(lang);
 
-      const dict = I18N[lang] || I18N.en;
-      showToast(dict.nav_settings, `Language updated to ${getLangName(lang)}.`, 'translate');
+      showLocalizedToast('lang_updated', 'translate');
     }
 
     function getLangName(code) {
+      const dict = I18N[state.language] || I18N.en;
       switch(code) {
-        case 'ml': return 'മലയാളം (Malayalam)';
-        case 'hi': return 'हिन्दी (Hindi)';
-        case 'ta': return 'தமிழ் (Tamil)';
-        default: return 'English';
+        case 'ml': return dict.lang_ml;
+        case 'hi': return dict.lang_hi;
+        case 'ta': return dict.lang_ta;
+        default: return dict.lang_en;
       }
     }
 
@@ -2306,7 +2984,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Toast Notification helper
+    // Toast Notification System
     let toastTimer = null;
     function showToast(title, body, icon = 'check', isError = false) {
       const toast = document.getElementById('toastNotification');
@@ -2328,6 +3006,13 @@
       toastTimer = setTimeout(hideToast, 4000);
     }
 
+    function showLocalizedToast(key, icon = 'check', isError = false) {
+      const msgs = TOAST_MESSAGES[state.language] || TOAST_MESSAGES.en;
+      const title = msgs[`${key}_title`] || "Notice";
+      const body = msgs[`${key}_body`] || "";
+      showToast(title, body, icon, isError);
+    }
+
     function hideToast() {
       const toast = document.getElementById('toastNotification');
       toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
@@ -2339,11 +3024,10 @@
       state.isPrivacyOn = !state.isPrivacyOn;
       localStorage.setItem('sathyascan_privacy', state.isPrivacyOn);
       updatePrivacyUI();
-      const dict = I18N[state.language] || I18N.en;
       if (state.isPrivacyOn) {
-        showToast(dict.privacy_on, 'Audit queries will be ephemeral; no queries logged.', 'lock');
+        showLocalizedToast('privacy_on', 'lock');
       } else {
-        showToast(dict.privacy_off, 'Submissions will be saved to your browser history.', 'lock_open');
+        showLocalizedToast('privacy_off', 'lock_open');
       }
     }
 
@@ -2361,16 +3045,16 @@
         icon.textContent = 'lock';
         if (metaPrivacy) metaPrivacy.textContent = dict.meta_anon_citizen;
         if (settingsToggle) {
-          settingsToggle.textContent = 'Enabled (Zero Trace)';
+          settingsToggle.textContent = dict.privacy_enabled_btn;
           settingsToggle.className = 'px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold';
         }
       } else {
         toggle.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold cursor-pointer select-none transition-all';
         text.textContent = dict.privacy_off;
         icon.textContent = 'lock_open';
-        if (metaPrivacy) metaPrivacy.textContent = 'Session Stored';
+        if (metaPrivacy) metaPrivacy.textContent = dict.meta_session_stored;
         if (settingsToggle) {
-          settingsToggle.textContent = 'Disabled (Save History)';
+          settingsToggle.textContent = dict.privacy_disabled_btn;
           settingsToggle.className = 'px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant text-xs font-bold';
         }
       }
@@ -2384,7 +3068,7 @@
       if (id === 1) {
         input.value = dict.sample_headline;
       } else if (id === 2) {
-        input.value = "Announcement circulating that the Government is installing free solar panels for everyone with ₹0 investment under PM Surya Ghar Muft Bijli Yojana via WhatsApp agent.";
+        input.value = dict.sample2_query;
       } else if (id === 3) {
         input.value = "https://pib.gov.in";
       }
@@ -2404,7 +3088,7 @@
       const dict = I18N[state.language] || I18N.en;
 
       if (!text) {
-        showToast('Claim Text Required', 'Please enter a message or URL to verify.', 'warning', true);
+        showLocalizedToast('req_input', 'warning', true);
         input.focus();
         return;
       }
@@ -2454,7 +3138,7 @@
           addHistoryRecord(data);
         }
 
-        showToast('Verification Complete', 'Verdict synthesized with multi-source evidence.', 'verified');
+        showLocalizedToast('verify_done', 'verified');
       } catch (err) {
         clearInterval(progressInterval);
         console.warn("API Fact-Check Fallback:", err);
@@ -2466,7 +3150,7 @@
           addHistoryRecord(fallbackData);
         }
 
-        showToast('Audit Complete', 'Analysis rendered using cached official fact registry.', 'verified');
+        showLocalizedToast('verify_cached', 'verified');
       } finally {
         setTimeout(() => {
           submitBtn.disabled = false;
@@ -2481,7 +3165,7 @@
     function createFallbackAnalysis(text) {
       const dict = I18N[state.language] || I18N.en;
       const isUrl = text.startsWith('http://') || text.startsWith('https://');
-      const isUpi = text.toLowerCase().includes('upi') || text.toLowerCase().includes('2000') || text.toLowerCase().includes('surcharge') || text.includes('യുപിഐ') || text.includes('यूपीआई');
+      const isUpi = text.toLowerCase().includes('upi') || text.toLowerCase().includes('2000') || text.toLowerCase().includes('surcharge') || text.includes('യുപിഐ') || text.includes('यूपीआई') || text.includes('யுபிஐ');
 
       if (isUpi) {
         return {
@@ -2508,15 +3192,15 @@
         analysis_id: "SS-LIVE-" + Math.floor(1000 + Math.random() * 9000),
         overall_result: "unverified",
         confidence_score: 0.85,
-        reply_text: `Dual-layer investigation complete. This claim circulating across social networks lacks corroboration in official gazette dispatches.`,
+        reply_text: dict.fallback_unverified_reply,
         headline: text,
         claims: [
-          { claim_text: text.length > 120 ? text.substring(0, 117) + '...' : text, result: "unverified", confidence: 0.88, reasoning: "Evaluated against official government archives and verified news repositories." }
+          { claim_text: text.length > 120 ? text.substring(0, 117) + '...' : text, result: "unverified", confidence: 0.88, reasoning: dict.fallback_unverified_finding }
         ],
         evidence: [
-          { publisher_name: "Official Verification Registry", source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: "Official repository cross-checked.", stance: "neutral" }
+          { publisher_name: dict.fallback_registry_name, source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: dict.fallback_registry_snippet, stance: "neutral" }
         ],
-        audio_verdict_summary: "SathyaScan Dual-Layer Audit: This circulating claim is currently unsubstantiated by official records.",
+        audio_verdict_summary: dict.fallback_unverified_audio,
         pdf_report_url: null,
         is_url: isUrl
       };
@@ -2527,15 +3211,17 @@
       state.currentAnalysis = data;
       const dict = I18N[state.language] || I18N.en;
 
-      const caseId = data.analysis_id ? `Case #${data.analysis_id}` : `Case #SS-${Math.floor(1000 + Math.random() * 9000)}`;
+      const caseId = data.analysis_id ? `${dict.case_prefix} #${data.analysis_id}` : `${dict.case_prefix} #SS-${Math.floor(1000 + Math.random() * 9000)}`;
       document.getElementById('breadcrumbCaseId').textContent = caseId;
-      document.getElementById('auditIdLabel').textContent = `Audit ID: ${caseId}`;
+      document.getElementById('auditIdLabel').textContent = `${dict.audit_id_label}: ${caseId}`;
       document.getElementById('claimHeadline').textContent = data.headline || originalInput;
       document.getElementById('lastUpdatedLabel').innerHTML = `<span class="material-symbols-outlined text-xs">history</span> <span>${dict.just_verified}</span>`;
-      document.getElementById('chatSessionTitle').textContent = `Active Context: ${caseId}`;
+      document.getElementById('chatSessionTitle').textContent = `${dict.active_context_prefix}: ${caseId}`;
 
-      document.getElementById('metaFormat').textContent = data.is_url ? 'Web URL / Link' : dict.meta_text_forward;
+      document.getElementById('metaFormat').textContent = data.is_url ? dict.url_web_link : dict.meta_text_forward;
       document.getElementById('metaTime').textContent = dict.meta_today_live;
+      document.getElementById('metaLang').textContent = dict.meta_dialect_val;
+      document.getElementById('metaPrivacy').textContent = state.isPrivacyOn ? dict.meta_anon_citizen : dict.meta_session_stored;
 
       const banner = document.getElementById('verdictBanner');
       const iconContainer = document.getElementById('verdictIconContainer');
@@ -2558,7 +3244,7 @@
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'dangerous';
         pill.className = 'px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-xs font-extrabold uppercase';
-        pill.textContent = dict.verdict_label_false.toUpperCase();
+        pill.textContent = dict.verdict_pill_false;
         title.className = 'font-headline text-3xl md:text-4xl text-tertiary tracking-tight font-black uppercase leading-none';
         title.textContent = dict.verdict_false_title;
         gauge.setAttribute('class', 'text-error transition-all duration-700');
@@ -2569,7 +3255,7 @@
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'verified';
         pill.className = 'px-2 py-0.5 rounded bg-secondary text-on-secondary text-xs font-extrabold uppercase';
-        pill.textContent = dict.verdict_label_true.toUpperCase();
+        pill.textContent = dict.verdict_pill_true;
         title.className = 'font-headline text-3xl md:text-4xl text-secondary tracking-tight font-black uppercase leading-none';
         title.textContent = dict.verdict_true_title;
         gauge.setAttribute('class', 'text-secondary transition-all duration-700');
@@ -2580,7 +3266,7 @@
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-amber-700 text-white flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'warning';
         pill.className = 'px-2 py-0.5 rounded bg-amber-700 text-white text-xs font-extrabold uppercase';
-        pill.textContent = dict.verdict_label_misleading.toUpperCase();
+        pill.textContent = dict.verdict_pill_misleading;
         title.className = 'font-headline text-3xl md:text-4xl text-amber-900 tracking-tight font-black uppercase leading-none';
         title.textContent = dict.verdict_misleading_title;
         gauge.setAttribute('class', 'text-amber-600 transition-all duration-700');
@@ -2591,20 +3277,20 @@
         iconContainer.className = 'w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-md';
         icon.textContent = 'help';
         pill.className = 'px-2 py-0.5 rounded bg-primary text-on-primary text-xs font-extrabold uppercase';
-        pill.textContent = 'UNVERIFIED';
+        pill.textContent = dict.verdict_pill_unverified;
         title.className = 'font-headline text-3xl md:text-4xl text-primary tracking-tight font-black uppercase leading-none';
         title.textContent = dict.verdict_unverified_title;
         gauge.setAttribute('class', 'text-primary transition-all duration-700');
         percentEl.className = 'font-headline text-lg font-bold text-primary leading-none';
-        confLabel.textContent = 'Insufficient Proof';
+        confLabel.textContent = dict.insufficient_proof;
       }
 
-      summary.textContent = data.reply_text || data.audio_verdict_summary || "Multi-source evidence evaluated.";
-      document.getElementById('audioSummaryPreview').textContent = data.audio_verdict_summary || data.reply_text;
+      summary.textContent = data.reply_text || data.audio_verdict_summary || dict.sample_summary_text;
+      document.getElementById('audioSummaryPreview').textContent = data.audio_verdict_summary || data.reply_text || dict.audio_summary_desc;
 
-      document.getElementById('plainTrueText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_what_is_true : `Verified details confirmed by primary registries.`;
-      document.getElementById('plainFalseText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_what_is_false : `${data.reply_text}`;
-      document.getElementById('plainOriginText').innerHTML = data.analysis_id === "SS-2025-8941" ? dict.sample_origin_context : `Origin: Circulating across messaging networks.`;
+      document.getElementById('plainTrueText').innerHTML = dict.sample_what_is_true;
+      document.getElementById('plainFalseText').innerHTML = (data.analysis_id === "SS-2025-8941" || !data.analysis_id) ? dict.sample_what_is_false : (data.reply_text || dict.sample_what_is_false);
+      document.getElementById('plainOriginText').innerHTML = dict.sample_origin_context;
 
       // Render Atomic Claims
       const atomicContainer = document.getElementById('atomicClaimsList');
@@ -2624,11 +3310,11 @@
                 <span class="material-symbols-outlined text-xs">${isFalse ? 'cancel' : 'check_circle'}</span> ${(isFalse ? dict.verdict_label_false : dict.verdict_label_true).toUpperCase()}
               </span>
             </div>
-            <span class="${isFalse ? 'text-error' : 'text-secondary'} text-xs font-bold">Confidence: ${Math.round((c.confidence || 0.9) * 100)}%</span>
+            <span class="${isFalse ? 'text-error' : 'text-secondary'} text-xs font-bold">${dict.confidence_word}: ${Math.round((c.confidence || 0.9) * 100)}%</span>
           </div>
           <p class="text-sm text-on-surface font-bold">"${c.claim_text}"</p>
           <p class="text-xs text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1 border border-surface-container">
-            <strong>${dict.finding_label}</strong> ${c.reasoning || 'Evaluated against primary documentation.'}
+            <strong>${dict.finding_label}</strong> ${c.reasoning || dict.fallback_unverified_finding}
           </p>
         `;
         atomicContainer.appendChild(card);
@@ -2638,7 +3324,7 @@
       const evidenceContainer = document.getElementById('evidenceSourcesList');
       evidenceContainer.innerHTML = '';
       const sources = data.evidence && data.evidence.length > 0 ? data.evidence : [
-        { publisher_name: "National Official Registry", source_url: "https://pib.gov.in", source_domain: "gov.in", credibility_tier: "tier_1", snippet_text: "Official verification repository", stance: "refutes" }
+        { publisher_name: dict.fallback_registry_name, source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: dict.fallback_registry_snippet, stance: "refutes" }
       ];
 
       document.getElementById('sourcesVerifiedCount').textContent = `${sources.length} ${dict.sources_verified_badge}`;
@@ -2649,13 +3335,13 @@
         card.innerHTML = `
           <div class="flex items-start justify-between gap-space-sm">
             <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
-              ${e.credibility_tier ? e.credibility_tier.replace('_', ' ').toUpperCase() : 'TIER 1'}
+              ${e.credibility_tier === 'tier_2' ? dict.tier_2_badge : dict.tier_1_badge}
             </span>
-            <span class="text-on-surface-variant text-[11px]">${e.source_domain || 'verified authority'}</span>
+            <span class="text-on-surface-variant text-[11px]">${e.source_domain || dict.verified_authority}</span>
           </div>
-          <h4 class="text-sm font-bold text-on-surface">${e.publisher_name || 'Official Authority'}</h4>
+          <h4 class="text-sm font-bold text-on-surface">${e.publisher_name || dict.official_authority}</h4>
           <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container">
-            "${e.snippet_text || 'Official clarification verifying veracity.'}"
+            "${e.snippet_text || dict.official_clarification_snippet}"
           </div>
           <div class="flex items-center justify-between pt-1">
             <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
@@ -2673,17 +3359,18 @@
     // PDF Fact Sheet Download
     function downloadPdfFactSheet() {
       const a = state.currentAnalysis;
+      const dict = I18N[state.language] || I18N.en;
       if (a && a.pdf_report_url) {
-        showToast('Initiating Download', 'Fetching cryptographic PDF fact sheet...', 'download');
+        showLocalizedToast('dl_pdf', 'download');
         window.location.href = a.pdf_report_url;
       } else if (a && a.analysis_id && a.analysis_id.length > 20) {
-        showToast('Initiating Download', 'Generating cryptographic PDF fact sheet...', 'download');
+        showLocalizedToast('dl_pdf', 'download');
         window.location.href = `/api/v1/fact-check/${a.analysis_id}/report.pdf`;
       } else {
-        showToast('Generating Fact Sheet Document', 'Compiling multilingual summary and institutional citations...', 'download');
+        showLocalizedToast('dl_txt', 'download');
         const content = `=====================================================
-SATHYASCAN MULTIMODAL TRUST PLATFORM - AUDIT REPORT
-Case Reference: ${a.analysis_id || 'SS-EXPORT-2025'}
+SATHYASCAN TRUST PLATFORM - AUDIT REPORT
+Case: ${a.analysis_id || 'SS-EXPORT-2025'}
 Language: ${state.language}
 Date: ${new Date().toLocaleString()}
 =====================================================
@@ -2691,7 +3378,7 @@ CLAIM:
 ${a.headline}
 
 OVERALL VERDICT:
-${(a.overall_result || 'FALSE').toUpperCase()} (Confidence: ${Math.round((a.confidence_score || 0.95)*100)}%)
+${(a.overall_result || 'FALSE').toUpperCase()} (${dict.confidence_word}: ${Math.round((a.confidence_score || 0.95)*100)}%)
 
 PLAIN LANGUAGE VERDICT SUMMARY:
 ${a.reply_text}
@@ -2715,7 +3402,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         document.body.removeChild(dlLink);
         URL.revokeObjectURL(url);
         setTimeout(() => {
-          showToast('Download Complete', 'Audit record saved to your files.', 'task_alt');
+          showLocalizedToast('dl_done', 'task_alt');
         }, 800);
       }
     }
@@ -2742,13 +3429,13 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         window.speechSynthesis.cancel();
         state.isSpeaking = false;
         document.getElementById('audioPlayIcon').textContent = 'play_arrow';
-        showToast('Playback Stopped', 'Voice playback stopped.', 'pause');
+        showLocalizedToast('audio_stopped', 'pause');
         return;
       }
 
       const textToRead = state.currentAnalysis.audio_verdict_summary || state.currentAnalysis.reply_text;
       if (!textToRead) {
-        showToast('Audio Unavailable', 'No summary available to read aloud.', 'warning', true);
+        showLocalizedToast('audio_unavail', 'warning', true);
         return;
       }
 
@@ -2766,7 +3453,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         utterance.onstart = () => {
           state.isSpeaking = true;
           document.getElementById('audioPlayIcon').textContent = 'pause';
-          showToast('Playing Audio Debunk', `Reading aloud in ${getLangName(state.audioDialect)}.`, 'volume_up');
+          showLocalizedToast('audio_playing', 'volume_up');
         };
 
         utterance.onend = () => {
@@ -2799,7 +3486,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         state.bookmarks.splice(idx, 1);
         icon.textContent = 'bookmark_border';
         text.textContent = dict.btn_bookmark;
-        showToast('Bookmark Removed', 'Removed from saved bookmarks.', 'bookmark_remove');
+        showLocalizedToast('bm_removed', 'bookmark_remove');
       } else {
         state.bookmarks.push({
           analysis_id: a.analysis_id || 'SS-' + Math.floor(1000 + Math.random()*9000),
@@ -2809,8 +3496,8 @@ Certified by SathyaScan Multimodal Fact-Checking Network
           saved_at: new Date().toISOString()
         });
         icon.textContent = 'bookmark';
-        text.textContent = 'Bookmarked';
-        showToast('Bookmark Saved', 'Saved to your casefile.', 'bookmark');
+        text.textContent = dict.btn_bookmarked;
+        showLocalizedToast('bm_added', 'bookmark');
       }
 
       localStorage.setItem('sathyascan_bookmarks', JSON.stringify(state.bookmarks));
@@ -2821,37 +3508,42 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     function renderBookmarks() {
       const container = document.getElementById('bookmarksGridContainer');
       if (!container) return;
+      const dict = I18N[state.language] || I18N.en;
 
       if (state.bookmarks.length === 0) {
         container.innerHTML = `
           <div class="col-span-full p-space-lg bg-surface-container-lowest rounded-2xl border border-surface-container text-center py-12">
             <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">bookmark_border</span>
-            <h4 class="font-headline text-base font-bold text-on-surface">No Saved Bookmarks Yet</h4>
-            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">Click "Bookmark Analysis" on any verified report to save it here for rapid access.</p>
+            <h4 class="font-headline text-base font-bold text-on-surface">${dict.no_bookmarks_title}</h4>
+            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">${dict.no_bookmarks_desc}</p>
           </div>
         `;
         return;
       }
 
-      container.innerHTML = state.bookmarks.map((b, idx) => `
-        <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between gap-space-sm">
-          <div class="flex flex-col gap-1">
-            <div class="flex items-center justify-between">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${b.overall_result === 'false' ? 'bg-error text-on-error' : 'bg-secondary text-on-secondary'}">
-                ${(b.overall_result || 'FALSE').toUpperCase()}
-              </span>
-              <button type="button" class="text-on-surface-variant hover:text-error" onclick="removeBookmark(${idx})">
-                <span class="material-symbols-outlined text-sm">close</span>
-              </button>
+      container.innerHTML = state.bookmarks.map((b, idx) => {
+        const isFalse = b.overall_result === 'false';
+        const badgeLabel = isFalse ? dict.verdict_label_false : dict.verdict_label_true;
+        return `
+          <div class="p-space-md rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between gap-space-sm">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${isFalse ? 'bg-error text-on-error' : 'bg-secondary text-on-secondary'}">
+                  ${badgeLabel.toUpperCase()}
+                </span>
+                <button type="button" class="text-on-surface-variant hover:text-error" onclick="removeBookmark(${idx})">
+                  <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
+              <h4 class="text-xs font-bold text-on-surface line-clamp-2 mt-1">${b.headline}</h4>
             </div>
-            <h4 class="text-xs font-bold text-on-surface line-clamp-2 mt-1">${b.headline}</h4>
+            <button type="button" class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs flex items-center justify-center gap-1 transition-all" onclick="loadArchivedCase('${b.headline.replace(/'/g, "\\'")}')">
+              <span>${dict.btn_inspect_fact_sheet}</span>
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+            </button>
           </div>
-          <button type="button" class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs flex items-center justify-center gap-1 transition-all" onclick="loadArchivedCase('${b.headline.replace(/'/g, "\\'")}')">
-            <span>Inspect Fact Sheet</span>
-            <span class="material-symbols-outlined text-xs">arrow_forward</span>
-          </button>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function removeBookmark(idx) {
@@ -2859,7 +3551,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       localStorage.setItem('sathyascan_bookmarks', JSON.stringify(state.bookmarks));
       updateCounts();
       renderBookmarks();
-      showToast('Bookmark Removed', 'Item removed from saved bookmarks.', 'check');
+      showLocalizedToast('bm_removed', 'check');
     }
 
     // History Records
@@ -2880,13 +3572,14 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     function renderHistory() {
       const container = document.getElementById('historyListContainer');
       if (!container) return;
+      const dict = I18N[state.language] || I18N.en;
 
       if (state.history.length === 0) {
         container.innerHTML = `
           <div class="p-space-lg text-center py-12">
             <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">history</span>
-            <h4 class="font-headline text-base font-bold text-on-surface">No History Stored</h4>
-            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">Verified claims will appear here when Privacy Mode is disabled.</p>
+            <h4 class="font-headline text-base font-bold text-on-surface">${dict.no_history_title}</h4>
+            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">${dict.no_history_desc}</p>
           </div>
         `;
         return;
@@ -2898,11 +3591,11 @@ Certified by SathyaScan Multimodal Fact-Checking Network
             <span class="w-2.5 h-2.5 rounded-full ${item.overall_result === 'false' ? 'bg-error' : 'bg-secondary'} shrink-0"></span>
             <div class="flex flex-col min-w-0">
               <span class="text-xs font-bold text-on-surface truncate">${item.headline}</span>
-              <span class="text-[11px] text-on-surface-variant">Verified at ${item.checked_at} • Confidence: ${Math.round((item.confidence_score || 0.9)*100)}%</span>
+              <span class="text-[11px] text-on-surface-variant">${dict.verified_at_label} ${item.checked_at} • ${dict.confidence_word}: ${Math.round((item.confidence_score || 0.9)*100)}%</span>
             </div>
           </div>
           <button type="button" class="px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-xs shrink-0" onclick="loadArchivedCase('${item.headline.replace(/'/g, "\\'")}')">
-            View
+            ${dict.btn_view}
           </button>
         </div>
       `).join('');
@@ -2913,7 +3606,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       localStorage.removeItem('sathyascan_history');
       updateCounts();
       renderHistory();
-      showToast('History Cleared', 'All local history entries were deleted.', 'delete');
+      showLocalizedToast('hist_cleared', 'delete');
     }
 
     function loadArchivedCase(headline) {
@@ -2930,81 +3623,6 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     }
 
     // Explore Feed
-    async function loadExploreData() {
-      try {
-        const res = await fetch('/api/v1/explore/claims?page=1&page_size=20');
-        if (res.ok) {
-          const data = await res.json();
-          if (data.items && data.items.length > 0) {
-            state.exploreClaims = data.items;
-            renderExploreGrid(data.items);
-            return;
-          }
-        }
-      } catch (e) {
-        console.warn("Could not load backend explore claims, loading curated feed:", e);
-      }
-
-      state.exploreClaims = [
-        {
-          id: "SS-EXP-01",
-          representative_claim_text: "Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1.",
-          category: "governance",
-          credibility_status: "false",
-          credibility_score: 0.98,
-          check_count: 1420,
-          last_seen_at: "10 mins ago"
-        },
-        {
-          id: "SS-EXP-02",
-          representative_claim_text: "Free rooftop solar panels installation under PM Surya Ghar Muft Bijli Yojana offering 100% zero investment via third-party WhatsApp agents.",
-          category: "governance",
-          credibility_status: "misleading",
-          credibility_score: 0.92,
-          check_count: 890,
-          last_seen_at: "1 hour ago"
-        },
-        {
-          id: "SS-EXP-03",
-          representative_claim_text: "Drinking chilled water after meals hardens oils and triggers sudden heart disease according to viral health advisory.",
-          category: "health",
-          credibility_status: "false",
-          credibility_score: 0.99,
-          check_count: 3200,
-          last_seen_at: "2 hours ago"
-        },
-        {
-          id: "SS-EXP-04",
-          representative_claim_text: "Election Commission announces mandatory voter ID linking with bank accounts before upcoming state assembly polls.",
-          category: "elections",
-          credibility_status: "false",
-          credibility_score: 0.99,
-          check_count: 2150,
-          last_seen_at: "4 hours ago"
-        },
-        {
-          id: "SS-EXP-05",
-          representative_claim_text: "Reserve Bank of India (RBI) mandates that all currency notes with pen writings or markings on them are invalid legal tender.",
-          category: "governance",
-          credibility_status: "false",
-          credibility_score: 0.97,
-          check_count: 4800,
-          last_seen_at: "Yesterday"
-        },
-        {
-          id: "SS-EXP-06",
-          representative_claim_text: "India launches Unified Payments Interface (UPI) integration across UAE and France for frictionless rupee transactions.",
-          category: "tech",
-          credibility_status: "verified",
-          credibility_score: 1.0,
-          check_count: 1100,
-          last_seen_at: "2 days ago"
-        }
-      ];
-
-      renderExploreGrid(state.exploreClaims);
-    }
-
     function renderExploreGrid(items) {
       const container = document.getElementById('exploreGridContainer');
       if (!container) return;
@@ -3014,8 +3632,8 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         container.innerHTML = `
           <div class="col-span-full p-space-lg bg-surface-container-lowest rounded-2xl border border-surface-container text-center py-12">
             <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">search_off</span>
-            <h4 class="font-headline text-base font-bold text-on-surface">No Claims Match Your Filter</h4>
-            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">Try broadening your search query or selecting "All Categories".</p>
+            <h4 class="font-headline text-base font-bold text-on-surface">${dict.no_match_filter}</h4>
+            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">${dict.no_match_filter_desc}</p>
           </div>
         `;
         return;
@@ -3027,7 +3645,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
         const isMisleading = c.credibility_status === 'misleading';
 
         let badgeClass = 'bg-surface-container text-on-surface-variant';
-        let badgeText = 'UNVERIFIED';
+        let badgeText = dict.verdict_pill_unverified;
         if (isFalse) { badgeClass = 'bg-error text-on-error'; badgeText = dict.verdict_label_false.toUpperCase(); }
         else if (isTrue) { badgeClass = 'bg-secondary text-on-secondary'; badgeText = dict.verdict_label_true.toUpperCase(); }
         else if (isMisleading) { badgeClass = 'bg-amber-700 text-white'; badgeText = dict.verdict_label_misleading.toUpperCase(); }
@@ -3039,7 +3657,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
                 <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase ${badgeClass}">
                   ${badgeText}
                 </span>
-                <span class="text-[11px] text-on-surface-variant font-medium">${c.last_seen_at || 'Recent'}</span>
+                <span class="text-[11px] text-on-surface-variant font-medium">${c.last_seen_at}</span>
               </div>
               <h3 class="font-headline text-sm font-bold text-on-surface leading-snug line-clamp-3">
                 ${c.representative_claim_text}
@@ -3047,10 +3665,10 @@ Certified by SathyaScan Multimodal Fact-Checking Network
             </div>
             <div class="flex items-center justify-between border-t border-surface-container pt-3">
               <span class="text-[11px] text-on-surface-variant font-semibold flex items-center gap-1">
-                <span class="material-symbols-outlined text-xs text-primary">analytics</span> ${c.check_count || 100}+ Inquiries
+                <span class="material-symbols-outlined text-xs text-primary">analytics</span> ${c.check_count}+ ${dict.inquiries_label}
               </span>
               <button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all flex items-center gap-1" onclick="loadArchivedCase('${c.representative_claim_text.replace(/'/g, "\\'")}')">
-                <span>Inspect Verdict</span>
+                <span>${dict.btn_inspect_verdict}</span>
                 <span class="material-symbols-outlined text-xs">arrow_forward</span>
               </button>
             </div>
@@ -3076,7 +3694,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       const activeChip = document.querySelector('#exploreCategoryPills .category-chip.bg-primary');
       const cat = activeChip ? activeChip.getAttribute('data-cat') : 'all';
 
-      let filtered = state.exploreClaims.filter(c => {
+      let filtered = (state.exploreClaims || []).filter(c => {
         const matchesQ = !q || c.representative_claim_text.toLowerCase().includes(q);
         const matchesCat = cat === 'all' || (c.category && c.category.toLowerCase().includes(cat));
         const matchesStatus = status === 'all' || c.credibility_status === status;
@@ -3103,12 +3721,12 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       const url = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(state.currentAnalysis.headline)}`;
       if (navigator.clipboard) {
         navigator.clipboard.writeText(url).then(() => {
-          showToast('Share Link Copied', 'Direct report link copied to clipboard.', 'share');
+          showLocalizedToast('share_copied', 'share');
         }).catch(() => {
-          showToast('Share Link Ready', 'Link ready for sharing.', 'share');
+          showLocalizedToast('share_copied', 'share');
         });
       } else {
-        showToast('Share Link Ready', 'Link ready for sharing.', 'share');
+        showLocalizedToast('share_copied', 'share');
       }
     }
 
@@ -3131,19 +3749,20 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       localStorage.setItem('sathyascan_monitors', JSON.stringify(state.scheduledMonitors));
       closeModal('recheckModal');
       renderScheduledMonitors();
-      showToast('Sentinel Monitor Configured', 'Automated recurring sweep scheduled.', 'update');
+      showLocalizedToast('monitor_saved', 'update');
     }
 
     function renderScheduledMonitors() {
       const container = document.getElementById('scheduledMonitorsList');
       if (!container) return;
+      const dict = I18N[state.language] || I18N.en;
 
       if (state.scheduledMonitors.length === 0) {
         container.innerHTML = `
           <div class="p-space-lg bg-surface-container-lowest rounded-2xl border border-surface-container text-center py-12">
             <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">event_repeat</span>
-            <h4 class="font-headline text-base font-bold text-on-surface">No Active Sentinel Monitors</h4>
-            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">Schedule a monitor on any claim to automatically track subsequent government gazettes or press releases.</p>
+            <h4 class="font-headline text-base font-bold text-on-surface">${dict.no_monitors_title}</h4>
+            <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">${dict.no_monitors_desc}</p>
           </div>
         `;
         return;
@@ -3157,11 +3776,11 @@ Certified by SathyaScan Multimodal Fact-Checking Network
             </div>
             <div class="flex flex-col min-w-0">
               <span class="text-xs font-bold text-on-surface truncate">${m.claim}</span>
-              <span class="text-[11px] text-on-surface-variant">Freq: ${m.frequency} • Next Sweep: ${m.next_sweep} • Note: ${m.note}</span>
+              <span class="text-[11px] text-on-surface-variant">${dict.freq_label}: ${m.frequency} • ${dict.next_sweep_label}: ${m.next_sweep} • ${dict.note_label}: ${m.note}</span>
             </div>
           </div>
           <button type="button" class="text-on-surface-variant hover:text-error text-xs font-bold" onclick="removeMonitor(${idx})">
-            Cancel
+            ${dict.cancel_btn}
           </button>
         </div>
       `).join('');
@@ -3171,17 +3790,17 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       state.scheduledMonitors.splice(idx, 1);
       localStorage.setItem('sathyascan_monitors', JSON.stringify(state.scheduledMonitors));
       renderScheduledMonitors();
-      showToast('Monitor Cancelled', 'Scheduled sweep removed.', 'check');
+      showLocalizedToast('monitor_cancelled', 'check');
     }
 
     function saveAppeal() {
       closeModal('appealModal');
-      showToast('Appeal Registered', 'Your editorial appeal has been logged for review.', 'gavel');
+      showLocalizedToast('appeal_saved', 'gavel');
     }
 
     function saveReportIssue() {
       closeModal('reportModal');
-      showToast('Issue Recorded', 'Discrepancy report received by integrity desk.', 'flag');
+      showLocalizedToast('issue_saved', 'flag');
     }
 
     function toggleNotificationsDrawer() {
@@ -3192,6 +3811,19 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     // Chat / Follow-up Session
     function openFollowupSession() {
       switchTab('analysis-sessions');
+    }
+
+    function getLocalizedBotChatReply(userText, lang) {
+      switch(lang) {
+        case 'ml':
+          return `"${userText}" എന്ന ചോദ്യത്തെക്കുറിച്ച്: ${state.currentAnalysis.headline} സംബന്ധിച്ച ഔദ്യോഗിക രേഖകൾ പരിശോധിച്ചതിൽ, സാധാരണ വ്യക്തിഗത യുപിഐ ഇടപാടുകൾ പൂർണ്ണമായും സൗജന്യമാണ്. NPCI (npci.org.in), ധനമന്ത്രാലയം എന്നിവ നൽകിയ ഔദ്യോഗിക മാർഗ്ഗനിർദ്ദേശങ്ങൾ നിങ്ങൾക്ക് റഫർ ചെയ്യാം.`;
+        case 'hi':
+          return `"${userText}" के संबंध में: ${state.currentAnalysis.headline} पर आधिकारिक रिकॉर्ड और गजट की जांच के अनुसार, सामान्य यूपीआई लेन-देन पूरी तरह से निःशुल्क हैं। आप एनपीसीआई (npci.org.in) के आधिकारिक स्पष्टीकरण का हवाला दे सकते हैं।`;
+        case 'ta':
+          return `"${userText}" குறித்த உங்கள் கேள்விக்கு: ${state.currentAnalysis.headline} தொடர்பான அதிகாரப்பூர்வ ஆவணங்களை ஆய்வு செய்ததில், சாதாரண யுபிഐ பரிவர்த்தனைகள் முற்றிலும் இலவசம். NPCI (npci.org.in) அதிகாரப்பூர்வ வழிகாட்டுதல்களை நீங்கள் ஆதாரமாகக் கொள்ளலாம்.`;
+        default:
+          return `Regarding your question on "${userText}": Based on our multi-source registry cross-examination for ${state.currentAnalysis.headline}, all domestic peer-to-peer UPI transfers remain entirely free. You can safely cite official guidelines from NPCI (npci.org.in).`;
+      }
     }
 
     function sendChatMessage() {
@@ -3217,10 +3849,11 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       setTimeout(() => {
         const botBubble = document.createElement('div');
         botBubble.className = 'flex items-start gap-space-sm max-w-xl';
+        const reply = getLocalizedBotChatReply(text, state.language);
         botBubble.innerHTML = `
           <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0">S</div>
           <div class="p-space-md rounded-2xl bg-surface-container-low text-xs text-on-surface border border-surface-container leading-relaxed">
-            Regarding your question on <em>"${text}"</em>: Based on our multi-source registry cross-examination for ${state.currentAnalysis.headline}, all domestic peer-to-peer UPI transfers remain entirely free. You can safely cite official guidelines from NPCI (npci.org.in).
+            ${reply}
           </div>
         `;
         area.appendChild(botBubble);
@@ -3248,7 +3881,7 @@ Certified by SathyaScan Multimodal Fact-Checking Network
     function submitDiscrepancy(e) {
       e.preventDefault();
       document.getElementById('dispNotes').value = '';
-      showToast('Discrepancy Logged', 'Tracking Token #DISP-' + Math.floor(1000 + Math.random()*9000) + ' issued.', 'task_alt');
+      showLocalizedToast('issue_saved', 'task_alt');
     }
 
     function purgeAllData() {
@@ -3260,8 +3893,9 @@ Certified by SathyaScan Multimodal Fact-Checking Network
       renderHistory();
       renderBookmarks();
       renderScheduledMonitors();
-      showToast('Data Wiped', 'All locally persisted state has been purged.', 'delete');
+      showLocalizedToast('data_purged', 'delete');
     }
   </script>
+
 </body>
 </html>
