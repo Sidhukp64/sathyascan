@@ -172,7 +172,7 @@
           <span class="material-symbols-outlined text-base text-secondary">verified_user</span>
           <span data-i18n="sidebar_dual_layer_title">Dual-Layer Verification</span>
         </div>
-        <p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="sidebar_dual_layer_desc">AI heuristics cross-examined with official government gazettes, PIB &amp; certified newsrooms.</p>
+        
         <button type="button" class="inline-flex items-center gap-space-xs text-xs font-semibold text-primary hover:underline mt-1 text-left" onclick="switchTab('methodology')">
           <span data-i18n="sidebar_read_protocol">Read Verification Protocol</span>
           <span class="material-symbols-outlined text-xs">arrow_forward</span>
@@ -253,9 +253,7 @@
               <span class="material-symbols-outlined text-sm text-secondary">bolt</span> <span data-i18n="live_badge">Live AI &amp; Official Evidence Registry</span>
             </span>
           </div>
-          <p class="text-xs text-on-surface-variant mb-space-md" data-i18n="verify_input_desc">
-            Paste suspicious forwarded messages, claims circulating on WhatsApp/Telegram/X, or full web article links. Our engine isolates atomic assertions, queries official registries, and synthesizes a verifiable veracity report.
-          </p>
+          
 
           <div class="relative mb-space-sm">
             <textarea id="claimInput" rows="3" class="w-full p-space-md rounded-xl bg-surface-container-low text-sm text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 border border-surface-container transition-all" placeholder="E.g., 'Viral WhatsApp Forward claiming the Ministry of Finance has instituted a mandatory 5% surcharge on all UPI transactions above ₹2,000 starting April 1' or paste a URL..." data-i18n-placeholder="claim_input_placeholder"></textarea>
@@ -363,7 +361,7 @@
               </div>
               <div class="flex flex-col min-w-0">
                 <span class="text-[11px] text-on-surface-variant font-medium" data-i18n="meta_audit_dialect">Audit Dialect</span>
-                <span id="metaLang" class="text-xs font-bold text-on-surface truncate">English &amp; Regional</span>
+                <span id="metaLang" class="text-xs font-bold text-on-surface truncate" data-i18n="meta_dialect_val">English (Global Standard)</span>
               </div>
             </div>
             <div class="flex items-center gap-space-xs p-space-xs">
@@ -398,7 +396,7 @@
                 <div class="flex flex-col gap-1">
                   <div class="flex items-center gap-space-xs flex-wrap">
                     <span class="text-xs tracking-widest uppercase font-bold text-on-tertiary-fixed-variant" id="verdictSubheader" data-i18n="verdict_subheader">Official Veracity Assessment</span>
-                    <span id="verdictPill" class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-xs font-extrabold uppercase">100% HOAX</span>
+                    <span id="verdictPill" class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary text-xs font-extrabold uppercase" data-i18n="verdict_pill_false">100% HOAX</span>
                   </div>
                   <h2 id="verdictTitle" class="font-headline text-3xl md:text-4xl text-tertiary tracking-tight font-black uppercase leading-none" data-i18n="verdict_false_title">
                     VERDICT: FALSE
@@ -439,7 +437,7 @@
                     <span class="text-sm font-bold text-on-surface" data-i18n="audio_summary_title">Audio Verdict Summary</span>
                     <span class="px-2 py-0.5 rounded bg-surface-container text-primary text-[11px] font-bold" id="audioDurationBadge" data-i18n="audio_read_aloud">Read Aloud</span>
                   </div>
-                  <p id="audioSummaryPreview" class="text-xs text-on-surface-variant truncate max-w-lg" data-i18n="audio_summary_desc">Click play to listen to a clear spoken voice summary tailored for easy forwarding and seniors.</p>
+                  <p id="audioSummaryPreview" class="text-xs text-on-surface-variant truncate max-w-lg"></p>
                 </div>
               </div>
               <div class="flex items-center gap-space-xs self-end md:self-center">
@@ -568,9 +566,7 @@
                 </div>
                 <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container text-xs font-bold" data-i18n="tier_verified_badge">Tier Verified</span>
               </div>
-              <p class="text-xs text-on-surface-variant" data-i18n="evidence_sources_desc">
-                Corroborated directly through authenticated institutional records and accredited investigative newsrooms.
-              </p>
+              
               <div class="space-y-space-md" id="evidenceSourcesList">
                 <!-- Card 1 -->
                 <div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col gap-space-xs">
@@ -578,9 +574,9 @@
                     <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide" data-i18n="tier_1_authority">
                       Tier 1: Primary Authority
                     </span>
-                    <span class="text-on-surface-variant text-[11px]">npci.org.in</span>
+                    <span class="text-on-surface-variant text-[11px]" data-i18n="verified_authority">Official Authority</span>
                   </div>
-                  <h4 class="text-sm font-bold text-on-surface">National Payments Corporation of India (NPCI)</h4>
+                  <h4 class="text-sm font-bold text-on-surface" data-i18n="evidence_npci_publisher">National Payments Corporation of India (NPCI)</h4>
                   <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container" data-i18n="sample_evidence_npci">
                     "NPCI categorically clarifies that UPI transactions from a bank account to another bank account remain completely free with zero merchant charges for consumers."
                   </div>
@@ -600,9 +596,9 @@
                     <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide" data-i18n="tier_1_fact_checker">
                       Tier 1: Official Fact-Checker
                     </span>
-                    <span class="text-on-surface-variant text-[11px]">pib.gov.in</span>
+                    <span class="text-on-surface-variant text-[11px]" data-i18n="verified_authority">Official Authority</span>
                   </div>
-                  <h4 class="text-sm font-bold text-on-surface">Press Information Bureau (PIB) Fact Check</h4>
+                  <h4 class="text-sm font-bold text-on-surface" data-i18n="evidence_pib_publisher">Press Information Bureau (PIB) Fact Check</h4>
                   <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container" data-i18n="sample_evidence_pib">
                     "Fake message alert: A viral WhatsApp forward claiming that financial regulators are levying 5% tax on transfers above 2000 rupees is completely fake."
                   </div>
@@ -629,9 +625,7 @@
               </div>
               <div class="flex flex-col gap-1">
                 <h4 class="font-headline text-base font-bold" data-i18n="sentinel_title">Continuous Policy Re-Verification</h4>
-                <p class="text-xs text-primary-fixed leading-relaxed" data-i18n="sentinel_desc">
-                  Monitors regulatory gazettes and official announcements. If policies evolve, this report is dynamically re-audited.
-                </p>
+                
               </div>
               <div class="flex items-center justify-between p-space-sm rounded-xl bg-primary-container text-on-primary border border-primary-fixed/20">
                 <div class="flex items-center gap-space-xs">
@@ -654,7 +648,7 @@
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs pb-space-xs border-b border-surface-container">
             <div>
               <h3 class="font-headline text-base font-bold text-on-surface" data-i18n="action_suite_title">Citizen &amp; Investigator Action Suite</h3>
-              <p class="text-xs text-on-surface-variant" data-i18n="action_suite_desc">Export verified cryptographic documentation, conduct forensic chat, or challenge findings.</p>
+              
             </div>
             <span class="text-xs text-on-surface-variant font-mono" id="auditIdLabel">Audit ID: #SS-8941-VER</span>
           </div>
@@ -706,7 +700,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="explore_feed_title">Live Verified Claims Feed</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="explore_feed_desc">Public repository of high-impact circulating claims, trending hoaxes, and regulatory clarifications.</p>
+          
         </div>
 
         <!-- Filter and Search Bar -->
@@ -755,7 +749,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="chat_title">Investigative Chat Session</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="chat_desc">Ask clarifying questions, examine evidentiary citations, or test alternative hypotheses on analyzed claims.</p>
+          
         </div>
 
         <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container flex flex-col h-[600px] overflow-hidden">
@@ -799,7 +793,7 @@
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
               <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="history_title">Local Verification History</h2>
             </div>
-            <p class="text-sm text-on-surface-variant" data-i18n="history_desc">Claims verified in your current browser session. Stored privately and locally.</p>
+            
           </div>
           <button type="button" class="px-3 py-2 rounded-xl text-xs font-semibold text-error hover:bg-error-container/40 border border-error-container/50 transition-all flex items-center gap-1" onclick="clearHistoryRecords()">
             <span class="material-symbols-outlined text-sm">delete</span> <span data-i18n="clear_history">Clear History</span>
@@ -821,7 +815,7 @@
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
               <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="bookmarks_title">Saved Bookmarks</h2>
             </div>
-            <p class="text-sm text-on-surface-variant" data-i18n="bookmarks_desc">Bookmarked fact checks for reference, teaching, or citations.</p>
+            
           </div>
         </div>
 
@@ -840,7 +834,7 @@
               <span class="w-2.5 h-6 bg-primary rounded-full"></span>
               <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="monitors_title">Active Sentinel Monitors</h2>
             </div>
-            <p class="text-sm text-on-surface-variant" data-i18n="monitors_desc">Scheduled continuous audits tracking emerging regulatory dispatches and policy updates.</p>
+            
           </div>
           <button type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-all flex items-center gap-1" onclick="openRecheckModal()">
             <span class="material-symbols-outlined text-sm">add</span> <span data-i18n="new_monitor_btn">New Sentinel Monitor</span>
@@ -861,7 +855,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="analytics_title">Platform Trust &amp; Virality Metrics</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="analytics_desc">Real-time telemetry measuring misinformation containment velocity across linguistic communities.</p>
+          
         </div>
 
         <!-- KPI Cards -->
@@ -989,7 +983,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="discrepancy_title">Public Discrepancy &amp; Feedback Desk</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="discrepancy_desc">SathyaScan operates on transparent editorial accountability. Report source inaccuracies, submit new gazette links, or dispute veracity assessments.</p>
+          
         </div>
 
         <div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm border border-surface-container max-w-2xl">
@@ -1031,7 +1025,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="settings_title">Settings &amp; Data Privacy Controls</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="settings_desc">Configure zero-trace verification, regional preferences, and cryptographic audit proofs.</p>
+          
         </div>
 
         <div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm border border-surface-container max-w-2xl space-y-space-lg">
@@ -1039,7 +1033,7 @@
           <div class="flex items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
             <div class="flex flex-col gap-0.5">
               <span class="text-sm font-bold text-on-surface" data-i18n="privacy_setting_title">Zero-Trace Privacy Mode</span>
-              <p class="text-xs text-on-surface-variant" data-i18n="privacy_setting_desc">When enabled, queries are evaluated in ephemeral memory and discarded immediately without logging.</p>
+              
             </div>
             <button type="button" id="settingsPrivacyToggle" class="px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold" onclick="togglePrivacyMode()">
               Enabled (Zero Trace)
@@ -1050,7 +1044,7 @@
           <div class="flex items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
             <div class="flex flex-col gap-0.5">
               <span class="text-sm font-bold text-on-surface" data-i18n="lang_setting_title">Default Audio &amp; Report Language</span>
-              <p class="text-xs text-on-surface-variant" data-i18n="lang_setting_desc">Preferred dialect for speech summaries and fact sheets.</p>
+              
             </div>
             <select id="settingsLangSelect" class="h-9 px-3 rounded-lg bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container" onchange="changeLanguage(this.value)">
               <option value="en" id="setOptEn">English</option>
@@ -1064,7 +1058,7 @@
           <div class="flex items-center justify-between gap-space-md">
             <div class="flex flex-col gap-0.5">
               <span class="text-sm font-bold text-error" data-i18n="purge_setting_title">Purge All Browser Stored Data</span>
-              <p class="text-xs text-on-surface-variant" data-i18n="purge_setting_desc">Instantly wipe all local verification histories, saved bookmarks, and custom monitors.</p>
+              
             </div>
             <button type="button" class="px-3 py-1.5 rounded-lg bg-error text-on-error text-xs font-bold hover:bg-error-container transition-all" onclick="purgeAllData()" data-i18n="purge_btn">
               Purge Local Data
@@ -1082,7 +1076,7 @@
             <span class="w-2.5 h-6 bg-primary rounded-full"></span>
             <h2 class="font-headline text-2xl font-bold text-on-surface" data-i18n="methodology_title">Dual-Layer Verification Protocol</h2>
           </div>
-          <p class="text-sm text-on-surface-variant" data-i18n="methodology_desc">How SathyaScan delivers trustworthy, verifiable, non-partisan fact-checking.</p>
+          
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-xl">
@@ -1150,7 +1144,7 @@
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant" data-i18n="modal_recheck_desc">Configure automated checks to monitor if regulatory or official entities revise statements regarding this claim.</p>
+      
       <div>
         <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_recheck_freq">Check Frequency</label>
         <select id="modalRecheckFreq" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container">
@@ -1179,7 +1173,7 @@
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant" data-i18n="modal_appeal_desc">Submit secondary documentation or counter-citations for editorial team triage.</p>
+      
       <div>
         <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_appeal_reason">Reason for Appeal</label>
         <select id="modalAppealReason" class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-xs font-bold text-on-surface border border-surface-container">
@@ -1209,7 +1203,7 @@
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <p class="text-xs text-on-surface-variant" data-i18n="modal_report_desc">Found a broken link or layout problem? Let our platform integrity team know.</p>
+      
       <div>
         <label class="block text-xs font-bold text-on-surface mb-1" data-i18n="modal_report_details">Issue Details</label>
         <textarea id="modalReportDetails" rows="3" class="w-full p-3 rounded-xl bg-surface-container-low text-xs text-on-surface border border-surface-container" placeholder="Describe the error..." data-i18n-placeholder="modal_report_placeholder"></textarea>
@@ -1296,7 +1290,10 @@
         meta_audit_time: "Audit Time",
         meta_today_live: "Today, Live Verification",
         meta_audit_dialect: "Audit Dialect",
-        meta_dialect_val: "English & Regional",
+        meta_dialect_val: "English (Global Standard)",
+        evidence_npci_publisher: "National Payments Corporation of India (NPCI)",
+        evidence_pib_publisher: "Press Information Bureau (PIB) Fact Check",
+        evidence_rbi_publisher: "Reserve Bank of India (RBI)",
         meta_domain_area: "Domain Area",
         meta_civic_policy: "Civic & Public Policy",
         meta_user_privacy: "User Privacy",
@@ -1540,7 +1537,7 @@
         citizen_title: "പൊതു പൗരൻ",
         citizen_subtitle: "ലോഗിൻ ആവശ്യമില്ലാത്ത പരിശോധന",
         verify_input_title: "തത്സമയ വസ്തുതാ പരിശോധനയ്ക്കായി വാദമോ ലിങ്കോ നൽകുക",
-        live_badge: "തത്സമയ AI & ഔദ്യോഗിക വിവര ശേഖരം",
+        live_badge: "തത്സമയ ഔദ്യോഗിക വിവര ശേഖരവും പരിശോധനയും",
         live_badge_short: "തത്സമയം",
         verify_input_desc: "വാട്സാപ്പ്, ടെലിഗ്രാം അല്ലെങ്കിൽ ഫേസ്ബുക്കിൽ കാണുന്ന സംശയാസ്പദമായ സന്ദേശങ്ങളോ വെബ്‌സൈറ്റ് ലിങ്കുകളോ നൽകുക. ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോം ഔദ്യോഗിക ഉറവിടങ്ങളുമായി ഒത്തുനോക്കി കൃത്യമായ വസ്തുതാ റിപ്പോർട്ട് നൽകുന്നു.",
         claim_input_placeholder: "ഉദാ: '₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള യുപിഐ ഇടപാടുകൾക്ക് ഏപ്രിൽ 1 മുതൽ 5% നികുതി ഏർപ്പെടുത്തിയെന്ന പ്രചാരണം' അല്ലെങ്കിൽ ലിങ്ക് നൽകുക...",
@@ -1567,7 +1564,10 @@
         meta_audit_time: "പരിശോധിച്ച സമയം",
         meta_today_live: "ഇന്ന്, തത്സമയം",
         meta_audit_dialect: "ഭാഷ",
-        meta_dialect_val: "മലയാളം & റീജിയണൽ",
+        meta_dialect_val: "മലയാളം (തനത് പ്രാദേശിക ഭാഷ)",
+        evidence_npci_publisher: "നാഷണൽ പേയ്‌മെന്റ്സ് കോർപ്പറേഷൻ ഓഫ് ഇന്ത്യ (എൻപിസിഐ)",
+        evidence_pib_publisher: "പ്രസ് ഇൻഫർമേഷൻ ബ്യൂറോ (പിഐബി) വസ്തുതാ പരിശോധന",
+        evidence_rbi_publisher: "റിസർവ് ബാങ്ക് ഓഫ് ഇന്ത്യ (ആർബിഐ)",
         meta_domain_area: "വിഷയ മേഖല",
         meta_civic_policy: "പൊതുനയം & ഭരണം",
         meta_user_privacy: "ഉപയോക്തൃ സ്വകാര്യത",
@@ -1626,8 +1626,8 @@
         daily_midnight: "എല്ലാ ദിവസവും അർദ്ധരാത്രിയിൽ",
         configure_btn: "ക്രമീകരിക്കുക",
         action_suite_title: "നടപടി ക്രമങ്ങൾ",
-        action_suite_desc: "റിപ്പോർട്ട് PDF ഡൗൺലോഡ് ചെയ്യുക, ചാറ്റ് ചെയ്യുക, അല്ലെങ്കിൽ കണ്ടെത്തലിനെ ചോദ്യം ചെയ്യുക.",
-        btn_download_pdf: "ഫാക്റ്റ് ഷീറ്റ് PDF ഡൗൺലോഡ് ചെയ്യുക",
+        action_suite_desc: "റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക, ചാറ്റ് ചെയ്യുക, അല്ലെങ്കിൽ കണ്ടെത്തലിനെ ചോദ്യം ചെയ്യുക.",
+        btn_download_pdf: "വസ്തുതാ റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക",
         btn_bookmark: "ബുക്ക്മാർക്ക് ചെയ്യുക",
         btn_bookmarked: "സൂക്ഷിച്ചു",
         btn_inspect_fact_sheet: "ഫാക്റ്റ് ഷീറ്റ് കാണുക",
@@ -1704,7 +1704,7 @@
         disp_case_label: "കേസ് നമ്പർ അല്ലെങ്കിൽ വിഷയം",
         disp_type_label: "തിരുത്തലിന്റെ തരം",
         disp_type_evidence: "പുതിയ ഔദ്യോഗിക ഗസറ്റ് പ്രസിദ്ധീകരിച്ചു",
-        disp_type_misinterpretation: "AI ഉദ്ധരണി തെറ്റായി വ്യാഖ്യാനിച്ചു",
+        disp_type_misinterpretation: "വിവരങ്ങൾ തെറ്റായി വ്യാഖ്യാനിച്ചു",
         disp_type_broken: "സ്രോതസ്സ് ലിങ്ക് പ്രവർത്തിക്കുന്നില്ല",
         disp_type_editorial: "തീർപ്പിൽ വിയോജിപ്പുണ്ട്",
         disp_notes_label: "വിശദീകരണവും തെളിവ് ലിങ്കുകളും",
@@ -1727,9 +1727,9 @@
         step1_desc: "സന്ദേശങ്ങളിലെ പ്രധാന വാദങ്ങളെ തിരിച്ചറിഞ്ഞ് പരിശോധനയ്ക്കായി വേർതിരിക്കുന്നു.",
         step2_title: "2. ഔദ്യോഗിക വിവരങ്ങളുമായി ഒത്തുനോക്കൽ",
         step2_desc: "ഗസറ്റുകൾ, പിഐബി, ആർബിഐ, കോടതി വിധികൾ തുടങ്ങിയ പ്രാഥമിക രേഖകളുമായി ഒത്തുനോക്കുന്നു.",
-        step3_title: "3. ദ്വിതല AI വിശകലനം",
-        step3_desc: "ക്ലോഡ് AI മോഡലുകൾ വഴി നിഷ്പക്ഷവും വ്യക്തവുമായ തീർപ്പും വിശദീകരണവും തയ്യാറാക്കുന്നു.",
-        step4_title: "4. സാക്ഷ്യപ്പെടുത്തിയ PDF റിപ്പോർട്ട്",
+        step3_title: "3. ദ്വിതല വിശകലനം",
+        step3_desc: "നിഷ്പക്ഷവും വ്യക്തവുമായ തീർപ്പും വിശദീകരണവും തയ്യാറാക്കുന്നു.",
+        step4_title: "4. സാക്ഷ്യപ്പെടുത്തിയ വസ്തുതാ റിപ്പോർട്ട്",
         step4_desc: "കാലഗണനയും തെളിവുകളും ഉൾക്കൊള്ളുന്ന ആധികാരികമായ വസ്തുതാ റിപ്പോർട്ട് തയ്യാറാക്കുന്നു.",
         cancel_btn: "റദ്ദാക്കുക",
         schedule_btn: "മോണിറ്റർ ചെയ്യുക",
@@ -1764,7 +1764,7 @@
         alert2_desc: "വ്യാജ ഏജന്റുമാരെ കരുതിയിരിക്കുക • കാണാൻ ക്ലിക്ക് ചെയ്യുക",
         sample1_name: "💸 5% യുപിഐ നികുതി വ്യാജ പ്രചാരണം",
         sample2_name: "☀️ പിഎം സൂര്യ ഘർ സൗജന്യ സോളാർ",
-        sample3_name: "🔗 ലിങ്ക് പരിശോധിക്കുക (pib.gov.in)",
+        sample3_name: "🔗 ഔദ്യോഗിക സർക്കാർ ലിങ്ക് പരിശോധിക്കുക",
         sample_headline: "₹2,000-ൽ കൂടുതൽ തുകയ്ക്കുള്ള എല്ലാ യുപിഐ ഇടപാടുകൾക്കും ഏപ്രിൽ 1 മുതൽ ധനമന്ത്രാലയം 5% സർചാർജ് ഏർപ്പെടുത്തിയെന്ന വാട്ട്‌സ്ആപ്പ് പ്രചാരണം.",
         sample_summary_text: "സാധാരണ യുപിഐ ഇടപാടുകൾക്ക് ധനമന്ത്രാലയമോ എൻപിസിഐയോ യാതൊരു സർചാർജും ഏർപ്പെടുത്തിയിട്ടില്ല. ഈ സന്ദേശം 2023-ലെ വ്യാപാരി ഇന്റർചേഞ്ച് സർക്കുലറിനെ തെറ്റായി വ്യാഖ്യാനിച്ച് പ്രചരിപ്പിക്കുന്നതാണ്.",
         sample_what_is_true: "സാധാരണ ബാങ്ക്-ടു-ബാങ്ക് യുപിഐ കൈമാറ്റങ്ങൾ ഇന്ത്യൻ പൗരന്മാർക്ക് <strong>100% സൗജന്യമായി</strong> തുടരുന്നു.",
@@ -1838,7 +1838,10 @@
         meta_audit_time: "जांच का समय",
         meta_today_live: "आज, लाइव सत्यापन",
         meta_audit_dialect: "भाषा",
-        meta_dialect_val: "हिन्दी व क्षेत्रीय",
+        meta_dialect_val: "हिन्दी (राष्ट्रीय मानक)",
+        evidence_npci_publisher: "भारतीय राष्ट्रीय भुगतान निगम (एनपीसीआई)",
+        evidence_pib_publisher: "पत्र सूचना कार्यालय (पीआईबी) तथ्य जांच",
+        evidence_rbi_publisher: "भारतीय रिज़र्व बैंक (आरबीआई)",
         meta_domain_area: "विषय क्षेत्र",
         meta_civic_policy: "सार्वजनिक नीति",
         meta_user_privacy: "उपयोगकर्ता गोपनीयता",
@@ -2035,7 +2038,7 @@
         alert2_desc: "फर्जी वेबसाइटों से सावधान रहें • देखें",
         sample1_name: "💸 5% यूपीआई सरचार्ज की अफवाह",
         sample2_name: "☀️ पीएम सूर्य घर मुफ्त सोलर योजना",
-        sample3_name: "🔗 लिंक की जांच करें (pib.gov.in)",
+        sample3_name: "🔗 आधिकारिक सरकारी लिंक की जांच करें",
         sample_headline: "वायरल व्हाट्सएप संदेश का दावा है कि वित्त मंत्रालय ने 1 अप्रैल से 2,000 रुपये से अधिक के सभी यूपीआई लेनदेन पर 5% अधिभार लगाया है।",
         sample_summary_text: "वित्त मंत्रालय या एनपीसीआई ने सामान्य यूपीआई लेनदेन पर कोई शुल्क नहीं लगाया है। यह संदेश मार्च 2023 के वॉलेट इंटरचेंज सर्कुलर की गलत व्याख्या है।",
         sample_what_is_true: "बैंक-से-बैंक सामान्य यूपीआई ट्रांसफर नागरिकों के लिए <strong>100% मुफ़्त</strong> हैं।",
@@ -2074,7 +2077,7 @@
         nav_moderation: "முரண்பாடு மையம்",
         nav_settings: "அமைப்புகள் & தனியுரிமை",
         sidebar_dual_layer_title: "இரட்டை அடுக்கு சரிபார்ப்பு",
-        sidebar_dual_layer_desc: "அரசு அறிவிப்புகள், PIB மற்றும் அங்கீகரிக்கப்பட்ட செய்திகளுடன் ஒப்பிட்டு சரிபார்க்கப்படுகிறது.",
+        sidebar_dual_layer_desc: "அரசு அறிவிப்புகள், பி.ஐ.பி மற்றும் அங்கீகரிக்கப்பட்ட செய்திகளுடன் ஒப்பிட்டு சரிபார்க்கப்படுகிறது.",
         sidebar_read_protocol: "சரிபார்ப்பு நெறிமுறையைப் படிக்கவும்",
         search_placeholder: "கூற்றுகள், வைரல் தகவல்கள், இணைப்புகளைத் தேடுங்கள்...",
         privacy_on: "தனியுரிமை முறை: இயக்கத்தில்",
@@ -2082,7 +2085,7 @@
         citizen_title: "குடிமக்கள் பயன்முறை",
         citizen_subtitle: "உடனடி சரிபார்ப்பு",
         verify_input_title: "நிகழ்நேர உண்மை சரிபார்ப்புக்கு கூற்று அல்லது இணைப்பை உள்ளிடவும்",
-        live_badge: "நேரலை AI & அதிகாரப்பூர்வ சான்றுகள்",
+        live_badge: "நேரலை அதிகாரப்பூர்வ சான்றுகள் மற்றும் சரிபார்ப்பு",
         live_badge_short: "நேரலை",
         verify_input_desc: "வாட்ஸ்அப், டெலிகிராமில் பரவும் சந்தேகத்திற்குரிய செய்திகள் அல்லது இணைய இணைப்புகளை உள்ளிடுங்கள். அதிகாரப்பூர்வ பதிவுகளுடன் ஒப்பிட்டு துல்லியமான அறிக்கை வழங்கப்படும்.",
         claim_input_placeholder: "எ.கா: 'ரூ. 2,000-க்கு மேற்பட்ட யுபிஐ பரிவர்த்தனைகளுக்கு ஏப்ரல் 1 முதல் 5% கூடுதல் கட்டணம் விதிக்கப்படுவதாக பரவும் தகவல்' அல்லது இணைப்பை இடவும்...",
@@ -2109,7 +2112,10 @@
         meta_audit_time: "சரிபார்க்கப்பட்ட நேரம்",
         meta_today_live: "இன்று, நேரலை சரிபார்ப்பு",
         meta_audit_dialect: "மொழி",
-        meta_dialect_val: "தமிழ் & பிராந்திய",
+        meta_dialect_val: "தமிழ் (மாநில அங்கீகாரம்)",
+        evidence_npci_publisher: "இந்திய தேசிய கொடுப்பனவு கழகம் (என்.பி.சி.ஐ)",
+        evidence_pib_publisher: "பத்திரிகை தகவல் பணியகம் (பி.ஐ.பி) உண்மை சரிபார்ப்பு",
+        evidence_rbi_publisher: "இந்திய ரிசர்வ் வங்கி (ஆர்.பி.ஐ)",
         meta_domain_area: "துறை",
         meta_civic_policy: "பொதுக் கொள்கை",
         meta_user_privacy: "பயனர் தனியுரிமை",
@@ -2168,8 +2174,8 @@
         daily_midnight: "தினமும் நள்ளிரவு",
         configure_btn: "அமைக்க",
         action_suite_title: "நடவடிக்கை கருவிகள்",
-        action_suite_desc: "சான்றளிக்கப்பட்ட PDF அறிக்கையைப் பதிவிறக்கலாம், அரட்டையில் கேட்கலாம் அல்லது தீர்ப்பை மேல்முறையீடு செய்யலாம்.",
-        btn_download_pdf: "PDF அறிக்கையைப் பதிவிறக்குக",
+        action_suite_desc: "சான்றளிக்கப்பட்ட அறிக்கையைப் பதிவிறக்கலாம், அரட்டையில் கேட்கலாம் அல்லது தீர்ப்பை மேல்முறையீடு செய்யலாம்.",
+        btn_download_pdf: "உண்மை சரிபார்ப்பு அறிக்கையைப் பதிவிறக்குக",
         btn_bookmark: "புக்மார்க் செய்க",
         btn_bookmarked: "சேமிக்கப்பட்டது",
         btn_inspect_fact_sheet: "அறிக்கையைப் பார்க்க",
@@ -2246,7 +2252,7 @@
         disp_case_label: "தலைப்பு அல்லது எண்",
         disp_type_label: "முரண்பாட்டின் வகை",
         disp_type_evidence: "புதிய அரசு ஆவணம் வெளிவந்துள்ளது",
-        disp_type_misinterpretation: "AI சூழலை தவறாகப் புரிந்துகொண்டது",
+        disp_type_misinterpretation: "சூழலை தவறாகப் புரிந்துகொண்டது",
         disp_type_broken: "இணைப்பு வேலை செய்யவில்லை",
         disp_type_editorial: "தீர்ப்பில் உடன்பாடில்லை",
         disp_notes_label: "விளக்கம் மற்றும் ஆதார இணைப்புகள்",
@@ -2268,11 +2274,11 @@
         step1_title: "1. கூற்று பிரித்தெடுத்தல்",
         step1_desc: "செய்திகளிலிருந்து முக்கிய கூற்றுகள் தனித்தனியாகப் பிரிக்கப்படுகின்றன.",
         step2_title: "2. அதிகாரப்பூர்வ ஆவணங்களுடன் ஒப்பீடு",
-        step2_desc: "அரசு அறிவிப்புகள், PIB, RBI உத்தரவுகளுடன் ஒப்பிடப்படுகிறது.",
-        step3_title: "3. இரட்டை அடுக்கு AI தொகுப்பு",
-        step3_desc: "AI மூலம் பக்கச்சார்பற்ற தெளிவான தீர்ப்பு உருவாக்கப்படுகிறது.",
-        step4_title: "4. சான்றளிக்கப்பட்ட PDF அறிக்கை",
-        step4_desc: "சான்றுகளுடன் கூடிய PDF அறிக்கை வழங்கப்படுகிறது.",
+        step2_desc: "அரசு அறிவிப்புகள், பி.ஐ.பி, ஆர்.பி.ஐ உத்தரவுகளுடன் ஒப்பிடப்படுகிறது.",
+        step3_title: "3. இரட்டை அடுக்கு பகுப்பாய்வு",
+        step3_desc: "பக்கச்சார்பற்ற தெளிவான தீர்ப்பு உருவாக்கப்படுகிறது.",
+        step4_title: "4. சான்றளிக்கப்பட்ட அறிக்கை",
+        step4_desc: "சான்றுகளுடன் கூடிய அறிக்கை வழங்கப்படுகிறது.",
         cancel_btn: "ரத்து செய்",
         schedule_btn: "திட்டமிடு",
         modal_recheck_title: "கண்காணிப்பை திட்டமிடு",
@@ -2282,7 +2288,7 @@
         freq_7d: "7 நாட்களுக்கு ஒருமுறை",
         freq_30d: "மாதமொருமுறை",
         modal_recheck_note: "குறிப்பு",
-        modal_recheck_note_default: "கட்டணங்கள் தொடர்பான அதிகாரப்பூர்வ NPCI சுற்றறிக்கைகளைக் கண்காணிக்கவும்",
+        modal_recheck_note_default: "கட்டணங்கள் தொடர்பான அதிகாரப்பூர்வ என்.பி.சி.ஐ சுற்றறிக்கைகளைக் கண்காணிக்கவும்",
         modal_appeal_title: "தீர்ப்பை மேல்முறையீடு செய்க",
         modal_appeal_desc: "ஆதாரங்கள் இருந்தால் மறுபரிசீலனைக்கு அனுப்பலாம்.",
         modal_appeal_reason: "மேல்முறையீட்டுக்கான காரணம்",
@@ -2306,18 +2312,18 @@
         alert2_desc: "போலி முகவர்களை நம்ப வேண்டாம் • பார்க்கவும்",
         sample1_name: "💸 5% யுபிஐ கட்டண வதந்தி",
         sample2_name: "☀️ பிஎம் சூர்யா கர் இலவச சோலார்",
-        sample3_name: "🔗 இணைப்பை சரிபார்க்க (pib.gov.in)",
+        sample3_name: "🔗 அரசு இணையதள இணைப்பை சரிபார்க்க",
         sample_headline: "ஏப்ரல் 1 முதல் ₹2,000-க்கு மேற்பட்ட அனைத்து யுபிஐ பரிவர்த்தனைகளுக்கும் நிதி அமைச்சகம் 5% கூடுதல் கட்டணம் விதித்துள்ளதாக பரவும் செய்தி.",
-        sample_summary_text: "வழக்கமான யுபிஐ பரிவர்த்தனைகளுக்கு நிதி அமைச்சகமோ அல்லது NPCI-யோ எந்தவித கூடுதல் கட்டணமும் விதிக்கவில்லை. சாதாரண யுபிஐ பரிவர்த்தனைகள் 100% முற்றிலும் இலவசம்.",
+        sample_summary_text: "வழக்கமான யுபிஐ பரிவர்த்தனைகளுக்கு நிதி அமைச்சகமோ அல்லது என்.பி.சி.ஐ-யோ எந்தவித கூடுதல் கட்டணமும் விதிக்கவில்லை. சாதாரண யுபிஐ பரிவர்த்தனைகள் 100% முற்றிலும் இலவசம்.",
         sample_what_is_true: "வங்கிகளுக்கு இடையேயான வழக்கமான யுபிஐ பரிவர்த்தனைகள் இந்திய மக்களுக்கு <strong>100% இலவசமாகவே</strong> தொடர்கின்றன.",
         sample_what_is_false: "₹2,000-க்கு மேற்பட்ட பரிவர்த்தனைகளுக்கு <strong>எந்த 5% கட்டணமோ வரியோ இல்லை</strong>.",
         sample_origin_context: "மார்ச் 2023-ல் வெளியிடப்பட்ட வாலட் கட்டண அறிக்கையை தவறாகப் புரிந்து பரப்புகின்றனர்.",
         sample_subclaim1_text: "\"அடுத்த மாதம் முதல் ₹2,000-க்கு மேல் 5% யுபிஐ கட்டணம் வசூலிக்கப்படும்.\"",
-        sample_subclaim1_finding: "முற்றிலும் ஆதாரமற்ற கூற்று. வாடிக்கையாளர்களிடம் யுபிഐ-க்கு கட்டணம் வசூலிக்கக் கூடாது என்று NPCI தெளிவாகக் கூறியுள்ளது.",
-        sample_subclaim2_text: "\"NPCI மற்றும் நிர்மலா சீதாராமன் ட்விட்டரில் இதை அறிவித்தனர்.\"",
+        sample_subclaim1_finding: "முற்றிலும் ஆதாரமற்ற கூற்று. வாடிக்கையாளர்களிடம் யுபிഐ-க்கு கட்டணம் வசூலிக்கக் கூடாது என்று என்.பி.சி.ஐ தெளிவாகக் கூறியுள்ளது.",
+        sample_subclaim2_text: "\"என்.பி.சி.ஐ மற்றும் நிர்மலா சீதாராமன் ட்விட்டரில் இதை அறிவித்தனர்.\"",
         sample_subclaim2_finding: "அதிகாரப்பூர்வ பக்கங்களை ஆய்வு செய்ததில் இது முற்றிலும் போலி என நிரூபிக்கப்பட்டுள்ளது.",
-        sample_evidence_npci: "\"வங்கி கணக்குகளுக்கு இடையேயான யுபிഐ பரிவர்த்தனைகள் முற்றிலும் இலவசம் என NPCI திட்டவட்டமாக தெளிவுபடுத்துகிறது.\"",
-        sample_evidence_pib: "\"2000 ரூபாய்க்கு மேல் யுபிഐ வரி விதிக்கப்படுவதாக பரவும் வாட்ஸ்அப் செய்தி முற்றிலும் பொய்யானது - PIB ஃபேக்ட் செக்.\"",
+        sample_evidence_npci: "\"வங்கி கணக்குகளுக்கு இடையேயான யுபிഐ பரிவர்த்தனைகள் முற்றிலும் இலவசம் என என்.பி.சி.ஐ திட்டவட்டமாக தெளிவுபடுத்துகிறது.\"",
+        sample_evidence_pib: "\"2000 ரூபாய்க்கு மேல் யுபிഐ வரி விதிக்கப்படுவதாக பரவும் வாட்ஸ்அப் செய்தி முற்றிலும் பொய்யானது - பி.ஐ.பி ஃபேக்ட் செக்.\"",
         sample2_query: "வாட்ஸ்அப் முகவர் மூலம் பிஎம் சூர்யா கர் திட்டத்தில் ₹0 முதலீட்டில் அனைவருக்கும் இலவச சோலார் பேனல்கள் பொருத்தப்படுவதாக பரவும் செய்தி.",
         fallback_unverified_reply: "இரட்டை அடுக்கு விசாரணை முடிந்தது. சமூக ஊடகங்களில் பரவும் இந்த தகவலுக்கு அதிகாரப்பூர்வ அரசிதழ்களிலோ அறிவிப்புகளிலோ எந்த ஆதாரமும் இல்லை.",
         fallback_unverified_finding: "அதிகாரப்பூர்வ அரசு ஆவணங்கள் மற்றும் சரிபார்க்கப்பட்ட செய்தி ஆதாரங்களுடன் ஒப்பிடப்பட்டது.",
@@ -2573,7 +2579,7 @@
         verify_cached_title: "Audit Complete",
         verify_cached_body: "Analysis rendered using cached official fact registry.",
         dl_pdf_title: "Initiating Download",
-        dl_pdf_body: "Fetching cryptographic PDF fact sheet...",
+        dl_pdf_body: "அறிக்கை உருவாக்கப்படுகிறது...",
         dl_txt_title: "Generating Fact Sheet",
         dl_txt_body: "Compiling multilingual summary and citations...",
         dl_done_title: "Download Complete",
@@ -2781,6 +2787,25 @@
     }
 
     // Translation Engine
+    
+    function getLocalizedPublisherName(pubName, dict) {
+      if (!pubName) return dict.official_authority;
+      const lower = pubName.toLowerCase();
+      if (lower.includes('npci') || lower.includes('national payments corporation') || pubName.includes('എൻപിസിഐ') || pubName.includes('என்.பி.சி.ஐ') || pubName.includes('एनपीसीआई')) {
+        return dict.evidence_npci_publisher || pubName;
+      }
+      if (lower.includes('pib') || lower.includes('press information bureau') || pubName.includes('പിഐബി') || pubName.includes('பி.ஐ.பி') || pubName.includes('पीआईबी')) {
+        return dict.evidence_pib_publisher || pubName;
+      }
+      if (lower.includes('rbi') || lower.includes('reserve bank') || pubName.includes('ആർബിഐ') || pubName.includes('ஆர்.பி.ஐ') || pubName.includes('आरबीआई')) {
+        return dict.evidence_rbi_publisher || pubName;
+      }
+      if (state.language !== 'en' && /^[A-Za-z0-9\s.,&()\-]+$/.test(pubName)) {
+        return dict.official_authority;
+      }
+      return pubName;
+    }
+
     function applyTranslations(lang) {
       const dict = I18N[lang] || I18N.en;
       document.documentElement.lang = lang;
@@ -2862,7 +2887,7 @@
           ],
           evidence: [
             {
-              publisher_name: "National Payments Corporation of India (NPCI)",
+              publisher_name: dict.evidence_npci_publisher,
               source_url: "https://www.npci.org.in",
               source_domain: "npci.org.in",
               credibility_tier: "tier_1",
@@ -2870,7 +2895,7 @@
               stance: "refutes"
             },
             {
-              publisher_name: "Press Information Bureau (PIB) Fact Check",
+              publisher_name: dict.evidence_pib_publisher,
               source_url: "https://pib.gov.in",
               source_domain: "pib.gov.in",
               credibility_tier: "tier_1",
@@ -3179,8 +3204,8 @@
             { claim_text: dict.sample_subclaim2_text, result: "false", confidence: 1.0, reasoning: dict.sample_subclaim2_finding }
           ],
           evidence: [
-            { publisher_name: "National Payments Corporation of India (NPCI)", source_url: "https://www.npci.org.in", source_domain: "npci.org.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_npci, stance: "refutes" },
-            { publisher_name: "Press Information Bureau Fact Check", source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_pib, stance: "refutes" }
+            { publisher_name: dict.evidence_npci_publisher, source_url: "https://www.npci.org.in", source_domain: "npci.org.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_npci, stance: "refutes" },
+            { publisher_name: dict.evidence_pib_publisher, source_url: "https://pib.gov.in", source_domain: "pib.gov.in", credibility_tier: "tier_1", snippet_text: dict.sample_evidence_pib, stance: "refutes" }
           ],
           audio_verdict_summary: dict.sample_summary_text,
           pdf_report_url: null,
@@ -3286,7 +3311,7 @@
       }
 
       summary.textContent = data.reply_text || data.audio_verdict_summary || dict.sample_summary_text;
-      document.getElementById('audioSummaryPreview').textContent = data.audio_verdict_summary || data.reply_text || dict.audio_summary_desc;
+      document.getElementById('audioSummaryPreview').textContent = data.audio_verdict_summary || data.reply_text || '';
 
       document.getElementById('plainTrueText').innerHTML = dict.sample_what_is_true;
       document.getElementById('plainFalseText').innerHTML = (data.analysis_id === "SS-2025-8941" || !data.analysis_id) ? dict.sample_what_is_false : (data.reply_text || dict.sample_what_is_false);
@@ -3337,9 +3362,9 @@
             <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase tracking-wide">
               ${e.credibility_tier === 'tier_2' ? dict.tier_2_badge : dict.tier_1_badge}
             </span>
-            <span class="text-on-surface-variant text-[11px]">${e.source_domain || dict.verified_authority}</span>
+            <span class="text-on-surface-variant text-[11px]">${state.language === 'en' ? (e.source_domain || dict.verified_authority) : dict.verified_authority}</span>
           </div>
-          <h4 class="text-sm font-bold text-on-surface">${e.publisher_name || dict.official_authority}</h4>
+          <h4 class="text-sm font-bold text-on-surface">${getLocalizedPublisherName(e.publisher_name, dict)}</h4>
           <div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface text-xs italic border border-surface-container">
             "${e.snippet_text || dict.official_clarification_snippet}"
           </div>
